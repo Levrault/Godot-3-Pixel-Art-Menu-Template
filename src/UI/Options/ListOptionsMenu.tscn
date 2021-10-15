@@ -7,7 +7,7 @@
 default_field_to_focus = NodePath("Wrapper/Page/Contents/Game")
 
 [node name="Title" parent="Wrapper/Page" index="0"]
-text = "ui_game_title"
+text = "ui_options"
 
 [node name="Contents" parent="Wrapper/Page" index="1"]
 margin_right = 207.0
