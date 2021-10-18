@@ -5,6 +5,7 @@ extends HBoxContainer
 
 export var has_back_action := true
 
+
 func _ready() -> void:
 	$MenuBackInput.visible = has_back_action
 

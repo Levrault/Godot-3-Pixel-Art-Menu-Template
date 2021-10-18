@@ -17,4 +17,4 @@ func _ready() -> void:
 		add_child(new_label)
 		new_label.text = tr(element).capitalize()
 
-	get_child(get_child_count()-1).active = true
+	get_child(get_child_count() - 1).active = true

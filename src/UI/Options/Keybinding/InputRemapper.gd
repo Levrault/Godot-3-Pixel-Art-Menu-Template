@@ -66,4 +66,3 @@ func _on_Keybinding_resetted() -> void:
 func _close() -> void:
 	set_process_input(false)
 	hide()
-
