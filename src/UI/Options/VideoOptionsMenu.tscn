@@ -7,8 +7,12 @@
 [node name="VideoOptionsMenu" instance=ExtResource( 1 )]
 default_field_to_focus = NodePath("Wrapper/Page/Contents/HBoxContainer/Vsync")
 
-[node name="Title" parent="Wrapper/Page" index="0"]
-text = "ui_options_video"
+[node name="Breadcrumb" parent="Wrapper/Page" index="0"]
+breadcrumbs = [ "ui_options", "ui_options_video" ]
+
+[node name="BreachcrumbRoot" parent="Wrapper/Page/Breadcrumb" index="0"]
+margin_right = 78.0
+text = "Breadcrumb"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Wrapper/Page/Contents" index="0"]
 margin_top = 56.0
@@ -26,8 +30,6 @@ margin_left = 58.0
 margin_right = 440.0
 key = "use_vsync"
 items = [ "cfg_yes", "cfg_no" ]
-start_index = 0
-is_reverse_item = false
 focus = true
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Wrapper/Page/Contents" index="1"]
@@ -46,9 +48,6 @@ margin_left = 110.0
 margin_right = 440.0
 key = "display_mode"
 items = [ "cfg_fullscreen", "cfg_borderless", "cfg_windowed" ]
-start_index = 0
-is_reverse_item = false
-focus = false
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Wrapper/Page/Contents" index="2"]
 margin_top = 120.0
@@ -66,9 +65,6 @@ margin_left = 138.0
 margin_right = 440.0
 key = "resolution"
 items = [ "1920x1080", "1366x768", "800x600", "960x540", "640x480", "480x270" ]
-start_index = 0
-is_reverse_item = false
-focus = false
 
 [node name="MenuSaveButton" parent="Wrapper/Page/OptionsFooter" index="1"]
 script = ExtResource( 3 )

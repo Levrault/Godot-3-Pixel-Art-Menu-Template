@@ -8,8 +8,8 @@
 [node name="ControllerOptionsMenu" instance=ExtResource( 1 )]
 default_field_to_focus = NodePath("Wrapper/Page/Contents/HBoxContainer/Rumble")
 
-[node name="Title" parent="Wrapper/Page" index="0"]
-text = "ui_options_controller_mapping"
+[node name="Breadcrumb" parent="Wrapper/Page" index="0"]
+breadcrumbs = [ "ui_options", "ui_options_controller" ]
 
 [node name="CenterContainer" type="CenterContainer" parent="Wrapper/Page/Contents" index="0"]
 margin_top = 12.0
@@ -38,9 +38,6 @@ margin_left = 136.0
 margin_right = 440.0
 key = "rumble"
 items = [ "cfg_yes", "cfg_no" ]
-start_index = 0
-is_reverse_item = false
-focus = false
 
 [node name="MenuSaveButton" parent="Wrapper/Page/OptionsFooter" index="1"]
 script = ExtResource( 4 )

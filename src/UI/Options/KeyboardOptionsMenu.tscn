@@ -8,8 +8,8 @@
 
 [node name="KeyboardOptionMenu" instance=ExtResource( 1 )]
 
-[node name="Title" parent="Wrapper/Page" index="0"]
-text = "ui_options_keyboard"
+[node name="Breadcrumb" parent="Wrapper/Page" index="0"]
+breadcrumbs = [ "ui_options", "ui_options_keyboard" ]
 
 [node name="Contents" parent="Wrapper/Page" index="1"]
 custom_constants/separation = 8
