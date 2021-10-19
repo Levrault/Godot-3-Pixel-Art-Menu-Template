@@ -10,12 +10,12 @@ default_field_to_focus = NodePath("Wrapper/Page/Contents/Game")
 text = "ui_options"
 
 [node name="Contents" parent="Wrapper/Page" index="1"]
-margin_right = 207.0
+margin_right = 163.0
 size_flags_horizontal = 0
 
 [node name="Game" type="ToolButton" parent="Wrapper/Page/Contents" index="0"]
 margin_top = 27.0
-margin_right = 207.0
+margin_right = 163.0
 margin_bottom = 49.0
 text = "ui_options_game"
 script = ExtResource( 2 )
@@ -24,7 +24,7 @@ is_default_focused = true
 
 [node name="Video" type="ToolButton" parent="Wrapper/Page/Contents" index="1"]
 margin_top = 59.0
-margin_right = 207.0
+margin_right = 163.0
 margin_bottom = 81.0
 text = "ui_options_video"
 script = ExtResource( 2 )
@@ -32,24 +32,24 @@ navigate_to = "VideoOptionsMenu"
 
 [node name="Audio" type="ToolButton" parent="Wrapper/Page/Contents" index="2"]
 margin_top = 91.0
-margin_right = 207.0
+margin_right = 163.0
 margin_bottom = 113.0
 text = "ui_options_audio"
 script = ExtResource( 2 )
 navigate_to = "AudioOptionsMenu"
 
-[node name="Keyboard" type="ToolButton" parent="Wrapper/Page/Contents" index="3"]
+[node name="Accessibility" type="ToolButton" parent="Wrapper/Page/Contents" index="3"]
 margin_top = 123.0
-margin_right = 207.0
+margin_right = 163.0
 margin_bottom = 145.0
-text = "ui_options_keyboard"
+text = "ui_options_accessibility"
 script = ExtResource( 2 )
-navigate_to = "KeyboardOptionsMenu"
+navigate_to = "AccessibilityOptionsMenu"
 
-[node name="Controller" type="ToolButton" parent="Wrapper/Page/Contents" index="4"]
+[node name="Controls" type="ToolButton" parent="Wrapper/Page/Contents" index="4"]
 margin_top = 155.0
-margin_right = 207.0
+margin_right = 163.0
 margin_bottom = 177.0
-text = "ui_options_controller_mapping"
+text = "ui_options_controls"
 script = ExtResource( 2 )
-navigate_to = "ControllerOptionsMenu"
+navigate_to = "ControlsOptionsMenu"

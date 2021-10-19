@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/UI/Components/Form/Field/FieldSet.gd" type="Script" id=1]
+
+[node name="Field" type="Control"]
+margin_right = 480.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 0, 22 )
+rect_clip_content = true
+size_flags_horizontal = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="FocusRect" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 4
+custom_constants/margin_left = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FieldContainer" type="HBoxContainer" parent="MarginContainer"]
+margin_left = 4.0
+margin_right = 476.0
+margin_bottom = 22.0
+rect_clip_content = true
+__meta__ = {
+"_editor_description_": ""
+}
