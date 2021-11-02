@@ -8,7 +8,9 @@ export var default_field_to_focus: NodePath
 
 var last_clicked_button: Button = null
 var buttons := []
-var _is_current_route := false
+var is_current_route := false
+
+onready var form: Form = get_node_or_null("Form")
 
 
 func _ready() -> void:
@@ -19,15 +21,15 @@ func _ready() -> void:
 func _on_Menu_route_changed(id: String) -> void:
 	if id != get_name():
 		visible = false
-		_is_current_route = false
+		is_current_route = false
 		return
 
-	_is_current_route = true
+	is_current_route = true
 	print("%s route has been set" % [id])
 
 
 func _on_Transiton_mid_animated() -> void:
-	if not _is_current_route:
+	if not is_current_route:
 		return
 
 	visible = true
@@ -35,12 +37,6 @@ func _on_Transiton_mid_animated() -> void:
 		last_clicked_button.grab_focus()
 	elif default_field_to_focus:
 		get_node(default_field_to_focus).grab_focus()
-	elif has_node("Wrapper/Page/Contents"):
-		for container in $Wrapper/Page/Contents.get_children():
-			for field in container.get_children():
-				if field.is_in_group("GameSettings"):
-					field.grab_focus()
-					return
 
 	emit_signal("navigation_finished")
 	print("%s is now visible" % [get_name()])

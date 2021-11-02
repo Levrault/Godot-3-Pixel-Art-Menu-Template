@@ -2,6 +2,7 @@
 extends Node
 
 var history := []
+var current_route := ""
 
 
 # @param {String} to - menu to navigate to

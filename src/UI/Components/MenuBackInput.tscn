@@ -1,9 +1,6 @@
 [gd_scene format=2]
 
 [node name="MenuBackInput" type="HBoxContainer"]
-margin_left = 111.0
-margin_right = 179.0
-margin_bottom = 14.0
 __meta__ = {
 "_edit_use_anchors_": false
 }

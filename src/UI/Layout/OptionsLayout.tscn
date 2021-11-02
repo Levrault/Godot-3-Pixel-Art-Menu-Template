@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/UI/Components/MenuBackInput.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/UI/Navigation/NavigationSwitch.gd" type="Script" id=2]
-[ext_resource path="res://src/UI/Options/SavingButton/SavingButton.gd" type="Script" id=3]
+[ext_resource path="res://src/UI/Options/Video/ApplyFieldValue.gd" type="Script" id=3]
 [ext_resource path="res://src/UI/Components/Breadcrumb.gd" type="Script" id=4]
 [ext_resource path="res://src/UI/Components/Label/BreadcrumbLabel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/UI/Components/Form/Form.tscn" type="PackedScene" id=6]
 
 [node name="OptionsLayout" type="Control"]
 anchor_right = 1.0
@@ -13,6 +14,8 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Form" parent="." instance=ExtResource( 6 )]
 
 [node name="Wrapper" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -61,14 +64,40 @@ margin_bottom = 240.0
 size_flags_horizontal = 3
 alignment = 2
 
-[node name="MenuBackInput" parent="Wrapper/Page/OptionsFooter" instance=ExtResource( 1 )]
-margin_left = 309.0
-margin_right = 377.0
+[node name="ApplyButtonContainer" type="HBoxContainer" parent="Wrapper/Page/OptionsFooter"]
+margin_left = 97.0
+margin_right = 232.0
 margin_bottom = 20.0
+alignment = 2
 
-[node name="MenuSaveButton" type="Button" parent="Wrapper/Page/OptionsFooter"]
-margin_left = 381.0
+[node name="ApplySetting" type="Button" parent="Wrapper/Page/OptionsFooter/ApplyButtonContainer"]
+margin_right = 135.0
+margin_bottom = 20.0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 0
+text = "ui_apply_resolution"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DefaultButtonContainer" type="HBoxContainer" parent="Wrapper/Page/OptionsFooter"]
+margin_left = 236.0
+margin_right = 368.0
+margin_bottom = 20.0
+alignment = 2
+
+[node name="ApplySetting" type="Button" parent="Wrapper/Page/OptionsFooter/DefaultButtonContainer"]
+margin_right = 132.0
+margin_bottom = 20.0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 0
+text = "ui_reset_to_default"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuBackInput" parent="Wrapper/Page/OptionsFooter" instance=ExtResource( 1 )]
+margin_left = 372.0
 margin_right = 440.0
 margin_bottom = 20.0
-text = "ui_save"
-script = ExtResource( 3 )
