@@ -16,10 +16,11 @@ __meta__ = {
 [node name="Tween" type="Tween" parent="."]
 
 [node name="Value" type="Label" parent="."]
+margin_left = 8.0
 margin_top = 4.0
 margin_right = 83.0
 margin_bottom = 18.0
-text = "placeholder1"
+text = "placeholder"
 __meta__ = {
 "_edit_use_anchors_": false
 }

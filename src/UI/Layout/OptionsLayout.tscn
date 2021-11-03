@@ -65,17 +65,17 @@ size_flags_horizontal = 3
 alignment = 2
 
 [node name="ApplyButtonContainer" type="HBoxContainer" parent="Wrapper/Page/OptionsFooter"]
-margin_left = 97.0
+margin_left = 168.0
 margin_right = 232.0
 margin_bottom = 20.0
 alignment = 2
 
 [node name="ApplySetting" type="Button" parent="Wrapper/Page/OptionsFooter/ApplyButtonContainer"]
-margin_right = 135.0
+margin_right = 64.0
 margin_bottom = 20.0
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 0
-text = "ui_apply_resolution"
+text = "ui_apply"
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false

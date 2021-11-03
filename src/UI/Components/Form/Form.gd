@@ -37,7 +37,7 @@ func apply_changes(values: Dictionary) -> void:
 	for key in values:
 		data_to_save[engine_file_section][key] = values[key].values.key
 		values[key].revert()
-	Config.save(data_to_save)
+	Config.save_file(data_to_save)
 
 
 func save() -> void:

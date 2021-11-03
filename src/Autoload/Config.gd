@@ -20,18 +20,19 @@ func _init() -> void:
 	var err = _file.load(CONFIG_FILE_PATH)
 	if err == ERR_FILE_NOT_FOUND:
 		print_debug("%s was not found, create a new file with default values" % [CONFIG_FILE_PATH])
-		self.save(_engine_default_values)
-		self.load()
+		save_file(_engine_default_values)
+		load_file()
 		return
 	if err != OK:
 		print_debug("%s has encounter an error: %s" % [CONFIG_FILE_PATH, err])
 		return
-	self.load()
+	load_file()
+	sync_with_new_settings(_engine_default_values)
 
 
 # Save data
 # @param {Dictionary} new data - see _engine_default_values from struc
-func save(new_settings: Dictionary) -> void:
+func save_file(new_settings: Dictionary) -> void:
 	for section in new_settings.keys():
 		for key in new_settings[section]:
 			_file.set_value(section, key, new_settings[section][key])
@@ -46,15 +47,27 @@ func save(new_settings: Dictionary) -> void:
 
 
 # Load data from config.cfg
-func load() -> void:
+func load_file() -> void:
 	for section in _file.get_sections():
 		values[section] = {}
 		for key in _file.get_section_keys(section):
 			values[section][key] = _file.get_value(
 				section, key, _engine_default_values[section][key]
 			)
-
 	print_debug("%s has been loaded" % [CONFIG_FILE_PATH])
+
+
+# Update Config.values to by sync with
+# engine.cfg file
+func sync_with_new_settings(new_settings: Dictionary) -> void:
+	for section in new_settings.keys():
+		for key in new_settings[section]:
+			if not values.has(section):
+				values[section] = {}
+			if values[section].has(key):
+				continue
+			values[section][key] = new_settings[section][key]
+	save_file(values)
 
 
 # Update an action InputMap

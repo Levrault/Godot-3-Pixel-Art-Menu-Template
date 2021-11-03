@@ -2,7 +2,9 @@
 
 [ext_resource path="res://src/UI/Components/Form/Field/SliderField.gd" type="Script" id=1]
 
-[node name="SliderField" type="HBoxContainer"]
+[node name="SliderField" type="HBoxContainer" groups=[
+"GameSettings",
+]]
 margin_right = 127.0
 margin_bottom = 22.0
 focus_mode = 2
@@ -15,17 +17,14 @@ __meta__ = {
 
 [node name="Value" type="Label" parent="."]
 margin_top = 4.0
-margin_right = 24.0
+margin_right = 75.0
 margin_bottom = 18.0
-text = "100"
+text = "placeholder"
 
 [node name="HSlider" type="HSlider" parent="."]
-margin_left = 28.0
-margin_right = 178.0
+margin_left = 79.0
+margin_right = 229.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 150, 0 )
 size_flags_horizontal = 3
-value = 2.0
-exp_edit = true
-editable = false
-scrollable = false
+value = 100.0

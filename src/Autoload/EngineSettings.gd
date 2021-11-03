@@ -32,6 +32,16 @@ func get_option(section: String, key: String, value: String) -> Dictionary:
 	return result
 
 
+func get_properties(section: String, key: String, value: String) -> Dictionary:
+	var result := {}
+	for properties in data[section][key].properties:
+		if properties.key != value:
+			continue
+		result = properties
+
+	return result
+
+
 func get_default() -> Dictionary:
 	var result := {}
 	for section in data:
