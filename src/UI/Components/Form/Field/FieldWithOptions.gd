@@ -10,7 +10,6 @@ var _index: int = 0
 func _ready() -> void:
 	yield(owner, "ready")
 	items = EngineSettings.data[owner.form.engine_file_section][key]["options"]
-	revert()
 
 
 func reset() -> void:

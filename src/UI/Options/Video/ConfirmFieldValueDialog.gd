@@ -56,8 +56,5 @@ func _on_Cancel_pressed() -> void:
 func _on_Ok_pressed() -> void:
 	_timer.stop()
 	_field.grab_focus()
-
-	var data := {}
-	data[_field.key] = _field
-	owner.form.apply_changes(data)
+	_field.save()
 	hide()

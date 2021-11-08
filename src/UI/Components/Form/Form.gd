@@ -15,14 +15,6 @@ func _ready() -> void:
 	confirm_dialog.get_ok().connect("pressed", self, "_on_Ok_dialog_pressed")
 	confirm_dialog.get_cancel().connect("pressed", self, "_on_Cancel_dialog_pressed")
 
-
-func revert() -> void:
-	for key in data:
-		if data[key].is_pristine:
-			continue
-		data[key].revert()
-
-
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel") and owner.is_current_route and not is_pristine:
 		Events.emit_signal("navigation_disabled")
@@ -31,12 +23,26 @@ func _input(event: InputEvent) -> void:
 		return
 
 
+func revert() -> void:
+	for key in data:
+		if data[key].is_pristine:
+			continue
+		data[key].revert()
+
+
+func update_pristine() -> void:
+	var result := true
+	for key in data:
+		if not data[key].is_pristine:
+			result = false
+	self.is_pristine = result
+
+
 func apply_changes(values: Dictionary) -> void:
 	var data_to_save := {}
 	data_to_save[engine_file_section] = {}
 	for key in values:
 		data_to_save[engine_file_section][key] = values[key].values.key
-		values[key].revert()
 	Config.save_file(data_to_save)
 
 

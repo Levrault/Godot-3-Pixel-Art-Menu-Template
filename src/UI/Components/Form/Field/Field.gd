@@ -32,7 +32,6 @@ func _ready() -> void:
 		printerr("Field %s from %s has no updater" % [key, owner.get_name()])
 		return
 
-	Events.connect("config_file_saved", self, "revert")
 	connect("focus_entered", self, "_on_Focus_toggle", [true])
 	connect("focus_exited", self, "_on_Focus_toggle", [false])
 
@@ -73,8 +72,9 @@ func _set_placeholder(value: String) -> void:
 
 
 func _set_is_pristine(value: bool) -> void:
+	print("%s pristine value has changed to %s" % [get_name(), String(value)])
 	is_pristine = value
-	owner.form.is_pristine = false
+	owner.form.update_pristine()
 	emit_signal("pristine_value_changed", value)
 
 
