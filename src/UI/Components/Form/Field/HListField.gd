@@ -2,8 +2,8 @@
 # Will get options and default value from EngineSettings.gd and display them in order
 # Will send the new data to the Form node
 tool
-class_name HListField, "res://assets/icons/field.svg"
-extends SliderField
+class_name HListField
+extends FieldWithOptions
 
 export var infinite_loop := true
 onready var _tween := $Tween
@@ -13,8 +13,29 @@ onready var next := $Next
 
 func _ready() -> void:
 	yield(owner, "ready")
+	revert()
 	previous.connect("pressed", self, "_on_Previous_value")
 	next.connect("pressed", self, "_on_Next_value")
+
+
+func _gui_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_left"):
+		_on_Previous_value()
+		return
+
+	if event.is_action_pressed("ui_right"):
+		_on_Next_value()
+		return
+
+
+func _set_placeholder(value: String) -> void:
+	placeholder = value
+	$Value.text = placeholder
+
+
+func _set_selected_key(text: String) -> void:
+	._set_selected_key(text)
+	$Value.text = text if not values.has("translation_key") else tr(values.translation_key)
 
 
 # TODO: Change to tweak file value

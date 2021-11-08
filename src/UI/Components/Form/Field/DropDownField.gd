@@ -1,5 +1,10 @@
+# Dropdown field
+# Will apply the action when used
+#
+# Use for important actions like language, resolution, windows mode
 tool
-extends Field
+class_name DropdownField
+extends FieldWithOptions
 
 onready var option_button := $OptionButton
 

@@ -10,7 +10,7 @@ func _ready():
 
 
 func _on_Pressed() -> void:
-	pass
+	owner.form.save()
 
 
 func _on_Pristine_value_changed(is_pristine: bool) -> void:
