@@ -1,6 +1,6 @@
 [gd_scene format=2]
 
-[node name="MenuBackInput" type="Button"]
+[node name="BackButton" type="Button"]
 text = "ui_back"
 __meta__ = {
 "_edit_use_anchors_": false

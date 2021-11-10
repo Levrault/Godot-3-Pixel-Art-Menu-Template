@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/UI/Commons/Button/MenuBackInput.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/UI/Commons/Navigation/NavigationSwitch.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/UI/Commons/Breadcrumbs/Breadcrumb.gd" type="Script" id=4]
 [ext_resource path="res://src/UI/Commons/Breadcrumbs/BreadcrumbLabel.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/UI/Settings/Form/Form.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/UI/Settings/Button/ResetToDefaultButton.gd" type="Script" id=7]
 
 [node name="SettingsPageTemplate" type="Control"]
 anchor_right = 1.0
@@ -83,6 +84,7 @@ margin_bottom = 20.0
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 0
 text = "ui_reset_to_default"
+script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
