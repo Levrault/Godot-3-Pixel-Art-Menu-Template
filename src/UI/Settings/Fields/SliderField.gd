@@ -61,7 +61,7 @@ func _on_Slider_focus_exited() -> void:
 
 func _on_Value_changed(value: float) -> void:
 	$Value.text = String(percentage(value))
-	values.key = value	
+	values.key = value
 	self.is_pristine = false
 	for key in values.properties:
 		values.properties[key] = value

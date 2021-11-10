@@ -11,13 +11,13 @@ text = "ui_options"
 
 [node name="Contents" parent="Wrapper/Page" index="1"]
 margin_right = 163.0
-margin_bottom = 216.0
 size_flags_horizontal = 0
 
 [node name="Audio" type="ToolButton" parent="Wrapper/Page/Contents" index="0"]
 margin_top = 40.0
 margin_right = 163.0
 margin_bottom = 62.0
+mouse_default_cursor_shape = 2
 text = "ui_options_audio"
 script = ExtResource( 2 )
 navigate_to = "AudioSettingsPage"
@@ -27,6 +27,7 @@ is_default_focused = true
 margin_top = 72.0
 margin_right = 163.0
 margin_bottom = 94.0
+mouse_default_cursor_shape = 2
 text = "ui_options_video"
 script = ExtResource( 2 )
 navigate_to = "VideoSettingsPage"
@@ -35,6 +36,7 @@ navigate_to = "VideoSettingsPage"
 margin_top = 104.0
 margin_right = 163.0
 margin_bottom = 126.0
+mouse_default_cursor_shape = 2
 text = "ui_options_accessibility"
 script = ExtResource( 2 )
 navigate_to = "AccessibilitySettingsPage"
@@ -43,9 +45,7 @@ navigate_to = "AccessibilitySettingsPage"
 margin_top = 136.0
 margin_right = 163.0
 margin_bottom = 158.0
+mouse_default_cursor_shape = 2
 text = "ui_options_controls"
 script = ExtResource( 2 )
 navigate_to = "ControlsSettingsPage"
-
-[node name="MenuFooter" parent="Wrapper/Page" index="2"]
-margin_top = 220.0

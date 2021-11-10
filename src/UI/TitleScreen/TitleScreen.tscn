@@ -15,9 +15,10 @@ margin_right = 81.0
 size_flags_horizontal = 2
 
 [node name="Play" type="Button" parent="Wrapper/Page/Contents" index="0"]
-margin_top = 62.0
+margin_top = 59.0
 margin_right = 81.0
-margin_bottom = 82.0
+margin_bottom = 79.0
+mouse_default_cursor_shape = 2
 text = "ui_play"
 align = 0
 script = ExtResource( 3 )
@@ -27,9 +28,10 @@ __meta__ = {
 is_default_focused = true
 
 [node name="Options" type="Button" parent="Wrapper/Page/Contents" index="1"]
-margin_top = 92.0
+margin_top = 89.0
 margin_right = 81.0
-margin_bottom = 112.0
+margin_bottom = 109.0
+mouse_default_cursor_shape = 2
 text = "ui_settings"
 align = 0
 script = ExtResource( 3 )
@@ -39,15 +41,13 @@ __meta__ = {
 navigate_to = "SettingsListPage"
 
 [node name="Quit" type="Button" parent="Wrapper/Page/Contents" index="2"]
-margin_top = 122.0
+margin_top = 119.0
 margin_right = 81.0
-margin_bottom = 142.0
+margin_bottom = 139.0
+mouse_default_cursor_shape = 2
 text = "ui_quit"
 align = 0
 script = ExtResource( 2 )
 __meta__ = {
 "_editor_description_": ""
 }
-
-[node name="MenuFooter" parent="Wrapper/Page" index="2"]
-has_back_action = false
