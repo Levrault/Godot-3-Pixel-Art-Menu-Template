@@ -15,3 +15,4 @@ margin_top = -70.0
 margin_right = 200.0
 margin_bottom = 70.0
 rect_min_size = Vector2( 400, 140 )
+dialog_text = "ui_apply_changes_question"
