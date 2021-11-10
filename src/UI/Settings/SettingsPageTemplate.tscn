@@ -6,7 +6,7 @@
 [ext_resource path="res://src/UI/Commons/Breadcrumbs/Breadcrumb.gd" type="Script" id=4]
 [ext_resource path="res://src/UI/Commons/Breadcrumbs/BreadcrumbLabel.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/UI/Settings/Form/Form.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/UI/Settings/Button/ResetToDefaultButton.gd" type="Script" id=7]
+[ext_resource path="res://src/UI/Settings/Button/ResetToDefaultButton.tscn" type="PackedScene" id=7]
 
 [node name="SettingsPageTemplate" type="Control"]
 anchor_right = 1.0
@@ -77,17 +77,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ResetToDefaultButton" type="Button" parent="Wrapper/Page/Footer"]
+[node name="ResetToDefaultButton" parent="Wrapper/Page/Footer" instance=ExtResource( 7 )]
 margin_left = 245.0
 margin_right = 377.0
-margin_bottom = 20.0
-mouse_default_cursor_shape = 2
-size_flags_horizontal = 0
-text = "ui_reset_to_default"
-script = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="BackButton" parent="Wrapper/Page/Footer" instance=ExtResource( 1 )]
 margin_left = 381.0

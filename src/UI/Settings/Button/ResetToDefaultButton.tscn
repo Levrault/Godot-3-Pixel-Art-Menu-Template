@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/UI/Settings/Button/ResetToDefaultButton.gd" type="Script" id=1]
+
+[node name="ResetToDefaultButton" type="Button"]
+margin_right = 132.0
+margin_bottom = 20.0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 0
+text = "ui_reset_to_default"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = -70.0
+margin_right = 200.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 400, 140 )
+dialog_text = "ui_confirm_reset_to_default"

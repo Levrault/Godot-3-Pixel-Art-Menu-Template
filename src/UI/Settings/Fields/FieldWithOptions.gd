@@ -13,7 +13,7 @@ func _ready() -> void:
 
 
 func reset() -> void:
-	self.selected_key = EngineSettings.data[owner.form.engine_file_section][key]
+	self.selected_key = EngineSettings.data[owner.form.engine_file_section][key].default
 	_compute_index()
 	apply()
 
@@ -39,5 +39,3 @@ func _compute_index() -> void:
 			f_index += 1
 			continue
 		_index = f_index
-
-

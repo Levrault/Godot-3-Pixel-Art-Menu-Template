@@ -6,3 +6,7 @@
 
 [node name="Breadcrumb" parent="Wrapper/Page" index="0"]
 breadcrumbs = [ "ui_options", "ui_options_accessibility" ]
+
+[node name="ResetToDefaultButton" parent="Wrapper/Page/Footer" index="1"]
+margin_left = 245.0
+margin_right = 377.0

@@ -31,7 +31,7 @@ func _ready() -> void:
 
 
 func reset() -> void:
-	values.properties = EngineSettings.data[owner.form.engine_file_section][key].default
+	slider.value = EngineSettings.data[owner.form.engine_file_section][key].default
 	apply()
 
 

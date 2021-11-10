@@ -13,8 +13,6 @@ onready var option_button := $OptionButton
 func _ready() -> void:
 	yield(owner, "ready")
 
-	owner.form.data.erase(key)
-
 	connect("focus_entered", self, "_on_Focus_entered")
 	option_button.connect("focus_exited", self, "_on_Option_button_focus_exited")
 	option_button.connect("item_selected", self, "_on_Item_selected")
@@ -33,6 +31,11 @@ func save() -> void:
 	data[owner.form.engine_file_section] = {}
 	data[owner.form.engine_file_section][key] = values.key
 	Config.save_file(data)
+
+
+func reset() -> void:
+	.reset()
+	option_button.select(_index)
 
 
 func revert() -> void:

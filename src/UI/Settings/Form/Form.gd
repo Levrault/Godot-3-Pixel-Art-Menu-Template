@@ -15,12 +15,18 @@ func _ready() -> void:
 	confirm_dialog.get_ok().connect("pressed", self, "_on_Ok_dialog_pressed")
 	confirm_dialog.get_cancel().connect("pressed", self, "_on_Cancel_dialog_pressed")
 
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel") and owner.is_current_route and not is_pristine:
 		Events.emit_signal("navigation_disabled")
 		confirm_dialog.show()
 		confirm_dialog.get_ok().grab_focus()
 		return
+
+
+func reset() -> void:
+	for key in data:
+		data[key].reset()
 
 
 func revert() -> void:
