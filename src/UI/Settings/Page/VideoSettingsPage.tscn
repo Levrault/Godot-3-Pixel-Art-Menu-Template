@@ -1,0 +1,113 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://src/UI/Settings/SettingsPageTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/UI/Settings/Updater/VSyncUpdater.gd" type="Script" id=2]
+[ext_resource path="res://src/UI/Settings/Updater/ScreenResolutionUpdater.gd" type="Script" id=3]
+[ext_resource path="res://src/UI/Settings/Updater/WindowModeUpdater.gd" type="Script" id=4]
+[ext_resource path="res://src/UI/Settings/Fields/DropDownField.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/UI/Settings/Fields/HListField.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/UI/Settings/Fields/FieldSet.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/UI/Settings/Dialog/ConfirmFieldValueDialog.tscn" type="PackedScene" id=8]
+
+[node name="VideoSettingsPage" instance=ExtResource( 1 )]
+default_field_to_focus = NodePath("Wrapper/Page/Contents/VSync/MarginContainer/FieldContainer/Vsync")
+
+[node name="Form" parent="." index="0"]
+engine_file_section = "video"
+
+[node name="Breadcrumb" parent="Wrapper/Page" index="0"]
+breadcrumbs = [ "ui_options", "ui_options_video" ]
+
+[node name="BreachcrumbRoot" parent="Wrapper/Page/Breadcrumb" index="0"]
+margin_right = 78.0
+text = "Breadcrumb"
+
+[node name="Contents" parent="Wrapper/Page" index="1"]
+custom_constants/separation = 20
+
+[node name="VSync" parent="Wrapper/Page/Contents" index="0" instance=ExtResource( 7 )]
+margin_top = 46.0
+margin_right = 440.0
+margin_bottom = 68.0
+
+[node name="FieldContainer" parent="Wrapper/Page/Contents/VSync/MarginContainer" index="0"]
+margin_right = 436.0
+
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/VSync/MarginContainer/FieldContainer" index="0"]
+margin_top = 4.0
+margin_right = 54.0
+margin_bottom = 18.0
+text = "ui_vsync"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Vsync" parent="Wrapper/Page/Contents/VSync/MarginContainer/FieldContainer" index="1" instance=ExtResource( 6 )]
+margin_left = 58.0
+margin_right = 432.0
+margin_bottom = 22.0
+key = "use_vsync"
+placeholder = "enabled"
+
+[node name="Updater" type="Node" parent="Wrapper/Page/Contents/VSync/MarginContainer/FieldContainer/Vsync" index="4"]
+script = ExtResource( 2 )
+
+[node name="WindowMode" parent="Wrapper/Page/Contents" index="1" instance=ExtResource( 7 )]
+margin_top = 88.0
+margin_right = 440.0
+margin_bottom = 110.0
+
+[node name="FieldContainer" parent="Wrapper/Page/Contents/WindowMode/MarginContainer" index="0"]
+margin_right = 436.0
+
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/WindowMode/MarginContainer/FieldContainer" index="0"]
+margin_top = 4.0
+margin_right = 109.0
+margin_bottom = 18.0
+text = "ui_window_mode"
+
+[node name="WindowMode" parent="Wrapper/Page/Contents/WindowMode/MarginContainer/FieldContainer" index="1" instance=ExtResource( 5 )]
+margin_left = 113.0
+margin_right = 432.0
+margin_bottom = 22.0
+key = "window_mode"
+placeholder = "borderless"
+
+[node name="Updater" type="Node" parent="Wrapper/Page/Contents/WindowMode/MarginContainer/FieldContainer/WindowMode" index="1"]
+script = ExtResource( 4 )
+
+[node name="ConfirmFieldValueDialog" parent="Wrapper/Page/Contents/WindowMode/MarginContainer/FieldContainer/WindowMode/Updater" index="0" instance=ExtResource( 8 )]
+field_path = NodePath("../..")
+
+[node name="Resolution" parent="Wrapper/Page/Contents" index="2" instance=ExtResource( 7 )]
+margin_top = 130.0
+margin_right = 440.0
+margin_bottom = 152.0
+focus_neighbour_bottom = NodePath("../../OptionsFooter/ApplySettingsButton")
+focus_next = NodePath("../../OptionsFooter/ApplySettingsButton")
+
+[node name="FieldContainer" parent="Wrapper/Page/Contents/Resolution/MarginContainer" index="0"]
+margin_right = 436.0
+
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/Resolution/MarginContainer/FieldContainer" index="0"]
+margin_top = 4.0
+margin_right = 132.0
+margin_bottom = 18.0
+text = "ui_screen_resolution"
+
+[node name="ScreenResolution" parent="Wrapper/Page/Contents/Resolution/MarginContainer/FieldContainer" index="1" instance=ExtResource( 5 )]
+margin_left = 136.0
+margin_right = 432.0
+margin_bottom = 22.0
+key = "screen_resolution"
+placeholder = "1920x1080 (16:9)"
+
+[node name="Updater" type="Node" parent="Wrapper/Page/Contents/Resolution/MarginContainer/FieldContainer/ScreenResolution" index="1"]
+script = ExtResource( 3 )
+
+[node name="ConfirmFieldValueDialog" parent="Wrapper/Page/Contents/Resolution/MarginContainer/FieldContainer/ScreenResolution/Updater" index="0" instance=ExtResource( 8 )]
+field_path = NodePath("../..")
+
+[editable path="Wrapper/Page/Contents/VSync"]
+[editable path="Wrapper/Page/Contents/WindowMode"]
+[editable path="Wrapper/Page/Contents/Resolution"]

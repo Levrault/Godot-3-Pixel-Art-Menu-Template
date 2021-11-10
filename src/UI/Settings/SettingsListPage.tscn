@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/UI/Commons/Layout/PageLayout.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/UI/Commons/Navigation/NavigationButton.gd" type="Script" id=2]
+
+[node name="SettingsListPage" instance=ExtResource( 1 )]
+default_field_to_focus = NodePath("Wrapper/Page/Contents/Audio")
+
+[node name="Title" parent="Wrapper/Page" index="0"]
+text = "ui_options"
+
+[node name="Contents" parent="Wrapper/Page" index="1"]
+margin_right = 163.0
+margin_bottom = 216.0
+size_flags_horizontal = 0
+
+[node name="Audio" type="ToolButton" parent="Wrapper/Page/Contents" index="0"]
+margin_top = 40.0
+margin_right = 163.0
+margin_bottom = 62.0
+text = "ui_options_audio"
+script = ExtResource( 2 )
+navigate_to = "AudioSettingsPage"
+is_default_focused = true
+
+[node name="Video" type="ToolButton" parent="Wrapper/Page/Contents" index="1"]
+margin_top = 72.0
+margin_right = 163.0
+margin_bottom = 94.0
+text = "ui_options_video"
+script = ExtResource( 2 )
+navigate_to = "VideoSettingsPage"
+
+[node name="Accessibility" type="ToolButton" parent="Wrapper/Page/Contents" index="2"]
+margin_top = 104.0
+margin_right = 163.0
+margin_bottom = 126.0
+text = "ui_options_accessibility"
+script = ExtResource( 2 )
+navigate_to = "AccessibilitySettingsPage"
+
+[node name="Controls" type="ToolButton" parent="Wrapper/Page/Contents" index="3"]
+margin_top = 136.0
+margin_right = 163.0
+margin_bottom = 158.0
+text = "ui_options_controls"
+script = ExtResource( 2 )
+navigate_to = "ControlsSettingsPage"
+
+[node name="MenuFooter" parent="Wrapper/Page" index="2"]
+margin_top = 220.0
