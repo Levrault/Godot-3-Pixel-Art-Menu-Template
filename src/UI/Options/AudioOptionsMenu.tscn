@@ -62,7 +62,7 @@ margin_right = 432.0
 rect_min_size = Vector2( 150, 0 )
 key = "master_volume"
 placeholder = "100"
-min_value = -20.0
+min_value = -50.0
 max_value = 0.0
 nb_of_step = 20
 
@@ -92,7 +92,7 @@ margin_left = 254.0
 margin_right = 432.0
 key = "music_volume"
 placeholder = "100"
-min_value = -15.0
+min_value = -50.0
 max_value = 0.0
 nb_of_step = 20
 
@@ -123,7 +123,7 @@ margin_left = 254.0
 margin_right = 432.0
 key = "sfx_volume"
 placeholder = "100"
-min_value = -15.0
+min_value = -50.0
 max_value = 0.0
 nb_of_step = 20
 

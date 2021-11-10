@@ -10,7 +10,7 @@ func _ready() -> void:
 	yield(owner, "ready")
 	yield(get_tree(), "idle_frame")
 
-	apply(get_parent().values.properties)
+	apply(get_parent().values.properties, false)
 
 
 func apply(properties: Dictionary, trigger_callback_action := true) -> void:
