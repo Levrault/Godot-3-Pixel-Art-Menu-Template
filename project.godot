@@ -45,11 +45,6 @@ _global_script_classes=[ {
 "path": "res://src/UI/Options/Keybinding/InputLine.gd"
 }, {
 "base": "Button",
-"class": "MenuSaveButton",
-"language": "GDScript",
-"path": "res://src/UI/Options/SavingButton/SavingButton.gd"
-}, {
-"base": "Button",
 "class": "NavigationButton",
 "language": "GDScript",
 "path": "res://src/UI/Navigation/NavigationButton.gd"
@@ -82,7 +77,6 @@ _global_script_class_icons={
 "Form": "res://assets/icons/form.svg",
 "HListField": "",
 "InputLine": "",
-"MenuSaveButton": "",
 "NavigationButton": "",
 "NavigationRouter": "",
 "NavigationSwitch": "",
