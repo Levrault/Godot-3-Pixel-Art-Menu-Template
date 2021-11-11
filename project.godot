@@ -40,9 +40,9 @@ _global_script_classes=[ {
 "path": "res://src/UI/Settings/Fields/HListField.gd"
 }, {
 "base": "HBoxContainer",
-"class": "InputLine",
+"class": "KeyMapField",
 "language": "GDScript",
-"path": "res://src/UI/Settings/Keybinding/InputLine.gd"
+"path": "res://src/UI/Settings/Fields/KeyMapField.gd"
 }, {
 "base": "Button",
 "class": "NavigationButton",
@@ -76,7 +76,7 @@ _global_script_class_icons={
 "FieldWithOptions": "res://assets/icons/field.svg",
 "Form": "res://assets/icons/form.svg",
 "HListField": "",
-"InputLine": "",
+"KeyMapField": "res://assets/icons/keyboard.svg",
 "NavigationButton": "",
 "NavigationRouter": "",
 "NavigationSwitch": "",
@@ -93,9 +93,9 @@ config/icon="res://icon.png"
 [autoload]
 
 Events="*res://src/Autoload/Events.gd"
-Menu="*res://src/Autoload/Menu.gd"
 EngineSettings="*res://src/Autoload/EngineSettings.gd"
 Config="*res://src/Autoload/Config.gd"
+Menu="*res://src/Autoload/Menu.gd"
 
 [debug]
 
@@ -168,6 +168,16 @@ ui_down={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
+ui_end={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777230,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_unbind={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777224,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [layer_names]
 
@@ -185,7 +195,9 @@ ui_down={
 
 test="en"
 locale_filter=[ 0, [ "fr" ] ]
-translations=PoolStringArray( "res://i18n.en.translation", "res://i18n.fr.translation" )
+translations=PoolStringArray( "res://i18n.en.translation", "res://i18n.fr.translation", "res://i18n/mouse.buttons.en.translation", "res://i18n/mouse.buttons.fr.translation", "res://i18n/controls.settings.en.translation", "res://i18n/controls.settings.fr.translation" )
+translation_remaps={
+}
 
 [rendering]
 

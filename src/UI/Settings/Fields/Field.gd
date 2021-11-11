@@ -10,8 +10,6 @@ class_name Field, "res://assets/icons/field.svg"
 extends HBoxContainer
 
 signal pristine_value_changed(value)
-signal field_focus_entered
-signal field_focus_exited
 
 export var key := ""
 export var placeholder := "placeholder" setget _set_placeholder
@@ -80,7 +78,7 @@ func _set_is_pristine(value: bool) -> void:
 
 func _on_Focus_toggle(is_focused: bool) -> void:
 	if is_focused:
-		emit_signal("field_focus_entered")
+		Events.emit_signal("field_focus_entered", self)
 		return
-	emit_signal("field_focus_exited")
+	Events.emit_signal("field_focus_exited", self)
 	print("%s has focus" % [get_name()])

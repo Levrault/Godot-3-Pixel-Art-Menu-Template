@@ -12,7 +12,7 @@ onready var _timer := $Timer
 onready var _countdown_label := $MarginContainer/VBoxContainer/Countdown
 onready var _cancel := $MarginContainer/VBoxContainer/HBoxContainer/CancelContainer/Cancel
 onready var _progressbar := $MarginContainer/VBoxContainer/ProgressBar
-onready var _ok := $MarginContainer/VBoxContainer/HBoxContainer/OkConcainer/Ok
+onready var _ok := $MarginContainer/VBoxContainer/HBoxContainer/OkContainer/Ok
 
 
 func _ready():

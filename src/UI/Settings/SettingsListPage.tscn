@@ -10,13 +10,13 @@ default_field_to_focus = NodePath("Wrapper/Page/Contents/Audio")
 text = "ui_options"
 
 [node name="Contents" parent="Wrapper/Page" index="1"]
-margin_right = 163.0
+margin_right = 136.0
 size_flags_horizontal = 0
 
 [node name="Audio" type="ToolButton" parent="Wrapper/Page/Contents" index="0"]
-margin_top = 40.0
-margin_right = 163.0
-margin_bottom = 62.0
+margin_top = 56.0
+margin_right = 136.0
+margin_bottom = 78.0
 mouse_default_cursor_shape = 2
 text = "ui_options_audio"
 script = ExtResource( 2 )
@@ -24,27 +24,18 @@ navigate_to = "AudioSettingsPage"
 is_default_focused = true
 
 [node name="Video" type="ToolButton" parent="Wrapper/Page/Contents" index="1"]
-margin_top = 72.0
-margin_right = 163.0
-margin_bottom = 94.0
+margin_top = 88.0
+margin_right = 136.0
+margin_bottom = 110.0
 mouse_default_cursor_shape = 2
 text = "ui_options_video"
 script = ExtResource( 2 )
 navigate_to = "VideoSettingsPage"
 
-[node name="Accessibility" type="ToolButton" parent="Wrapper/Page/Contents" index="2"]
-margin_top = 104.0
-margin_right = 163.0
-margin_bottom = 126.0
-mouse_default_cursor_shape = 2
-text = "ui_options_accessibility"
-script = ExtResource( 2 )
-navigate_to = "AccessibilitySettingsPage"
-
-[node name="Controls" type="ToolButton" parent="Wrapper/Page/Contents" index="3"]
-margin_top = 136.0
-margin_right = 163.0
-margin_bottom = 158.0
+[node name="Controls" type="ToolButton" parent="Wrapper/Page/Contents" index="2"]
+margin_top = 120.0
+margin_right = 136.0
+margin_bottom = 142.0
 mouse_default_cursor_shape = 2
 text = "ui_options_controls"
 script = ExtResource( 2 )

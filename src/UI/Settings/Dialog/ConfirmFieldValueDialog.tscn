@@ -93,13 +93,13 @@ mouse_default_cursor_shape = 2
 size_flags_horizontal = 2
 text = "ui_cancel"
 
-[node name="OkConcainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="OkContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 margin_left = 178.0
 margin_right = 337.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 
-[node name="Ok" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/OkConcainer"]
+[node name="Ok" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/OkContainer"]
 margin_left = 57.0
 margin_right = 102.0
 margin_bottom = 20.0

@@ -64,12 +64,12 @@ func _on_Focus_toggled(is_focused: bool) -> void:
 
 func _on_Focus_entered() -> void:
 	option_button.grab_focus()
-	emit_signal("field_focus_entered")
+	Events.emit_signal("field_focus_entered", self)
 
 
 func _on_Option_button_focus_exited() -> void:
 	if not option_button.pressed:
-		emit_signal("field_focus_exited")
+		Events.emit_signal("field_focus_exited", self)
 
 
 func _on_Popup_about_to_show() -> void:

@@ -24,5 +24,7 @@ margin_left = 79.0
 margin_right = 229.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 150, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 2
 size_flags_horizontal = 3
 value = 100.0
