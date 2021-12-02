@@ -15,6 +15,10 @@ onready var slider := $HSlider
 
 func _ready() -> void:
 	yield(owner, "ready")
+	
+	if key.empty():
+		printerr("%s's key is empty" % get_name())
+		return
 
 	connect("focus_entered", self, "_on_Focus_entered")
 	slider.connect("focus_exited", self, "_on_Slider_focus_exited")

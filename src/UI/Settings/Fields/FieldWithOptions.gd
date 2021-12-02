@@ -9,6 +9,10 @@ var _index: int = 0
 
 func _ready() -> void:
 	yield(owner, "ready")
+	
+	if key.empty():
+		printerr("%s's key is empty" % get_name())
+		return
 	items = EngineSettings.data[owner.form.engine_file_section][key]["options"]
 
 

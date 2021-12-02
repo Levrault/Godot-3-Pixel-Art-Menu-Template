@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/UI/Settings/SettingsPageTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/UI/Settings/Keymap/KeyMapTable.gd" type="Script" id=2]
 [ext_resource path="res://src/UI/Settings/Fields/FieldSet.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/UI/Settings/Fields/KeyMapField.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/UI/Settings/Gamepad/HListGamepadField.tscn" type="PackedScene" id=7]
 
 [node name="GamepadSettingsPage" instance=ExtResource( 1 )]
 
@@ -52,37 +51,13 @@ follow_focus = true
 
 [node name="KeyMapTable" type="VBoxContainer" parent="Wrapper/Page/Contents/ScrollContainer" index="0"]
 margin_right = 428.0
-margin_bottom = 256.0
+margin_bottom = 230.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 2 )
 
-[node name="GamepadLayout" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable" index="0" instance=ExtResource( 3 )]
+[node name="MoveUp" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable" index="0" instance=ExtResource( 3 )]
 margin_right = 428.0
-
-[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/GamepadLayout/MarginContainer" index="0"]
-margin_right = 424.0
-
-[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/GamepadLayout/MarginContainer/FieldContainer" index="0"]
-margin_top = 4.0
-margin_right = 51.0
-margin_bottom = 18.0
-text = "scheme"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="GamepadLayout" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/GamepadLayout/MarginContainer/FieldContainer" index="1" instance=ExtResource( 7 )]
-margin_left = 55.0
-margin_right = 420.0
-margin_bottom = 22.0
-key = "gamepad_layout"
-placeholder = "default"
-
-[node name="MoveUp" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable" index="1" instance=ExtResource( 3 )]
-margin_top = 26.0
-margin_right = 428.0
-margin_bottom = 48.0
 rect_clip_content = false
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/MoveUp/MarginContainer" index="0"]
@@ -106,10 +81,10 @@ action = "move_up"
 alt_placeholder = "UP"
 placeholder = "W"
 
-[node name="MoveDown" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable" index="2" instance=ExtResource( 3 )]
-margin_top = 52.0
+[node name="MoveDown" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable" index="1" instance=ExtResource( 3 )]
+margin_top = 26.0
 margin_right = 428.0
-margin_bottom = 74.0
+margin_bottom = 48.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/MoveDown/MarginContainer" index="0"]
 margin_right = 424.0
@@ -130,10 +105,10 @@ action = "move_down"
 alt_placeholder = "DOWN"
 placeholder = "S"
 
-[node name="MoveRight" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable" index="3" instance=ExtResource( 3 )]
-margin_top = 78.0
+[node name="MoveRight" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable" index="2" instance=ExtResource( 3 )]
+margin_top = 52.0
 margin_right = 428.0
-margin_bottom = 100.0
+margin_bottom = 74.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/MoveRight/MarginContainer" index="0"]
 margin_right = 424.0
@@ -153,10 +128,10 @@ action = "move_left"
 alt_placeholder = "LEFT"
 placeholder = "A"
 
-[node name="MoveLeft" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable" index="4" instance=ExtResource( 3 )]
-margin_top = 104.0
+[node name="MoveLeft" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable" index="3" instance=ExtResource( 3 )]
+margin_top = 78.0
 margin_right = 428.0
-margin_bottom = 126.0
+margin_bottom = 100.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/MoveLeft/MarginContainer" index="0"]
 margin_right = 424.0
@@ -176,10 +151,10 @@ action = "move_right"
 alt_placeholder = "RIGHT"
 placeholder = "D"
 
-[node name="Run" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable" index="5" instance=ExtResource( 3 )]
-margin_top = 130.0
+[node name="Run" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable" index="4" instance=ExtResource( 3 )]
+margin_top = 104.0
 margin_right = 428.0
-margin_bottom = 152.0
+margin_bottom = 126.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Run/MarginContainer" index="0"]
 margin_right = 424.0
@@ -199,10 +174,10 @@ action = "run"
 alt_placeholder = "_"
 placeholder = "shift"
 
-[node name="Jump" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable" index="6" instance=ExtResource( 3 )]
-margin_top = 156.0
+[node name="Jump" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable" index="5" instance=ExtResource( 3 )]
+margin_top = 130.0
 margin_right = 428.0
-margin_bottom = 178.0
+margin_bottom = 152.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Jump/MarginContainer" index="0"]
 margin_right = 424.0
@@ -222,10 +197,10 @@ action = "jump"
 alt_placeholder = "_"
 placeholder = "SPACE"
 
-[node name="Attack" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable" index="7" instance=ExtResource( 3 )]
-margin_top = 182.0
+[node name="Attack" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable" index="6" instance=ExtResource( 3 )]
+margin_top = 156.0
 margin_right = 428.0
-margin_bottom = 204.0
+margin_bottom = 178.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Attack/MarginContainer" index="0"]
 margin_right = 424.0
@@ -245,10 +220,10 @@ action = "attack"
 alt_placeholder = "_"
 placeholder = "left mouse button"
 
-[node name="Evade" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable" index="8" instance=ExtResource( 3 )]
-margin_top = 208.0
+[node name="Evade" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable" index="7" instance=ExtResource( 3 )]
+margin_top = 182.0
 margin_right = 428.0
-margin_bottom = 230.0
+margin_bottom = 204.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Evade/MarginContainer" index="0"]
 margin_right = 424.0
@@ -268,10 +243,10 @@ action = "evade"
 alt_placeholder = ""
 placeholder = "ctrl"
 
-[node name="Inventory" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable" index="9" instance=ExtResource( 3 )]
-margin_top = 234.0
+[node name="Inventory" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable" index="8" instance=ExtResource( 3 )]
+margin_top = 208.0
 margin_right = 428.0
-margin_bottom = 256.0
+margin_bottom = 230.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Inventory/MarginContainer" index="0"]
 margin_right = 424.0
@@ -291,7 +266,6 @@ action = "inventory"
 alt_placeholder = "i"
 placeholder = "tab"
 
-[editable path="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/GamepadLayout"]
 [editable path="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/MoveUp"]
 [editable path="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/MoveDown"]
 [editable path="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/MoveRight"]

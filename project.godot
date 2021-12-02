@@ -49,12 +49,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/UI/Commons/Navigation/NavigationButton.gd"
 }, {
-"base": "Reference",
+"base": "Control",
 "class": "NavigationRouter",
 "language": "GDScript",
 "path": "res://src/UI/Commons/Navigation/NavigationRouter.gd"
 }, {
-"base": "Reference",
+"base": "Control",
 "class": "NavigationSwitch",
 "language": "GDScript",
 "path": "res://src/UI/Commons/Navigation/NavigationSwitch.gd"
