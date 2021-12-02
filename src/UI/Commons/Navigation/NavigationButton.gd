@@ -26,5 +26,4 @@ func _on_Pressed() -> void:
 	Menu.history.append(owner.get_name())
 	Menu.navigate_to(navigate_to)
 	Menu.current_route = navigate_to
-	print("----")
 	print("%s has change navigation history : %s" % [owner.get_name(), Menu.history])

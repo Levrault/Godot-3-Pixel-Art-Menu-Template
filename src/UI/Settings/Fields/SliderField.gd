@@ -52,11 +52,11 @@ func _set_placeholder(value: String) -> void:
 
 func _on_Focus_entered() -> void:
 	slider.grab_focus()
-	emit_signal("field_focus_entered")
+	Events.emit_signal("field_focus_entered", self)
 
 
 func _on_Slider_focus_exited() -> void:
-	emit_signal("field_focus_exited")
+	Events.emit_signal("field_focus_exited", self)
 
 
 func _on_Value_changed(value: float) -> void:
