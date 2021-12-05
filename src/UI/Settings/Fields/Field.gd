@@ -24,7 +24,8 @@ func _ready() -> void:
 	if Engine.editor_hint:
 		return
 
-	yield(owner, "ready")
+	if owner:
+		yield(owner, "ready")
 
 	if not updater:
 		printerr("Field %s from %s has no updater" % [key, owner.get_name()])
