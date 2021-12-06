@@ -47,7 +47,7 @@ func revert() -> void:
 func percentage(value) -> float:
 	if compute_from_negative:
 		return (abs(min_value) - abs(value)) * 100 / abs(min_value)
-	return abs((abs(min_value) - abs(value))) * 100 / abs(max_value)
+	return abs(abs(min_value) - abs(value)) * 100 / abs(max_value)
 
 
 func _set_placeholder(value: String) -> void:

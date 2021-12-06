@@ -109,6 +109,10 @@ func get_mouse_button_string(key: String) -> String:
 	return MOUSE_INDEX_TO_STRING[key]
 
 
+func get_gamepad_button_string(key: String) -> String:
+	return MOUSE_INDEX_TO_STRING[key]
+
+
 func _read_engine_file() -> void:
 	var engine_file := ConfigFile.new()
 	var err = engine_file.load(ENGINE_FILE_PATH)

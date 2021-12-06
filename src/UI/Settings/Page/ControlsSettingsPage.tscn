@@ -1,14 +1,15 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/UI/Settings/SettingsPageTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/UI/Commons/Navigation/NavigationButton.gd" type="Script" id=2]
 [ext_resource path="res://src/UI/Settings/Fields/FieldSet.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/UI/Settings/Gamepad/HListGamepadField.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/UI/Settings/Updater/GamepadLayoutUpdater.gd" type="Script" id=4]
 [ext_resource path="res://src/UI/Settings/Fields/SliderField.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/UI/Settings/Updater/GamepadYAxisUpdater.gd" type="Script" id=6]
 [ext_resource path="res://src/UI/Settings/Updater/MouseSensibilityUpdater.gd" type="Script" id=7]
 [ext_resource path="res://src/UI/Settings/Updater/GamepadXAxisUpdater.gd" type="Script" id=8]
 [ext_resource path="res://src/UI/Settings/Updater/GamepadRumbleForceUpdater.gd" type="Script" id=9]
+[ext_resource path="res://src/UI/Settings/Fields/HListField.tscn" type="PackedScene" id=10]
 
 [node name="ControlsSettingsPage" instance=ExtResource( 1 )]
 default_field_to_focus = NodePath("Wrapper/Page/Contents/ScrollContainer/VBoxContainer/MouseSensibility/MarginContainer/FieldContainer/MouseSensibility")
@@ -81,7 +82,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GamepadXAxis" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadXAxis/MarginContainer/FieldContainer" index="1" instance=ExtResource( 4 )]
+[node name="GamepadXAxis" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadXAxis/MarginContainer/FieldContainer" index="1" instance=ExtResource( 10 )]
 margin_left = 124.0
 margin_right = 432.0
 margin_bottom = 22.0
@@ -108,7 +109,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GamepadYAxis" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadYAxis/MarginContainer/FieldContainer" index="1" instance=ExtResource( 4 )]
+[node name="GamepadYAxis" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadYAxis/MarginContainer/FieldContainer" index="1" instance=ExtResource( 10 )]
 margin_left = 124.0
 margin_right = 432.0
 margin_bottom = 22.0
@@ -157,19 +158,23 @@ margin_right = 436.0
 
 [node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadLayout/MarginContainer/FieldContainer" index="0"]
 margin_top = 4.0
-margin_right = 121.0
+margin_right = 214.0
 margin_bottom = 18.0
-text = "ui_gamepad_layout"
+size_flags_horizontal = 3
+text = "ui_gamepad_rumble_force"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GamepadLayout" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadLayout/MarginContainer/FieldContainer" index="1" instance=ExtResource( 4 )]
-margin_left = 125.0
+[node name="GamepadLayout" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadLayout/MarginContainer/FieldContainer" index="1" instance=ExtResource( 10 )]
+margin_left = 218.0
 margin_right = 432.0
 margin_bottom = 22.0
 key = "gamepad_layout"
 placeholder = "default"
+
+[node name="Updater" type="Node" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadLayout/MarginContainer/FieldContainer/GamepadLayout" index="4"]
+script = ExtResource( 4 )
 
 [node name="Gamepad" type="Button" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="6"]
 margin_top = 154.0

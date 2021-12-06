@@ -34,7 +34,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/UI/Settings/Form/Form.gd"
 }, {
-"base": "KeyMapField",
+"base": "HBoxContainer",
 "class": "GamepadMapField",
 "language": "GDScript",
 "path": "res://src/UI/Settings/Gamepad/GamepadMapField.gd"
@@ -106,6 +106,7 @@ config/icon="res://icon.png"
 
 Events="*res://src/Autoload/Events.gd"
 EngineSettings="*res://src/Autoload/EngineSettings.gd"
+InputManager="*res://src/Autoload/InputManager.gd"
 Config="*res://src/Autoload/Config.gd"
 Menu="*res://src/Autoload/Menu.gd"
 

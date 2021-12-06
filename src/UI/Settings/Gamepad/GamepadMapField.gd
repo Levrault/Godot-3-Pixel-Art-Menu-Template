@@ -1,5 +1,14 @@
-extends KeyMapField
+tool
 class_name GamepadMapField, "res://assets/icons/gamepad.svg"
+extends HBoxContainer
+
+export var action := ""
+export var placeholder := "placeholder" setget _set_placeholder
+
+var values := {}
+var keymap_buttons := []
+
+onready var default_button := $Default
 
 
 func _ready() -> void:
@@ -17,15 +26,8 @@ func _ready() -> void:
 	if not InputMap.has_action(action):
 		InputMap.add_action(action)
 
-	for child in get_children():
-		if not child is Button:
-			continue
+	default_button.assign_with_constant(Config.values[owner.form.engine_file_section][InputManager.device][action][default_button.key])
 
-		keymap_buttons.append(child)
-		child.assign_with_constant(Config.values[owner.form.engine_file_section][action][child.key])
-
-	button_to_focus = keymap_buttons[0]
-	last_focused_button = keymap_buttons[0]
 	# register itself in to the form
 	owner.form.data[action] = self
 
@@ -55,8 +57,7 @@ func apply_changes(key: String) -> void:
 	var data_to_save := {}
 	data_to_save[owner.form.engine_file_section] = {}
 	data_to_save[owner.form.engine_file_section][action] = {}
-	for button in keymap_buttons:
-		data_to_save[owner.form.engine_file_section][action][button.key] = button.assigned_to
+	data_to_save[owner.form.engine_file_section][action][default_button.key] = default_button.assigned_to
 	Config.save_file(data_to_save)
 
 
@@ -71,13 +72,6 @@ func _set_placeholder(value: String) -> void:
 	$Default.text = placeholder
 
 
-func _set_alt_placeholder(value: String) -> void:
-	if not has_node("Alt"):
-		return
-	alt_placeholder = value
-	$Alt.text = alt_placeholder
-
-
 func _on_Focus_entered() -> void:
-	button_to_focus.grab_focus()
+	$Default.grab_focus()
 	Events.emit_signal("field_focus_entered", self)
