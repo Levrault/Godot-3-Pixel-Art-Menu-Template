@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/UI/Settings/SettingsPageTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/UI/Settings/Fields/FieldSet.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/UI/Settings/Fields/KeyMapField.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/UI/Settings/Keymap/KeyMapField.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/UI/Settings/Keymap/KeyMapTable.gd" type="Script" id=4]
 [ext_resource path="res://src/UI/Settings/Keymap/KeyMapListenerDialog.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/UI/Settings/Form/KeyboardSettingsForm.gd" type="Script" id=6]

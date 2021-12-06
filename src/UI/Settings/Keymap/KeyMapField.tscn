@@ -1,0 +1,207 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "tool
+class_name KeyMapField, \"res://assets/icons/keyboard.svg\"
+extends HBoxContainer
+
+signal pristine_value_changed(value)
+
+export var action := \"\"
+export var alt_placeholder := \"alt_placeholder\" setget _set_alt_placeholder
+export var placeholder := \"placeholder\" setget _set_placeholder
+
+var values := {}
+var keymap_buttons := []
+var last_focused_button: Button = null
+var button_to_focus: Button = null
+
+
+func _ready() -> void:
+	if Engine.editor_hint:
+		return
+
+	yield(owner, \"ready\")
+	yield(get_tree(), \"idle_frame\")
+	connect(\"focus_entered\", self, \"_on_Focus_entered\")
+
+	if action.empty():
+		printerr(\"Action for %s is undefined\" % get_name())
+		return
+
+	if not InputMap.has_action(action):
+		InputMap.add_action(action)
+
+	for child in get_children():
+		if not child is Button:
+			continue
+
+		keymap_buttons.append(child)
+		child.assign_with_constant(Config.values[owner.form.engine_file_section][action][child.key])
+
+	button_to_focus = keymap_buttons[0]
+	last_focused_button = keymap_buttons[0]
+	# register itself in to the form
+	owner.form.data[action] = self
+
+
+func reset() -> void:
+	for button in keymap_buttons:
+		button.assign_with_constant(
+			Config.values[owner.form.engine_file_section][action][button.key]
+		)
+
+
+func unmap(scancode: int) -> void:
+	for button in keymap_buttons:
+		if button.assigned_to != EngineSettings.get_keyboard_or_mouse_key_from_scancode(scancode):
+			continue
+		button.clear()
+
+
+func get_button_by_scancode(scancode: int) -> Button:
+	for button in keymap_buttons:
+		if button.assigned_to == EngineSettings.get_keyboard_or_mouse_key_from_scancode(scancode):
+			return button
+	return null
+
+
+func apply_changes(key: String) -> void:
+	var data_to_save := {}
+	data_to_save[owner.form.engine_file_section] = {}
+	data_to_save[owner.form.engine_file_section][action] = {}
+	for button in keymap_buttons:
+		data_to_save[owner.form.engine_file_section][action][button.key] = button.assigned_to
+	Config.save_file(data_to_save)
+
+
+func change_button_focus_by_name(name: String) -> void:
+	get_node(name).grab_focus()
+
+
+func _set_placeholder(value: String) -> void:
+	if not has_node(\"Default\"):
+		return
+	placeholder = value
+	$Default.text = placeholder
+
+
+func _set_alt_placeholder(value: String) -> void:
+	if not has_node(\"Alt\"):
+		return
+	alt_placeholder = value
+	$Alt.text = alt_placeholder
+
+
+func _on_Focus_entered() -> void:
+	button_to_focus.grab_focus()
+	Events.emit_signal(\"field_focus_entered\", self)
+"
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Button
+
+export var key := \"\"
+
+var assigned_to := \"\"
+var type := \"keyboard\"
+
+
+func _ready() -> void:
+	connect(\"pressed\", self, \"_on_Pressed\")
+	connect(\"focus_entered\", self, \"_on_Focus_entered\")
+
+
+func assign_with_constant(value: String) -> void:
+	if value.empty():
+		clear()
+		return
+	assigned_to = value
+
+	type = \"keyboard\" if EngineSettings.keylist[\"keyboard\"].has(value) else \"mouse\"
+	if type == \"keyboard\":
+		text = OS.get_scancode_string(EngineSettings.keylist[type][value])
+		var input_event_key = InputEventKey.new()
+		input_event_key.set_scancode(EngineSettings.keylist[type][value])
+		InputMap.action_add_event(owner.action, input_event_key)
+	else:
+		text = tr(EngineSettings.get_mouse_button_string(assigned_to))
+		var input_event_mouse = InputEventMouseButton.new()
+		input_event_mouse.set_button_index(EngineSettings.keylist[type][value])
+		InputMap.action_add_event(owner.action, input_event_mouse)
+	owner.values[key] = EngineSettings.keylist[type][value]
+
+
+func assign_with_scancode(value: int) -> void:
+	assign_with_constant(EngineSettings.get_keyboard_or_mouse_key_from_scancode(value))
+
+
+func clear() -> void:
+	if owner.values.has(key):
+		if EngineSettings.keylist[\"keyboard\"].has(assigned_to):
+			var input_event_key = InputEventKey.new()
+			input_event_key.set_scancode(owner.values[key])
+			InputMap.action_erase_event(owner.action, input_event_key)
+		else:
+			var input_event_mouse = InputEventMouseButton.new()
+			input_event_mouse.set_button_index(owner.values[key])
+			InputMap.action_erase_event(owner.action, input_event_mouse)
+	text = \"_\"
+	assigned_to = \"\"
+	owner.values[key] = -1
+
+
+func _on_Pressed() -> void:
+	Events.emit_signal(\"key_listening_started\", owner, self, owner.values[key])
+	release_focus()
+
+
+func _on_Focus_entered() -> void:
+	owner.last_focused_button = self
+"
+
+[node name="KeyMapField" type="HBoxContainer" groups=["GameSettings"]]
+margin_right = 34.0
+margin_bottom = 20.0
+hint_tooltip = "Right click to unbind"
+focus_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Default" type="Button" parent="."]
+margin_right = 12.0
+margin_bottom = 20.0
+focus_neighbour_right = NodePath("../Alt")
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+text = "placeholder"
+flat = true
+clip_text = true
+script = SubResource( 2 )
+key = "default"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 3.0
+margin_right = 23.0
+margin_bottom = 17.0
+text = "|"
+
+[node name="Alt" type="Button" parent="."]
+margin_left = 27.0
+margin_right = 136.0
+margin_bottom = 20.0
+focus_neighbour_left = NodePath("../Default")
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+text = "alt_placeholder"
+flat = true
+script = SubResource( 2 )
+key = "alt"

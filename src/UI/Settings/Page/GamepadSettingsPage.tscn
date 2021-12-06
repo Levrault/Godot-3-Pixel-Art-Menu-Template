@@ -51,8 +51,8 @@ size_flags_vertical = 3
 follow_focus = true
 
 [node name="KeyMapTable" type="VBoxContainer" parent="Wrapper/Page/Contents/ScrollContainer" index="0"]
-margin_right = 428.0
-margin_bottom = 230.0
+margin_right = 440.0
+margin_bottom = 156.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 2 )

@@ -27,64 +27,50 @@ size_flags_vertical = 3
 follow_focus = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Wrapper/Page/Contents/ScrollContainer" index="0"]
-margin_right = 428.0
-margin_bottom = 210.0
+margin_right = 440.0
+margin_bottom = 198.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="KeyboardSection" type="Label" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="0"]
-margin_right = 428.0
-margin_bottom = 14.0
-text = "ui_keyboard_and_mouse_section"
-
-[node name="MouseSensibility" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="1" instance=ExtResource( 3 )]
-margin_top = 18.0
-margin_right = 428.0
-margin_bottom = 40.0
+[node name="MouseSensibility" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="0" instance=ExtResource( 3 )]
+margin_right = 440.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/MouseSensibility/MarginContainer" index="0"]
-margin_right = 424.0
+margin_right = 436.0
 
 [node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/MouseSensibility/MarginContainer/FieldContainer" index="0"]
 margin_top = 4.0
-margin_right = 250.0
+margin_right = 262.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
 text = "Mouse Sensivity"
 
 [node name="MouseSensibility" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/MouseSensibility/MarginContainer/FieldContainer" index="1" instance=ExtResource( 5 )]
-margin_left = 254.0
-margin_right = 420.0
+margin_left = 266.0
+margin_right = 432.0
 key = "mouse_sensibility"
 placeholder = ".5"
+max_value = 1.0
+nb_of_step = 20
 
 [node name="Updater" type="Node" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/MouseSensibility/MarginContainer/FieldContainer/MouseSensibility" index="2"]
 script = ExtResource( 7 )
 
-[node name="Keyboard" type="Button" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="2"]
-margin_top = 44.0
-margin_right = 428.0
-margin_bottom = 64.0
+[node name="Keyboard" type="Button" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="1"]
+margin_top = 26.0
+margin_right = 440.0
+margin_bottom = 46.0
 text = "ui_keyboard_mapping"
 script = ExtResource( 2 )
 navigate_to = "KeyboardSettingsPage"
 
-[node name="GamepadSection" type="Label" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="3"]
-margin_top = 68.0
-margin_right = 428.0
-margin_bottom = 82.0
-text = "ui_gamepad_section"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="GamepadXAxis" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="4" instance=ExtResource( 3 )]
-margin_top = 86.0
-margin_right = 428.0
-margin_bottom = 108.0
+[node name="GamepadXAxis" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="2" instance=ExtResource( 3 )]
+margin_top = 50.0
+margin_right = 440.0
+margin_bottom = 72.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadXAxis/MarginContainer" index="0"]
-margin_right = 424.0
+margin_right = 436.0
 
 [node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadXAxis/MarginContainer/FieldContainer" index="0"]
 margin_top = 4.0
@@ -97,7 +83,7 @@ __meta__ = {
 
 [node name="GamepadXAxis" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadXAxis/MarginContainer/FieldContainer" index="1" instance=ExtResource( 4 )]
 margin_left = 124.0
-margin_right = 420.0
+margin_right = 432.0
 margin_bottom = 22.0
 key = "gamepad_x_axis"
 placeholder = "normal"
@@ -105,13 +91,13 @@ placeholder = "normal"
 [node name="Updater" type="Node" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadXAxis/MarginContainer/FieldContainer/GamepadXAxis" index="4"]
 script = ExtResource( 8 )
 
-[node name="GamepadYAxis" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="5" instance=ExtResource( 3 )]
-margin_top = 112.0
-margin_right = 428.0
-margin_bottom = 134.0
+[node name="GamepadYAxis" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="3" instance=ExtResource( 3 )]
+margin_top = 76.0
+margin_right = 440.0
+margin_bottom = 98.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadYAxis/MarginContainer" index="0"]
-margin_right = 424.0
+margin_right = 436.0
 
 [node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadYAxis/MarginContainer/FieldContainer" index="0"]
 margin_top = 4.0
@@ -124,7 +110,7 @@ __meta__ = {
 
 [node name="GamepadYAxis" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadYAxis/MarginContainer/FieldContainer" index="1" instance=ExtResource( 4 )]
 margin_left = 124.0
-margin_right = 420.0
+margin_right = 432.0
 margin_bottom = 22.0
 key = "gamepad_y_axis"
 placeholder = "normal"
@@ -132,17 +118,17 @@ placeholder = "normal"
 [node name="Updater" type="Node" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadYAxis/MarginContainer/FieldContainer/GamepadYAxis" index="4"]
 script = ExtResource( 6 )
 
-[node name="GamepadRumble" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="6" instance=ExtResource( 3 )]
-margin_top = 138.0
-margin_right = 428.0
-margin_bottom = 160.0
+[node name="GamepadRumble" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="4" instance=ExtResource( 3 )]
+margin_top = 102.0
+margin_right = 440.0
+margin_bottom = 124.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadRumble/MarginContainer" index="0"]
-margin_right = 424.0
+margin_right = 436.0
 
 [node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadRumble/MarginContainer/FieldContainer" index="0"]
 margin_top = 4.0
-margin_right = 226.0
+margin_right = 238.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
 text = "ui_gamepad_rumble_force"
@@ -151,21 +137,23 @@ __meta__ = {
 }
 
 [node name="GamepadRumbleForce" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadRumble/MarginContainer/FieldContainer" index="1" instance=ExtResource( 5 )]
-margin_left = 230.0
-margin_right = 420.0
+margin_left = 242.0
+margin_right = 432.0
 key = "gamepad_rumble_force"
 placeholder = "100%"
+max_value = 1.0
+nb_of_step = 20
 
 [node name="Updater" type="Node" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadRumble/MarginContainer/FieldContainer/GamepadRumbleForce" index="2"]
 script = ExtResource( 9 )
 
-[node name="GamepadLayout" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="7" instance=ExtResource( 3 )]
-margin_top = 164.0
-margin_right = 428.0
-margin_bottom = 186.0
+[node name="GamepadLayout" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="5" instance=ExtResource( 3 )]
+margin_top = 128.0
+margin_right = 440.0
+margin_bottom = 150.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadLayout/MarginContainer" index="0"]
-margin_right = 424.0
+margin_right = 436.0
 
 [node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadLayout/MarginContainer/FieldContainer" index="0"]
 margin_top = 4.0
@@ -178,15 +166,15 @@ __meta__ = {
 
 [node name="GamepadLayout" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadLayout/MarginContainer/FieldContainer" index="1" instance=ExtResource( 4 )]
 margin_left = 125.0
-margin_right = 420.0
+margin_right = 432.0
 margin_bottom = 22.0
 key = "gamepad_layout"
 placeholder = "default"
 
-[node name="Gamepad" type="Button" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="8"]
-margin_top = 190.0
-margin_right = 428.0
-margin_bottom = 210.0
+[node name="Gamepad" type="Button" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="6"]
+margin_top = 154.0
+margin_right = 440.0
+margin_bottom = 174.0
 text = "ui_gamepad_mapping"
 script = ExtResource( 2 )
 navigate_to = "GamepadSettingsPage"

@@ -9,7 +9,7 @@ var _index: int = 0
 
 func _ready() -> void:
 	yield(owner, "ready")
-	
+
 	if key.empty():
 		printerr("%s's key is empty" % get_name())
 		return
@@ -17,7 +17,7 @@ func _ready() -> void:
 	if not EngineSettings.data.has(owner.form.engine_file_section):
 		printerr("Form section %s is not defined in Config" % owner.form.engine_file_section)
 		return
-	
+
 	if not EngineSettings.data[owner.form.engine_file_section].has(key):
 		printerr("%s has no options associated to key %s" % [get_name(), key])
 		return
@@ -35,7 +35,7 @@ func revert() -> void:
 	if not EngineSettings.data.has(owner.form.engine_file_section):
 		printerr("Form section %s is not defined in Config" % owner.form.engine_file_section)
 		return
-	
+
 	if not EngineSettings.data[owner.form.engine_file_section].has(key):
 		printerr("%s has no options associated to key %s" % [get_name(), key])
 		return

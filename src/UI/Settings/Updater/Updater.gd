@@ -3,10 +3,6 @@ extends Node
 
 
 func _ready() -> void:
-	if not get_parent() is Field or not get_parent() is HListField or not get_parent() is DropdownField or not get_parent() is SliderField:
-		printerr("Parent %s of %s is not a field" % [get_parent().get_name(), get_name()])
-		return
-
 	yield(owner, "ready")
 	yield(get_tree(), "idle_frame")
 

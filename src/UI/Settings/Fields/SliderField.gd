@@ -15,7 +15,7 @@ onready var slider := $HSlider
 
 func _ready() -> void:
 	yield(owner, "ready")
-	
+
 	if key.empty():
 		printerr("%s's key is empty" % get_name())
 		return
@@ -45,8 +45,9 @@ func revert() -> void:
 
 
 func percentage(value) -> float:
-	var total = max_value if not compute_from_negative else abs(min_value)
-	return (abs(total) - abs(value)) * 100 / abs(total)
+	if compute_from_negative:
+		return (abs(min_value) - abs(value)) * 100 / abs(min_value)
+	return abs((abs(min_value) - abs(value))) * 100 / abs(max_value)
 
 
 func _set_placeholder(value: String) -> void:
