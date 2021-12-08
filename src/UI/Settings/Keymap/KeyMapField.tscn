@@ -67,7 +67,6 @@ func _on_Focus_entered() -> void:
 [node name="KeyMapField" type="HBoxContainer" groups=["GameSettings"]]
 margin_right = 34.0
 margin_bottom = 20.0
-hint_tooltip = "Right click to unbind"
 focus_mode = 2
 size_flags_horizontal = 3
 alignment = 2

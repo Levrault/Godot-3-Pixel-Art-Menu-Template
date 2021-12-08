@@ -10,10 +10,11 @@ extends Node
 signal config_file_saved
 signal config_file_loade
 
+# gamepad binding
+signal gamepad_listening_started
+
 # keybinding
 signal key_listening_started(field, button, scancode)
-signal key_listening_ended(node)
-signal key_listening_cancelled
 
 # notification
 signal notification_started(text, size)

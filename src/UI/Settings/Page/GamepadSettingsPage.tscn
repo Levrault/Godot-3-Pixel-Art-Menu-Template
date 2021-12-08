@@ -1,14 +1,19 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/UI/Settings/SettingsPageTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/UI/Settings/Gamepad/GamepadMapListenerDialog.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/UI/Settings/Fields/FieldSet.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/UI/Settings/Gamepad/GamepadMapField.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/UI/Settings/Form/GamepadSettingsForm.gd" type="Script" id=5]
 
 [node name="GamepadSettingsPage" instance=ExtResource( 1 )]
-default_field_to_focus = NodePath("Wrapper/Page/Contents/ScrollContainer/KeyMapTable/MoveUp/MarginContainer/FieldContainer/GamepadMapField")
+default_field_to_focus = NodePath("Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Jump/MarginContainer/FieldContainer/Jump")
 
 [node name="Form" parent="." index="0"]
+script = ExtResource( 5 )
 engine_file_section = "gamepad_controls"
+
+[node name="GamepadMapListenerDialog" parent="Form" index="1" instance=ExtResource( 2 )]
 
 [node name="Breadcrumb" parent="Wrapper/Page" index="0"]
 breadcrumbs = [ "ui_options", "ui_controls", "ui_gamepad_mapping" ]
@@ -26,28 +31,163 @@ margin_bottom = 198.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="MoveUp" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable" index="0" instance=ExtResource( 3 )]
+[node name="Run" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable" index="0" instance=ExtResource( 3 )]
 margin_right = 440.0
 rect_clip_content = false
 
-[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/MoveUp/MarginContainer" index="0"]
+[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Run/MarginContainer" index="0"]
 margin_right = 436.0
 
-[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/MoveUp/MarginContainer/FieldContainer" index="0"]
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Run/MarginContainer/FieldContainer" index="0"]
 margin_top = 4.0
 margin_right = 214.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
-text = "input_move_up"
+text = "input_run"
 __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="GamepadMapField" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/MoveUp/MarginContainer/FieldContainer" index="1" instance=ExtResource( 4 )]
+[node name="Run" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Run/MarginContainer/FieldContainer" index="1" instance=ExtResource( 4 )]
 margin_left = 218.0
 margin_right = 432.0
 margin_bottom = 22.0
-action = "move_up"
-placeholder = "left analog stick"
+action = "run"
+placeholder = "X"
 
-[editable path="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/MoveUp"]
+[node name="Inventory" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable" index="1" instance=ExtResource( 3 )]
+margin_top = 26.0
+margin_right = 440.0
+margin_bottom = 48.0
+rect_clip_content = false
+
+[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Inventory/MarginContainer" index="0"]
+margin_right = 436.0
+
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Inventory/MarginContainer/FieldContainer" index="0"]
+margin_top = 4.0
+margin_right = 214.0
+margin_bottom = 18.0
+size_flags_horizontal = 3
+text = "input_inventory"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Inventory" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Inventory/MarginContainer/FieldContainer" index="1" instance=ExtResource( 4 )]
+margin_left = 218.0
+margin_right = 432.0
+margin_bottom = 22.0
+action = "inventory"
+placeholder = "Y"
+
+[node name="Jump" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable" index="2" instance=ExtResource( 3 )]
+margin_top = 52.0
+margin_right = 440.0
+margin_bottom = 74.0
+rect_clip_content = false
+
+[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Jump/MarginContainer" index="0"]
+margin_right = 436.0
+
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Jump/MarginContainer/FieldContainer" index="0"]
+margin_top = 4.0
+margin_right = 214.0
+margin_bottom = 18.0
+size_flags_horizontal = 3
+text = "input_jump"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Jump" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Jump/MarginContainer/FieldContainer" index="1" instance=ExtResource( 4 )]
+margin_left = 218.0
+margin_right = 432.0
+margin_bottom = 22.0
+action = "jump"
+placeholder = "A"
+
+[node name="Evade" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable" index="3" instance=ExtResource( 3 )]
+margin_top = 78.0
+margin_right = 440.0
+margin_bottom = 100.0
+rect_clip_content = false
+
+[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Evade/MarginContainer" index="0"]
+margin_right = 436.0
+
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Evade/MarginContainer/FieldContainer" index="0"]
+margin_top = 4.0
+margin_right = 214.0
+margin_bottom = 18.0
+size_flags_horizontal = 3
+text = "input_evade"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Evade" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Evade/MarginContainer/FieldContainer" index="1" instance=ExtResource( 4 )]
+margin_left = 218.0
+margin_right = 432.0
+margin_bottom = 22.0
+action = "evade"
+placeholder = "B"
+
+[node name="Attack" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable" index="4" instance=ExtResource( 3 )]
+margin_top = 104.0
+margin_right = 440.0
+margin_bottom = 126.0
+rect_clip_content = false
+
+[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Attack/MarginContainer" index="0"]
+margin_right = 436.0
+
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Attack/MarginContainer/FieldContainer" index="0"]
+margin_top = 4.0
+margin_right = 214.0
+margin_bottom = 18.0
+size_flags_horizontal = 3
+text = "input_attack"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Attack" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Attack/MarginContainer/FieldContainer" index="1" instance=ExtResource( 4 )]
+margin_left = 218.0
+margin_right = 432.0
+margin_bottom = 22.0
+action = "attack"
+placeholder = "R2"
+
+[node name="Block" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable" index="5" instance=ExtResource( 3 )]
+margin_top = 130.0
+margin_right = 440.0
+margin_bottom = 152.0
+rect_clip_content = false
+
+[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Block/MarginContainer" index="0"]
+margin_right = 436.0
+
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Block/MarginContainer/FieldContainer" index="0"]
+margin_top = 4.0
+margin_right = 214.0
+margin_bottom = 18.0
+size_flags_horizontal = 3
+text = "input_block"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Block" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Block/MarginContainer/FieldContainer" index="1" instance=ExtResource( 4 )]
+margin_left = 218.0
+margin_right = 432.0
+margin_bottom = 22.0
+action = "block"
+placeholder = "L2"
+
+[editable path="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Run"]
+[editable path="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Inventory"]
+[editable path="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Jump"]
+[editable path="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Evade"]
+[editable path="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Attack"]
+[editable path="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Block"]

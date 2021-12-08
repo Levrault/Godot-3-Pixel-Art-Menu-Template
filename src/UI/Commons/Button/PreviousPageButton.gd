@@ -12,6 +12,11 @@ func _ready():
 
 
 func _on_Pressed() -> void:
+	if owner.is_current_route and not owner.form.is_pristine:
+		Events.emit_signal("navigation_disabled")
+		owner.form.confirm_dialog.show()
+		owner.form.confirm_dialog.get_ok().grab_focus()
+		return
 	if not can_navigate:
 		return
 	Menu.navigate_to(Menu.history.pop_back())

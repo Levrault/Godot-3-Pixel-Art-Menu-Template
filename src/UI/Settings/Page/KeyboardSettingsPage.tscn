@@ -292,6 +292,7 @@ margin_left = 212.0
 margin_right = 420.0
 margin_bottom = 22.0
 action = "slot_1"
+required = false
 alt_placeholder = ""
 placeholder = "1"
 
@@ -318,6 +319,7 @@ margin_left = 212.0
 margin_right = 420.0
 margin_bottom = 22.0
 action = "slot_2"
+required = false
 alt_placeholder = "_"
 placeholder = "2"
 
@@ -341,6 +343,7 @@ margin_left = 212.0
 margin_right = 420.0
 margin_bottom = 22.0
 action = "slot_3"
+required = false
 alt_placeholder = "_"
 placeholder = "3"
 
@@ -364,6 +367,7 @@ margin_left = 212.0
 margin_right = 420.0
 margin_bottom = 22.0
 action = "slot_4"
+required = false
 alt_placeholder = "_"
 placeholder = "4"
 

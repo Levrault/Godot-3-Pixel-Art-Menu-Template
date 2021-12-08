@@ -3,50 +3,50 @@ extends Button
 export var key := ""
 
 var assigned_to := ""
-var type := "keyboard"
+var joy_string := ""
+var type := "xbox"
 
 
 func _ready() -> void:
 	connect("pressed", self, "_on_Pressed")
-	connect("focus_entered", self, "_on_Focus_entered")
 
 
 func assign_with_constant(value: String) -> void:
 	if value.empty():
 		clear()
 		return
+
 	assigned_to = value
-
 	text = assigned_to
-	var input_event= InputEventJoypadButton.new()
-	input_event.set_button_index(EngineSettings.keylist.gamepad[value])
-	InputMap.action_add_event(owner.action, input_event)
-	owner.values[key] = EngineSettings.keylist.gamepad[value]
 
+	if InputManager.is_motion_event(value):
+		joy_string = Input.get_joy_axis_string(EngineSettings.keylist.gamepad[value])
+		var input_event_motion = InputEventJoypadMotion.new()
+		input_event_motion.axis = EngineSettings.keylist.gamepad[value]
+		InputMap.action_add_event(owner.action, input_event_motion)
+	else:
+		joy_string = Input.get_joy_button_string(EngineSettings.keylist.gamepad[value])
+		var input_event_button = InputEventJoypadButton.new()
+		input_event_button.button_index = EngineSettings.keylist.gamepad[value]
+		InputMap.action_add_event(owner.action, input_event_button)
 
-func assign_with_scancode(value: int) -> void:
-	assign_with_constant(EngineSettings.get_keyboard_or_mouse_key_from_scancode(value))
+	owner.values[key] = assigned_to
 
 
 func clear() -> void:
-	if owner.values.has(key):
-		if EngineSettings.keylist["keyboard"].has(assigned_to):
-			var input_event_key = InputEventKey.new()
-			input_event_key.set_scancode(owner.values[key])
-			InputMap.action_erase_event(owner.action, input_event_key)
-		else:
-			var input_event_mouse = InputEventMouseButton.new()
-			input_event_mouse.set_button_index(owner.values[key])
-			InputMap.action_erase_event(owner.action, input_event_mouse)
+	if owner.values.has(key) and not assigned_to.empty():
+		var input_event = InputEventJoypadButton.new()
+		input_event.set_button_index(EngineSettings.keylist.gamepad[assigned_to])
+		InputMap.action_erase_event(owner.action, input_event)
 	text = "_"
 	assigned_to = ""
-	owner.values[key] = -1
+	joy_string = ""
+	owner.values[key] = ""
 
 
 func _on_Pressed() -> void:
-	Events.emit_signal("key_listening_started", owner, self, owner.values[key])
+	if EngineSettings.keylist.gamepad.has(assigned_to):
+		Events.emit_signal("gamepad_listening_started", owner, self, EngineSettings.keylist.gamepad[assigned_to])
+	else:
+		Events.emit_signal("gamepad_listening_started", owner, self, -1)
 	release_focus()
-
-
-func _on_Focus_entered() -> void:
-	owner.last_focused_button = self

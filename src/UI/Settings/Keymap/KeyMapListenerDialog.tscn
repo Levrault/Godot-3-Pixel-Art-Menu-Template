@@ -4,6 +4,7 @@
 
 [sub_resource type="InputEventAction" id=3]
 action = "ui_cancel"
+pressed = true
 
 [sub_resource type="ShortCut" id=2]
 shortcut = SubResource( 3 )
