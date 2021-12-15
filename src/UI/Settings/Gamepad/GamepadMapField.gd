@@ -7,7 +7,6 @@ export var required := true
 export var placeholder := "placeholder" setget _set_placeholder
 
 var values := {}
-var keymap_buttons := []
 
 onready var default_button := $Default
 

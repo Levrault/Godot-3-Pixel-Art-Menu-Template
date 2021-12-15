@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/UI/Settings/SettingsPageTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/UI/Settings/Fields/FieldSet.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/UI/Settings/Keymap/KeyMapTable.gd" type="Script" id=4]
 [ext_resource path="res://src/UI/Settings/Keymap/KeyMapListenerDialog.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/UI/Settings/Form/KeyboardSettingsForm.gd" type="Script" id=6]
+[ext_resource path="res://src/UI/Commons/Dialog/RequiredFieldUnmapped.tscn" type="PackedScene" id=7]
 
 [node name="KeyboardSettingsPage" instance=ExtResource( 1 )]
 default_field_to_focus = NodePath("Wrapper/Page/Contents/ScrollContainer/KeyMapTable/MoveUp/MarginContainer/FieldContainer/MoveUp")
@@ -15,6 +16,9 @@ script = ExtResource( 6 )
 engine_file_section = "keyboard_and_mouse_controls"
 
 [node name="KeyMapListenerDialog" parent="Form" index="1" instance=ExtResource( 5 )]
+
+[node name="RequiredFieldUnmapped" parent="Form" index="2" instance=ExtResource( 7 )]
+visible = false
 
 [node name="Breadcrumb" parent="Wrapper/Page" index="0"]
 breadcrumbs = [ "ui_options", "ui_controls", "ui_keyboard_mapping" ]

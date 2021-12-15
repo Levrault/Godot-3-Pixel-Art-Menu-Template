@@ -17,10 +17,8 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel") and owner.is_current_route and not is_pristine:
-		Events.emit_signal("navigation_disabled")
-		confirm_dialog.show()
-		confirm_dialog.get_ok().grab_focus()
+	if event.is_action_pressed("ui_cancel") and is_invalid():
+		invalid_callback()
 		return
 
 
@@ -62,6 +60,16 @@ func save() -> void:
 
 	apply_changes(data)
 	self.is_pristine = true
+
+
+func invalid_callback() -> void:
+	Events.emit_signal("navigation_disabled")
+	confirm_dialog.show()
+	confirm_dialog.get_ok().grab_focus()
+
+
+func is_invalid() -> bool:
+	return owner.is_current_route and not is_pristine
 
 
 func _set_is_pristine(value: bool) -> void:

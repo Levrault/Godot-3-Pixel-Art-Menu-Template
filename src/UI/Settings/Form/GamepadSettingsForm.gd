@@ -1,6 +1,7 @@
-extends Form
+extends BindingForm
 
 var device := "xbox"
+
 
 func reset() -> void:
 	var data_to_save := {}
@@ -16,6 +17,16 @@ func save() -> void:
 	for key in data:
 		data_to_save[engine_file_section][device][key] = data[key].values
 	Config.save_file(data_to_save)
+
+
+func get_invalid_fields() -> Array:
+	var invalid_fields := []
+	for key in data:
+		var field = data[key]
+		if field.required and field.default_button.assigned_to.empty():
+			invalid_fields.append(field)
+
+	return invalid_fields
 
 
 func get_mapped_gamepad_or_null(joy_string: String) -> KeyMapField:

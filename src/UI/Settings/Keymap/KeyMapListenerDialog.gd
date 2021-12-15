@@ -34,11 +34,13 @@ func _ready():
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_unbind"):
+		if _current_event_identifier == -1:
+			return
 		timer.start()
 		tick.start()
 		update_ui_for(Step.unbind)
 		return
-	if event.is_action_released("ui_unbind"):
+	if event.is_action_released("ui_unbind") and timer.time_left > 0:
 		timer.stop()
 		update_ui_for(Step.remap)
 		return
@@ -170,6 +172,7 @@ func cancel_binding() -> void:
 
 func close() -> void:
 	hide()
+	owner.form.set_process_input(true)
 	timer.stop()
 	Events.emit_signal("field_focus_entered", _field)
 	_button.call_deferred("grab_focus")
@@ -184,6 +187,7 @@ func close() -> void:
 
 
 func _on_Key_listening_started(field: KeyMapField, button: Button, current_scancode: int) -> void:
+	owner.form.set_process_input(false)
 	Events.emit_signal("navigation_disabled")
 	_field = field
 	_button = button
