@@ -22,6 +22,12 @@ const MOUSE_INDEX_TO_STRING := {
 	"BUTTON_MASK_XBUTTON2": "Extra mouse button 2 mask"
 }
 
+var gamepad_regex := {
+	"xbox": "_XBOX_",
+	"nintendo": "_DS_",
+	"dualshock": "_SONY_"
+}
+
 var data := {}
 var default := {}
 var keyboard := {}
@@ -66,10 +72,7 @@ func get_default() -> Dictionary:
 			result[section][key] = data[section][key]["default"]
 
 	result["keyboard_and_mouse_controls"] = get_keyboard_or_mouse_key_from_keyboard_variant()
-	result["gamepad_controls"] = {}
-	for section in gamepad:
-		result["gamepad_controls"][section] = gamepad[section]["default"]
-
+	result["gamepad_controls"] = get_gamepad_layout()
 	return result
 
 
@@ -84,25 +87,34 @@ func get_keyboard_or_mouse_key_from_keyboard_variant() -> Dictionary:
 
 
 func get_keyboard_or_mouse_key_from_scancode(scancode: int) -> String:
-	for key in keylist["keyboard"]:
-		if keylist["keyboard"][key] == scancode:
+	for key in keylist.keyboard:
+		if keylist.keyboard[key] == scancode:
 			return key
 
-	for key in keylist["mouse"]:
-		if keylist["mouse"][key] == scancode:
-			return key
-	return ""
-
-
-func get_gamepad_button_from_scancode(scancode: int) -> String:
-	for key in keylist["gamepad"]:
-		if keylist["gamepad"][key] == scancode:
+	for key in keylist.mouse:
+		if keylist.mouse[key] == scancode:
 			return key
 	return ""
 
 
-func get_gamepad_config(scheme: String) -> Dictionary:
-	return {}
+func get_gamepad_layout() -> Dictionary:
+	var result := {}
+	for section in gamepad:
+		result[section] = gamepad[section]["default"]
+	return result
+
+
+func get_gamepad_button_from_joy_string(value: int, joy_string := "", type := "") -> String:
+	var device = "_" + type.to_upper() + "_"
+	var result := ""
+	for key in keylist.gamepad:
+		var key_joy_string := Input.get_joy_axis_string(keylist.gamepad[key]) if InputManager.is_motion_event(key) else Input.get_joy_button_string(keylist.gamepad[key])
+		if key_joy_string == joy_string and keylist.gamepad[key] == value:
+			# for gamepad specific button
+			if value in range(0, 4) and device in key:
+				return key
+			result = key
+	return result
 
 
 func get_mouse_button_string(key: String) -> String:

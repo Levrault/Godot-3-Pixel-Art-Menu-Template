@@ -21,9 +21,11 @@ func _ready():
 
 	_field = get_node(field_path)
 
+	connect("popup_hide", Events, "emit_signal", ["overlay_hidden"])
 	_timer.connect("timeout", self, "_on_Timeout")
 	_cancel.connect("pressed", self, "_on_Cancel_pressed")
 	_ok.connect("pressed", self, "_on_Ok_pressed")
+	get_close_button().hide()
 
 
 func show() -> void:
@@ -32,6 +34,7 @@ func show() -> void:
 	_progressbar.max_value = default_countdown
 	_countdown_label.text = String(_countdown)
 	_timer.start()
+	Events.emit_signal("overlay_displayed")
 	.show()
 
 
@@ -50,6 +53,7 @@ func _on_Cancel_pressed() -> void:
 	_field.revert()
 	_field.grab_focus()
 	_timer.stop()
+	Events.emit_signal("overlay_hidden")
 	hide()
 
 
@@ -57,4 +61,5 @@ func _on_Ok_pressed() -> void:
 	_timer.stop()
 	_field.grab_focus()
 	_field.save()
+	Events.emit_signal("overlay_hidden")
 	hide()

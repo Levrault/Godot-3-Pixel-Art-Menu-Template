@@ -1,12 +1,17 @@
+# specify for gamepad 
+# 	if the button is not disabled on the first frame, it will prevent us to rebind the ui_cancel button in conflict mode
+#	that why we put a set_deferred(disabled, false)
 extends WindowDialog
 
+const ALLOWED_AXIS_EVENT := [6, 7]
 enum Step { new, remap, conflict, unbind }
 
-var _field: KeyMapField = null
-var _conflicted_field: KeyMapField = null
+var _field: GamepadMapField = null
+var _conflicted_field: GamepadMapField = null
 var _button: Button = null
 var _current_event_identifier := -1
 var _new_event_identifier := -1
+var _new_event_joy_string := ""
 
 onready var message := $MarginContainer/VBoxContainer/Message
 onready var unbind_message := $MarginContainer/VBoxContainer/UnbindMessage
@@ -20,19 +25,25 @@ onready var progress_bar := $MarginContainer/VBoxContainer/ProgressBar
 
 
 func _ready():
-	Events.connect("key_listening_started", self, "_on_Key_listening_started")
+	Events.connect("gamepad_listening_started", self, "_on_Gamepad_listening_started")
 	rebind_button.connect("pressed", self, "_on_Apply_pressed")
 	cancel_button.connect("pressed", self, "_on_Cancel_pressed")
 	timer.connect("timeout", self, "_on_Timer_timeout")
 	tick.connect("timeout", self, "_on_Tick_timeout")
+
 	tick.wait_time = timer.wait_time / progress_bar.max_value
-	cancel_binding_message.text = tr("ui_controls_cancel_binding").format({ key = OS.get_scancode_string(InputMap.get_action_list("ui_cancel")[0].scancode)})
+
 	get_close_button().hide()
 	buttons_container.hide()
+	cancel_button.disabled = true
 	set_process_input(false)
 
 
 func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel_binding"):
+		cancel_binding()
+		return
+
 	if event.is_action_pressed("ui_unbind"):
 		if _current_event_identifier == -1:
 			return
@@ -45,20 +56,27 @@ func _input(event: InputEvent) -> void:
 		update_ui_for(Step.remap)
 		return
 
-	if event is InputEventMouseButton:
-		map_mouse_event(event)
+	if event is InputEventJoypadMotion and event.axis_value > 0.1 and ALLOWED_AXIS_EVENT.has(event.axis):
+		map_gamepad_motion_event(event)
 		return
 
-	if event is InputEventKey and event.pressed and not event.echo:
-		map_keyboard_event(event)
+	if event is InputEventJoypadButton and event.is_pressed():
+		map_gamepad_button_event(event)
 		return
 
 
 func update_ui_for(step: int, data := {}):
 	var unbind_action_key := ""
 	for evt in InputMap.get_action_list("ui_unbind"):
-		if evt is InputEventKey:
-			unbind_action_key = OS.get_scancode_string(evt.scancode)
+		if evt is InputEventJoypadButton:
+			unbind_action_key = EngineSettings.get_gamepad_button_from_joy_string(evt.button_index, Input.get_joy_button_string(evt.button_index), _button.type)
+
+	var cancel_action_key := ""
+	for evt in InputMap.get_action_list("ui_cancel_binding"):
+		if evt is InputEventJoypadButton:
+			cancel_action_key = EngineSettings.get_gamepad_button_from_joy_string(evt.button_index, Input.get_joy_button_string(evt.button_index), _button.type)
+
+	cancel_binding_message.text = tr("ui_controls_cancel_binding").format({ key = cancel_action_key})
 
 	if step == Step.new:
 		window_title = tr("ui_controls_binding_action").format({action = _field.action})
@@ -70,23 +88,12 @@ func update_ui_for(step: int, data := {}):
 		return
 
 	if step == Step.remap:
-		var key := OS.get_scancode_string(_current_event_identifier)
-		var default_key := OS.get_scancode_string(_field.values.default)
-		if not EngineSettings.keylist["keyboard"].has(
-			EngineSettings.get_keyboard_or_mouse_key_from_scancode(_current_event_identifier)
-		):
-			key = tr(EngineSettings.get_mouse_button_string(_button.assigned_to))
-		if not EngineSettings.keylist["keyboard"].has(
-			EngineSettings.get_keyboard_or_mouse_key_from_scancode(_field.values.default)
-		):
-			default_key = tr(EngineSettings.get_mouse_button_string(_button.assigned_to))
-
 		window_title = tr("ui_controls_binding_action").format({action = _field.action})
-		message.text = tr("ui_controls_binding_key_with_default").format({key = key, default_key = default_key})
+		message.text = tr("ui_controls_binding_key").format({key = _button.assigned_to})
 		unbind_message.text = tr("ui_controls_hold_to_unbind").format(
 			{
 				unbind_action_key = unbind_action_key,
-				key = OS.get_scancode_string(_current_event_identifier),
+				key = _button.assigned_to,
 				action = _field.action
 			}
 		)
@@ -103,16 +110,18 @@ func update_ui_for(step: int, data := {}):
 		message.text = tr("ui_controls_change_binding_to_new_action").format(
 			{new_action = _field.action, key = data.key, previous_action = _conflicted_field.action}
 		)
+		cancel_binding_message.hide()
 		message.show()
 		unbind_message.hide()
 		buttons_container.show()
+		cancel_button.set_deferred("disabled", false)
 		rebind_button.call_deferred("grab_focus")
 		progress_bar.hide()
 		return
 
 	if step == Step.unbind:
 		message.text = tr("ui_controls_unbinding_action").format(
-			{key = OS.get_scancode_string(_current_event_identifier), action = _field.action}
+			{key = _button.assigned_to, action = _field.action}
 		)
 		unbind_message.text = tr("ui_controls_cancel_unbind").format(
 			{unbind_action_key = unbind_action_key}
@@ -123,10 +132,34 @@ func update_ui_for(step: int, data := {}):
 		return
 
 
-func map_mouse_event(event: InputEventMouseButton) -> void:
+func map_gamepad_motion_event(event) -> void:
+	_new_event_identifier = event.axis
+
+	if _new_event_identifier == _current_event_identifier:
+		cancel_binding()
+		return
+
+	_new_event_joy_string = Input.get_joy_axis_string(_new_event_identifier)
+	_conflicted_field = owner.form.get_mapped_gamepad_or_null(_new_event_joy_string)
+	if _conflicted_field == null:
+		map_action()
+		return
+	if _conflicted_field == _field:
+		cancel_binding()
+		return
+
+	update_ui_for(Step.conflict, {key = EngineSettings.get_gamepad_button_from_joy_string(_new_event_identifier, _new_event_joy_string, _button.type)})
+
+
+func map_gamepad_button_event(event) -> void:
 	_new_event_identifier = event.button_index
-	_conflicted_field = owner.form.get_mapped_key_or_null(event.button_index)
 
+	if _new_event_identifier == _current_event_identifier:
+		cancel_binding()
+		return
+
+	_new_event_joy_string = Input.get_joy_button_string(_new_event_identifier)
+	_conflicted_field = owner.form.get_mapped_gamepad_or_null(_new_event_joy_string)
 	if _conflicted_field == null:
 		map_action()
 		return
@@ -134,35 +167,12 @@ func map_mouse_event(event: InputEventMouseButton) -> void:
 		cancel_binding()
 		return
 
-	set_process_input(false)
-	var conflicted_button = _conflicted_field.get_button_by_scancode(event.button_index)
-	update_ui_for(
-		Step.conflict,
-		{key = tr(EngineSettings.get_mouse_button_string(conflicted_button.assigned_to))}
-	)
-
-
-func map_keyboard_event(event: InputEventKey) -> void:
-	_new_event_identifier = event.scancode
-
-	if event.is_action_pressed("ui_cancel") or _new_event_identifier == _current_event_identifier:
-		cancel_binding()
-		return
-
-	_conflicted_field = owner.form.get_mapped_key_or_null(_new_event_identifier)
-	if _conflicted_field == null:
-		map_action()
-		return
-	if _conflicted_field == _field:
-		cancel_binding()
-		return
-
-	update_ui_for(Step.conflict, {key = OS.get_scancode_string(_new_event_identifier)})
+	update_ui_for(Step.conflict, {key = EngineSettings.get_gamepad_button_from_joy_string(_new_event_identifier, _new_event_joy_string, _button.type)})
 
 
 func map_action() -> void:
-	_button.assign_with_scancode(_new_event_identifier)
-	_field.apply_changes(_button.key)
+	_button.assign_with_constant(EngineSettings.get_gamepad_button_from_joy_string(_new_event_identifier, _new_event_joy_string, _button.type))
+	owner.form.save()
 	close()
 
 
@@ -187,9 +197,10 @@ func close() -> void:
 	Events.emit_signal("overlay_hidden")
 
 
-func _on_Key_listening_started(field: KeyMapField, button: Button, current_scancode: int) -> void:
+func _on_Gamepad_listening_started(field: GamepadMapField, button: Button, current_scancode: int) -> void:
 	owner.form.set_process_input(false)
 	Events.emit_signal("navigation_disabled")
+
 	_field = field
 	_button = button
 	_current_event_identifier = current_scancode
@@ -198,7 +209,7 @@ func _on_Key_listening_started(field: KeyMapField, button: Button, current_scanc
 		update_ui_for(Step.new)
 	else:
 		update_ui_for(Step.remap)
-
+	
 	Events.emit_signal("overlay_displayed")
 	show()
 	set_process_input(true)
@@ -206,26 +217,28 @@ func _on_Key_listening_started(field: KeyMapField, button: Button, current_scanc
 
 func _on_Apply_pressed() -> void:
 	_conflicted_field.unmap(_new_event_identifier)
-	_conflicted_field.apply_changes(_button.key)
+	owner.form.save()
 	map_action()
 
 
 func _on_Cancel_pressed() -> void:
 	_new_event_identifier = -1
 	_conflicted_field = null
+	update_ui_for(Step.remap)
 
 	if _current_event_identifier == -1:
 		update_ui_for(Step.new)
 	else:
 		update_ui_for(Step.remap)
 
+	cancel_button.set_deferred("disabled", true)
 	set_process_input(true)
 
 
 func _on_Timer_timeout() -> void:
 	set_process_input(false)
 	_field.unmap(_current_event_identifier)
-	_field.apply_changes(_button.key)
+	owner.form.save()
 	close()
 
 

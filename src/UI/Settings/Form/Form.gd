@@ -12,15 +12,14 @@ onready var confirm_dialog := $ConfirmationDialog
 
 
 func _ready() -> void:
+	confirm_dialog.get_close_button().hide()
 	confirm_dialog.get_ok().connect("pressed", self, "_on_Ok_dialog_pressed")
 	confirm_dialog.get_cancel().connect("pressed", self, "_on_Cancel_dialog_pressed")
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel") and owner.is_current_route and not is_pristine:
-		Events.emit_signal("navigation_disabled")
-		confirm_dialog.show()
-		confirm_dialog.get_ok().grab_focus()
+	if event.is_action_pressed("ui_cancel") and is_invalid():
+		invalid_callback()
 		return
 
 
@@ -64,6 +63,17 @@ func save() -> void:
 	self.is_pristine = true
 
 
+func invalid_callback() -> void:
+	Events.emit_signal("navigation_disabled")
+	Events.emit_signal("overlay_displayed")
+	confirm_dialog.show()
+	confirm_dialog.get_ok().grab_focus()
+
+
+func is_invalid() -> bool:
+	return owner.is_current_route and not is_pristine
+
+
 func _set_is_pristine(value: bool) -> void:
 	is_pristine = value
 	emit_signal("pristine_value_changed", value)
@@ -71,11 +81,13 @@ func _set_is_pristine(value: bool) -> void:
 
 func _on_Ok_dialog_pressed() -> void:
 	save()
+	Events.emit_signal("overlay_hidden")
 	Events.emit_signal("navigation_enabled")
 	Menu.navigate_to(Menu.history.pop_back())
 
 
 func _on_Cancel_dialog_pressed() -> void:
 	revert()
+	Events.emit_signal("overlay_hidden")
 	Events.emit_signal("navigation_enabled")
 	Menu.navigate_to(Menu.history.pop_back())

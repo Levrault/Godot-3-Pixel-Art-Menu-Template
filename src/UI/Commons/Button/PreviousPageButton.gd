@@ -12,6 +12,9 @@ func _ready():
 
 
 func _on_Pressed() -> void:
+	if owner.form.is_invalid():
+		owner.form.invalid_callback()
+		return
 	if not can_navigate:
 		return
 	Menu.navigate_to(Menu.history.pop_back())

@@ -1,0 +1,110 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/UI/Settings/Keymap/KeyMapField.gd" type="Script" id=1]
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Button
+
+export var key := \"\"
+
+var assigned_to := \"\"
+var type := \"keyboard\"
+
+
+func _ready() -> void:
+	connect(\"pressed\", self, \"_on_Pressed\")
+	connect(\"focus_entered\", self, \"_on_Focus_entered\")
+
+
+func assign_with_constant(value: String) -> void:
+	if value.empty():
+		clear()
+		return
+	assigned_to = value
+
+	type = \"keyboard\" if EngineSettings.keylist[\"keyboard\"].has(value) else \"mouse\"
+	if type == \"keyboard\":
+		text = OS.get_scancode_string(EngineSettings.keylist[type][value])
+		var input_event_key = InputEventKey.new()
+		input_event_key.set_scancode(EngineSettings.keylist[type][value])
+		InputMap.action_add_event(owner.action, input_event_key)
+	else:
+		text = tr(EngineSettings.get_mouse_button_string(assigned_to))
+		var input_event_mouse = InputEventMouseButton.new()
+		input_event_mouse.set_button_index(EngineSettings.keylist[type][value])
+		InputMap.action_add_event(owner.action, input_event_mouse)
+	owner.values[key] = EngineSettings.keylist[type][value]
+
+
+func assign_with_scancode(value: int) -> void:
+	assign_with_constant(EngineSettings.get_keyboard_or_mouse_key_from_scancode(value))
+
+
+func clear() -> void:
+	if owner.values.has(key):
+		if EngineSettings.keylist[\"keyboard\"].has(assigned_to):
+			var input_event_key = InputEventKey.new()
+			input_event_key.set_scancode(owner.values[key])
+			InputMap.action_erase_event(owner.action, input_event_key)
+		else:
+			var input_event_mouse = InputEventMouseButton.new()
+			input_event_mouse.set_button_index(owner.values[key])
+			InputMap.action_erase_event(owner.action, input_event_mouse)
+	text = \"_\"
+	assigned_to = \"\"
+	owner.values[key] = -1
+
+
+func _on_Pressed() -> void:
+	Events.emit_signal(\"key_listening_started\", owner, self, owner.values[key])
+	release_focus()
+
+
+func _on_Focus_entered() -> void:
+	owner.last_focused_button = self
+"
+
+[node name="KeyMapField" type="HBoxContainer" groups=["GameSettings"]]
+margin_right = 34.0
+margin_bottom = 20.0
+focus_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Default" type="Button" parent="."]
+margin_right = 12.0
+margin_bottom = 20.0
+focus_neighbour_right = NodePath("../Alt")
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+text = "placeholder"
+flat = true
+clip_text = true
+script = SubResource( 2 )
+key = "default"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 3.0
+margin_right = 23.0
+margin_bottom = 17.0
+text = "|"
+
+[node name="Alt" type="Button" parent="."]
+margin_left = 27.0
+margin_right = 136.0
+margin_bottom = 20.0
+focus_neighbour_left = NodePath("../Default")
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+text = "alt_placeholder"
+flat = true
+script = SubResource( 2 )
+key = "alt"

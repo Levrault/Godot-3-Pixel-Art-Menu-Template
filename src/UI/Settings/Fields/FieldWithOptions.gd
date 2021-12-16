@@ -9,6 +9,18 @@ var _index: int = 0
 
 func _ready() -> void:
 	yield(owner, "ready")
+
+	if key.empty():
+		printerr("%s's key is empty" % get_name())
+		return
+
+	if not EngineSettings.data.has(owner.form.engine_file_section):
+		printerr("Form section %s is not defined in Config" % owner.form.engine_file_section)
+		return
+
+	if not EngineSettings.data[owner.form.engine_file_section].has(key):
+		printerr("%s has no options associated to key %s" % [get_name(), key])
+		return
 	items = EngineSettings.data[owner.form.engine_file_section][key]["options"]
 
 
@@ -20,6 +32,13 @@ func reset() -> void:
 
 func revert() -> void:
 	.revert()
+	if not EngineSettings.data.has(owner.form.engine_file_section):
+		printerr("Form section %s is not defined in Config" % owner.form.engine_file_section)
+		return
+
+	if not EngineSettings.data[owner.form.engine_file_section].has(key):
+		printerr("%s has no options associated to key %s" % [get_name(), key])
+		return
 	# get default value from engine
 	self.selected_key = Config.values[owner.form.engine_file_section][key]
 	_compute_index()

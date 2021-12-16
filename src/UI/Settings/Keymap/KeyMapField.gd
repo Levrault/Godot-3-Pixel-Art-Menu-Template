@@ -2,9 +2,8 @@ tool
 class_name KeyMapField, "res://assets/icons/keyboard.svg"
 extends HBoxContainer
 
-signal pristine_value_changed(value)
-
 export var action := ""
+export var required := true
 export var alt_placeholder := "alt_placeholder" setget _set_alt_placeholder
 export var placeholder := "placeholder" setget _set_placeholder
 
