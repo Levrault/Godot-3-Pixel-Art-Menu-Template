@@ -12,6 +12,7 @@ onready var confirm_dialog := $ConfirmationDialog
 
 
 func _ready() -> void:
+	confirm_dialog.get_close_button().hide()
 	confirm_dialog.get_ok().connect("pressed", self, "_on_Ok_dialog_pressed")
 	confirm_dialog.get_cancel().connect("pressed", self, "_on_Cancel_dialog_pressed")
 
@@ -64,6 +65,7 @@ func save() -> void:
 
 func invalid_callback() -> void:
 	Events.emit_signal("navigation_disabled")
+	Events.emit_signal("overlay_displayed")
 	confirm_dialog.show()
 	confirm_dialog.get_ok().grab_focus()
 
@@ -79,11 +81,13 @@ func _set_is_pristine(value: bool) -> void:
 
 func _on_Ok_dialog_pressed() -> void:
 	save()
+	Events.emit_signal("overlay_hidden")
 	Events.emit_signal("navigation_enabled")
 	Menu.navigate_to(Menu.history.pop_back())
 
 
 func _on_Cancel_dialog_pressed() -> void:
 	revert()
+	Events.emit_signal("overlay_hidden")
 	Events.emit_signal("navigation_enabled")
 	Menu.navigate_to(Menu.history.pop_back())

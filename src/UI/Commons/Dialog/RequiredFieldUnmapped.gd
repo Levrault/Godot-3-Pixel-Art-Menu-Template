@@ -4,7 +4,8 @@ extends WindowDialog
 onready var ok_btn := $MarginContainer/VBoxContainer/HBoxContainer/Ok
 
 func _ready() -> void:
-	ok_btn.connect("pressed", self, "hide")
+	get_close_button().hide()
+	ok_btn.connect("pressed", self, "_on_Ok_pressed")
 
 
 func set_message(unmapped_fields := []) -> void:
@@ -18,5 +19,11 @@ func set_message(unmapped_fields := []) -> void:
 
 
 func show() -> void:
+	Events.emit_signal("overlay_displayed")
 	visible = true
 	ok_btn.call_deferred("grab_focus")
+
+
+func _on_Ok_pressed() -> void:
+	hide()
+	Events.emit_signal("overlay_hidden")

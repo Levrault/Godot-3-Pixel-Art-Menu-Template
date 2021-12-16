@@ -23,4 +23,5 @@ margin_top = -70.0
 margin_right = 200.0
 margin_bottom = 70.0
 rect_min_size = Vector2( 400, 140 )
+popup_exclusive = true
 dialog_text = "ui_confirm_reset_to_default"

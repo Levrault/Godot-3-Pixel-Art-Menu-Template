@@ -184,6 +184,7 @@ func close() -> void:
 	buttons_container.hide()
 	set_process_input(false)
 	Events.call_deferred("emit_signal", "navigation_enabled")
+	Events.emit_signal("overlay_hidden")
 
 
 func _on_Key_listening_started(field: KeyMapField, button: Button, current_scancode: int) -> void:
@@ -197,6 +198,8 @@ func _on_Key_listening_started(field: KeyMapField, button: Button, current_scanc
 		update_ui_for(Step.new)
 	else:
 		update_ui_for(Step.remap)
+
+	Events.emit_signal("overlay_displayed")
 	show()
 	set_process_input(true)
 

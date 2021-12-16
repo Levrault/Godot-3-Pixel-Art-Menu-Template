@@ -18,7 +18,6 @@ engine_file_section = "keyboard_and_mouse_controls"
 [node name="KeyMapListenerDialog" parent="Form" index="1" instance=ExtResource( 5 )]
 
 [node name="RequiredFieldUnmapped" parent="Form" index="2" instance=ExtResource( 7 )]
-visible = false
 
 [node name="Breadcrumb" parent="Wrapper/Page" index="0"]
 breadcrumbs = [ "ui_options", "ui_controls", "ui_keyboard_mapping" ]

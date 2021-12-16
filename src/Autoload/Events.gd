@@ -31,6 +31,10 @@ signal focused_row_changed(row)
 # menu
 signal menu_route_changed(route)
 
+# overlay
+signal overlay_displayed
+signal overlay_hidden
+
 # transitions
 signal transition_started(anim_name)
 signal transition_mid_animated
