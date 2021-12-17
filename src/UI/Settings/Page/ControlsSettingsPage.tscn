@@ -8,7 +8,7 @@
 [ext_resource path="res://src/UI/Settings/Updater/GamepadYAxisUpdater.gd" type="Script" id=6]
 [ext_resource path="res://src/UI/Settings/Updater/MouseSensibilityUpdater.gd" type="Script" id=7]
 [ext_resource path="res://src/UI/Settings/Updater/GamepadXAxisUpdater.gd" type="Script" id=8]
-[ext_resource path="res://src/UI/Settings/Updater/GamepadRumbleForceUpdater.gd" type="Script" id=9]
+[ext_resource path="res://src/UI/Settings/Updater/GamepadVibrationUpdater.gd" type="Script" id=9]
 [ext_resource path="res://src/UI/Settings/Fields/HListField.tscn" type="PackedScene" id=10]
 
 [node name="ControlsSettingsPage" instance=ExtResource( 1 )]
@@ -146,33 +146,33 @@ placeholder = "normal"
 [node name="Updater" type="Node" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadYAxis/MarginContainer/FieldContainer/GamepadYAxis" index="4"]
 script = ExtResource( 6 )
 
-[node name="GamepadRumble" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="5" instance=ExtResource( 3 )]
+[node name="GamepadVibration" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="5" instance=ExtResource( 3 )]
 margin_top = 128.0
 margin_right = 428.0
 margin_bottom = 150.0
 
-[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadRumble/MarginContainer" index="0"]
+[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadVibration/MarginContainer" index="0"]
 margin_right = 424.0
 
-[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadRumble/MarginContainer/FieldContainer" index="0"]
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadVibration/MarginContainer/FieldContainer" index="0"]
 margin_top = 4.0
 margin_right = 226.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
-text = "ui_gamepad_rumble_force"
+text = "ui_gamepad_vibration"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GamepadRumbleForce" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadRumble/MarginContainer/FieldContainer" index="1" instance=ExtResource( 5 )]
+[node name="GamepadVibration" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadVibration/MarginContainer/FieldContainer" index="1" instance=ExtResource( 5 )]
 margin_left = 230.0
 margin_right = 420.0
-key = "gamepad_rumble_force"
+key = "gamepad_vibration"
 placeholder = "100%"
 max_value = 1.0
 nb_of_step = 20
 
-[node name="Updater" type="Node" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadRumble/MarginContainer/FieldContainer/GamepadRumbleForce" index="2"]
+[node name="Updater" type="Node" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadVibration/MarginContainer/FieldContainer/GamepadVibration" index="2"]
 script = ExtResource( 9 )
 
 [node name="GamepadLayout" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="6" instance=ExtResource( 3 )]
@@ -215,5 +215,5 @@ navigate_to = "GamepadSettingsPage"
 [editable path="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadStickLayout"]
 [editable path="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadXAxis"]
 [editable path="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadYAxis"]
-[editable path="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadRumble"]
+[editable path="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadVibration"]
 [editable path="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadLayout"]

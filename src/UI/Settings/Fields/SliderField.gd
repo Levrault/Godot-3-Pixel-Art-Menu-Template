@@ -9,7 +9,8 @@ export var min_value := 0.0
 export var max_value := 100.0
 export var nb_of_step := 10
 
-var compute_from_negative := false
+var _is_computing_from_negative := false
+var _should_trigger_updater_callback_action := false
 onready var slider := $HSlider
 
 
@@ -27,7 +28,7 @@ func _ready() -> void:
 	values.properties = EngineSettings.data[owner.form.engine_file_section][key]["properties"]
 
 	if abs(min_value) > max_value:
-		compute_from_negative = true
+		_is_computing_from_negative = true
 	slider.min_value = min_value
 	slider.max_value = max_value
 	slider.step = abs(max_value - min_value) / nb_of_step
@@ -45,7 +46,7 @@ func revert() -> void:
 
 
 func percentage(value) -> float:
-	if compute_from_negative:
+	if _is_computing_from_negative:
 		return (abs(min_value) - abs(value)) * 100 / abs(min_value)
 	return abs(abs(min_value) - abs(value)) * 100 / abs(max_value)
 
@@ -67,9 +68,14 @@ func _on_Slider_focus_exited() -> void:
 func _on_Value_changed(value: float) -> void:
 	$Value.text = String(percentage(value))
 	values.key = value
-	self.is_pristine = false
 	for key in values.properties:
 		values.properties[key] = value
 
+	updater.apply(values.properties, _should_trigger_updater_callback_action)
+
+	# first load
+	if not _should_trigger_updater_callback_action:
+		_should_trigger_updater_callback_action = true
+	else:
+		self.is_pristine = false
 	print_debug("%s has apply properties : %s" % [get_name(), values.properties])
-	updater.apply(values.properties, true)

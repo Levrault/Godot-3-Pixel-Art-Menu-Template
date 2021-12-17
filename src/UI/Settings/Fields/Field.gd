@@ -71,7 +71,6 @@ func _set_placeholder(value: String) -> void:
 
 
 func _set_is_pristine(value: bool) -> void:
-	print("%s pristine value has changed to %s" % [get_name(), String(value)])
 	is_pristine = value
 	owner.form.update_pristine()
 	emit_signal("pristine_value_changed", value)
@@ -82,4 +81,3 @@ func _on_Focus_toggle(is_focused: bool) -> void:
 		Events.emit_signal("field_focus_entered", self)
 		return
 	Events.emit_signal("field_focus_exited", self)
-	print("%s has focus" % [get_name()])
