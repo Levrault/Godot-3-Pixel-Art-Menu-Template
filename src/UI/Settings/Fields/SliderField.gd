@@ -26,7 +26,9 @@ func _ready() -> void:
 	slider.connect("value_changed", self, "_on_Value_changed")
 
 	values.properties = EngineSettings.data[owner.form.engine_file_section][key]["properties"]
-
+	
+	updater.apply_on_save = false
+	
 	if abs(min_value) > max_value:
 		_is_computing_from_negative = true
 	slider.min_value = min_value
@@ -36,11 +38,13 @@ func _ready() -> void:
 
 
 func reset() -> void:
+	_should_trigger_updater_callback_action = false
 	slider.value = EngineSettings.data[owner.form.engine_file_section][key].default
 	apply()
 
 
 func revert() -> void:
+	_should_trigger_updater_callback_action = false
 	slider.value = Config.values[owner.form.engine_file_section][key]
 	apply()
 
@@ -54,6 +58,10 @@ func percentage(value) -> float:
 func _set_placeholder(value: String) -> void:
 	placeholder = value
 	$Value.text = placeholder
+
+
+func _set_is_pristine(value: bool) -> void:
+	._set_is_pristine(value)
 
 
 func _on_Focus_entered() -> void:

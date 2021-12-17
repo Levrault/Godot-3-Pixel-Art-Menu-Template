@@ -57,6 +57,8 @@ func save() -> void:
 			continue
 		if data[key].updater == null:
 			continue
+		if not data[key].updater.apply_on_save:
+			continue
 		data[key].updater.apply(data[key].values.properties)
 
 	apply_changes(data)

@@ -1,6 +1,8 @@
 class_name Updater
 extends Node
 
+export var apply_on_save := true
+
 
 func _ready() -> void:
 	yield(owner, "ready")
