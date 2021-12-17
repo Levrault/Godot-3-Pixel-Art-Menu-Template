@@ -44,7 +44,6 @@ func reset() -> void:
 
 
 func revert() -> void:
-	_should_trigger_updater_callback_action = false
 	slider.value = Config.values[owner.form.engine_file_section][key]
 	apply()
 
@@ -58,10 +57,6 @@ func percentage(value) -> float:
 func _set_placeholder(value: String) -> void:
 	placeholder = value
 	$Value.text = placeholder
-
-
-func _set_is_pristine(value: bool) -> void:
-	._set_is_pristine(value)
 
 
 func _on_Focus_entered() -> void:
