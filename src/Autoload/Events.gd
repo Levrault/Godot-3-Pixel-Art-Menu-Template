@@ -12,12 +12,10 @@ signal config_file_loade
 
 # gamepad binding
 signal gamepad_listening_started
+signal gamepad_layout_changed
 
 # keybinding
 signal key_listening_started(field, button, scancode)
-
-# notification
-signal notification_started(text, size)
 
 # navigation
 signal navigation_disabled

@@ -12,6 +12,7 @@ export var nb_of_step := 10
 var _is_computing_from_negative := false
 var _should_trigger_updater_callback_action := false
 onready var slider := $HSlider
+onready var debounce_timer := $DebounceTimer
 
 
 func _ready() -> void:
@@ -24,11 +25,10 @@ func _ready() -> void:
 	connect("focus_entered", self, "_on_Focus_entered")
 	slider.connect("focus_exited", self, "_on_Slider_focus_exited")
 	slider.connect("value_changed", self, "_on_Value_changed")
+	debounce_timer.connect("timeout", self, "_on_Timeout")
 
 	values.properties = EngineSettings.data[owner.form.engine_file_section][key]["properties"]
-	
-	updater.apply_on_save = false
-	
+
 	if abs(min_value) > max_value:
 		_is_computing_from_negative = true
 	slider.min_value = min_value
@@ -40,6 +40,7 @@ func _ready() -> void:
 func reset() -> void:
 	_should_trigger_updater_callback_action = false
 	slider.value = EngineSettings.data[owner.form.engine_file_section][key].default
+	Config.save_field(owner.form.engine_file_section, key, values.key)
 	apply()
 
 
@@ -81,4 +82,9 @@ func _on_Value_changed(value: float) -> void:
 		_should_trigger_updater_callback_action = true
 	else:
 		self.is_pristine = false
+		debounce_timer.start()
 	print_debug("%s has apply properties : %s" % [get_name(), values.properties])
+
+
+func _on_Timeout() -> void:
+	Config.save_field(owner.form.engine_file_section, key, values.key)

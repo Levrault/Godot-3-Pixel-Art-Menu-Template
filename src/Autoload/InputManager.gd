@@ -10,6 +10,8 @@ const DEVICE_PLAYSTATION_CONTROLLER := "dualshock"
 const DEVICE_GENERIC := "generic"
 const GAMEPAD_MOTION_REGEX := "_AXIS_|_ANALOG_"
 
+var all_gamepad_devices := []
+
 var gamepad_button_regex := {
 	"xbox": "_XBOX_",
 	"nintendo": "_DS_",
@@ -23,6 +25,7 @@ var _motion_regex := RegEx.new()
 
 func _ready() -> void:
 	_motion_regex.compile(GAMEPAD_MOTION_REGEX)
+	all_gamepad_devices = [DEVICE_XBOX_CONTROLLER, DEVICE_SWITCH_CONTROLLER, DEVICE_PLAYSTATION_CONTROLLER, DEVICE_GENERIC]
 
 
 func _input(event: InputEvent) -> void:

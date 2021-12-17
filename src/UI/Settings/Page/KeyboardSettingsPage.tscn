@@ -15,9 +15,9 @@ default_field_to_focus = NodePath("Wrapper/Page/Contents/ScrollContainer/KeyMapT
 script = ExtResource( 6 )
 engine_file_section = "keyboard_and_mouse_controls"
 
-[node name="KeyMapListenerDialog" parent="Form" index="1" instance=ExtResource( 5 )]
+[node name="KeyMapListenerDialog" parent="Form" index="0" instance=ExtResource( 5 )]
 
-[node name="RequiredFieldUnmapped" parent="Form" index="2" instance=ExtResource( 7 )]
+[node name="RequiredFieldUnmapped" parent="Form" index="1" instance=ExtResource( 7 )]
 
 [node name="Breadcrumb" parent="Wrapper/Page" index="0"]
 breadcrumbs = [ "ui_options", "ui_controls", "ui_keyboard_mapping" ]

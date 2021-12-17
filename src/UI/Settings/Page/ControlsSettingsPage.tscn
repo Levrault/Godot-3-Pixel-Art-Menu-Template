@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/UI/Settings/SettingsPageTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/UI/Commons/Navigation/NavigationButton.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://src/UI/Settings/Updater/GamepadXAxisUpdater.gd" type="Script" id=8]
 [ext_resource path="res://src/UI/Settings/Updater/GamepadVibrationUpdater.gd" type="Script" id=9]
 [ext_resource path="res://src/UI/Settings/Fields/HListField.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/UI/Settings/Gamepad/GamepadLayoutPreview.tscn" type="PackedScene" id=11]
 
 [node name="ControlsSettingsPage" instance=ExtResource( 1 )]
 default_field_to_focus = NodePath("Wrapper/Page/Contents/ScrollContainer/VBoxContainer/MouseSensibility/MarginContainer/FieldContainer/MouseSensibility")
@@ -29,7 +30,7 @@ follow_focus = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Wrapper/Page/Contents/ScrollContainer" index="0"]
 margin_right = 428.0
-margin_bottom = 200.0
+margin_bottom = 404.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -203,10 +204,22 @@ placeholder = "default"
 [node name="Updater" type="Node" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadLayout/MarginContainer/FieldContainer/GamepadLayout" index="4"]
 script = ExtResource( 4 )
 
-[node name="Gamepad" type="Button" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="7"]
+[node name="LayoutPreview" type="CenterContainer" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="7"]
 margin_top = 180.0
 margin_right = 428.0
+margin_bottom = 380.0
+
+[node name="GamepadLayoutPreview" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/LayoutPreview" index="0" instance=ExtResource( 11 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 14.0
+margin_right = 414.0
 margin_bottom = 200.0
+
+[node name="Gamepad" type="Button" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="8"]
+margin_top = 384.0
+margin_right = 428.0
+margin_bottom = 404.0
 text = "ui_gamepad_mapping"
 script = ExtResource( 2 )
 navigate_to = "GamepadSettingsPage"

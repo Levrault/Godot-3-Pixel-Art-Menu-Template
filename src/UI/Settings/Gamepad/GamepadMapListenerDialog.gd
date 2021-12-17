@@ -1,4 +1,4 @@
-# specify for gamepad 
+# specify for gamepad
 # 	if the button is not disabled on the first frame, it will prevent us to rebind the ui_cancel button in conflict mode
 #	that why we put a set_deferred(disabled, false)
 extends WindowDialog
@@ -209,7 +209,7 @@ func _on_Gamepad_listening_started(field: GamepadMapField, button: Button, curre
 		update_ui_for(Step.new)
 	else:
 		update_ui_for(Step.remap)
-	
+
 	Events.emit_signal("overlay_displayed")
 	show()
 	set_process_input(true)
