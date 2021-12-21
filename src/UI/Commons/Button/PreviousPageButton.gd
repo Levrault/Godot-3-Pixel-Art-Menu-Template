@@ -12,7 +12,7 @@ func _ready():
 
 
 func _on_Pressed() -> void:
-	if owner.form.is_invalid():
+	if owner.has_node("Form") and owner.form.is_invalid():
 		owner.form.invalid_callback()
 		return
 	if not can_navigate:
