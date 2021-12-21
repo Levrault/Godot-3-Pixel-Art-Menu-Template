@@ -34,7 +34,9 @@ func save() -> void:
 
 
 func reset() -> void:
-	.reset()
+	self.selected_key = Config.values[owner.form.engine_file_section][key]
+	_compute_index()
+	apply()
 	option_button.select(_index)
 
 

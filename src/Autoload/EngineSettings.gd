@@ -71,8 +71,8 @@ func get_default() -> Dictionary:
 		for key in data[section]:
 			result[section][key] = data[section][key]["default"]
 
-	result["keyboard_and_mouse_controls"] = get_keyboard_or_mouse_key_from_keyboard_variant()
-	result["gamepad_controls"] = get_gamepad_layout()
+	result["keyboard_and_mouse_bindind"] = get_keyboard_or_mouse_key_from_keyboard_variant()
+	result["gamepad_bindind"] = get_gamepad_layout()
 	return result
 
 
