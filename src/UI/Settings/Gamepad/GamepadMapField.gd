@@ -59,7 +59,7 @@ func _on_Focus_entered() -> void:
 
 
 func _on_Navigation_finished() -> void:
-	
+
 	if InputManager.device == InputManager.DEVICE_KEYBOARD:
 		default_button.assign_with_constant(
 			Config.values[owner.form.engine_file_section][InputManager.DEVICE_GENERIC][action][default_button.key]

@@ -72,7 +72,6 @@ func _set_placeholder(value: String) -> void:
 
 func _set_is_pristine(value: bool) -> void:
 	is_pristine = value
-	owner.form.update_pristine()
 	emit_signal("pristine_value_changed", value)
 
 

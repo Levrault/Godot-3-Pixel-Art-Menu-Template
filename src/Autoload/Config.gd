@@ -34,8 +34,17 @@ func save_file(new_settings: Dictionary) -> void:
 			values[section][key] = new_settings[section][key]
 
 	_file.save(CONFIG_FILE_PATH)
-	Events.emit_signal("config_file_saved")
-	Events.emit_signal("notification_started", "ui_data_saved", Vector2(460, 40))
+	Events.call_deferred("emit_signal", "config_file_saved")
+	print_debug("File has been saved")
+
+
+
+func save_field(section: String, field: String, value) -> void:
+	_file.set_value(section, field, value)
+	_file.save(CONFIG_FILE_PATH)
+	values[section][field] = _file.get_value(section, field, value)
+	Events.call_deferred("emit_signal", "config_file_saved")
+	print_debug("%s/%s has been saved with %s" % [section, field, value])
 
 
 # Load data from config.cfg

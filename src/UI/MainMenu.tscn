@@ -4,12 +4,12 @@
 [ext_resource path="res://src/UI/TitleScreen/TitleScreen.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/UI/Commons/Navigation/NavigationRouter.gd" type="Script" id=3]
 [ext_resource path="res://src/UI/Settings/Page/ControlsSettingsPage.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/UI/Settings/Page/GamepadSettingsPage.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/UI/Settings/Page/GamepadRebindPage.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/UI/Settings/Page/AudioSettingsPage.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/UI/Settings/Page/VideoSettingsPage.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/UI/Commons/Transition/UiTransition.tscn" type="PackedScene" id=8]
-[ext_resource path="res://src/UI/Commons/Notifications/Notification.tscn" type="PackedScene" id=10]
-[ext_resource path="res://src/UI/Settings/Page/KeyboardSettingsPage.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/UI/Settings/Page/GamepadLayoutSettingsPage.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/UI/Settings/Page/KeyboardRebindPage.tscn" type="PackedScene" id=11]
 
 [node name="MainMenu" type="Control"]
 pause_mode = 2
@@ -34,12 +34,13 @@ visible = false
 [node name="ControlsSettingsPage" parent="." instance=ExtResource( 4 )]
 visible = false
 
-[node name="GamepadSettingsPage" parent="." instance=ExtResource( 5 )]
+[node name="GamepadLayoutSettingsPage" parent="." instance=ExtResource( 9 )]
 visible = false
 
-[node name="KeyboardSettingsPage" parent="." instance=ExtResource( 11 )]
+[node name="GamepadRebindPage" parent="." instance=ExtResource( 5 )]
+visible = false
+
+[node name="KeyboardRebindPage" parent="." instance=ExtResource( 11 )]
 visible = false
 
 [node name="MenuTransition" parent="." instance=ExtResource( 8 )]
-
-[node name="Notification" parent="." instance=ExtResource( 10 )]

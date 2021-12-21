@@ -5,6 +5,7 @@ extends Field
 var selected_key := "" setget _set_selected_key
 var items := []
 var _index: int = 0
+var _can_save_field := false # prevent save on first load
 
 
 func _ready() -> void:
@@ -48,6 +49,11 @@ func revert() -> void:
 func _set_selected_key(text: String) -> void:
 	selected_key = text
 	values = EngineSettings.get_option(owner.form.engine_file_section, key, text)
+	if _can_save_field:
+		Config.save_field(owner.form.engine_file_section, key, selected_key)
+	else:
+		_can_save_field = true
+	updater.apply(values.properties, true)
 
 
 func _compute_index() -> void:
