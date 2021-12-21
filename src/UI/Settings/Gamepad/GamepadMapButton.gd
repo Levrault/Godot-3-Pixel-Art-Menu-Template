@@ -46,7 +46,9 @@ func clear() -> void:
 
 func _on_Pressed() -> void:
 	if EngineSettings.keylist.gamepad.has(assigned_to):
-		Events.emit_signal("gamepad_listening_started", owner, self, EngineSettings.keylist.gamepad[assigned_to])
+		Events.emit_signal(
+			"gamepad_listening_started", owner, self, EngineSettings.keylist.gamepad[assigned_to]
+		)
 	else:
 		Events.emit_signal("gamepad_listening_started", owner, self, -1)
 	release_focus()

@@ -26,7 +26,9 @@ func _ready():
 	timer.connect("timeout", self, "_on_Timer_timeout")
 	tick.connect("timeout", self, "_on_Tick_timeout")
 	tick.wait_time = timer.wait_time / progress_bar.max_value
-	cancel_binding_message.text = tr("ui_controls_cancel_binding").format({ key = OS.get_scancode_string(InputMap.get_action_list("ui_cancel")[0].scancode)})
+	cancel_binding_message.text = tr("ui_controls_cancel_binding").format(
+		{key = OS.get_scancode_string(InputMap.get_action_list("ui_cancel")[0].scancode)}
+	)
 	get_close_button().hide()
 	buttons_container.hide()
 	set_process_input(false)
@@ -82,7 +84,9 @@ func update_ui_for(step: int, data := {}):
 			default_key = tr(EngineSettings.get_mouse_button_string(_button.assigned_to))
 
 		window_title = tr("ui_controls_binding_action").format({action = _field.action})
-		message.text = tr("ui_controls_binding_key_with_default").format({key = key, default_key = default_key})
+		message.text = tr("ui_controls_binding_key_with_default").format(
+			{key = key, default_key = default_key}
+		)
 		unbind_message.text = tr("ui_controls_hold_to_unbind").format(
 			{
 				unbind_action_key = unbind_action_key,

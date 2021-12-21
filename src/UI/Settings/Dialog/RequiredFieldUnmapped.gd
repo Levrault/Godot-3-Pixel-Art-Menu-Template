@@ -1,7 +1,7 @@
 extends WindowDialog
 
-
 onready var ok_btn := $MarginContainer/VBoxContainer/HBoxContainer/Ok
+
 
 func _ready() -> void:
 	get_close_button().hide()
@@ -15,7 +15,9 @@ func set_message(unmapped_fields := []) -> void:
 		actions += field.action + separator
 	actions = actions.left(actions.length() - separator.length())
 
-	$MarginContainer/VBoxContainer/Message.text = tr("ui_required_action_unmapped").format({ actions = actions })
+	$MarginContainer/VBoxContainer/Message.text = tr("ui_required_action_unmapped").format(
+		{actions = actions}
+	)
 
 
 func show() -> void:

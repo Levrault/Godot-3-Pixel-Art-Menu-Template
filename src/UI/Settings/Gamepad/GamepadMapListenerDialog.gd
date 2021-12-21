@@ -56,7 +56,11 @@ func _input(event: InputEvent) -> void:
 		update_ui_for(Step.remap)
 		return
 
-	if event is InputEventJoypadMotion and event.axis_value > 0.1 and ALLOWED_AXIS_EVENT.has(event.axis):
+	if (
+		event is InputEventJoypadMotion
+		and event.axis_value > 0.1
+		and ALLOWED_AXIS_EVENT.has(event.axis)
+	):
 		map_gamepad_motion_event(event)
 		return
 
@@ -69,14 +73,18 @@ func update_ui_for(step: int, data := {}):
 	var unbind_action_key := ""
 	for evt in InputMap.get_action_list("ui_unbind"):
 		if evt is InputEventJoypadButton:
-			unbind_action_key = EngineSettings.get_gamepad_button_from_joy_string(evt.button_index, Input.get_joy_button_string(evt.button_index), _button.type)
+			unbind_action_key = EngineSettings.get_gamepad_button_from_joy_string(
+				evt.button_index, Input.get_joy_button_string(evt.button_index), _button.type
+			)
 
 	var cancel_action_key := ""
 	for evt in InputMap.get_action_list("ui_cancel_binding"):
 		if evt is InputEventJoypadButton:
-			cancel_action_key = EngineSettings.get_gamepad_button_from_joy_string(evt.button_index, Input.get_joy_button_string(evt.button_index), _button.type)
+			cancel_action_key = EngineSettings.get_gamepad_button_from_joy_string(
+				evt.button_index, Input.get_joy_button_string(evt.button_index), _button.type
+			)
 
-	cancel_binding_message.text = tr("ui_controls_cancel_binding").format({ key = cancel_action_key})
+	cancel_binding_message.text = tr("ui_controls_cancel_binding").format({key = cancel_action_key})
 
 	if step == Step.new:
 		window_title = tr("ui_controls_binding_action").format({action = _field.action})
@@ -148,7 +156,14 @@ func map_gamepad_motion_event(event) -> void:
 		cancel_binding()
 		return
 
-	update_ui_for(Step.conflict, {key = EngineSettings.get_gamepad_button_from_joy_string(_new_event_identifier, _new_event_joy_string, _button.type)})
+	update_ui_for(
+		Step.conflict,
+		{
+			key = EngineSettings.get_gamepad_button_from_joy_string(
+				_new_event_identifier, _new_event_joy_string, _button.type
+			)
+		}
+	)
 
 
 func map_gamepad_button_event(event) -> void:
@@ -167,11 +182,22 @@ func map_gamepad_button_event(event) -> void:
 		cancel_binding()
 		return
 
-	update_ui_for(Step.conflict, {key = EngineSettings.get_gamepad_button_from_joy_string(_new_event_identifier, _new_event_joy_string, _button.type)})
+	update_ui_for(
+		Step.conflict,
+		{
+			key = EngineSettings.get_gamepad_button_from_joy_string(
+				_new_event_identifier, _new_event_joy_string, _button.type
+			)
+		}
+	)
 
 
 func map_action() -> void:
-	_button.assign_with_constant(EngineSettings.get_gamepad_button_from_joy_string(_new_event_identifier, _new_event_joy_string, _button.type))
+	_button.assign_with_constant(
+		EngineSettings.get_gamepad_button_from_joy_string(
+			_new_event_identifier, _new_event_joy_string, _button.type
+		)
+	)
 	owner.form.save()
 	close()
 

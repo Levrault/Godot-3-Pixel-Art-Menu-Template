@@ -27,7 +27,11 @@ func _is_equal_to_default_config() -> bool:
 		if not is_disabled:
 			continue
 		if typeof(config_values[key]) == TYPE_DICTIONARY:
-			if config_values[key].values() != engine_values[key].values():
+			var config_sorted_values: Array = config_values[key].values()
+			var engine_sorted_values: Array = engine_values[key].values()
+			config_sorted_values.sort()
+			engine_sorted_values.sort()
+			if config_sorted_values != engine_sorted_values:
 				is_disabled = false
 			continue
 		if typeof(config_values[key]) == TYPE_REAL:
@@ -38,6 +42,7 @@ func _is_equal_to_default_config() -> bool:
 			is_disabled = false
 
 	return is_disabled
+
 
 func _on_Pressed() -> void:
 	Events.emit_signal("overlay_displayed")
@@ -52,6 +57,4 @@ func _on_Confirmation_ok_pressed() -> void:
 func _on_Config_file_saved() -> void:
 	if not owner.is_current_route:
 		return
-
 	disabled = _is_equal_to_default_config()
-

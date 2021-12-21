@@ -5,7 +5,7 @@ extends Field
 var selected_key := "" setget _set_selected_key
 var items := []
 var _index: int = 0
-var _can_save_field := false # prevent save on first load
+var _can_save_field := false  # prevent save on first load
 
 
 func _ready() -> void:
