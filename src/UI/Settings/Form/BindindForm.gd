@@ -1,5 +1,5 @@
 extends Form
-class_name BindingForm
+class_name RebindForm
 
 
 func invalid_callback() -> void:

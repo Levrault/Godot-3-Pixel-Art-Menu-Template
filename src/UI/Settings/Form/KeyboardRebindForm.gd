@@ -1,4 +1,4 @@
-extends BindingForm
+extends RebindForm
 
 
 func reset() -> void:

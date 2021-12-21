@@ -6,7 +6,7 @@
 [ext_resource path="res://src/UI/Settings/Keymap/KeyMapTable.gd" type="Script" id=4]
 [ext_resource path="res://src/UI/Settings/Keymap/KeyMapListenerDialog.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/UI/Settings/Form/KeyboardRebindForm.gd" type="Script" id=6]
-[ext_resource path="res://src/UI/Commons/Dialog/RequiredFieldUnmapped.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/UI/Settings/Dialog/RequiredFieldUnmapped.tscn" type="PackedScene" id=7]
 
 [node name="KeyboardRebindPage" instance=ExtResource( 1 )]
 default_field_to_focus = NodePath("Wrapper/Page/Contents/ScrollContainer/KeyMapTable/MoveUp/MarginContainer/FieldContainer/MoveUp")

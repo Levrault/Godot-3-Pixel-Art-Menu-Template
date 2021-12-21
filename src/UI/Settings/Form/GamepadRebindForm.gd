@@ -1,4 +1,4 @@
-extends BindingForm
+extends RebindForm
 
 var device := "xbox"
 

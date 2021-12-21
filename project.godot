@@ -9,11 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Form",
-"class": "BindingForm",
-"language": "GDScript",
-"path": "res://src/UI/Settings/Form/BindingForm.gd"
-}, {
 "base": "FieldWithOptions",
 "class": "DropdownField",
 "language": "GDScript",
@@ -69,6 +64,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/UI/Commons/Navigation/NavigationSwitch.gd"
 }, {
+"base": "Form",
+"class": "RebindForm",
+"language": "GDScript",
+"path": "res://src/UI/Settings/Form/BindindForm.gd"
+}, {
 "base": "Field",
 "class": "SliderField",
 "language": "GDScript",
@@ -80,7 +80,6 @@ _global_script_classes=[ {
 "path": "res://src/UI/Settings/Updater/Updater.gd"
 } ]
 _global_script_class_icons={
-"BindingForm": "",
 "DropdownField": "",
 "Field": "res://assets/icons/field.svg",
 "FieldSet": "res://assets/icons/fieldset.svg",
@@ -92,6 +91,7 @@ _global_script_class_icons={
 "NavigationButton": "",
 "NavigationRouter": "",
 "NavigationSwitch": "",
+"RebindForm": "",
 "SliderField": "res://assets/icons/percent.svg",
 "Updater": ""
 }

@@ -5,7 +5,7 @@
 [ext_resource path="res://src/UI/Settings/Fields/FieldSet.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/UI/Settings/Gamepad/GamepadMapField.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/UI/Settings/Form/GamepadRebindForm.gd" type="Script" id=5]
-[ext_resource path="res://src/UI/Commons/Dialog/RequiredFieldUnmapped.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/UI/Settings/Dialog/RequiredFieldUnmapped.tscn" type="PackedScene" id=6]
 
 [node name="GamepadRebindPage" instance=ExtResource( 1 )]
 default_field_to_focus = NodePath("Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Jump/MarginContainer/FieldContainer/Jump")

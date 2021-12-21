@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://src/UI/Commons/Dialog/RequiredFieldUnmapped.gd" type="Script" id=1]
+[ext_resource path="res://src/UI/Settings/Dialog/RequiredFieldUnmapped.gd" type="Script" id=1]
 
 [node name="RequiredFieldUnmapped" type="WindowDialog"]
 anchor_left = 0.5
