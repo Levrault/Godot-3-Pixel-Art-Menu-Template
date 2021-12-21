@@ -9,6 +9,7 @@ var type := "xbox"
 
 func _ready() -> void:
 	connect("pressed", self, "_on_Pressed")
+	type = InputManager.DEVICE_XBOX_CONTROLLER
 
 
 func assign_with_constant(value: String) -> void:

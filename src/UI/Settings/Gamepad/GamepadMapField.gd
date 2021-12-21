@@ -27,18 +27,13 @@ func _ready() -> void:
 	if not InputMap.has_action(action):
 		InputMap.add_action(action)
 
-	default_button.assign_with_constant(
-		Config.values[owner.form.engine_file_section][InputManager.device][action][default_button.key]
-	)
-	default_button.type = InputManager.device
-
 	# register itself in to the form
 	owner.form.data[action] = self
 
 
 func reset() -> void:
 	default_button.assign_with_constant(
-		Config.values[owner.form.engine_file_section][InputManager.device][action][default_button.key]
+		Config.values[owner.form.engine_file_section][InputManager.default_gamepad][action][default_button.key]
 	)
 
 
@@ -59,13 +54,16 @@ func _on_Focus_entered() -> void:
 
 
 func _on_Navigation_finished() -> void:
+	var device := ""
 	if InputManager.device == InputManager.DEVICE_KEYBOARD:
+		device = InputManager.default_gamepad
 		default_button.assign_with_constant(
-			Config.values[owner.form.engine_file_section][InputManager.DEVICE_GENERIC][action][default_button.key]
+			Config.values[owner.form.engine_file_section][device][action][default_button.key]
 		)
 	else:
+		device = InputManager.device
 		default_button.assign_with_constant(
-			Config.values[owner.form.engine_file_section][InputManager.device][action][default_button.key]
+			Config.values[owner.form.engine_file_section][device][action][default_button.key]
 		)
-	default_button.type = InputManager.device
-	owner.form.device = InputManager.device
+	default_button.type = device
+	owner.form.device = device

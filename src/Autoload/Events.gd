@@ -28,12 +28,10 @@ signal focused_row_changed(row)
 
 # menu
 signal menu_route_changed(route)
+signal menu_transition_started(anim_name)
+signal menu_transition_mid_animated
+signal menu_transition_finished
 
 # overlay
 signal overlay_displayed
 signal overlay_hidden
-
-# transitions
-signal transition_started(anim_name)
-signal transition_mid_animated
-signal transition_finished

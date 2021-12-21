@@ -374,6 +374,9 @@ required = false
 alt_placeholder = "_"
 placeholder = "4"
 
+[node name="ResetToDefaultButton" parent="Wrapper/Page/Footer" index="0"]
+margin_left = 187.0
+
 [editable path="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/MoveUp"]
 [editable path="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/MoveDown"]
 [editable path="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/MoveRight"]

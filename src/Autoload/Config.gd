@@ -38,7 +38,6 @@ func save_file(new_settings: Dictionary) -> void:
 	print_debug("File has been saved")
 
 
-
 func save_field(section: String, field: String, value) -> void:
 	_file.set_value(section, field, value)
 	_file.save(CONFIG_FILE_PATH)

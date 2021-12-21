@@ -70,19 +70,10 @@ func _input(event: InputEvent) -> void:
 
 
 func update_ui_for(step: int, data := {}):
-	var unbind_action_key := ""
-	for evt in InputMap.get_action_list("ui_unbind"):
-		if evt is InputEventJoypadButton:
-			unbind_action_key = EngineSettings.get_gamepad_button_from_joy_string(
-				evt.button_index, Input.get_joy_button_string(evt.button_index), _button.type
-			)
-
-	var cancel_action_key := ""
-	for evt in InputMap.get_action_list("ui_cancel_binding"):
-		if evt is InputEventJoypadButton:
-			cancel_action_key = EngineSettings.get_gamepad_button_from_joy_string(
-				evt.button_index, Input.get_joy_button_string(evt.button_index), _button.type
-			)
+	var unbind_action_key := InputManager.get_device_button_from_action("ui_unbind", _button.type)
+	var cancel_action_key := InputManager.get_device_button_from_action(
+		"ui_cancel_binding", _button.type
+	)
 
 	cancel_binding_message.text = tr("ui_controls_cancel_binding").format({key = cancel_action_key})
 
@@ -225,7 +216,6 @@ func close() -> void:
 
 func _on_Gamepad_listening_started(field: GamepadMapField, button: Button, current_scancode: int) -> void:
 	owner.form.set_process_input(false)
-	Events.emit_signal("navigation_disabled")
 
 	_field = field
 	_button = button
@@ -236,6 +226,7 @@ func _on_Gamepad_listening_started(field: GamepadMapField, button: Button, curre
 	else:
 		update_ui_for(Step.remap)
 
+	Events.emit_signal("navigation_disabled")
 	Events.emit_signal("overlay_displayed")
 	show()
 	set_process_input(true)

@@ -72,7 +72,6 @@ margin_right = 377.0
 [node name="PreviousPagePage" parent="Wrapper/Page/Footer" instance=ExtResource( 1 )]
 margin_left = 381.0
 margin_right = 440.0
-margin_bottom = 20.0
 
 [node name="Overlay" type="ColorRect" parent="."]
 visible = false
