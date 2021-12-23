@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/UI/Settings/SettingsPageTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/UI/Commons/Navigation/NavigationButton.gd" type="Script" id=2]
 [ext_resource path="res://src/UI/Settings/Fields/FieldSet.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/UI/Commons/Section/SectionTitle.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/UI/Settings/Fields/SliderField.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/UI/Settings/Updater/GamepadYAxisUpdater.gd" type="Script" id=6]
 [ext_resource path="res://src/UI/Settings/Updater/MouseSensibilityUpdater.gd" type="Script" id=7]
@@ -27,27 +28,35 @@ size_flags_vertical = 3
 follow_focus = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Wrapper/Page/Contents/ScrollContainer" index="0"]
-margin_right = 440.0
-margin_bottom = 198.0
+margin_right = 428.0
+margin_bottom = 246.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="MouseSensibility" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="0" instance=ExtResource( 3 )]
-margin_right = 440.0
+[node name="SectionKeyboardTitle" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="0" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 428.0
+margin_bottom = 32.0
+
+[node name="MouseSensibility" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="1" instance=ExtResource( 3 )]
+margin_top = 36.0
+margin_right = 428.0
+margin_bottom = 58.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/MouseSensibility/MarginContainer" index="0"]
-margin_right = 436.0
+margin_right = 424.0
 
 [node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/MouseSensibility/MarginContainer/FieldContainer" index="0"]
 margin_top = 4.0
-margin_right = 262.0
+margin_right = 250.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
 text = "Mouse Sensivity"
 
 [node name="MouseSensibility" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/MouseSensibility/MarginContainer/FieldContainer" index="1" instance=ExtResource( 5 )]
-margin_left = 266.0
-margin_right = 432.0
+margin_left = 254.0
+margin_right = 420.0
 key = "mouse_sensibility"
 placeholder = ".5"
 max_value = 1.0
@@ -56,21 +65,28 @@ nb_of_step = 20
 [node name="Updater" type="Node" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/MouseSensibility/MarginContainer/FieldContainer/MouseSensibility" index="2"]
 script = ExtResource( 7 )
 
-[node name="KeyboardBinding" type="Button" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="1"]
-margin_top = 26.0
-margin_right = 440.0
-margin_bottom = 46.0
+[node name="KeyboardBinding" type="Button" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="2"]
+margin_top = 62.0
+margin_right = 428.0
+margin_bottom = 82.0
 text = "ui_keyboard_mapping"
 script = ExtResource( 2 )
 navigate_to = "KeyboardRebindPage"
 
-[node name="GamepadStickLayout" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="2" instance=ExtResource( 3 )]
-margin_top = 50.0
-margin_right = 440.0
-margin_bottom = 72.0
+[node name="SectionGamepadTitle" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="3" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 86.0
+margin_right = 428.0
+margin_bottom = 118.0
+
+[node name="GamepadStickLayout" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="4" instance=ExtResource( 3 )]
+margin_top = 122.0
+margin_right = 428.0
+margin_bottom = 144.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadStickLayout/MarginContainer" index="0"]
-margin_right = 436.0
+margin_right = 424.0
 
 [node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadStickLayout/MarginContainer/FieldContainer" index="0"]
 margin_top = 4.0
@@ -83,7 +99,7 @@ __meta__ = {
 
 [node name="GamepadStickLayout" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadStickLayout/MarginContainer/FieldContainer" index="1" instance=ExtResource( 10 )]
 margin_left = 161.0
-margin_right = 432.0
+margin_right = 420.0
 margin_bottom = 22.0
 key = "gamepad_stick_layout"
 placeholder = "movement/camera"
@@ -91,13 +107,13 @@ placeholder = "movement/camera"
 [node name="Updater" type="Node" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadStickLayout/MarginContainer/FieldContainer/GamepadStickLayout" index="4"]
 script = ExtResource( 8 )
 
-[node name="GamepadXAxis" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="3" instance=ExtResource( 3 )]
-margin_top = 76.0
-margin_right = 440.0
-margin_bottom = 98.0
+[node name="GamepadXAxis" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="5" instance=ExtResource( 3 )]
+margin_top = 148.0
+margin_right = 428.0
+margin_bottom = 170.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadXAxis/MarginContainer" index="0"]
-margin_right = 436.0
+margin_right = 424.0
 
 [node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadXAxis/MarginContainer/FieldContainer" index="0"]
 margin_top = 4.0
@@ -110,7 +126,7 @@ __meta__ = {
 
 [node name="GamepadXAxis" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadXAxis/MarginContainer/FieldContainer" index="1" instance=ExtResource( 10 )]
 margin_left = 124.0
-margin_right = 432.0
+margin_right = 420.0
 margin_bottom = 22.0
 key = "gamepad_x_axis"
 placeholder = "normal"
@@ -118,13 +134,13 @@ placeholder = "normal"
 [node name="Updater" type="Node" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadXAxis/MarginContainer/FieldContainer/GamepadXAxis" index="4"]
 script = ExtResource( 8 )
 
-[node name="GamepadYAxis" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="4" instance=ExtResource( 3 )]
-margin_top = 102.0
-margin_right = 440.0
-margin_bottom = 124.0
+[node name="GamepadYAxis" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="6" instance=ExtResource( 3 )]
+margin_top = 174.0
+margin_right = 428.0
+margin_bottom = 196.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadYAxis/MarginContainer" index="0"]
-margin_right = 436.0
+margin_right = 424.0
 
 [node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadYAxis/MarginContainer/FieldContainer" index="0"]
 margin_top = 4.0
@@ -137,7 +153,7 @@ __meta__ = {
 
 [node name="GamepadYAxis" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadYAxis/MarginContainer/FieldContainer" index="1" instance=ExtResource( 10 )]
 margin_left = 124.0
-margin_right = 432.0
+margin_right = 420.0
 margin_bottom = 22.0
 key = "gamepad_y_axis"
 placeholder = "normal"
@@ -145,17 +161,17 @@ placeholder = "normal"
 [node name="Updater" type="Node" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadYAxis/MarginContainer/FieldContainer/GamepadYAxis" index="4"]
 script = ExtResource( 6 )
 
-[node name="GamepadVibration" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="5" instance=ExtResource( 3 )]
-margin_top = 128.0
-margin_right = 440.0
-margin_bottom = 150.0
+[node name="GamepadVibration" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="7" instance=ExtResource( 3 )]
+margin_top = 200.0
+margin_right = 428.0
+margin_bottom = 222.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadVibration/MarginContainer" index="0"]
-margin_right = 436.0
+margin_right = 424.0
 
 [node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadVibration/MarginContainer/FieldContainer" index="0"]
 margin_top = 4.0
-margin_right = 238.0
+margin_right = 226.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
 text = "ui_gamepad_vibration"
@@ -164,8 +180,8 @@ __meta__ = {
 }
 
 [node name="GamepadVibration" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadVibration/MarginContainer/FieldContainer" index="1" instance=ExtResource( 5 )]
-margin_left = 242.0
-margin_right = 432.0
+margin_left = 230.0
+margin_right = 420.0
 key = "gamepad_vibration"
 placeholder = "100%"
 max_value = 1.0
@@ -174,13 +190,16 @@ nb_of_step = 20
 [node name="Updater" type="Node" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadVibration/MarginContainer/FieldContainer/GamepadVibration" index="2"]
 script = ExtResource( 9 )
 
-[node name="GamepadLayout" type="Button" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="6"]
-margin_top = 154.0
-margin_right = 440.0
-margin_bottom = 174.0
+[node name="GamepadLayout" type="Button" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="8"]
+margin_top = 226.0
+margin_right = 428.0
+margin_bottom = 246.0
 text = "ui_gamepad_mapping"
 script = ExtResource( 2 )
 navigate_to = "GamepadLayoutSettingsPage"
+
+[node name="ResetToDefaultButton" parent="Wrapper/Page/Footer" index="0"]
+margin_left = 187.0
 
 [editable path="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/MouseSensibility"]
 [editable path="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadStickLayout"]
