@@ -15,7 +15,7 @@ onready var form: Form = get_node_or_null("Form")
 
 func _ready() -> void:
 	Events.connect("menu_route_changed", self, "_on_Menu_route_changed")
-	Events.connect("transition_mid_animated", self, "_on_Transiton_mid_animated")
+	Events.connect("menu_transition_mid_animated", self, "_on_Transiton_mid_animated")
 
 
 func _on_Menu_route_changed(id: String) -> void:

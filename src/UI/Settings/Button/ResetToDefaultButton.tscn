@@ -1,13 +1,20 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/UI/Settings/Button/ResetToDefaultButton.gd" type="Script" id=1]
+
+[sub_resource type="InputEventAction" id=1]
+action = "ui_reset_to_default"
+
+[sub_resource type="ShortCut" id=2]
+shortcut = SubResource( 1 )
 
 [node name="ResetToDefaultButton" type="Button"]
 margin_right = 132.0
 margin_bottom = 20.0
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 0
-text = "ui_reset_to_default"
+shortcut = SubResource( 2 )
+text = "ui_controls_reset_to_default"
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false

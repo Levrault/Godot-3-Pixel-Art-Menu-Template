@@ -22,11 +22,7 @@ const MOUSE_INDEX_TO_STRING := {
 	"BUTTON_MASK_XBUTTON2": "Extra mouse button 2 mask"
 }
 
-var gamepad_regex := {
-	"xbox": "_XBOX_",
-	"nintendo": "_DS_",
-	"dualshock": "_SONY_"
-}
+var gamepad_regex := {"xbox": "_XBOX_", "nintendo": "_DS_", "dualshock": "_SONY_"}
 
 var data := {}
 var default := {}
@@ -108,7 +104,11 @@ func get_gamepad_button_from_joy_string(value: int, joy_string := "", type := ""
 	var device = "_" + type.to_upper() + "_"
 	var result := ""
 	for key in keylist.gamepad:
-		var key_joy_string := Input.get_joy_axis_string(keylist.gamepad[key]) if InputManager.is_motion_event(key) else Input.get_joy_button_string(keylist.gamepad[key])
+		var key_joy_string := (
+			Input.get_joy_axis_string(keylist.gamepad[key])
+			if InputManager.is_motion_event(key)
+			else Input.get_joy_button_string(keylist.gamepad[key])
+		)
 		if key_joy_string == joy_string and keylist.gamepad[key] == value:
 			# for gamepad specific button
 			if value in range(0, 4) and device in key:

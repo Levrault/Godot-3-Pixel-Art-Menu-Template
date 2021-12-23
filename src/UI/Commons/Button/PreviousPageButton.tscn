@@ -1,9 +1,18 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/UI/Commons/Button/PreviousPageButton.gd" type="Script" id=1]
 
+[sub_resource type="InputEventAction" id=1]
+action = "ui_cancel"
+
+[sub_resource type="ShortCut" id=2]
+shortcut = SubResource( 1 )
+
 [node name="PreviousPageButton" type="Button"]
+margin_right = 59.0
+margin_bottom = 20.0
 mouse_default_cursor_shape = 2
+shortcut = SubResource( 2 )
 text = "ui_back"
 script = ExtResource( 1 )
 __meta__ = {

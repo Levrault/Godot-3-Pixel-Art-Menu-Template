@@ -54,12 +54,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/UI/Commons/Navigation/NavigationButton.gd"
 }, {
-"base": "Reference",
+"base": "Control",
 "class": "NavigationRouter",
 "language": "GDScript",
 "path": "res://src/UI/Commons/Navigation/NavigationRouter.gd"
 }, {
-"base": "Reference",
+"base": "Control",
 "class": "NavigationSwitch",
 "language": "GDScript",
 "path": "res://src/UI/Commons/Navigation/NavigationSwitch.gd"
@@ -201,6 +201,12 @@ ui_unbind={
 ui_cancel_binding={
 "deadzone": 0.5,
 "events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":11,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+ui_reset_to_default={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":3,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":70,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 
