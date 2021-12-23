@@ -14,71 +14,78 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -69.0
+margin_bottom = 43.0
+rect_min_size = Vector2( 125, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Block" type="Label" parent="VBoxContainer"]
-margin_right = 40.0
+margin_right = 300.0
 margin_bottom = 14.0
 text = "Block"
 align = 1
-valign = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Attack" type="Label" parent="VBoxContainer"]
 margin_top = 18.0
-margin_right = 40.0
+margin_right = 300.0
 margin_bottom = 32.0
 text = "Attack"
 align = 1
-valign = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Evade" type="Label" parent="VBoxContainer"]
 margin_top = 36.0
-margin_right = 40.0
+margin_right = 300.0
 margin_bottom = 50.0
 text = "Evade"
 align = 1
-valign = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Jump" type="Label" parent="VBoxContainer"]
 margin_top = 54.0
-margin_right = 40.0
+margin_right = 300.0
 margin_bottom = 68.0
 text = "Jump"
 align = 1
-valign = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Run" type="Label" parent="VBoxContainer"]
 margin_top = 72.0
-margin_right = 40.0
+margin_right = 300.0
 margin_bottom = 86.0
 text = "Run"
 align = 1
-valign = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ControllerPlaceholder" type="Label" parent="."]
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
+margin_left = -150.0
 margin_top = -14.0
+margin_right = 150.0
 text = "This is a controller placeholder"
 align = 1
 __meta__ = {
