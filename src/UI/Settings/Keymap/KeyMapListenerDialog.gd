@@ -26,7 +26,7 @@ func _ready():
 	timer.connect("timeout", self, "_on_Timer_timeout")
 	tick.connect("timeout", self, "_on_Tick_timeout")
 	tick.wait_time = timer.wait_time / progress_bar.max_value
-	cancel_binding_message.text = tr("ui_controls_cancel_binding").format(
+	cancel_binding_message.text = tr("rebind.cancel_binding").format(
 		{key = OS.get_scancode_string(InputMap.get_action_list("ui_cancel")[0].scancode)}
 	)
 	get_close_button().hide()
@@ -63,7 +63,7 @@ func update_ui_for(step: int, data := {}):
 			unbind_action_key = OS.get_scancode_string(evt.scancode)
 
 	if step == Step.new:
-		window_title = tr("ui_controls_binding_action").format({action = _field.action})
+		window_title = tr("rebind.binding_action").format({action = _field.action})
 		cancel_binding_message.show()
 		message.hide()
 		unbind_message.hide()
@@ -83,11 +83,11 @@ func update_ui_for(step: int, data := {}):
 		):
 			default_key = tr(EngineSettings.get_mouse_button_string(_button.assigned_to))
 
-		window_title = tr("ui_controls_binding_action").format({action = _field.action})
-		message.text = tr("ui_controls_binding_key_with_default").format(
+		window_title = tr("rebind.binding_action").format({action = _field.action})
+		message.text = tr("rebind.binding_key_with_default").format(
 			{key = key, default_key = default_key}
 		)
-		unbind_message.text = tr("ui_controls_hold_to_unbind").format(
+		unbind_message.text = tr("rebind.hold_to_unbind").format(
 			{
 				unbind_action_key = unbind_action_key,
 				key = OS.get_scancode_string(_current_event_identifier),
@@ -103,8 +103,8 @@ func update_ui_for(step: int, data := {}):
 
 	if step == Step.conflict:
 		set_process_input(false)
-		window_title = tr("ui_controls_change_binding")
-		message.text = tr("ui_controls_change_binding_to_new_action").format(
+		window_title = tr("rebind.change_binding")
+		message.text = tr("rebind.change_binding_to_new_action").format(
 			{new_action = _field.action, key = data.key, previous_action = _conflicted_field.action}
 		)
 		message.show()
@@ -115,10 +115,10 @@ func update_ui_for(step: int, data := {}):
 		return
 
 	if step == Step.unbind:
-		message.text = tr("ui_controls_unbinding_action").format(
+		message.text = tr("rebind.unbinding_action").format(
 			{key = OS.get_scancode_string(_current_event_identifier), action = _field.action}
 		)
-		unbind_message.text = tr("ui_controls_cancel_unbind").format(
+		unbind_message.text = tr("rebind.cancel_unbind").format(
 			{unbind_action_key = unbind_action_key}
 		)
 		cancel_binding_message.hide()

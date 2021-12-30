@@ -45,7 +45,7 @@ margin_right = 337.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
-text = "ui_accept_resolution_change"
+text = "commons.keep_changes"
 align = 1
 
 [node name="Countdown" type="Label" parent="MarginContainer/VBoxContainer"]

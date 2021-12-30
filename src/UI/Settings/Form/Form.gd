@@ -4,6 +4,7 @@ extends Node
 signal pristine_value_changed(value)
 
 export var engine_file_section := ""
+export var section_title := ""
 
 var data := {}
 

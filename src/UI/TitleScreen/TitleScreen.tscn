@@ -8,18 +8,18 @@
 default_field_to_focus = NodePath("Wrapper/Page/Contents/Play")
 
 [node name="Title" parent="Wrapper/Page" index="0"]
-text = "ui_game_title"
+text = "Title right here"
 
 [node name="Contents" parent="Wrapper/Page" index="1"]
-margin_right = 81.0
+margin_right = 131.0
 size_flags_horizontal = 2
 
 [node name="Play" type="Button" parent="Wrapper/Page/Contents" index="0"]
 margin_top = 59.0
-margin_right = 81.0
+margin_right = 131.0
 margin_bottom = 79.0
 mouse_default_cursor_shape = 2
-text = "ui_play"
+text = "commons.play"
 align = 0
 script = ExtResource( 3 )
 __meta__ = {
@@ -27,12 +27,12 @@ __meta__ = {
 }
 is_default_focused = true
 
-[node name="Options" type="Button" parent="Wrapper/Page/Contents" index="1"]
+[node name="Settings" type="Button" parent="Wrapper/Page/Contents" index="1"]
 margin_top = 89.0
-margin_right = 81.0
+margin_right = 131.0
 margin_bottom = 109.0
 mouse_default_cursor_shape = 2
-text = "ui_settings"
+text = "commons.settings"
 align = 0
 script = ExtResource( 3 )
 __meta__ = {
@@ -42,12 +42,15 @@ navigate_to = "SettingsListPage"
 
 [node name="Quit" type="Button" parent="Wrapper/Page/Contents" index="2"]
 margin_top = 119.0
-margin_right = 81.0
+margin_right = 131.0
 margin_bottom = 139.0
 mouse_default_cursor_shape = 2
-text = "ui_quit"
+text = "commons.quit"
 align = 0
 script = ExtResource( 2 )
 __meta__ = {
 "_editor_description_": ""
 }
+
+[node name="MenuBackInput" parent="Wrapper/Page/Footer" index="0"]
+margin_left = 331.0

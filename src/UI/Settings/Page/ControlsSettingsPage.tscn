@@ -16,9 +16,10 @@ default_field_to_focus = NodePath("Wrapper/Page/Contents/ScrollContainer/VBoxCon
 
 [node name="Form" parent="." index="0"]
 engine_file_section = "controls"
+section_title = "controls.title"
 
 [node name="Breadcrumb" parent="Wrapper/Page" index="0"]
-breadcrumbs = [ "ui_options", "ui_controls_options" ]
+breadcrumbs = [ "commons.settings", "controls.title" ]
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Wrapper/Page/Contents" index="0"]
 margin_right = 440.0
@@ -38,7 +39,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 428.0
 margin_bottom = 32.0
-text = "ui_keyboard"
+text = "commons.keyboard"
 
 [node name="MouseSensibility" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="1" instance=ExtResource( 3 )]
 margin_top = 36.0
@@ -53,7 +54,7 @@ margin_top = 4.0
 margin_right = 250.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
-text = "Mouse Sensivity"
+text = "controls.mouse_sensitivity"
 
 [node name="MouseSensibility" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/MouseSensibility/MarginContainer/FieldContainer" index="1" instance=ExtResource( 5 )]
 margin_left = 254.0
@@ -70,7 +71,7 @@ script = ExtResource( 7 )
 margin_top = 62.0
 margin_right = 428.0
 margin_bottom = 82.0
-text = "ui_keyboard_mapping"
+text = "rebind.keyboard"
 script = ExtResource( 2 )
 navigate_to = "KeyboardRebindPage"
 
@@ -80,7 +81,7 @@ anchor_bottom = 0.0
 margin_top = 86.0
 margin_right = 428.0
 margin_bottom = 118.0
-text = "ui_gamepad"
+text = "commons.gamepad"
 
 [node name="GamepadStickLayout" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="4" instance=ExtResource( 3 )]
 margin_top = 122.0
@@ -92,15 +93,15 @@ margin_right = 424.0
 
 [node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadStickLayout/MarginContainer/FieldContainer" index="0"]
 margin_top = 4.0
-margin_right = 157.0
+margin_right = 195.0
 margin_bottom = 18.0
-text = "ui_gamepad_stick_layout"
+text = "controls.gamepad_stick_layout"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="GamepadStickLayout" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadStickLayout/MarginContainer/FieldContainer" index="1" instance=ExtResource( 10 )]
-margin_left = 161.0
+margin_left = 199.0
 margin_right = 420.0
 margin_bottom = 22.0
 key = "gamepad_stick_layout"
@@ -119,15 +120,15 @@ margin_right = 424.0
 
 [node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadXAxis/MarginContainer/FieldContainer" index="0"]
 margin_top = 4.0
-margin_right = 120.0
+margin_right = 158.0
 margin_bottom = 18.0
-text = "ui_gamepad_x_axis"
+text = "controls.gamepad_x_axis"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="GamepadXAxis" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadXAxis/MarginContainer/FieldContainer" index="1" instance=ExtResource( 10 )]
-margin_left = 124.0
+margin_left = 162.0
 margin_right = 420.0
 margin_bottom = 22.0
 key = "gamepad_x_axis"
@@ -146,15 +147,15 @@ margin_right = 424.0
 
 [node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadYAxis/MarginContainer/FieldContainer" index="0"]
 margin_top = 4.0
-margin_right = 120.0
+margin_right = 158.0
 margin_bottom = 18.0
-text = "ui_gamepad_y_axis"
+text = "controls.gamepad_y_axis"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="GamepadYAxis" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadYAxis/MarginContainer/FieldContainer" index="1" instance=ExtResource( 10 )]
-margin_left = 124.0
+margin_left = 162.0
 margin_right = 420.0
 margin_bottom = 22.0
 key = "gamepad_y_axis"
@@ -176,7 +177,7 @@ margin_top = 4.0
 margin_right = 226.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
-text = "ui_gamepad_vibration"
+text = "controls.gamepad_vibration"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -196,12 +197,16 @@ script = ExtResource( 9 )
 margin_top = 226.0
 margin_right = 428.0
 margin_bottom = 246.0
-text = "ui_gamepad_mapping"
+text = "controls.gamepad_layout"
 script = ExtResource( 2 )
 navigate_to = "GamepadLayoutSettingsPage"
 
 [node name="ResetToDefaultButton" parent="Wrapper/Page/Footer" index="0"]
-margin_left = 187.0
+margin_left = 164.0
+margin_right = 327.0
+
+[node name="PreviousPagePage" parent="Wrapper/Page/Footer" index="1"]
+margin_left = 331.0
 
 [editable path="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/MouseSensibility"]
 [editable path="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadStickLayout"]

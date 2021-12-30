@@ -13,13 +13,14 @@ default_field_to_focus = NodePath("Wrapper/Page/Contents/ScrollContainer/KeyMapT
 [node name="Form" parent="." index="0"]
 script = ExtResource( 5 )
 engine_file_section = "gamepad_bindind"
+section_title = "gamepad.title"
 
 [node name="GamepadMapListenerDialog" parent="Form" index="0" instance=ExtResource( 2 )]
 
 [node name="RequiredFieldUnmapped" parent="Form" index="1" instance=ExtResource( 6 )]
 
 [node name="Breadcrumb" parent="Wrapper/Page" index="0"]
-breadcrumbs = [ "ui_options", "ui_gamepad_mapping" ]
+breadcrumbs = [ "commons.settings", "rebind.gamepad" ]
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Wrapper/Page/Contents" index="0"]
 margin_right = 440.0
@@ -46,7 +47,7 @@ margin_top = 4.0
 margin_right = 214.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
-text = "input_run"
+text = "input.run"
 __meta__ = {
 "_editor_description_": ""
 }
@@ -72,7 +73,7 @@ margin_top = 4.0
 margin_right = 214.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
-text = "input_inventory"
+text = "input.inventory"
 __meta__ = {
 "_editor_description_": ""
 }
@@ -98,7 +99,7 @@ margin_top = 4.0
 margin_right = 214.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
-text = "input_jump"
+text = "input.jump"
 __meta__ = {
 "_editor_description_": ""
 }
@@ -124,7 +125,7 @@ margin_top = 4.0
 margin_right = 214.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
-text = "input_evade"
+text = "input.evade"
 __meta__ = {
 "_editor_description_": ""
 }
@@ -150,7 +151,7 @@ margin_top = 4.0
 margin_right = 214.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
-text = "input_attack"
+text = "input.attack"
 __meta__ = {
 "_editor_description_": ""
 }
@@ -176,7 +177,7 @@ margin_top = 4.0
 margin_right = 214.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
-text = "input_block"
+text = "input.block"
 __meta__ = {
 "_editor_description_": ""
 }
@@ -187,6 +188,13 @@ margin_right = 432.0
 margin_bottom = 22.0
 action = "block"
 placeholder = "L2"
+
+[node name="ResetToDefaultButton" parent="Wrapper/Page/Footer" index="0"]
+margin_left = 164.0
+margin_right = 327.0
+
+[node name="PreviousPagePage" parent="Wrapper/Page/Footer" index="1"]
+margin_left = 331.0
 
 [editable path="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Run"]
 [editable path="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Inventory"]

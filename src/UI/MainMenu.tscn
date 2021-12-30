@@ -6,7 +6,7 @@
 [ext_resource path="res://src/UI/Settings/Page/ControlsSettingsPage.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/UI/Settings/Page/GamepadRebindPage.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/UI/Settings/Page/AudioSettingsPage.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/UI/Settings/Page/VideoSettingsPage.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/UI/Settings/Page/DisplaySettingsPage.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/UI/Commons/Transition/UiTransition.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/UI/Settings/Page/GamepadLayoutSettingsPage.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/UI/Settings/Page/KeyboardRebindPage.tscn" type="PackedScene" id=11]
@@ -28,7 +28,7 @@ visible = false
 [node name="SettingsListPage" parent="." instance=ExtResource( 1 )]
 visible = false
 
-[node name="VideoSettingsPage" parent="." instance=ExtResource( 7 )]
+[node name="DisplaySettingsPage" parent="." instance=ExtResource( 7 )]
 visible = false
 
 [node name="ControlsSettingsPage" parent="." instance=ExtResource( 4 )]

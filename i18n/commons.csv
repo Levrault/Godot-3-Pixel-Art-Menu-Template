@@ -1,0 +1,12 @@
+,en,fr
+commons.back,"back", "retour"
+commons.gamepad,"Gamepad","Manette"
+commons.keep_changes,"Do you want to keep your changes?","Voulez-vous conserver vos modifications?"
+commons.keyboard,"Keyboard","Clavier"
+commons.play,"Play","Jouer"
+commons.quit,"Quit","Quitter"
+commons.reset_default,"Reset default","Réinitialiser"
+commons.restore,"Restore","Réinitialiser"
+commons.restore_default_settings,"Restore default settings?","Restaurer les paramètres par défaut?"
+commons.restore_default_settings_message,"Your {section} preferences will be set to their default settings","Vos préférences {section} vont être réinitialiser à leurs valeurs initiales"
+commons.settings,"Settings","Paramètres"

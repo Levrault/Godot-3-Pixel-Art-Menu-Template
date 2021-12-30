@@ -13,7 +13,7 @@ margin_right = 59.0
 margin_bottom = 20.0
 mouse_default_cursor_shape = 2
 shortcut = SubResource( 2 )
-text = "ui_back"
+text = "commons.back"
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false

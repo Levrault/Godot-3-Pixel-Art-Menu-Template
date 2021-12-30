@@ -15,7 +15,7 @@ func set_message(unmapped_fields := []) -> void:
 		actions += field.action + separator
 	actions = actions.left(actions.length() - separator.length())
 
-	$MarginContainer/VBoxContainer/Message.text = tr("ui_required_action_unmapped").format(
+	$MarginContainer/VBoxContainer/Message.text = tr("rebind.required_action_unmapped").format(
 		{actions = actions}
 	)
 
