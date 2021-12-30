@@ -38,6 +38,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 428.0
 margin_bottom = 32.0
+text = "ui_keyboard"
 
 [node name="MouseSensibility" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="1" instance=ExtResource( 3 )]
 margin_top = 36.0
@@ -79,6 +80,7 @@ anchor_bottom = 0.0
 margin_top = 86.0
 margin_right = 428.0
 margin_bottom = 118.0
+text = "ui_gamepad"
 
 [node name="GamepadStickLayout" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer" index="4" instance=ExtResource( 3 )]
 margin_top = 122.0

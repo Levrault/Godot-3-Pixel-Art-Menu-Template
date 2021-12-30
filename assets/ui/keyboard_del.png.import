@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/keyboard_del.png-aa44f2756e3f13e78aa1498c9b08e020.stex"
+path="res://.import/keyboard_DEL.png-336d3ff9d0c33cc20fd39762aa4132b2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/keyboard_del.png"
-dest_files=[ "res://.import/keyboard_del.png-aa44f2756e3f13e78aa1498c9b08e020.stex" ]
+source_file="res://assets/ui/keyboard_DEL.png"
+dest_files=[ "res://.import/keyboard_DEL.png-336d3ff9d0c33cc20fd39762aa4132b2.stex" ]
 
 [params]
 
