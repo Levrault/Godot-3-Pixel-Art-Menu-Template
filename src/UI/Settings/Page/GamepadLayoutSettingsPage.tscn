@@ -11,12 +11,13 @@
 
 [node name="Form" parent="." index="0"]
 engine_file_section = "gamepad_layout"
+section_title = "gamepad.title"
 
 [node name="Page" parent="Wrapper" index="0"]
 margin_bottom = 257.0
 
 [node name="Breadcrumb" parent="Wrapper/Page" index="0"]
-breadcrumbs = [ "ui_options", "ui_gamepad_layout" ]
+breadcrumbs = [ "commons.settings", "gamepad.title" ]
 
 [node name="Contents" parent="Wrapper/Page" index="1"]
 margin_bottom = 218.0
@@ -38,7 +39,7 @@ margin_top = 4.0
 margin_right = 214.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
-text = "ui_gamepad_layout"
+text = "gamepad.layout"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -69,7 +70,7 @@ margin_bottom = 150.0
 margin_top = 180.0
 margin_right = 440.0
 margin_bottom = 200.0
-text = "ui_gamepad_mapping"
+text = "rebind.gamepad"
 script = ExtResource( 5 )
 navigate_to = "GamepadRebindPage"
 
@@ -78,6 +79,10 @@ margin_top = 222.0
 margin_bottom = 242.0
 
 [node name="ResetToDefaultButton" parent="Wrapper/Page/Footer" index="0"]
-margin_left = 187.0
+margin_left = 164.0
+margin_right = 327.0
+
+[node name="PreviousPagePage" parent="Wrapper/Page/Footer" index="1"]
+margin_left = 331.0
 
 [editable path="Wrapper/Page/Contents/VBoxContainer/GamepadLayout"]

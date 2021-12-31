@@ -226,7 +226,7 @@ ui_reset_to_default={
 
 test="en"
 locale_filter=[ 0, [ "fr" ] ]
-translations=PoolStringArray( "res://i18n.en.translation", "res://i18n.fr.translation", "res://i18n/mouse.buttons.en.translation", "res://i18n/mouse.buttons.fr.translation", "res://i18n/controls.settings.en.translation", "res://i18n/controls.settings.fr.translation" )
+translations=PoolStringArray( "res://i18n/audio.en.translation", "res://i18n/audio.fr.translation", "res://i18n/cfg.en.translation", "res://i18n/cfg.fr.translation", "res://i18n/commons.en.translation", "res://i18n/commons.fr.translation", "res://i18n/controls.en.translation", "res://i18n/controls.fr.translation", "res://i18n/display.en.translation", "res://i18n/display.fr.translation", "res://i18n/gamepad.en.translation", "res://i18n/gamepad.fr.translation", "res://i18n/mouse.en.translation", "res://i18n/mouse.fr.translation", "res://i18n/rebind.en.translation", "res://i18n/rebind.fr.translation", "res://i18n/input.en.translation", "res://i18n/input.fr.translation" )
 translation_remaps={
 }
 

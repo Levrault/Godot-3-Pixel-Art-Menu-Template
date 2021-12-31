@@ -75,10 +75,10 @@ func update_ui_for(step: int, data := {}):
 		"ui_cancel_binding", _button.type
 	)
 
-	cancel_binding_message.text = tr("ui_controls_cancel_binding").format({key = cancel_action_key})
+	cancel_binding_message.text = tr("rebind.cancel_binding").format({key = cancel_action_key})
 
 	if step == Step.new:
-		window_title = tr("ui_controls_binding_action").format({action = _field.action})
+		window_title = tr("rebind.binding_action").format({action = _field.action})
 		cancel_binding_message.show()
 		message.hide()
 		unbind_message.hide()
@@ -87,9 +87,9 @@ func update_ui_for(step: int, data := {}):
 		return
 
 	if step == Step.remap:
-		window_title = tr("ui_controls_binding_action").format({action = _field.action})
-		message.text = tr("ui_controls_binding_key").format({key = _button.assigned_to})
-		unbind_message.text = tr("ui_controls_hold_to_unbind").format(
+		window_title = tr("rebind.binding_action").format({action = _field.action})
+		message.text = tr("rebind.binding_key").format({key = _button.assigned_to})
+		unbind_message.text = tr("rebind.hold_to_unbind").format(
 			{
 				unbind_action_key = unbind_action_key,
 				key = _button.assigned_to,
@@ -105,8 +105,8 @@ func update_ui_for(step: int, data := {}):
 
 	if step == Step.conflict:
 		set_process_input(false)
-		window_title = tr("ui_controls_change_binding")
-		message.text = tr("ui_controls_change_binding_to_new_action").format(
+		window_title = tr("rebind.change_binding")
+		message.text = tr("rebind.change_binding_to_new_action").format(
 			{new_action = _field.action, key = data.key, previous_action = _conflicted_field.action}
 		)
 		cancel_binding_message.hide()
@@ -119,10 +119,10 @@ func update_ui_for(step: int, data := {}):
 		return
 
 	if step == Step.unbind:
-		message.text = tr("ui_controls_unbinding_action").format(
+		message.text = tr("rebind.unbinding_action").format(
 			{key = _button.assigned_to, action = _field.action}
 		)
-		unbind_message.text = tr("ui_controls_cancel_unbind").format(
+		unbind_message.text = tr("rebind.cancel_unbind").format(
 			{unbind_action_key = unbind_action_key}
 		)
 		cancel_binding_message.hide()

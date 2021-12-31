@@ -14,13 +14,14 @@ default_field_to_focus = NodePath("Wrapper/Page/Contents/ScrollContainer/KeyMapT
 [node name="Form" parent="." index="0"]
 script = ExtResource( 6 )
 engine_file_section = "keyboard_and_mouse_bindind"
+section_title = "commons.keyboard"
 
 [node name="KeyMapListenerDialog" parent="Form" index="0" instance=ExtResource( 5 )]
 
 [node name="RequiredFieldUnmapped" parent="Form" index="1" instance=ExtResource( 7 )]
 
 [node name="Breadcrumb" parent="Wrapper/Page" index="0"]
-breadcrumbs = [ "ui_options", "ui_keyboard_mapping" ]
+breadcrumbs = [ "commons.settings", "rebind.keyboard" ]
 
 [node name="Control" type="Control" parent="Wrapper/Page/Contents" index="0"]
 margin_right = 440.0
@@ -32,7 +33,7 @@ margin_left = 205.046
 margin_top = 9.59673
 margin_right = 325.046
 margin_bottom = 23.5967
-text = "ui_controls_default"
+text = "controls.default"
 align = 1
 valign = 1
 uppercase = true
@@ -45,7 +46,7 @@ margin_left = 330.659
 margin_top = 9.86558
 margin_right = 422.659
 margin_bottom = 23.8656
-text = "ui_controls_alt"
+text = "controls.alt"
 align = 1
 valign = 1
 uppercase = true
@@ -77,7 +78,7 @@ margin_top = 4.0
 margin_right = 208.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
-text = "input_move_up"
+text = "input.move_up"
 __meta__ = {
 "_editor_description_": ""
 }
@@ -104,7 +105,7 @@ margin_right = 208.0
 margin_bottom = 18.0
 mouse_filter = 1
 size_flags_horizontal = 3
-text = "input_move_down"
+text = "input.move_down"
 
 [node name="MoveDown" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/MoveDown/MarginContainer/FieldContainer" index="1" instance=ExtResource( 3 )]
 margin_left = 212.0
@@ -127,7 +128,7 @@ margin_top = 4.0
 margin_right = 208.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
-text = "input_move_left"
+text = "input.move_left"
 
 [node name="MoveLeft" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/MoveRight/MarginContainer/FieldContainer" index="1" instance=ExtResource( 3 )]
 margin_left = 212.0
@@ -150,7 +151,7 @@ margin_top = 4.0
 margin_right = 208.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
-text = "input_move_right"
+text = "input.move_right"
 
 [node name="MoveRight" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/MoveLeft/MarginContainer/FieldContainer" index="1" instance=ExtResource( 3 )]
 margin_left = 212.0
@@ -173,7 +174,7 @@ margin_top = 4.0
 margin_right = 208.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
-text = "input_run"
+text = "input.run"
 
 [node name="Run" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Run/MarginContainer/FieldContainer" index="1" instance=ExtResource( 3 )]
 margin_left = 212.0
@@ -196,7 +197,7 @@ margin_top = 4.0
 margin_right = 208.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
-text = "input_jump"
+text = "input.jump"
 
 [node name="Jump" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Jump/MarginContainer/FieldContainer" index="1" instance=ExtResource( 3 )]
 margin_left = 212.0
@@ -219,7 +220,7 @@ margin_top = 4.0
 margin_right = 208.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
-text = "input_attack"
+text = "input.attack"
 
 [node name="Attack" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Attack/MarginContainer/FieldContainer" index="1" instance=ExtResource( 3 )]
 margin_left = 212.0
@@ -242,7 +243,7 @@ margin_top = 4.0
 margin_right = 208.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
-text = "input_evade"
+text = "input.evade"
 
 [node name="Evade" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Evade/MarginContainer/FieldContainer" index="1" instance=ExtResource( 3 )]
 margin_left = 212.0
@@ -265,7 +266,7 @@ margin_top = 4.0
 margin_right = 208.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
-text = "input_inventory"
+text = "input.inventory"
 
 [node name="Inventory" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Inventory/MarginContainer/FieldContainer" index="1" instance=ExtResource( 3 )]
 margin_left = 212.0
@@ -288,7 +289,7 @@ margin_top = 4.0
 margin_right = 208.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
-text = "input_slot_1"
+text = "input.slot_1"
 
 [node name="Slot1" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Slot1/MarginContainer/FieldContainer" index="1" instance=ExtResource( 3 )]
 margin_left = 212.0
@@ -312,7 +313,7 @@ margin_top = 4.0
 margin_right = 208.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
-text = "input_slot_2"
+text = "input.slot_2"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -339,7 +340,7 @@ margin_top = 4.0
 margin_right = 208.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
-text = "input_slot_3"
+text = "input.slot_3"
 
 [node name="Slot3" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Slot3/MarginContainer/FieldContainer" index="1" instance=ExtResource( 3 )]
 margin_left = 212.0
@@ -363,7 +364,7 @@ margin_top = 4.0
 margin_right = 208.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
-text = "input_slot_4"
+text = "input.slot_4"
 
 [node name="Slot4" parent="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/Slot4/MarginContainer/FieldContainer" index="1" instance=ExtResource( 3 )]
 margin_left = 212.0
@@ -375,7 +376,11 @@ alt_placeholder = "_"
 placeholder = "4"
 
 [node name="ResetToDefaultButton" parent="Wrapper/Page/Footer" index="0"]
-margin_left = 187.0
+margin_left = 164.0
+margin_right = 327.0
+
+[node name="PreviousPagePage" parent="Wrapper/Page/Footer" index="1"]
+margin_left = 331.0
 
 [editable path="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/MoveUp"]
 [editable path="Wrapper/Page/Contents/ScrollContainer/KeyMapTable/MoveDown"]

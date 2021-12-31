@@ -84,7 +84,7 @@ margin_right = 337.0
 margin_bottom = 61.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "ui_controls_cancel_binding"
+text = "rebind.cancel_binding"
 align = 1
 autowrap = true
 
@@ -94,7 +94,7 @@ margin_right = 337.0
 margin_bottom = 98.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "ui_controls_hold_to_unbind"
+text = "rebind.hold_to_unbind"
 align = 1
 autowrap = true
 

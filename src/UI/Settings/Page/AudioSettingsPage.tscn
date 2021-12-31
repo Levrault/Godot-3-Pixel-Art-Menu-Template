@@ -13,9 +13,10 @@ default_field_to_focus = NodePath("Wrapper/Page/Contents/Locale/MarginContainer/
 
 [node name="Form" parent="." index="0"]
 engine_file_section = "audio"
+section_title = "audio.title"
 
 [node name="Breadcrumb" parent="Wrapper/Page" index="0"]
-breadcrumbs = [ "ui_options", "ui_options_audio" ]
+breadcrumbs = [ "commons.settings", "audio.title" ]
 
 [node name="Locale" parent="Wrapper/Page/Contents" index="0" instance=ExtResource( 3 )]
 margin_top = 40.0
@@ -27,12 +28,12 @@ margin_right = 436.0
 
 [node name="Label" type="Label" parent="Wrapper/Page/Contents/Locale/MarginContainer/FieldContainer" index="0"]
 margin_top = 4.0
-margin_right = 105.0
+margin_right = 95.0
 margin_bottom = 18.0
-text = "ui_text_language"
+text = "audio.language"
 
 [node name="Locale" parent="Wrapper/Page/Contents/Locale/MarginContainer/FieldContainer" index="1" instance=ExtResource( 2 )]
-margin_left = 109.0
+margin_left = 99.0
 margin_right = 432.0
 margin_bottom = 22.0
 key = "locale"
@@ -54,7 +55,7 @@ margin_top = 4.0
 margin_right = 250.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
-text = "ui_general_volume"
+text = "audio.general_volume"
 
 [node name="MasterVolume" parent="Wrapper/Page/Contents/MasterVolume/MarginContainer/FieldContainer" index="1" instance=ExtResource( 1 )]
 margin_left = 254.0
@@ -85,7 +86,7 @@ margin_top = 4.0
 margin_right = 250.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
-text = "ui_music_volume"
+text = "audio.music_volume"
 
 [node name="MusicVolume" parent="Wrapper/Page/Contents/MusicVolume/MarginContainer/FieldContainer" index="1" instance=ExtResource( 1 )]
 margin_left = 254.0
@@ -116,7 +117,7 @@ margin_top = 4.0
 margin_right = 250.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
-text = "ui_sfx_volume"
+text = "audio.sfx_volume"
 
 [node name="SfxVolume" parent="Wrapper/Page/Contents/SfXVolume/MarginContainer/FieldContainer" index="1" instance=ExtResource( 1 )]
 margin_left = 254.0
@@ -133,6 +134,13 @@ script = ExtResource( 7 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Wrapper/Page/Contents/SfXVolume/MarginContainer/FieldContainer/SfxVolume/Updater" index="0"]
 stream = ExtResource( 6 )
 bus = "SFX"
+
+[node name="ResetToDefaultButton" parent="Wrapper/Page/Footer" index="0"]
+margin_left = 164.0
+margin_right = 327.0
+
+[node name="PreviousPagePage" parent="Wrapper/Page/Footer" index="1"]
+margin_left = 331.0
 
 [editable path="Wrapper/Page/Contents/Locale"]
 [editable path="Wrapper/Page/Contents/MasterVolume"]

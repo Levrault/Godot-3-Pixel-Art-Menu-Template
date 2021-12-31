@@ -1,0 +1,16 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+
+[deps]
+
+files=[ "res://i18n/commons.en.translation", "res://i18n/commons.fr.translation" ]
+
+source_file="res://i18n/commons.csv"
+dest_files=[ "res://i18n/commons.en.translation", "res://i18n/commons.fr.translation" ]
+
+[params]
+
+compress=true
+delimiter=0

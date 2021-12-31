@@ -7,36 +7,39 @@
 default_field_to_focus = NodePath("Wrapper/Page/Contents/Audio")
 
 [node name="Title" parent="Wrapper/Page" index="0"]
-text = "ui_options"
+text = "commons.settings"
 
 [node name="Contents" parent="Wrapper/Page" index="1"]
-margin_right = 136.0
+margin_right = 94.0
 size_flags_horizontal = 0
 
 [node name="Audio" type="ToolButton" parent="Wrapper/Page/Contents" index="0"]
 margin_top = 56.0
-margin_right = 136.0
+margin_right = 94.0
 margin_bottom = 78.0
 mouse_default_cursor_shape = 2
-text = "ui_options_audio"
+text = "audio.title"
 script = ExtResource( 2 )
 navigate_to = "AudioSettingsPage"
 is_default_focused = true
 
-[node name="Video" type="ToolButton" parent="Wrapper/Page/Contents" index="1"]
+[node name="Display" type="ToolButton" parent="Wrapper/Page/Contents" index="1"]
 margin_top = 88.0
-margin_right = 136.0
+margin_right = 94.0
 margin_bottom = 110.0
 mouse_default_cursor_shape = 2
-text = "ui_options_video"
+text = "display.title"
 script = ExtResource( 2 )
-navigate_to = "VideoSettingsPage"
+navigate_to = "DisplaySettingsPage"
 
 [node name="Controls" type="ToolButton" parent="Wrapper/Page/Contents" index="2"]
 margin_top = 120.0
-margin_right = 136.0
+margin_right = 94.0
 margin_bottom = 142.0
 mouse_default_cursor_shape = 2
-text = "ui_options_controls"
+text = "controls.title"
 script = ExtResource( 2 )
 navigate_to = "ControlsSettingsPage"
+
+[node name="MenuBackInput" parent="Wrapper/Page/Footer" index="0"]
+margin_left = 331.0

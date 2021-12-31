@@ -14,7 +14,7 @@ margin_bottom = 20.0
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 0
 shortcut = SubResource( 2 )
-text = "ui_controls_reset_to_default"
+text = "commons.reset_default"
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -31,4 +31,6 @@ margin_right = 200.0
 margin_bottom = 70.0
 rect_min_size = Vector2( 400, 140 )
 popup_exclusive = true
-dialog_text = "ui_confirm_reset_to_default"
+window_title = "commons.restore_default_settings"
+dialog_text = "commons.restore_default_settings_message"
+dialog_autowrap = true
