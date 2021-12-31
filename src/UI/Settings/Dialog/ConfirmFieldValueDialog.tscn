@@ -80,29 +80,29 @@ margin_bottom = 96.0
 custom_constants/separation = 20
 alignment = 1
 
-[node name="CancelContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="OkContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 margin_right = 158.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 
-[node name="Cancel" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/CancelContainer"]
-margin_left = 43.0
-margin_right = 114.0
+[node name="Ok" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/OkContainer"]
+margin_left = 31.0
+margin_right = 126.0
 margin_bottom = 20.0
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 2
-text = "ui_cancel"
+text = "commons.ok"
 
-[node name="OkContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="CancelContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 margin_left = 178.0
 margin_right = 337.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 
-[node name="Ok" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/OkContainer"]
-margin_left = 57.0
-margin_right = 102.0
+[node name="Cancel" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/CancelContainer"]
+margin_left = 19.0
+margin_right = 140.0
 margin_bottom = 20.0
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 2
-text = "ui_ok"
+text = "commons.cancel"
