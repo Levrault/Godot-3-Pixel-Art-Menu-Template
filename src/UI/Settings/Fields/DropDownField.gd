@@ -53,10 +53,6 @@ func _set_placeholder(value: String) -> void:
 func _set_selected_key(text: String) -> void:
 	selected_key = text
 	values = EngineSettings.get_option(owner.form.engine_file_section, key, text)
-	if _can_save_field:
-		Config.save_field(owner.form.engine_file_section, key, selected_key)
-	else:
-		_can_save_field = true
 	option_button.text = text if not values.has("translation_key") else tr(values.translation_key)
 
 
