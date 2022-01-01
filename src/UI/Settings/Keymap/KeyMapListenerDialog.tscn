@@ -116,7 +116,7 @@ margin_left = 47.0
 margin_right = 118.0
 margin_bottom = 20.0
 shortcut = SubResource( 2 )
-text = "ui_cancel"
+text = "commons.cancel"
 
 [node name="RightContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 margin_left = 170.0
@@ -129,4 +129,4 @@ alignment = 1
 margin_left = 19.0
 margin_right = 148.0
 margin_bottom = 20.0
-text = "ui_controls_rebind"
+text = "rebind.rebind"
