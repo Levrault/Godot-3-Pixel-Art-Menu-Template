@@ -15,9 +15,17 @@ func set_message(unmapped_fields := []) -> void:
 		actions += field.action + separator
 	actions = actions.left(actions.length() - separator.length())
 
-	$MarginContainer/VBoxContainer/Message.text = tr("rebind.required_action_unmapped").format(
-		{actions = actions}
-	)
+	# plural/singular
+	if unmapped_fields.size() > 1:
+		window_title = tr("rebind.required_multi_actions_unmapped_title")
+		$MarginContainer/VBoxContainer/Message.text = tr("rebind.required_multi_actions_unmapped").format(
+			{actions = actions}
+		)
+	else:
+		window_title = tr("rebind.required_single_action_unmapped_title")
+		$MarginContainer/VBoxContainer/Message.text = tr("rebind.required_single_action_unmapped").format(
+			{actions = actions}
+		)
 
 
 func show() -> void:

@@ -1,6 +1,7 @@
 ,en,fr
 commons.back,"back", "retour"
 commons.cancel,"Cancel","Annuler"
+commons.confirm,"Confirm","Confirmer"
 commons.gamepad,"Gamepad","Manette"
 commons.keep_changes,"Do you want to keep your changes?","Voulez-vous conserver vos modifications?"
 commons.keyboard,"Keyboard","Clavier"

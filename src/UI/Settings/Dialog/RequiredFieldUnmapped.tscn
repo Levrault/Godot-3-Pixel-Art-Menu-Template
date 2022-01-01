@@ -12,7 +12,7 @@ margin_top = -59.0
 margin_right = 178.5
 margin_bottom = 59.0
 popup_exclusive = true
-window_title = "Please Confirm..."
+window_title = "rebind.required_field_title"
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false

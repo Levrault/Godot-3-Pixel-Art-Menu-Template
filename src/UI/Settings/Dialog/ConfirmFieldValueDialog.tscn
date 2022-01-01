@@ -91,7 +91,7 @@ margin_right = 126.0
 margin_bottom = 20.0
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 2
-text = "commons.ok"
+text = "commons.confirm"
 
 [node name="CancelContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 margin_left = 178.0

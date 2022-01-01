@@ -105,6 +105,6 @@ func sync_with_engine_settings() -> void:
 				print(key)
 				values[section].erase(key)
 				print(values[section])
-				
+
 	print(values)
 	save_file(values)
