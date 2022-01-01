@@ -27,10 +27,7 @@ func _ready() -> void:
 
 
 func save() -> void:
-	var data := {}
-	data[owner.form.engine_file_section] = {}
-	data[owner.form.engine_file_section][key] = values.key
-	Config.save_file(data)
+	Config.save_field(owner.form.engine_file_section, key, values.key)
 
 
 func reset() -> void:

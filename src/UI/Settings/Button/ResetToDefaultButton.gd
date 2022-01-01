@@ -15,7 +15,9 @@ func _ready():
 	confirmation_dialog.connect("popup_hide", Events, "emit_signal", ["overlay_hidden"])
 	confirmation_dialog.get_ok().connect("pressed", self, "_on_Confirmation_ok_pressed")
 	confirmation_dialog.get_ok().text = tr("commons.restore")
-	confirmation_dialog.dialog_text = tr("commons.restore_default_settings_message").format({section = tr(owner.form.section_title)})
+	confirmation_dialog.dialog_text = tr("commons.restore_default_settings_message").format(
+		{section = tr(owner.form.section_title)}
+	)
 
 	disabled = _is_equal_to_default_config()
 	_on_Device_changed(InputManager.get_current_device(), 0)

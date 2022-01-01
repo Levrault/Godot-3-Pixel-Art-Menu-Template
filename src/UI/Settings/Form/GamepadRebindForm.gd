@@ -4,19 +4,16 @@ var device := "xbox"
 
 
 func reset() -> void:
-	var data_to_save := {}
-	data_to_save[engine_file_section] = EngineSettings.get_gamepad_layout()
-	Config.save_file(data_to_save)
+	Config.save_section(engine_file_section, EngineSettings.get_gamepad_layout())
 	.reset()
 
 
 func save() -> void:
 	var data_to_save := {}
-	data_to_save[engine_file_section] = {}
-	data_to_save[engine_file_section][device] = {}
+	data_to_save[device] = {}
 	for key in data:
-		data_to_save[engine_file_section][device][key] = data[key].values
-	Config.save_file(data_to_save)
+		data_to_save[device][key] = data[key].values
+	Config.save_section(engine_file_section, data_to_save)
 
 
 func get_invalid_fields() -> Array:

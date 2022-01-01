@@ -12,11 +12,7 @@ const GAMEPAD_MOTION_REGEX := "_AXIS_|_ANALOG_"
 
 var all_gamepad_devices := []
 
-var gamepad_button_regex := {
-	"xbox": "_XBOX_",
-	"nintendo": "_DS_",
-	"dualshock": "_SONY_"
-}
+var gamepad_button_regex := {"xbox": "_XBOX_", "nintendo": "_DS_", "dualshock": "_SONY_"}
 
 var device: String = DEVICE_XBOX_CONTROLLER
 var default_gamepad: String = DEVICE_XBOX_CONTROLLER
@@ -36,7 +32,12 @@ var keyboard_f = preload("res://assets/ui/keyboard_F.png")
 
 func _ready() -> void:
 	_motion_regex.compile(GAMEPAD_MOTION_REGEX)
-	all_gamepad_devices = [DEVICE_XBOX_CONTROLLER, DEVICE_SWITCH_CONTROLLER, DEVICE_PLAYSTATION_CONTROLLER, DEVICE_GENERIC]
+	all_gamepad_devices = [
+		DEVICE_XBOX_CONTROLLER,
+		DEVICE_SWITCH_CONTROLLER,
+		DEVICE_PLAYSTATION_CONTROLLER,
+		DEVICE_GENERIC
+	]
 
 
 func _input(event: InputEvent) -> void:
@@ -44,7 +45,11 @@ func _input(event: InputEvent) -> void:
 	var next_device_index: int = device_index
 
 	# Did we just press a key on the keyboard?
-	if (event is InputEventKey and event.is_pressed()) or (event is InputEventMouseButton and event.is_pressed()) or event is InputEventMouseMotion:
+	if (
+		(event is InputEventKey and event.is_pressed())
+		or (event is InputEventMouseButton and event.is_pressed())
+		or event is InputEventMouseMotion
+	):
 		next_device = DEVICE_KEYBOARD
 		next_device_index = -1
 
@@ -141,4 +146,3 @@ func get_device_button_texture_from_action(action: String, for_device: String) -
 		"F":
 			return keyboard_f
 	return null
-

@@ -2,7 +2,7 @@
 # Rollback to previous resolution if the user doesn't confirm
 extends WindowDialog
 
-export (NodePath) var field_path = ""
+export(NodePath) var field_path = ""
 export var default_countdown := 15
 
 var _field: Field = null

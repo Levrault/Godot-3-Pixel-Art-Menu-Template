@@ -1,7 +1,7 @@
 extends HBoxContainer
 
 const BREADCRUMB_LABEL_SCENE = preload("res://src/UI/Commons/Breadcrumbs/BreadcrumbLabel.tscn")
-export (Array, String) var breadcrumbs = []
+export(Array, String) var breadcrumbs = []
 onready var breadcrumb_root = $BreachcrumbRoot
 
 

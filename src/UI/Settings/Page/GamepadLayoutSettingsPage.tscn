@@ -8,6 +8,7 @@
 [ext_resource path="res://src/UI/Settings/Fields/FieldSet.tscn" type="PackedScene" id=6]
 
 [node name="GamepadLayoutSettingsPage" instance=ExtResource( 1 )]
+default_field_to_focus = NodePath("Wrapper/Page/Contents/VBoxContainer/GamepadLayout/MarginContainer/FieldContainer/GamepadLayout")
 
 [node name="Form" parent="." index="0"]
 engine_file_section = "gamepad_layout"
