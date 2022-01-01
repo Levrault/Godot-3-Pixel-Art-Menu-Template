@@ -14,6 +14,7 @@ func save() -> void:
 	for key in data:
 		data_to_save[device][key] = data[key].values
 	Config.save_section(engine_file_section, data_to_save)
+	has_changed = true
 
 
 func get_invalid_fields() -> Array:

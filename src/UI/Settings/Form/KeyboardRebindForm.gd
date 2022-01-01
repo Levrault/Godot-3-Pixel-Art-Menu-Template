@@ -2,6 +2,7 @@ extends RebindForm
 
 
 func reset() -> void:
+	has_changed = true
 	Config.save_section(
 		engine_file_section, EngineSettings.get_keyboard_or_mouse_key_from_keyboard_variant()
 	)

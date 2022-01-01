@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/UI/Settings/SettingsListPage.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/UI/TitleScreen/TitleScreen.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://src/UI/Settings/Page/DisplaySettingsPage.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/UI/Commons/Transition/UiTransition.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/UI/Settings/Page/GamepadLayoutSettingsPage.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/UI/Commons/Notifications/SaveNotification.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/UI/Settings/Page/KeyboardRebindPage.tscn" type="PackedScene" id=11]
 
 [node name="MainMenu" type="Control"]
@@ -44,3 +45,5 @@ visible = false
 visible = false
 
 [node name="MenuTransition" parent="." instance=ExtResource( 8 )]
+
+[node name="SaveNotification" parent="." instance=ExtResource( 10 )]

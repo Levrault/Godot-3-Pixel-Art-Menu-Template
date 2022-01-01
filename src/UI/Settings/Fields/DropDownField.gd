@@ -27,6 +27,7 @@ func _ready() -> void:
 
 
 func save() -> void:
+	owner.form.has_changed = true
 	Config.save_field(owner.form.engine_file_section, key, values.key)
 
 

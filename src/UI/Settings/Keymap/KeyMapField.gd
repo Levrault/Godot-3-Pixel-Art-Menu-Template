@@ -63,6 +63,7 @@ func get_button_by_scancode(scancode: int) -> Button:
 
 
 func apply_changes(key: String) -> void:
+	owner.form.has_changed = true
 	var data_to_save := {}
 	data_to_save[action] = {}
 	for button in keymap_buttons:
