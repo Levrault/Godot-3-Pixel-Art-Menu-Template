@@ -6,20 +6,20 @@ const KEYBOARD_FILE_PATH := "res://engine/keyboard.cfg"
 const GAMEPAD_FILE_PATH := "res://engine/gamepad.cfg"
 const KEYLIST_FILE_PATH := "res://engine/keylist.cfg"
 const MOUSE_INDEX_TO_STRING := {
-	"BUTTON_LEFT": "ui_mouse_left_mouse_button",
-	"BUTTON_RIGHT": "ui_mouse_right_mouse_button",
-	"BUTTON_MIDDLE": "ui_mouse_middle_mouse_button",
-	"BUTTON_XBUTTON1": "ui_mouse_mouse_xbutton1",
-	"BUTTON_XBUTTON2": "ui_mouse_mouse_xbutton2",
-	"BUTTON_WHEEL_UP": "ui_mouse_wheel_up_mouse_button",
-	"BUTTON_WHEEL_DOWN": "ui_mouse_wheel_down_mouse_button",
-	"BUTTON_WHEEL_LEFT": "ui_mouse_wheel_left_mouse_button",
-	"BUTTON_WHEEL_RIGHT": "ui_mouse_wheel_right_mouse_button",
-	"BUTTON_MASK_LEFT": "ui_mouse_mask_left_mouse_button",
-	"BUTTON_MASK_RIGHT": "ui_mouse_mask_right_mouse_button",
-	"BUTTON_MASK_MIDDLE": "ui_mouse_mask_middle_mouse_button",
-	"BUTTON_MASK_XBUTTON1": "ui_mouse_mask_xbutton1_mouse_button",
-	"BUTTON_MASK_XBUTTON2": "ui_mouse_mask_xbutton2_mouse_button"
+	"BUTTON_LEFT": "mouse.left_mouse_button",
+	"BUTTON_RIGHT": "mouse.right_mouse_button",
+	"BUTTON_MIDDLE": "mouse.middle_mouse_button",
+	"BUTTON_XBUTTON1": "mouse.mouse_xbutton1",
+	"BUTTON_XBUTTON2": "mouse.mouse_xbutton2",
+	"BUTTON_WHEEL_UP": "mouse.wheel_up_mouse_button",
+	"BUTTON_WHEEL_DOWN": "mouse.wheel_down_mouse_button",
+	"BUTTON_WHEEL_LEFT": "mouse.wheel_left_mouse_button",
+	"BUTTON_WHEEL_RIGHT": "mouse.wheel_right_mouse_button",
+	"BUTTON_MASK_LEFT": "mouse.mask_left_mouse_button",
+	"BUTTON_MASK_RIGHT": "mouse.mask_right_mouse_button",
+	"BUTTON_MASK_MIDDLE": "mouse.mask_middle_mouse_button",
+	"BUTTON_MASK_XBUTTON1": "mouse.mask_xbutton1_mouse_button",
+	"BUTTON_MASK_XBUTTON2": "mouse.mask_xbutton2_mouse_button"
 }
 
 var gamepad_regex := {"xbox": "_XBOX_", "nintendo": "_DS_", "dualshock": "_SONY_"}
