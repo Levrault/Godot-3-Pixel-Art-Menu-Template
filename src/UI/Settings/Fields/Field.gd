@@ -74,6 +74,9 @@ func _set_is_pristine(value: bool) -> void:
 	is_pristine = value
 	emit_signal("pristine_value_changed", value)
 
+	if not is_pristine and not owner.form.has_changed:
+		owner.form.has_changed = true
+
 
 func _on_Focus_toggle(is_focused: bool) -> void:
 	if is_focused:

@@ -7,14 +7,17 @@ export var engine_file_section := ""
 export var section_title := ""
 
 var data := {}
+var has_changed := false
 
 
 func reset() -> void:
+	has_changed = true
 	for key in data:
 		data[key].reset()
 
 
 func revert() -> void:
+	has_changed = true
 	for key in data:
 		if data[key].is_pristine:
 			continue

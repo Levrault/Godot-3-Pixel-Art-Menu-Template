@@ -12,9 +12,13 @@ func _ready():
 
 
 func _on_Pressed() -> void:
-	if owner.has_node("Form") and owner.form.is_invalid():
-		owner.form.invalid_callback()
-		return
+	if owner.has_node("Form"):
+		if owner.form.is_invalid():
+			owner.form.invalid_callback()
+			return
+		if owner.form.has_changed:
+			Events.emit_signal("save_notification_enabled")
+			owner.form.has_changed = false
 	if Menu.history.size() > 0:
 		Menu.navigate_to(Menu.history.pop_back())
 

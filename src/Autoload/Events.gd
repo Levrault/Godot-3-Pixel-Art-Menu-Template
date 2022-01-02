@@ -35,3 +35,6 @@ signal menu_transition_finished
 # overlay
 signal overlay_displayed
 signal overlay_hidden
+
+# save icon
+signal save_notification_enabled
