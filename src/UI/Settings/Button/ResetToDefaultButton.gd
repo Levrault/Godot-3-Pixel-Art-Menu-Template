@@ -7,7 +7,6 @@ func _ready():
 	yield(owner, "ready")
 	InputManager.connect("device_changed", self, "_on_Device_changed")
 	Events.connect("config_file_saved", self, "_on_Config_file_saved")
-	Events.connect("navigation_enabled", self, "set", ["disabled", false])
 	Events.connect("navigation_disabled", self, "set", ["disabled", true])
 	connect("pressed", self, "_on_Pressed")
 
@@ -35,7 +34,7 @@ func _is_equal_to_default_config() -> bool:
 	var is_disabled := true
 	for key in config_values:
 		if not is_disabled:
-			continue
+			return is_disabled
 		if typeof(config_values[key]) == TYPE_DICTIONARY:
 			var config_sorted_values: Array = config_values[key].values()
 			var engine_sorted_values: Array = engine_values[key].values()

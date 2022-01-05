@@ -14,7 +14,7 @@ var all_gamepad_devices := []
 
 var gamepad_button_regex := {"xbox": "_XBOX_", "nintendo": "_DS_", "dualshock": "_SONY_"}
 
-var device: String = DEVICE_XBOX_CONTROLLER
+var device: String = DEVICE_XBOX_CONTROLLER setget _set_device
 var default_gamepad: String = DEVICE_XBOX_CONTROLLER
 var device_index: int = -1
 var _motion_regex := RegEx.new()
@@ -62,7 +62,7 @@ func _input(event: InputEvent) -> void:
 		next_device_index = event.device
 
 	if next_device != device or next_device_index != device_index:
-		device = next_device
+		self.device = next_device
 		device_index = next_device_index
 		emit_signal("device_changed", device, device_index)
 
@@ -146,3 +146,13 @@ func get_device_button_texture_from_action(action: String, for_device: String) -
 		"F":
 			return keyboard_f
 	return null
+
+
+func _set_device(value: String) -> void:
+	device = value
+
+	if device == DEVICE_KEYBOARD:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		return
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	

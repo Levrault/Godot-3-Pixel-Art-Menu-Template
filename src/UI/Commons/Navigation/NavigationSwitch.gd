@@ -25,7 +25,7 @@ func _on_Menu_route_changed(id: String) -> void:
 		return
 
 	is_current_route = true
-	print("%s route has been set" % [id])
+	print_debug("%s route has been set" % [id])
 
 
 func _on_Transiton_mid_animated() -> void:
@@ -39,4 +39,4 @@ func _on_Transiton_mid_animated() -> void:
 		get_node(default_field_to_focus).grab_focus()
 
 	emit_signal("navigation_finished")
-	print("%s is now visible" % [get_name()])
+	print_debug("%s is now visible" % [get_name()])

@@ -14,9 +14,8 @@ __meta__ = {
 [node name="Tween" type="Tween" parent="."]
 
 [node name="Value" type="Label" parent="."]
-margin_left = 8.0
 margin_top = 4.0
-margin_right = 83.0
+margin_right = 75.0
 margin_bottom = 18.0
 text = "placeholder"
 __meta__ = {
@@ -24,8 +23,8 @@ __meta__ = {
 }
 
 [node name="Previous" type="ToolButton" parent="."]
-margin_left = 87.0
-margin_right = 107.0
+margin_left = 79.0
+margin_right = 99.0
 margin_bottom = 22.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -33,8 +32,8 @@ enabled_focus_mode = 0
 text = "<"
 
 [node name="Next" type="ToolButton" parent="."]
-margin_left = 111.0
-margin_right = 131.0
+margin_left = 103.0
+margin_right = 123.0
 margin_bottom = 22.0
 focus_mode = 0
 mouse_default_cursor_shape = 2

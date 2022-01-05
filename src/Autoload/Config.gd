@@ -52,9 +52,9 @@ func save_file(settings: Dictionary) -> void:
 
 
 func save_section(section: String, values: Dictionary) -> void:
+	values[section] = values.duplicate()
 	for key in values:
 		_file.set_value(section, key, values[key])
-
 	_file.save(CONFIG_FILE_PATH)
 	Events.call_deferred("emit_signal", "config_file_saved")
 	print_debug("File has been saved")
@@ -102,9 +102,6 @@ func sync_with_engine_settings() -> void:
 				values.erase(section)
 				continue
 			if not engine_settings[section].has(key):
-				print(key)
 				values[section].erase(key)
-				print(values[section])
 
-	print(values)
 	save_file(values)

@@ -6,6 +6,9 @@ func reset() -> void:
 	Config.save_section(
 		engine_file_section, EngineSettings.get_keyboard_or_mouse_key_from_keyboard_variant()
 	)
+	Config.values[engine_file_section] = EngineSettings.get_keyboard_or_mouse_key_from_keyboard_variant()
+	yield(Events, "config_file_saved")
+	print(Config.values[engine_file_section]["run"])
 	.reset()
 
 

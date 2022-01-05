@@ -65,10 +65,9 @@ func get_button_by_scancode(scancode: int) -> Button:
 func apply_changes(key: String) -> void:
 	owner.form.has_changed = true
 	var data_to_save := {}
-	data_to_save[action] = {}
 	for button in keymap_buttons:
-		data_to_save[action][button.key] = button.assigned_to
-	Config.save_section(owner.form.engine_file_section, data_to_save)
+		data_to_save[button.key] = button.assigned_to
+	Config.save_field(owner.form.engine_file_section, action, data_to_save)
 
 
 func change_button_focus_by_name(name: String) -> void:
