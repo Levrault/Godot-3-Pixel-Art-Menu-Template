@@ -66,6 +66,7 @@ placeholder = "100"
 min_value = -50.0
 max_value = 0.0
 nb_of_step = 20
+percentage_mode = true
 
 [node name="Updater" type="Node" parent="Wrapper/Page/Contents/MasterVolume/MarginContainer/FieldContainer/MasterVolume" index="2"]
 script = ExtResource( 7 )
@@ -96,6 +97,7 @@ placeholder = "100"
 min_value = -50.0
 max_value = 0.0
 nb_of_step = 20
+percentage_mode = true
 
 [node name="Updater" type="Node" parent="Wrapper/Page/Contents/MusicVolume/MarginContainer/FieldContainer/MusicVolume" index="2"]
 script = ExtResource( 7 )
@@ -127,6 +129,7 @@ placeholder = "100"
 min_value = -50.0
 max_value = 0.0
 nb_of_step = 20
+percentage_mode = true
 
 [node name="Updater" type="Node" parent="Wrapper/Page/Contents/SfXVolume/MarginContainer/FieldContainer/SfxVolume" index="2"]
 script = ExtResource( 7 )

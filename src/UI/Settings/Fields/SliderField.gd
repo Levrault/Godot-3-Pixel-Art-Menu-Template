@@ -8,6 +8,7 @@ extends Field
 export var min_value := 0.0
 export var max_value := 100.0
 export var nb_of_step := 10
+export var percentage_mode := false
 
 var _is_computing_from_negative := false
 var _should_trigger_updater_callback_action := false
@@ -70,7 +71,7 @@ func _on_Slider_focus_exited() -> void:
 
 
 func _on_Value_changed(value: float) -> void:
-	$Value.text = String(percentage(value))
+	$Value.text = String(percentage(value)) if percentage_mode else "%.1f" % value
 	values.key = value
 	for key in values.properties:
 		values.properties[key] = value

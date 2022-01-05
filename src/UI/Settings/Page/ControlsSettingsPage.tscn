@@ -61,8 +61,8 @@ margin_left = 254.0
 margin_right = 420.0
 key = "mouse_sensibility"
 placeholder = ".5"
-max_value = 1.0
-nb_of_step = 20
+max_value = 10.0
+nb_of_step = 100
 
 [node name="Updater" type="Node" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/MouseSensibility/MarginContainer/FieldContainer/MouseSensibility" index="2"]
 script = ExtResource( 7 )
@@ -189,6 +189,7 @@ key = "gamepad_vibration"
 placeholder = "100%"
 max_value = 1.0
 nb_of_step = 20
+percentage_mode = true
 
 [node name="Updater" type="Node" parent="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadVibration/MarginContainer/FieldContainer/GamepadVibration" index="2"]
 script = ExtResource( 9 )
