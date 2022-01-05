@@ -51,11 +51,11 @@ func save_file(settings: Dictionary) -> void:
 	print_debug("File has been saved")
 
 
-func save_section(section: String, values: Dictionary) -> void:
-	values[section] = values.duplicate()
-	for key in values:
-		_file.set_value(section, key, values[key])
+func save_section(section: String, data: Dictionary) -> void:
+	for key in data:
+		_file.set_value(section, key, data[key])
 	_file.save(CONFIG_FILE_PATH)
+	values[section] = data.duplicate()
 	Events.call_deferred("emit_signal", "config_file_saved")
 	print_debug("File has been saved")
 
