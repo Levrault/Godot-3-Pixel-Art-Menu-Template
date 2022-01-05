@@ -11,7 +11,6 @@ export var nb_of_step := 10
 export var percentage_mode := false
 
 var _is_computing_from_negative := false
-var _should_trigger_updater_callback_action := false
 onready var slider := $HSlider
 onready var debounce_timer := $DebounceTimer
 
@@ -23,30 +22,31 @@ func _ready() -> void:
 		printerr("%s's key is empty" % get_name())
 		return
 
-	connect("focus_entered", self, "_on_Focus_entered")
-	slider.connect("focus_exited", self, "_on_Slider_focus_exited")
-	slider.connect("value_changed", self, "_on_Value_changed")
-	debounce_timer.connect("timeout", self, "_on_Timeout")
-
 	values.properties = EngineSettings.data[owner.form.engine_file_section][key]["properties"]
-
 	if abs(min_value) > max_value:
 		_is_computing_from_negative = true
 	slider.min_value = min_value
 	slider.max_value = max_value
 	slider.step = abs(max_value - min_value) / nb_of_step
 	revert()
+	
+	connect("focus_entered", self, "_on_Focus_entered")
+	slider.connect("focus_exited", self, "_on_Slider_focus_exited")
+	slider.connect("value_changed", self, "_on_Value_changed")
+	debounce_timer.connect("timeout", self, "_on_Timeout")
 
 
 func reset() -> void:
-	_should_trigger_updater_callback_action = false
 	slider.value = EngineSettings.data[owner.form.engine_file_section][key].default
 	Config.save_field(owner.form.engine_file_section, key, values.key)
 	apply()
 
 
 func revert() -> void:
-	slider.value = Config.values[owner.form.engine_file_section][key]
+	var value :float = Config.values[owner.form.engine_file_section][key]
+	slider.value = value
+	values.key = value
+	$Value.text = "%d" % percentage(value) + "%" if percentage_mode else "%.1f" % value
 	apply()
 
 
@@ -71,19 +71,16 @@ func _on_Slider_focus_exited() -> void:
 
 
 func _on_Value_changed(value: float) -> void:
-	$Value.text = String(percentage(value)) if percentage_mode else "%.1f" % value
+	$Value.text = "%d" % percentage(value) + "%" if percentage_mode else "%.1f" % value
 	values.key = value
 	for key in values.properties:
 		values.properties[key] = value
 
-	updater.apply(values.properties, _should_trigger_updater_callback_action)
+	updater.apply(values.properties, true)
 
 	# first load
-	if not _should_trigger_updater_callback_action:
-		_should_trigger_updater_callback_action = true
-	else:
-		self.is_pristine = false
-		debounce_timer.start()
+	self.is_pristine = false
+	debounce_timer.start()
 	print_debug("%s has apply properties : %s" % [get_name(), values.properties])
 
 
