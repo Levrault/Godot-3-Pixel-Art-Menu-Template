@@ -31,7 +31,7 @@ func _ready() -> void:
 	revert()
 	
 	connect("focus_entered", self, "_on_Focus_entered")
-	slider.connect("focus_exited", self, "_on_Slider_focus_exited")
+	slider.connect("mouse_entered", self, "_on_Mouse_entered")
 	slider.connect("value_changed", self, "_on_Value_changed")
 	debounce_timer.connect("timeout", self, "_on_Timeout")
 
@@ -66,8 +66,8 @@ func _on_Focus_entered() -> void:
 	Events.emit_signal("field_focus_entered", self)
 
 
-func _on_Slider_focus_exited() -> void:
-	Events.emit_signal("field_focus_exited", self)
+func _on_Mouse_entered() -> void:
+	Events.emit_signal("field_focus_entered", self)
 
 
 func _on_Value_changed(value: float) -> void:

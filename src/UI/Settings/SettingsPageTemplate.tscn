@@ -66,11 +66,11 @@ size_flags_horizontal = 3
 alignment = 2
 
 [node name="ResetToDefaultButton" parent="Wrapper/Page/Footer" instance=ExtResource( 7 )]
-margin_left = 245.0
-margin_right = 377.0
+margin_left = 164.0
+margin_right = 327.0
 
 [node name="PreviousPagePage" parent="Wrapper/Page/Footer" instance=ExtResource( 1 )]
-margin_left = 381.0
+margin_left = 331.0
 margin_right = 440.0
 
 [node name="Overlay" type="ColorRect" parent="."]

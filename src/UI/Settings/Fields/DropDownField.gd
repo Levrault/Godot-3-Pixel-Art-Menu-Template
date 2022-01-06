@@ -14,6 +14,7 @@ func _ready() -> void:
 	yield(owner, "ready")
 
 	connect("focus_entered", self, "_on_Focus_entered")
+	option_button.connect("mouse_entered", self, "_on_Mouse_entered")
 	option_button.connect("focus_exited", self, "_on_Option_button_focus_exited")
 	option_button.connect("item_selected", self, "_on_Item_selected")
 	option_button.get_popup().connect("about_to_show", self, "_on_Popup_about_to_show")
@@ -65,6 +66,10 @@ func _on_Focus_toggled(is_focused: bool) -> void:
 
 func _on_Focus_entered() -> void:
 	option_button.grab_focus()
+	Events.emit_signal("field_focus_entered", self)
+
+
+func _on_Mouse_entered() -> void:
 	Events.emit_signal("field_focus_entered", self)
 
 
