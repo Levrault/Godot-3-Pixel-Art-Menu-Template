@@ -14,6 +14,5 @@ __meta__ = {
 [node name="OptionButton" type="OptionButton" parent="."]
 margin_right = 104.0
 margin_bottom = 20.0
-mouse_filter = 1
 mouse_default_cursor_shape = 2
 text = "placeholder"

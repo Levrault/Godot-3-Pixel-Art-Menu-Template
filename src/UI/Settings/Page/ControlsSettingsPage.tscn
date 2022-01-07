@@ -202,13 +202,6 @@ text = "controls.gamepad_layout"
 script = ExtResource( 2 )
 navigate_to = "GamepadLayoutSettingsPage"
 
-[node name="ResetToDefaultButton" parent="Wrapper/Page/Footer" index="0"]
-margin_left = 164.0
-margin_right = 327.0
-
-[node name="PreviousPagePage" parent="Wrapper/Page/Footer" index="1"]
-margin_left = 331.0
-
 [editable path="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/MouseSensibility"]
 [editable path="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadStickLayout"]
 [editable path="Wrapper/Page/Contents/ScrollContainer/VBoxContainer/GamepadXAxis"]
