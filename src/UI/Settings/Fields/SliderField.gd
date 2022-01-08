@@ -9,6 +9,7 @@ export var min_value := 0.0
 export var max_value := 100.0
 export var nb_of_step := 10
 export var percentage_mode := false
+export var placeholder := "placeholder" setget _set_placeholder
 
 var _is_computing_from_negative := false
 onready var slider := $HSlider
@@ -29,7 +30,7 @@ func _ready() -> void:
 	slider.max_value = max_value
 	slider.step = abs(max_value - min_value) / nb_of_step
 	revert()
-	
+
 	connect("focus_entered", self, "_on_Focus_entered")
 	slider.connect("mouse_entered", self, "_on_Mouse_entered")
 	slider.connect("value_changed", self, "_on_Value_changed")
@@ -43,7 +44,7 @@ func reset() -> void:
 
 
 func revert() -> void:
-	var value :float = Config.values[owner.form.engine_file_section][key]
+	var value: float = Config.values[owner.form.engine_file_section][key]
 	slider.value = value
 	values.key = value
 	$Value.text = "%d" % percentage(value) + "%" if percentage_mode else "%.1f" % value

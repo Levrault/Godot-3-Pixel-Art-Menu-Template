@@ -4,7 +4,7 @@ extends Control
 var field = null
 var label: Label = null
 var description: Label = null
-var accessibleDescription: Label = null 
+var accessibleDescription: Label = null
 
 onready var focus_rect = $FocusRect
 onready var container = $MarginContainer/FieldContainer
@@ -46,7 +46,6 @@ func _on_Field_focus_entered(focused_field) -> void:
 func _on_Field_focus_exited(focused_field) -> void:
 	if focused_field != field:
 		return
-	print("%s has loss focus" % focused_field)
 	focus_rect.modulate.a = 0.0
 
 

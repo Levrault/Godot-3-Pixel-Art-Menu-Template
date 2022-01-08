@@ -6,7 +6,7 @@
 [ext_resource path="res://src/UI/Settings/Dialog/ConfirmFieldValueDialog.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/UI/Settings/Fields/FieldSet.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/UI/Settings/SettingsPageTemplate.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/UI/Settings/Fields/HListField.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/UI/Settings/Fields/CheckboxField.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/UI/Settings/Fields/DropDownField.tscn" type="PackedScene" id=8]
 
 [node name="DisplaySettingsPage" instance=ExtResource( 6 )]
@@ -33,11 +33,12 @@ margin_bottom = 68.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/VSync/MarginContainer" index="0"]
 margin_right = 436.0
+margin_bottom = 24.0
 
 [node name="Label" type="Label" parent="Wrapper/Page/Contents/VSync/MarginContainer/FieldContainer" index="0"]
-margin_top = 4.0
+margin_top = 5.0
 margin_right = 85.0
-margin_bottom = 18.0
+margin_bottom = 19.0
 text = "display.vsync"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -46,11 +47,10 @@ __meta__ = {
 [node name="Vsync" parent="Wrapper/Page/Contents/VSync/MarginContainer/FieldContainer" index="1" instance=ExtResource( 7 )]
 margin_left = 89.0
 margin_right = 432.0
-margin_bottom = 22.0
+margin_bottom = 24.0
 key = "use_vsync"
-placeholder = "enabled"
 
-[node name="Updater" type="Node" parent="Wrapper/Page/Contents/VSync/MarginContainer/FieldContainer/Vsync" index="4"]
+[node name="Updater" type="Node" parent="Wrapper/Page/Contents/VSync/MarginContainer/FieldContainer/Vsync" index="1"]
 script = ExtResource( 2 )
 
 [node name="WindowMode" parent="Wrapper/Page/Contents" index="1" instance=ExtResource( 5 )]
@@ -108,13 +108,6 @@ script = ExtResource( 3 )
 
 [node name="ConfirmFieldValueDialog" parent="Wrapper/Page/Contents/Resolution/MarginContainer/FieldContainer/ScreenResolution/Updater" index="0" instance=ExtResource( 4 )]
 field_path = NodePath("../..")
-
-[node name="ResetToDefaultButton" parent="Wrapper/Page/Footer" index="0"]
-margin_left = 164.0
-margin_right = 327.0
-
-[node name="PreviousPagePage" parent="Wrapper/Page/Footer" index="1"]
-margin_left = 331.0
 
 [editable path="Wrapper/Page/Contents/VSync"]
 [editable path="Wrapper/Page/Contents/WindowMode"]

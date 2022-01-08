@@ -7,6 +7,8 @@ tool
 class_name DropdownField
 extends FieldWithOptions
 
+export var placeholder := "placeholder" setget _set_placeholder
+
 onready var option_button := $OptionButton
 
 
@@ -33,7 +35,7 @@ func save() -> void:
 
 
 func reset() -> void:
-	self.selected_key = Config.values[owner.form.engine_file_section][key]
+	self.selected_key = EngineSettings.data[owner.form.engine_file_section][key].default
 	_compute_index()
 	apply()
 	option_button.select(_index)
