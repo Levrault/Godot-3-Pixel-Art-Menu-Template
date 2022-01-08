@@ -71,11 +71,11 @@ func _input(event: InputEvent) -> void:
 
 func update_ui_for(step: int, data := {}):
 	var unbind_action_key := InputManager.get_device_button_from_action("ui_unbind", _button.type)
-	var cancel_action_key := InputManager.get_device_button_from_action(
-		"ui_cancel_binding", _button.type
+	var cancel_binding_action_key := InputManager.get_device_button_from_action(
+		"ui_cancel_binding", InputManager.device
 	)
 
-	cancel_binding_message.text = tr("rebind.cancel_binding").format({key = cancel_action_key})
+	cancel_binding_message.text = tr("rebind.cancel_binding").format({key = cancel_binding_action_key})
 
 	if step == Step.new:
 		window_title = tr("rebind.binding_action").format({action = _field.action})
