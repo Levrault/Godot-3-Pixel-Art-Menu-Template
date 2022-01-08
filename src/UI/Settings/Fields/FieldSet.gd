@@ -3,8 +3,6 @@ extends Control
 
 var field = null
 var label: Label = null
-var description: Label = null
-var accessibleDescription: Label = null
 
 onready var focus_rect = $FocusRect
 onready var container = $MarginContainer/FieldContainer
@@ -41,12 +39,14 @@ func _on_Field_focus_entered(focused_field) -> void:
 		focus_rect.modulate.a = 0.0
 		return
 	focus_rect.modulate.a = 1.0
+	Events.emit_signal("field_description_changed", focused_field.description)
 
 
 func _on_Field_focus_exited(focused_field) -> void:
 	if focused_field != field:
 		return
 	focus_rect.modulate.a = 0.0
+	Events.emit_signal("field_description_changed", "")
 
 
 func _on_Field_mouse_entered() -> void:

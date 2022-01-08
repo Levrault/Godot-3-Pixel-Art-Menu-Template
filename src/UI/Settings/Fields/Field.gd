@@ -12,6 +12,7 @@ extends HBoxContainer
 signal pristine_value_changed(value)
 
 export var key := ""
+export var description := ""
 
 var values := {}
 var is_pristine := true setget _set_is_pristine

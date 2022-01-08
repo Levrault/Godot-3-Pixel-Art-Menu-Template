@@ -19,33 +19,34 @@ section_title = "audio.title"
 breadcrumbs = [ "commons.settings", "audio.title" ]
 
 [node name="Locale" parent="Wrapper/Page/Contents" index="0" instance=ExtResource( 3 )]
-margin_top = 40.0
+margin_top = 22.0
 margin_right = 440.0
-margin_bottom = 62.0
+margin_bottom = 44.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/Locale/MarginContainer" index="0"]
 margin_right = 436.0
 
 [node name="Label" type="Label" parent="Wrapper/Page/Contents/Locale/MarginContainer/FieldContainer" index="0"]
 margin_top = 4.0
-margin_right = 95.0
+margin_right = 77.0
 margin_bottom = 18.0
-text = "audio.language"
+text = "audio.locale"
 
 [node name="Locale" parent="Wrapper/Page/Contents/Locale/MarginContainer/FieldContainer" index="1" instance=ExtResource( 2 )]
-margin_left = 99.0
+margin_left = 81.0
 margin_right = 432.0
 margin_bottom = 22.0
 key = "locale"
+description = "audio.locale_description"
 placeholder = "en"
 
 [node name="Updater" type="Node" parent="Wrapper/Page/Contents/Locale/MarginContainer/FieldContainer/Locale" index="1"]
 script = ExtResource( 5 )
 
 [node name="MasterVolume" parent="Wrapper/Page/Contents" index="1" instance=ExtResource( 3 )]
-margin_top = 72.0
+margin_top = 54.0
 margin_right = 440.0
-margin_bottom = 94.0
+margin_bottom = 76.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/MasterVolume/MarginContainer" index="0"]
 margin_right = 436.0
@@ -55,18 +56,19 @@ margin_top = 4.0
 margin_right = 250.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
-text = "audio.general_volume"
+text = "audio.master_volume"
 
 [node name="MasterVolume" parent="Wrapper/Page/Contents/MasterVolume/MarginContainer/FieldContainer" index="1" instance=ExtResource( 1 )]
 margin_left = 254.0
 margin_right = 432.0
 rect_min_size = Vector2( 150, 0 )
 key = "master_volume"
-placeholder = "100"
+description = "audio.master_volume_description"
 min_value = -50.0
 max_value = 0.0
 nb_of_step = 20
 percentage_mode = true
+placeholder = "100"
 
 [node name="Updater" type="Node" parent="Wrapper/Page/Contents/MasterVolume/MarginContainer/FieldContainer/MasterVolume" index="2"]
 script = ExtResource( 7 )
@@ -75,9 +77,9 @@ script = ExtResource( 7 )
 stream = ExtResource( 6 )
 
 [node name="MusicVolume" parent="Wrapper/Page/Contents" index="2" instance=ExtResource( 3 )]
-margin_top = 104.0
+margin_top = 86.0
 margin_right = 440.0
-margin_bottom = 126.0
+margin_bottom = 108.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/MusicVolume/MarginContainer" index="0"]
 margin_right = 436.0
@@ -93,11 +95,12 @@ text = "audio.music_volume"
 margin_left = 254.0
 margin_right = 432.0
 key = "music_volume"
-placeholder = "100"
+description = "audio.music_volume_description"
 min_value = -50.0
 max_value = 0.0
 nb_of_step = 20
 percentage_mode = true
+placeholder = "100"
 
 [node name="Updater" type="Node" parent="Wrapper/Page/Contents/MusicVolume/MarginContainer/FieldContainer/MusicVolume" index="2"]
 script = ExtResource( 7 )
@@ -107,9 +110,9 @@ stream = ExtResource( 6 )
 bus = "Music"
 
 [node name="SfXVolume" parent="Wrapper/Page/Contents" index="3" instance=ExtResource( 3 )]
-margin_top = 136.0
+margin_top = 118.0
 margin_right = 440.0
-margin_bottom = 158.0
+margin_bottom = 140.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/SfXVolume/MarginContainer" index="0"]
 margin_right = 436.0
@@ -125,11 +128,12 @@ text = "audio.sfx_volume"
 margin_left = 254.0
 margin_right = 432.0
 key = "sfx_volume"
-placeholder = "100"
+description = "audio.sfx_volume_description"
 min_value = -50.0
 max_value = 0.0
 nb_of_step = 20
 percentage_mode = true
+placeholder = "100"
 
 [node name="Updater" type="Node" parent="Wrapper/Page/Contents/SfXVolume/MarginContainer/FieldContainer/SfxVolume" index="2"]
 script = ExtResource( 7 )
@@ -137,13 +141,6 @@ script = ExtResource( 7 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Wrapper/Page/Contents/SfXVolume/MarginContainer/FieldContainer/SfxVolume/Updater" index="0"]
 stream = ExtResource( 6 )
 bus = "SFX"
-
-[node name="ResetToDefaultButton" parent="Wrapper/Page/Footer" index="0"]
-margin_left = 164.0
-margin_right = 327.0
-
-[node name="PreviousPagePage" parent="Wrapper/Page/Footer" index="1"]
-margin_left = 331.0
 
 [editable path="Wrapper/Page/Contents/Locale"]
 [editable path="Wrapper/Page/Contents/MasterVolume"]

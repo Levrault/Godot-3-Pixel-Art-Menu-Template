@@ -58,7 +58,6 @@ func _input(event: InputEvent) -> void:
 
 func update_ui_for(step: int, data := {}):
 	var unbind_action_key := InputManager.get_device_button_from_action("ui_unbind", InputManager.device)
-	print(unbind_action_key)
 
 	if step == Step.new:
 		window_title = tr("rebind.binding_action").format({action = _field.action})

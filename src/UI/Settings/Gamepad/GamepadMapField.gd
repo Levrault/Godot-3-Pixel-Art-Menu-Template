@@ -3,6 +3,7 @@ class_name GamepadMapField, "res://assets/icons/gamepad.svg"
 extends HBoxContainer
 
 export var action := ""
+export var description := ""
 export var required := true
 export var placeholder := "placeholder" setget _set_placeholder
 
