@@ -6,6 +6,8 @@ class_name HListField
 extends FieldWithOptions
 
 export var infinite_loop := true
+export var placeholder := "placeholder" setget _set_placeholder
+
 onready var _tween := $Tween
 onready var previous := $Previous
 onready var next := $Next

@@ -1,6 +1,8 @@
 ,en,fr
 controls.alt,"Alt","Alt"
 controls.default,"Default","Défaut"
+controls.hold_ads,"Hold to aim","Maintenir pour viser"
+controls.hold_to_crouch,"Hold to crouch","Maintenir pour rester accroupie"
 controls.mouse_sensitivity,"Mouse sensitivity","Sensibilité de la souris"
 controls.gamepad_stick_layout,"Thumbstick layout","Sticks analogiques"
 controls.gamepad_x_axis,"Camera horizontal look","Vue horizontal de la caméra"

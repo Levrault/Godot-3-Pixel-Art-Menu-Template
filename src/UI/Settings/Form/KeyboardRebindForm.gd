@@ -8,6 +8,7 @@ func reset() -> void:
 	)
 	.reset()
 
+
 func get_invalid_fields() -> Array:
 	var invalid_fields := []
 	for key in data:

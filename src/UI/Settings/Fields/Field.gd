@@ -12,7 +12,6 @@ extends HBoxContainer
 signal pristine_value_changed(value)
 
 export var key := ""
-export var placeholder := "placeholder" setget _set_placeholder
 
 var values := {}
 var is_pristine := true setget _set_is_pristine
@@ -63,11 +62,6 @@ func revert() -> void:
 	if not Config.values[owner.form.engine_file_section].has(key):
 		printerr("%s/%s doesn't exist in config file" % [owner.form.engine_file_section, key])
 		return
-
-
-# Each inherited children should have a set placeholder method
-func _set_placeholder(value: String) -> void:
-	pass
 
 
 func _set_is_pristine(value: bool) -> void:

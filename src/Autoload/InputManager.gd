@@ -155,4 +155,3 @@ func _set_device(value: String) -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		return
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	

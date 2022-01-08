@@ -15,6 +15,9 @@ func reset() -> void:
 	for key in data:
 		data[key].reset()
 
+		if data[key].has_method("save"):
+			data[key].save()
+
 
 func revert() -> void:
 	has_changed = true
