@@ -9,6 +9,8 @@ var _can_save_field := false  # prevent save on first load
 
 
 func _ready() -> void:
+	if Engine.editor_hint:
+		return
 	yield(owner, "ready")
 
 	if key.empty():

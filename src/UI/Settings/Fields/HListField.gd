@@ -14,6 +14,8 @@ onready var next := $Next
 
 
 func _ready() -> void:
+	if Engine.editor_hint:
+		return
 	yield(owner, "ready")
 	revert()
 	previous.connect("pressed", self, "_on_Previous_value")

@@ -17,6 +17,9 @@ onready var debounce_timer := $DebounceTimer
 
 
 func _ready() -> void:
+	if Engine.editor_hint:
+		return
+
 	yield(owner, "ready")
 
 	if key.empty():
@@ -32,6 +35,7 @@ func _ready() -> void:
 	revert()
 
 	connect("focus_entered", self, "_on_Focus_entered")
+	slider.connect("focus_exited", self, "_on_Focus_exited")
 	slider.connect("mouse_entered", self, "_on_Mouse_entered")
 	slider.connect("value_changed", self, "_on_Value_changed")
 	debounce_timer.connect("timeout", self, "_on_Timeout")
@@ -65,6 +69,10 @@ func _set_placeholder(value: String) -> void:
 func _on_Focus_entered() -> void:
 	slider.grab_focus()
 	Events.emit_signal("field_focus_entered", self)
+
+
+func _on_Focus_exited() -> void:
+	Events.emit_signal("field_focus_exited", self)
 
 
 func _on_Mouse_entered() -> void:

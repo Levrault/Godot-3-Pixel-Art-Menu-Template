@@ -9,6 +9,8 @@ var selected_key := ""
 onready var checkbox := $CheckBox
 
 func _ready() -> void:
+	if Engine.editor_hint:
+		return
 	yield(owner, "ready")
 	if key.empty():
 		printerr("%s's key is empty" % get_name())
@@ -18,6 +20,7 @@ func _ready() -> void:
 	connect("focus_entered", self, "_on_Focus_entered")
 	checkbox.connect("toggled", self, "_on_Toggled")
 	checkbox.connect("mouse_entered", self, "_on_Mouse_entered")
+	checkbox.connect("focus_exited", self, "_on_Focus_exited")
 
 
 func reset() -> void:
@@ -44,6 +47,10 @@ func _on_Toggled(button_pressed: bool) -> void:
 func _on_Focus_entered() -> void:
 	checkbox.grab_focus()
 	Events.emit_signal("field_focus_entered", self)
+
+
+func _on_Focus_exited() -> void:
+	Events.emit_signal("field_focus_exited", self)
 
 
 func _on_Mouse_entered() -> void:

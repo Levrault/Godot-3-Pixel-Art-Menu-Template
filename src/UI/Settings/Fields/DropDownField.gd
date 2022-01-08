@@ -13,6 +13,8 @@ onready var option_button := $OptionButton
 
 
 func _ready() -> void:
+	if Engine.editor_hint:
+		return
 	yield(owner, "ready")
 
 	connect("focus_entered", self, "_on_Focus_entered")
