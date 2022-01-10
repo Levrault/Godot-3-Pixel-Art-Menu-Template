@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/UI/Commons/Button/PreviousPageButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/UI/Commons/Navigation/NavigationSwitch.gd" type="Script" id=2]
+[ext_resource path="res://src/UI/Settings/Fields/FieldDescription.gd" type="Script" id=3]
 [ext_resource path="res://src/UI/Commons/Breadcrumbs/Breadcrumb.gd" type="Script" id=4]
 [ext_resource path="res://src/UI/Commons/Breadcrumbs/BreadcrumbLabel.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/UI/Settings/Form/Form.tscn" type="PackedScene" id=6]
@@ -49,7 +50,7 @@ margin_right = 85.0
 [node name="Contents" type="VBoxContainer" parent="Wrapper/Page"]
 margin_top = 18.0
 margin_right = 440.0
-margin_bottom = 216.0
+margin_bottom = 181.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
@@ -57,6 +58,16 @@ alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="FieldDescription" type="Label" parent="Wrapper/Page"]
+margin_top = 185.0
+margin_right = 440.0
+margin_bottom = 216.0
+rect_min_size = Vector2( 440, 31 )
+text = "FIELD Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a purus mi. Mauris semper at velit nec consectetur"
+valign = 1
+autowrap = true
+script = ExtResource( 3 )
 
 [node name="Footer" type="HBoxContainer" parent="Wrapper/Page"]
 margin_top = 220.0

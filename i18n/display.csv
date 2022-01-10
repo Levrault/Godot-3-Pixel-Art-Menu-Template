@@ -1,5 +1,8 @@
 ,en,fr
 display.window_mode,"Display mode","Mode d'affichage"
 display.vsync,"VSYNC","VSYNC"
+display.window_mode_description,"WINDOW MODE - set if the game display in borderless, fullscreen or window",""
+display.vsync_description,"VSYNC - sync your frame rate to your monitors refresh rate to prevent the tearing",""
 display.screen_resolution,"Resolution","Resolution"
+display.screen_resolution_description,"RESOLUTION - set internal 3D resolution in pixel",""
 display.title,"Display","Affichage"

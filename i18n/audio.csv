@@ -1,6 +1,10 @@
 ,en,fr
-audio.general_volume,"General Volume","Volume général"
-audio.language,"Language","Langue"
+audio.master_volume,"General Volume","Volume général"
+audio.master_volume_description,"MASTER VOLUME - set the volume for all audio","VOLUME GÉNÉRAL - défini le volume pour l'ensemble des canaux audio"
+audio.locale,"Language","Langue"
+audio.locale_description,"LANGUAGE - set langue used for all displayed text",""
 audio.music_volume,"Music","Musique"
+audio.music_volume_description,"MUSIC VOLUME - set the volume for music","MUSIQUE - défini le volume de la musique"
 audio.title,"Audio","Sons"
-audio.sfx_volume,"SFX","SFX"
+audio.sfx_volume,"Sound effects",""
+audio.sfx_volume_description,"SOUND EFFECTS - set the volume for all in-game sound effect",""

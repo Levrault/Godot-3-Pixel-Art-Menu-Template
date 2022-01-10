@@ -10,6 +10,12 @@ extends Node
 signal config_file_saved
 signal config_file_loade
 
+# field
+signal field_description_changed(description)
+signal field_focus_entered(field)
+signal field_focus_exited(field)
+signal focused_row_changed(row)
+
 # gamepad binding
 signal gamepad_listening_started
 signal gamepad_layout_changed
@@ -20,11 +26,6 @@ signal key_listening_started(field, button, scancode)
 # navigation
 signal navigation_disabled
 signal navigation_enabled
-
-# field
-signal field_focus_entered(field)
-signal field_focus_exited(field)
-signal focused_row_changed(row)
 
 # menu
 signal menu_route_changed(route)
