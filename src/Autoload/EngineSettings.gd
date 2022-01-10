@@ -101,7 +101,7 @@ func get_gamepad_layout() -> Dictionary:
 
 
 func get_gamepad_button_from_joy_string(value: int, joy_string := "", type := "") -> String:
-	var device = "_" + type.to_upper() + "_"
+	var device = InputManager.gamepad_button_regex[type]
 	var result := ""
 	for key in keylist.gamepad:
 		var key_joy_string := (

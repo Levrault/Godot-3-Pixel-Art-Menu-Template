@@ -22,16 +22,16 @@ func assign_with_constant(value: String) -> void:
 
 	if InputManager.is_motion_event(value):
 		joy_string = Input.get_joy_axis_string(EngineSettings.keylist.gamepad[value])
-		var input_event_motion = InputEventJoypadMotion.new()
-		input_event_motion.axis = EngineSettings.keylist.gamepad[value]
-		InputMap.action_add_event(owner.action, input_event_motion)
+		InputManager.addJoyMotionEvent(owner.action, value)
 	else:
 		joy_string = Input.get_joy_button_string(EngineSettings.keylist.gamepad[value])
-		var input_event_button = InputEventJoypadButton.new()
-		input_event_button.button_index = EngineSettings.keylist.gamepad[value]
-		InputMap.action_add_event(owner.action, input_event_button)
+		InputManager.addJoyButtonEvent(owner.action, value)
 
-	owner.values[key] = assigned_to
+	owner.values[key] = { 
+		joy_value = EngineSettings.keylist.gamepad[assigned_to],
+		device_joy_string = assigned_to,
+		joy_string = joy_string
+	}
 
 
 func clear() -> void:

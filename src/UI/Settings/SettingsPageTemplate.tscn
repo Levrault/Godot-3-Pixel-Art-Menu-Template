@@ -50,7 +50,7 @@ margin_right = 85.0
 [node name="Contents" type="VBoxContainer" parent="Wrapper/Page"]
 margin_top = 18.0
 margin_right = 440.0
-margin_bottom = 181.0
+margin_bottom = 173.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
@@ -58,6 +58,11 @@ alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="HSeparator" type="HSeparator" parent="Wrapper/Page"]
+margin_top = 177.0
+margin_right = 440.0
+margin_bottom = 181.0
 
 [node name="FieldDescription" type="Label" parent="Wrapper/Page"]
 margin_top = 185.0

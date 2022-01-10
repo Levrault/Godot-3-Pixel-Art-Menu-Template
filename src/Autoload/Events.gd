@@ -39,3 +39,6 @@ signal overlay_hidden
 
 # save icon
 signal save_notification_enabled
+
+# user
+signal user_has_changed_gamepad_bindind

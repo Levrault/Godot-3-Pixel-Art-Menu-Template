@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/UI/Settings/SettingsPageTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/UI/Settings/Updater/GamepadLayoutUpdater.gd" type="Script" id=2]
@@ -6,11 +6,13 @@
 [ext_resource path="res://src/UI/Settings/Fields/HListField.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/UI/Commons/Navigation/NavigationButton.gd" type="Script" id=5]
 [ext_resource path="res://src/UI/Settings/Fields/FieldSet.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/UI/Settings/Form/GamepadLayoutForm.gd" type="Script" id=7]
 
 [node name="GamepadLayoutSettingsPage" instance=ExtResource( 1 )]
 default_field_to_focus = NodePath("Wrapper/Page/Contents/VBoxContainer/GamepadLayout/MarginContainer/FieldContainer/GamepadLayout")
 
 [node name="Form" parent="." index="0"]
+script = ExtResource( 7 )
 engine_file_section = "gamepad_layout"
 section_title = "gamepad.title"
 
@@ -19,7 +21,7 @@ breadcrumbs = [ "commons.settings", "gamepad.title" ]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Wrapper/Page/Contents" index="0"]
 margin_right = 440.0
-margin_bottom = 163.0
+margin_bottom = 155.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
