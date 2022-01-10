@@ -19,7 +19,6 @@ __meta__ = {
 margin_top = 10.0
 margin_right = 75.0
 margin_bottom = 24.0
-text = "Placeholder"
 
 [node name="HSeparator" type="HSeparator" parent="."]
 margin_top = 28.0

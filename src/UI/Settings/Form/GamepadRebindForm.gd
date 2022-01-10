@@ -9,11 +9,27 @@ func reset() -> void:
 
 
 func save() -> void:
+	var layout_is_valid := true
 	var data_to_save := {}
-	data_to_save[device] = {}
-	for key in data:
-		data_to_save[device][key] = data[key].values
-	Config.save_section(engine_file_section, data_to_save)
+	for gamepad_device in InputManager.all_gamepad_devices:
+		data_to_save[gamepad_device] = {}
+		for key in data:
+			data_to_save[gamepad_device][key] = {}
+
+			if data[key].values.default.empty():
+				layout_is_valid = false
+				data_to_save[gamepad_device][key]["default"] = {}
+			else:
+				data_to_save[gamepad_device][key]["default"] = EngineSettings.get_gamepad_button_from_joy_string(
+					data[key].values.default.joy_value,
+					data[key].values.default.joy_string,
+					gamepad_device
+				)
+
+	if layout_is_valid:
+		Config.save_section(engine_file_section, data_to_save)
+		Events.emit_signal("gamepad_layout_changed")
+		Events.emit_signal("user_has_changed_gamepad_bindind")
 	has_changed = true
 
 

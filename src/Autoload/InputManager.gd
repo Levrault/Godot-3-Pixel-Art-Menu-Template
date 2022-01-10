@@ -12,7 +12,7 @@ const GAMEPAD_MOTION_REGEX := "_AXIS_|_ANALOG_"
 
 var all_gamepad_devices := []
 
-var gamepad_button_regex := {"xbox": "_XBOX_", "nintendo": "_DS_", "dualshock": "_SONY_"}
+var gamepad_button_regex := {"xbox": "_XBOX_", "nintendo": "_DS_", "dualshock": "_SONY_", "generic": "_BUTTON_"}
 
 var device: String = DEVICE_XBOX_CONTROLLER setget _set_device
 var default_gamepad: String = DEVICE_XBOX_CONTROLLER
@@ -65,6 +65,18 @@ func _input(event: InputEvent) -> void:
 		self.device = next_device
 		device_index = next_device_index
 		emit_signal("device_changed", device, device_index)
+
+
+func addJoyMotionEvent(action: String, value: String) -> void:
+	var input_event_motion = InputEventJoypadMotion.new()
+	input_event_motion.axis = EngineSettings.keylist.gamepad[value]
+	InputMap.action_add_event(action, input_event_motion)
+
+
+func addJoyButtonEvent(action: String, value: String) -> void:
+	var input_event_button = InputEventJoypadButton.new()
+	input_event_button.button_index = EngineSettings.keylist.gamepad[value]
+	InputMap.action_add_event(action, input_event_button)
 
 
 func get_simplified_device_name(raw_name: String) -> String:

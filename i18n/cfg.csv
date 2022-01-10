@@ -1,9 +1,10 @@
 ,en,fr
 cfg.alt,"Alt","Alt"
 cfg.borderless,"borderless","sans bordure"
-cfg.enabled,"enabled","activé"
+cfg.custom,"Custom","Personalisé"
 cfg.default,"Default","Défaut"
 cfg.disabled,"disabled","désactivé"
+cfg.enabled,"enabled","activé"
 cfg.fullscreen,"fullscreen","plein écran"
 cfg.inverted,"inverted","inversé"
 cfg.no,"no","non"
