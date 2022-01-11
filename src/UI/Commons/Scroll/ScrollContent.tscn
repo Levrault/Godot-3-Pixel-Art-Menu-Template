@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/UI/Commons/Scroll/ScrollContent.gd" type="Script" id=1]
+
+[node name="ScrollContent" type="ScrollContainer"]
+margin_top = 99.0
+margin_right = 440.0
+margin_bottom = 155.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+follow_focus = true
+scroll_horizontal_enabled = false
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}

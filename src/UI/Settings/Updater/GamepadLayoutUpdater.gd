@@ -2,6 +2,7 @@ extends Updater
 
 const CUSTOM_LAYOUT = "custom"
 
+
 func apply(properties: Dictionary, trigger_callback_action := true) -> void:
 	if properties.layout != CUSTOM_LAYOUT:
 		for device in InputManager.all_gamepad_devices:

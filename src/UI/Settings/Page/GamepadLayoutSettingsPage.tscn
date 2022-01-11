@@ -4,7 +4,7 @@
 [ext_resource path="res://src/UI/Settings/Updater/GamepadLayoutUpdater.gd" type="Script" id=2]
 [ext_resource path="res://src/UI/Settings/Gamepad/GamepadLayoutPreview.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/UI/Settings/Fields/HListField.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/UI/Commons/Navigation/NavigationButton.gd" type="Script" id=5]
+[ext_resource path="res://src/UI/Commons/Navigation/NavigationButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/UI/Settings/Fields/FieldSet.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/UI/Settings/Form/GamepadLayoutForm.gd" type="Script" id=7]
 
@@ -64,12 +64,13 @@ margin_left = 70.0
 margin_right = 370.0
 margin_bottom = 100.0
 
-[node name="GamepadBindind" type="Button" parent="Wrapper/Page/Contents/VBoxContainer" index="2"]
+[node name="GamepadBindind" parent="Wrapper/Page/Contents/VBoxContainer" index="2" instance=ExtResource( 5 )]
 margin_top = 130.0
 margin_right = 440.0
 margin_bottom = 150.0
+mouse_default_cursor_shape = 0
 text = "rebind.gamepad"
-script = ExtResource( 5 )
+align = 1
 navigate_to = "GamepadRebindPage"
 
 [editable path="Wrapper/Page/Contents/VBoxContainer/GamepadLayout"]

@@ -12,7 +12,9 @@ export var percentage_mode := false
 export var placeholder := "placeholder" setget _set_placeholder
 
 var _is_computing_from_negative := false
+
 onready var slider := $HSlider
+onready var value_label := $Value
 onready var debounce_timer := $DebounceTimer
 
 
@@ -35,23 +37,28 @@ func _ready() -> void:
 	revert()
 
 	connect("focus_entered", self, "_on_Focus_entered")
-	slider.connect("focus_exited", self, "_on_Focus_exited")
-	slider.connect("mouse_entered", self, "_on_Mouse_entered")
+	slider.connect("focus_exited", self, "emit_signal", ["field_focus_exited"])
 	slider.connect("value_changed", self, "_on_Value_changed")
 	debounce_timer.connect("timeout", self, "_on_Timeout")
 
 
 func reset() -> void:
-	slider.value = EngineSettings.data[owner.form.engine_file_section][key].default
+	slider.disconnect("value_changed", self, "_on_Value_changed")
+
+	var value: float = EngineSettings.data[owner.form.engine_file_section][key].default
+	slider.value = value
+	value_label.text = "%d" % percentage(value) + "%" if percentage_mode else "%.1f" % value
 	Config.save_field(owner.form.engine_file_section, key, values.key)
 	apply()
+
+	slider.call_deferred("connect","value_changed", self, "_on_Value_changed")
 
 
 func revert() -> void:
 	var value: float = Config.values[owner.form.engine_file_section][key]
 	slider.value = value
 	values.key = value
-	$Value.text = "%d" % percentage(value) + "%" if percentage_mode else "%.1f" % value
+	value_label.text = "%d" % percentage(value) + "%" if percentage_mode else "%.1f" % value
 	apply()
 
 
@@ -68,24 +75,18 @@ func _set_placeholder(value: String) -> void:
 
 func _on_Focus_entered() -> void:
 	slider.grab_focus()
-	Events.emit_signal("field_focus_entered", self)
-
-
-func _on_Focus_exited() -> void:
-	Events.emit_signal("field_focus_exited", self)
-
-
-func _on_Mouse_entered() -> void:
-	Events.emit_signal("field_focus_entered", self)
+	emit_signal("field_focus_entered")
 
 
 func _on_Value_changed(value: float) -> void:
-	$Value.text = "%d" % percentage(value) + "%" if percentage_mode else "%.1f" % value
+	value_label.text = "%d" % percentage(value) + "%" if percentage_mode else "%.1f" % value
 	values.key = value
 	for key in values.properties:
 		values.properties[key] = value
 
 	updater.apply(values.properties, true)
+
+	emit_signal("field_item_selected", values.key)
 
 	# first load
 	self.is_pristine = false

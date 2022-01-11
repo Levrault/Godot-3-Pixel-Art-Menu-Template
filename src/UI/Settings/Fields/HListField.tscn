@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/UI/Settings/Fields/HListField.gd" type="Script" id=1]
+[ext_resource path="res://src/UI/Audio/Positive/UiItemSelectedSfx.tscn" type="PackedScene" id=2]
 
 [node name="HListField" type="HBoxContainer" groups=["GameSettings"]]
 focus_mode = 2
@@ -10,6 +11,8 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="UiItemSelectedSfx" parent="." instance=ExtResource( 2 )]
 
 [node name="Tween" type="Tween" parent="."]
 

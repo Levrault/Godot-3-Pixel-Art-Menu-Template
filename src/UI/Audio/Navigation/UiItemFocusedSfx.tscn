@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/audio/UI/select_002.ogg" type="AudioStream" id=1]
+[ext_resource path="res://src/UI/Audio/ConnectAudio/UiConnectAudioToItemFocused.tscn" type="PackedScene" id=2]
+
+[node name="UiItemFocusedSfx" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
+bus = "UI"
+
+[node name="UiConnectAudioToItemFocused" parent="." instance=ExtResource( 2 )]

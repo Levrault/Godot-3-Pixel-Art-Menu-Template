@@ -8,7 +8,8 @@ var type := "keyboard"
 
 func _ready() -> void:
 	connect("pressed", self, "_on_Pressed")
-	connect("focus_entered", self, "_on_Focus_entered")
+	connect("focus_entered", owner, "inner_navigation", [self])
+	connect("mouse_entered", owner, "inner_navigation", [self])
 
 
 func assign_with_constant(value: String) -> void:
@@ -53,7 +54,3 @@ func clear() -> void:
 func _on_Pressed() -> void:
 	Events.emit_signal("key_listening_started", owner, self, owner.values[key])
 	release_focus()
-
-
-func _on_Focus_entered() -> void:
-	owner.last_focused_button = self

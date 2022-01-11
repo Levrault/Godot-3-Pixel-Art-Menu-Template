@@ -5,11 +5,11 @@
 [ext_resource path="res://src/UI/Settings/Fields/FieldSet.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/UI/Settings/SettingsPageTemplate.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/UI/Settings/Updater/LocaleUpdater.gd" type="Script" id=5]
-[ext_resource path="res://assets/audio/click.wav" type="AudioStream" id=6]
+[ext_resource path="res://src/UI/Commons/Scroll/ScrollContent.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/UI/Settings/Updater/VolumeUpdater.gd" type="Script" id=7]
 
 [node name="AudioSettingsPage" instance=ExtResource( 4 )]
-default_field_to_focus = NodePath("Wrapper/Page/Contents/Locale/MarginContainer/FieldContainer/Locale")
+default_field_to_focus = NodePath("Wrapper/Page/Contents/ScrollContent/VBoxContainer/Locale/MarginContainer/FieldContainer/Locale")
 
 [node name="Form" parent="." index="0"]
 engine_file_section = "audio"
@@ -18,49 +18,63 @@ section_title = "audio.title"
 [node name="Breadcrumb" parent="Wrapper/Page" index="0"]
 breadcrumbs = [ "commons.settings", "audio.title" ]
 
-[node name="Locale" parent="Wrapper/Page/Contents" index="0" instance=ExtResource( 3 )]
-margin_top = 22.0
-margin_right = 440.0
-margin_bottom = 44.0
+[node name="ScrollContent" parent="Wrapper/Page/Contents" index="0" instance=ExtResource( 6 )]
+margin_top = 0.0
 
-[node name="FieldContainer" parent="Wrapper/Page/Contents/Locale/MarginContainer" index="0"]
-margin_right = 436.0
+[node name="VBoxContainer" type="VBoxContainer" parent="Wrapper/Page/Contents/ScrollContent" index="2"]
+margin_right = 428.0
+margin_bottom = 184.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 6
+alignment = 1
+__meta__ = {
+"_editor_description_": ""
+}
 
-[node name="Label" type="Label" parent="Wrapper/Page/Contents/Locale/MarginContainer/FieldContainer" index="0"]
-margin_top = 4.0
+[node name="Locale" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer" index="0" instance=ExtResource( 3 )]
+margin_right = 428.0
+margin_bottom = 32.0
+
+[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/Locale/MarginContainer" index="0"]
+margin_right = 424.0
+
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/Locale/MarginContainer/FieldContainer" index="0"]
+margin_top = 5.0
 margin_right = 77.0
-margin_bottom = 18.0
+margin_bottom = 19.0
 text = "audio.locale"
 
-[node name="Locale" parent="Wrapper/Page/Contents/Locale/MarginContainer/FieldContainer" index="1" instance=ExtResource( 2 )]
+[node name="Locale" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/Locale/MarginContainer/FieldContainer" index="1" instance=ExtResource( 2 )]
 margin_left = 81.0
-margin_right = 432.0
-margin_bottom = 22.0
+margin_right = 420.0
+margin_bottom = 24.0
 key = "locale"
 description = "audio.locale_description"
 placeholder = "en"
 
-[node name="Updater" type="Node" parent="Wrapper/Page/Contents/Locale/MarginContainer/FieldContainer/Locale" index="1"]
+[node name="Updater" type="Node" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/Locale/MarginContainer/FieldContainer/Locale" index="1"]
 script = ExtResource( 5 )
 
-[node name="MasterVolume" parent="Wrapper/Page/Contents" index="1" instance=ExtResource( 3 )]
-margin_top = 54.0
-margin_right = 440.0
-margin_bottom = 76.0
+[node name="MasterVolume" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer" index="1" instance=ExtResource( 3 )]
+margin_top = 38.0
+margin_right = 428.0
+margin_bottom = 70.0
 
-[node name="FieldContainer" parent="Wrapper/Page/Contents/MasterVolume/MarginContainer" index="0"]
-margin_right = 436.0
+[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/MasterVolume/MarginContainer" index="0"]
+margin_right = 424.0
 
-[node name="Label" type="Label" parent="Wrapper/Page/Contents/MasterVolume/MarginContainer/FieldContainer" index="0"]
-margin_top = 4.0
-margin_right = 250.0
-margin_bottom = 18.0
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/MasterVolume/MarginContainer/FieldContainer" index="0"]
+margin_top = 5.0
+margin_right = 238.0
+margin_bottom = 19.0
 size_flags_horizontal = 3
 text = "audio.master_volume"
 
-[node name="MasterVolume" parent="Wrapper/Page/Contents/MasterVolume/MarginContainer/FieldContainer" index="1" instance=ExtResource( 1 )]
-margin_left = 254.0
-margin_right = 432.0
+[node name="MasterVolume" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/MasterVolume/MarginContainer/FieldContainer" index="1" instance=ExtResource( 1 )]
+margin_left = 242.0
+margin_right = 420.0
+margin_bottom = 24.0
 rect_min_size = Vector2( 150, 0 )
 key = "master_volume"
 description = "audio.master_volume_description"
@@ -70,30 +84,28 @@ nb_of_step = 20
 percentage_mode = true
 placeholder = "100"
 
-[node name="Updater" type="Node" parent="Wrapper/Page/Contents/MasterVolume/MarginContainer/FieldContainer/MasterVolume" index="2"]
+[node name="Updater" type="Node" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/MasterVolume/MarginContainer/FieldContainer/MasterVolume" index="2"]
 script = ExtResource( 7 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Wrapper/Page/Contents/MasterVolume/MarginContainer/FieldContainer/MasterVolume/Updater" index="0"]
-stream = ExtResource( 6 )
-
-[node name="MusicVolume" parent="Wrapper/Page/Contents" index="2" instance=ExtResource( 3 )]
-margin_top = 86.0
-margin_right = 440.0
+[node name="MusicVolume" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer" index="2" instance=ExtResource( 3 )]
+margin_top = 76.0
+margin_right = 428.0
 margin_bottom = 108.0
 
-[node name="FieldContainer" parent="Wrapper/Page/Contents/MusicVolume/MarginContainer" index="0"]
-margin_right = 436.0
+[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/MusicVolume/MarginContainer" index="0"]
+margin_right = 424.0
 
-[node name="Label" type="Label" parent="Wrapper/Page/Contents/MusicVolume/MarginContainer/FieldContainer" index="0"]
-margin_top = 4.0
-margin_right = 250.0
-margin_bottom = 18.0
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/MusicVolume/MarginContainer/FieldContainer" index="0"]
+margin_top = 5.0
+margin_right = 238.0
+margin_bottom = 19.0
 size_flags_horizontal = 3
 text = "audio.music_volume"
 
-[node name="MusicVolume" parent="Wrapper/Page/Contents/MusicVolume/MarginContainer/FieldContainer" index="1" instance=ExtResource( 1 )]
-margin_left = 254.0
-margin_right = 432.0
+[node name="MusicVolume" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/MusicVolume/MarginContainer/FieldContainer" index="1" instance=ExtResource( 1 )]
+margin_left = 242.0
+margin_right = 420.0
+margin_bottom = 24.0
 key = "music_volume"
 description = "audio.music_volume_description"
 min_value = -50.0
@@ -102,31 +114,28 @@ nb_of_step = 20
 percentage_mode = true
 placeholder = "100"
 
-[node name="Updater" type="Node" parent="Wrapper/Page/Contents/MusicVolume/MarginContainer/FieldContainer/MusicVolume" index="2"]
+[node name="Updater" type="Node" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/MusicVolume/MarginContainer/FieldContainer/MusicVolume" index="2"]
 script = ExtResource( 7 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Wrapper/Page/Contents/MusicVolume/MarginContainer/FieldContainer/MusicVolume/Updater" index="0"]
-stream = ExtResource( 6 )
-bus = "Music"
+[node name="SfXVolume" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer" index="3" instance=ExtResource( 3 )]
+margin_top = 114.0
+margin_right = 428.0
+margin_bottom = 146.0
 
-[node name="SfXVolume" parent="Wrapper/Page/Contents" index="3" instance=ExtResource( 3 )]
-margin_top = 118.0
-margin_right = 440.0
-margin_bottom = 140.0
+[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/SfXVolume/MarginContainer" index="0"]
+margin_right = 424.0
 
-[node name="FieldContainer" parent="Wrapper/Page/Contents/SfXVolume/MarginContainer" index="0"]
-margin_right = 436.0
-
-[node name="Label" type="Label" parent="Wrapper/Page/Contents/SfXVolume/MarginContainer/FieldContainer" index="0"]
-margin_top = 4.0
-margin_right = 250.0
-margin_bottom = 18.0
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/SfXVolume/MarginContainer/FieldContainer" index="0"]
+margin_top = 5.0
+margin_right = 238.0
+margin_bottom = 19.0
 size_flags_horizontal = 3
 text = "audio.sfx_volume"
 
-[node name="SfxVolume" parent="Wrapper/Page/Contents/SfXVolume/MarginContainer/FieldContainer" index="1" instance=ExtResource( 1 )]
-margin_left = 254.0
-margin_right = 432.0
+[node name="SfxVolume" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/SfXVolume/MarginContainer/FieldContainer" index="1" instance=ExtResource( 1 )]
+margin_left = 242.0
+margin_right = 420.0
+margin_bottom = 24.0
 key = "sfx_volume"
 description = "audio.sfx_volume_description"
 min_value = -50.0
@@ -135,14 +144,41 @@ nb_of_step = 20
 percentage_mode = true
 placeholder = "100"
 
-[node name="Updater" type="Node" parent="Wrapper/Page/Contents/SfXVolume/MarginContainer/FieldContainer/SfxVolume" index="2"]
+[node name="Updater" type="Node" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/SfXVolume/MarginContainer/FieldContainer/SfxVolume" index="2"]
 script = ExtResource( 7 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Wrapper/Page/Contents/SfXVolume/MarginContainer/FieldContainer/SfxVolume/Updater" index="0"]
-stream = ExtResource( 6 )
-bus = "SFX"
+[node name="UiVolume" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer" index="4" instance=ExtResource( 3 )]
+margin_top = 152.0
+margin_right = 428.0
+margin_bottom = 184.0
 
-[editable path="Wrapper/Page/Contents/Locale"]
-[editable path="Wrapper/Page/Contents/MasterVolume"]
-[editable path="Wrapper/Page/Contents/MusicVolume"]
-[editable path="Wrapper/Page/Contents/SfXVolume"]
+[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/UiVolume/MarginContainer" index="0"]
+margin_right = 424.0
+
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/UiVolume/MarginContainer/FieldContainer" index="0"]
+margin_top = 5.0
+margin_right = 238.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "audio.ui_volume"
+
+[node name="UiVolume" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/UiVolume/MarginContainer/FieldContainer" index="1" instance=ExtResource( 1 )]
+margin_left = 242.0
+margin_right = 420.0
+margin_bottom = 24.0
+key = "ui_volume"
+description = "audio.ui_volume_description"
+min_value = -50.0
+max_value = 0.0
+nb_of_step = 20
+percentage_mode = true
+placeholder = "100"
+
+[node name="Updater" type="Node" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/UiVolume/MarginContainer/FieldContainer/UiVolume" index="2"]
+script = ExtResource( 7 )
+
+[editable path="Wrapper/Page/Contents/ScrollContent/VBoxContainer/Locale"]
+[editable path="Wrapper/Page/Contents/ScrollContent/VBoxContainer/MasterVolume"]
+[editable path="Wrapper/Page/Contents/ScrollContent/VBoxContainer/MusicVolume"]
+[editable path="Wrapper/Page/Contents/ScrollContent/VBoxContainer/SfXVolume"]
+[editable path="Wrapper/Page/Contents/ScrollContent/VBoxContainer/UiVolume"]

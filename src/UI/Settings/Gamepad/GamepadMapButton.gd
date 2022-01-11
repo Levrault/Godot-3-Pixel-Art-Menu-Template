@@ -27,7 +27,7 @@ func assign_with_constant(value: String) -> void:
 		joy_string = Input.get_joy_button_string(EngineSettings.keylist.gamepad[value])
 		InputManager.addJoyButtonEvent(owner.action, value)
 
-	owner.values[key] = { 
+	owner.values[key] = {
 		joy_value = EngineSettings.keylist.gamepad[assigned_to],
 		device_joy_string = assigned_to,
 		joy_string = joy_string

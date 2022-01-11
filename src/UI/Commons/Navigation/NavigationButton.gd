@@ -1,6 +1,6 @@
 # Enable to navigate between all the differents menu ui
 # by setting up wich menu need to be show (based on node name)
-class_name NavigationButton
+class_name NavigationButton, "res://assets/icons/navigation.svg"
 extends Button
 
 export var navigate_to := ""
@@ -11,6 +11,7 @@ export var is_default_focused := false
 func _ready() -> void:
 	yield(owner, "ready")
 	connect("pressed", self, "_on_Pressed")
+	connect("mouse_entered", self, "grab_focus")
 
 	if is_default_focused:
 		owner.last_clicked_button = self

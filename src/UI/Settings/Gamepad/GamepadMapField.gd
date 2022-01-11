@@ -2,6 +2,10 @@ tool
 class_name GamepadMapField, "res://assets/icons/gamepad.svg"
 extends HBoxContainer
 
+signal field_item_selected(item)
+signal field_focus_entered
+signal field_focus_exited
+
 export var action := ""
 export var description := ""
 export var required := true
@@ -19,6 +23,7 @@ func _ready() -> void:
 	yield(owner, "ready")
 	yield(get_tree(), "idle_frame")
 	connect("focus_entered", self, "_on_Focus_entered")
+	default_button.connect("focus_exited", self, "emit_signal", ["field_focus_exited"])
 	owner.connect("navigation_finished", self, "_on_Navigation_finished")
 
 	if action.empty():
@@ -50,19 +55,19 @@ func _set_placeholder(value: String) -> void:
 
 
 func _on_Focus_entered() -> void:
-	$Default.grab_focus()
-	Events.emit_signal("field_focus_entered", self)
+	default_button.grab_focus()
+	emit_signal("field_focus_entered")
 
 
 func _on_Navigation_finished() -> void:
 	var device := ""
-	if InputManager.device == InputManager.DEVICE_KEYBOARD:
-		device = InputManager.default_gamepad
+	if InputManager.is_using_gamepad():
+		device = InputManager.device
 		default_button.assign_with_constant(
 			Config.values[owner.form.engine_file_section][device][action][default_button.key]
 		)
 	else:
-		device = InputManager.device
+		device = InputManager.default_gamepad
 		default_button.assign_with_constant(
 			Config.values[owner.form.engine_file_section][device][action][default_button.key]
 		)

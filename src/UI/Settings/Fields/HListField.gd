@@ -18,6 +18,8 @@ func _ready() -> void:
 		return
 	yield(owner, "ready")
 	revert()
+	connect("focus_entered", self, "emit_signal", ["field_focus_entered"])
+	connect("focus_exited", self, "emit_signal", ["field_focus_exited"])
 	previous.connect("pressed", self, "_on_Previous_value")
 	next.connect("pressed", self, "_on_Next_value")
 
@@ -69,6 +71,7 @@ func _on_Previous_value() -> void:
 
 	_tween.connect("tween_all_completed", self, "_on_Left_tween_completed")
 	play_arrow_animation(previous, Vector2(previous.rect_position.x + 5, previous.rect_position.y))
+	emit_signal("field_item_selected", selected_key)
 
 
 func _on_Next_value() -> void:
@@ -90,6 +93,7 @@ func _on_Next_value() -> void:
 
 	_tween.connect("tween_all_completed", self, "_on_Right_tween_completed")
 	play_arrow_animation(next, Vector2(next.rect_position.x + 5, next.rect_position.y))
+	emit_signal("field_item_selected", selected_key)
 
 
 func _on_Right_tween_completed() -> void:

@@ -2,17 +2,17 @@
 # Rollback to previous resolution if the user doesn't confirm
 extends WindowDialog
 
-export(NodePath) var field_path = ""
+export (NodePath) var field_path = ""
 export var default_countdown := 15
 
 var _field: Field = null
 var _countdown := default_countdown
 
-onready var _timer := $Timer
-onready var _countdown_label := $MarginContainer/VBoxContainer/Countdown
-onready var _cancel := $MarginContainer/VBoxContainer/HBoxContainer/CancelContainer/Cancel
-onready var _progressbar := $MarginContainer/VBoxContainer/ProgressBar
-onready var _ok := $MarginContainer/VBoxContainer/HBoxContainer/OkContainer/Ok
+onready var timer := $Timer
+onready var countdown_label := $MarginContainer/VBoxContainer/Countdown
+onready var cancel := $MarginContainer/VBoxContainer/HBoxContainer/CancelContainer/Cancel
+onready var progressbar := $MarginContainer/VBoxContainer/ProgressBar
+onready var confirm := $MarginContainer/VBoxContainer/HBoxContainer/ConfirmContainer/Confirm
 
 
 func _ready():
@@ -22,43 +22,44 @@ func _ready():
 	_field = get_node(field_path)
 
 	connect("popup_hide", Events, "emit_signal", ["overlay_hidden"])
-	_timer.connect("timeout", self, "_on_Timeout")
-	_cancel.connect("pressed", self, "_on_Cancel_pressed")
-	_ok.connect("pressed", self, "_on_Ok_pressed")
+	timer.connect("timeout", self, "_on_Timeout")
+	cancel.connect("pressed", self, "_on_Cancel_pressed")
+	confirm.connect("pressed", self, "_on_Confirm_pressed")
 	get_close_button().hide()
 
 
 func show() -> void:
-	_ok.call_deferred("grab_focus")
+	emit_signal("about_to_show")
+	confirm.call_deferred("grab_focus")
 	_countdown = default_countdown
-	_progressbar.max_value = default_countdown
-	_countdown_label.text = String(_countdown)
-	_timer.start()
+	progressbar.max_value = default_countdown
+	countdown_label.text = String(_countdown)
+	timer.start()
 	Events.emit_signal("overlay_displayed")
 	.show()
 
 
 func _on_Timeout() -> void:
 	_countdown -= 1
-	_countdown_label.text = String(_countdown)
-	_progressbar.value = _countdown
+	countdown_label.text = String(_countdown)
+	progressbar.value = _countdown
 
 	if _countdown <= 0:
 		_on_Cancel_pressed()
 		return
-	_timer.start()
+	timer.start()
 
 
 func _on_Cancel_pressed() -> void:
 	_field.revert()
 	_field.grab_focus()
-	_timer.stop()
+	timer.stop()
 	Events.emit_signal("overlay_hidden")
 	hide()
 
 
-func _on_Ok_pressed() -> void:
-	_timer.stop()
+func _on_Confirm_pressed() -> void:
+	timer.stop()
 	_field.grab_focus()
 	_field.save()
 	Events.emit_signal("overlay_hidden")

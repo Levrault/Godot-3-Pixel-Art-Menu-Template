@@ -4,20 +4,12 @@ extends Node
 signal device_changed(device, device_index)
 
 const DEVICE_KEYBOARD := "keyboard"
+const DEVICE_MOUSE := "mouse"
 const DEVICE_XBOX_CONTROLLER := "xbox"
 const DEVICE_SWITCH_CONTROLLER := "nintendo"
 const DEVICE_PLAYSTATION_CONTROLLER := "dualshock"
 const DEVICE_GENERIC := "generic"
 const GAMEPAD_MOTION_REGEX := "_AXIS_|_ANALOG_"
-
-var all_gamepad_devices := []
-
-var gamepad_button_regex := {"xbox": "_XBOX_", "nintendo": "_DS_", "dualshock": "_SONY_", "generic": "_BUTTON_"}
-
-var device: String = DEVICE_XBOX_CONTROLLER setget _set_device
-var default_gamepad: String = DEVICE_XBOX_CONTROLLER
-var device_index: int = -1
-var _motion_regex := RegEx.new()
 
 var dualshock_circle = preload("res://assets/ui/dualshock_CIRCLE.png")
 var dualshock_triangle = preload("res://assets/ui/dualshock_TRIANGLE.png")
@@ -29,31 +21,39 @@ var keyboard_esc = preload("res://assets/ui/keyboard_ESC.png")
 var keyboard_del = preload("res://assets/ui/keyboard_DEL.png")
 var keyboard_f = preload("res://assets/ui/keyboard_F.png")
 
+var all_gamepad_devices := [
+	DEVICE_XBOX_CONTROLLER,
+	DEVICE_SWITCH_CONTROLLER,
+	DEVICE_PLAYSTATION_CONTROLLER,
+	DEVICE_GENERIC
+]
+var device: String = DEVICE_XBOX_CONTROLLER setget _set_device
+var device_index: int = -1
+var default_gamepad: String = DEVICE_XBOX_CONTROLLER
+var gamepad_button_regex := {"xbox": "_XBOX_", "nintendo": "_DS_", "dualshock": "_SONY_", "generic": "_BUTTON_"}
+
+var _motion_regex := RegEx.new()
+
 
 func _ready() -> void:
 	_motion_regex.compile(GAMEPAD_MOTION_REGEX)
-	all_gamepad_devices = [
-		DEVICE_XBOX_CONTROLLER,
-		DEVICE_SWITCH_CONTROLLER,
-		DEVICE_PLAYSTATION_CONTROLLER,
-		DEVICE_GENERIC
-	]
 
 
 func _input(event: InputEvent) -> void:
 	var next_device: String = device
 	var next_device_index: int = device_index
 
-	# Did we just press a key on the keyboard?
-	if (
-		(event is InputEventKey and event.is_pressed())
-		or (event is InputEventMouseButton and event.is_pressed())
-		or event is InputEventMouseMotion
-	):
+	# keyboard
+	if event is InputEventKey and event.is_pressed():
 		next_device = DEVICE_KEYBOARD
 		next_device_index = -1
 
-	# Did we just use a gamepad?
+	# mouse
+	if (event is InputEventMouseButton and event.is_pressed()) or event is InputEventMouseMotion:
+		next_device = DEVICE_MOUSE
+		next_device_index = -1
+
+	# gamepad
 	if (
 		(event is InputEventJoypadButton and event.is_pressed())
 		or (event is InputEventJoypadMotion and event.axis_value > 0.1)
@@ -91,11 +91,12 @@ func get_simplified_device_name(raw_name: String) -> String:
 			return DEVICE_GENERIC
 
 
-func get_current_device() -> String:
-	var connected_joypads = Input.get_connected_joypads()
-	if connected_joypads.size() == 0:
-		return DEVICE_KEYBOARD
-	return get_simplified_device_name(Input.get_joy_name(0))
+func is_using_gamepad() -> bool:
+	var result := false
+	for gamepad_device in all_gamepad_devices:
+		if device == gamepad_device:
+			result = true
+	return result
 
 
 func is_motion_event(value: String) -> bool:
@@ -108,14 +109,14 @@ func get_device_button_from_action(action: String, for_device: String) -> String
 		return ""
 	var result := ""
 	for evt in InputMap.get_action_list(action):
-		if for_device != DEVICE_KEYBOARD:
+		if for_device == DEVICE_KEYBOARD or for_device == DEVICE_MOUSE:
+			if evt is InputEventKey:
+				return OS.get_scancode_string(evt.scancode)
+		else:
 			if evt is InputEventJoypadButton:
 				return EngineSettings.get_gamepad_button_from_joy_string(
 					evt.button_index, Input.get_joy_button_string(evt.button_index), for_device
 				)
-		else:
-			if evt is InputEventKey:
-				return OS.get_scancode_string(evt.scancode)
 	printerr("Not key were for found for %s on device %s" % [action, for_device])
 	return result
 
@@ -127,14 +128,14 @@ func get_device_button_texture_from_action(action: String, for_device: String) -
 
 	var result := ""
 	for evt in InputMap.get_action_list(action):
-		if for_device != DEVICE_KEYBOARD:
+		if for_device == DEVICE_KEYBOARD or for_device == DEVICE_MOUSE:
+			if evt is InputEventKey:
+				result = OS.get_scancode_string(evt.scancode)
+		else:
 			if evt is InputEventJoypadButton:
 				result = EngineSettings.get_gamepad_button_from_joy_string(
 					evt.button_index, Input.get_joy_button_string(evt.button_index), for_device
 				)
-		else:
-			if evt is InputEventKey:
-				result = OS.get_scancode_string(evt.scancode)
 	if result.empty():
 		printerr("Not key were for found for %s on device %s" % [action, for_device])
 
@@ -163,7 +164,7 @@ func get_device_button_texture_from_action(action: String, for_device: String) -
 func _set_device(value: String) -> void:
 	device = value
 
-	if device == DEVICE_KEYBOARD:
+	if device == DEVICE_KEYBOARD or device == DEVICE_MOUSE:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		return
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
