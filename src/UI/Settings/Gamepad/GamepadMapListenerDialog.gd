@@ -22,6 +22,7 @@ onready var rebind_button := $MarginContainer/VBoxContainer/HBoxContainer/Rebind
 onready var timer := $Timer
 onready var tick := $Tick
 onready var progress_bar := $MarginContainer/VBoxContainer/ProgressBar
+onready var debounce_timer := $DebounceTimer
 
 
 func _ready():
@@ -29,6 +30,7 @@ func _ready():
 	rebind_button.connect("pressed", self, "_on_Apply_pressed")
 	cancel_button.connect("pressed", self, "_on_Cancel_pressed")
 	timer.connect("timeout", self, "_on_Timer_timeout")
+	debounce_timer.connect("timeout", self, "_on_Timeout")
 	tick.connect("timeout", self, "_on_Tick_timeout")
 
 	tick.wait_time = timer.wait_time / progress_bar.max_value
@@ -115,9 +117,8 @@ func update_ui_for(step: int, data := {}):
 		message.show()
 		unbind_message.hide()
 		buttons_container.show()
-		cancel_button.set_deferred("disabled", false)
-		rebind_button.call_deferred("grab_focus")
 		progress_bar.hide()
+		debounce_timer.start()
 		return
 
 	if step == Step.unbind:
@@ -266,3 +267,8 @@ func _on_Timer_timeout() -> void:
 
 func _on_Tick_timeout() -> void:
 	progress_bar.value = progress_bar.value + 1
+
+
+func _on_Timeout() -> void:
+	cancel_button.set_deferred("disabled", false)
+	rebind_button.call_deferred("grab_focus")

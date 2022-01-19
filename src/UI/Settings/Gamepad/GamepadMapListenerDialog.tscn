@@ -5,3 +5,7 @@
 
 [node name="GamepadMapListenerDialog" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+
+[node name="DebounceTimer" type="Timer" parent="." index="3"]
+wait_time = 0.1
+one_shot = true
