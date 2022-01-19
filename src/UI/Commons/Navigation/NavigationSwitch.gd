@@ -18,6 +18,10 @@ func _ready() -> void:
 	Events.connect("menu_transition_mid_animated", self, "_on_Transiton_mid_animated")
 
 
+func focus_default_field() -> void:
+	get_node(default_field_to_focus).grab_focus()
+
+
 func _on_Menu_route_changed(id: String) -> void:
 	if id != get_name():
 		visible = false
@@ -36,7 +40,7 @@ func _on_Transiton_mid_animated() -> void:
 	if last_clicked_button:
 		last_clicked_button.grab_focus()
 	elif default_field_to_focus:
-		get_node(default_field_to_focus).grab_focus()
+		focus_default_field()
 
 	emit_signal("navigation_finished")
 	print_debug("%s is now visible" % [get_name()])

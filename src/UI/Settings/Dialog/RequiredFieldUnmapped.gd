@@ -38,3 +38,4 @@ func _on_Ok_pressed() -> void:
 	hide()
 	Events.emit_signal("overlay_hidden")
 	Events.emit_signal("navigation_enabled")
+	owner.focus_default_field()

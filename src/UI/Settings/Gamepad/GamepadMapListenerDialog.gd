@@ -206,7 +206,6 @@ func close() -> void:
 	owner.form.set_process_input(true)
 	timer.stop()
 	yield(get_tree(), "idle_frame")
-	Events.emit_signal("field_focus_entered", _field)
 	_button.call_deferred("grab_focus")
 	_button = null
 	_field = null

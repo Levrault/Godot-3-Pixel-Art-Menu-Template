@@ -26,7 +26,7 @@ breadcrumbs = [ "commons.settings", "rebind.gamepad" ]
 [node name="ScrollContent" parent="Wrapper/Page/Contents" index="0" instance=ExtResource( 7 )]
 margin_top = 0.0
 
-[node name="KeyMapTable" type="VBoxContainer" parent="Wrapper/Page/Contents/ScrollContent" index="2"]
+[node name="KeyMapTable" type="VBoxContainer" parent="Wrapper/Page/Contents/ScrollContent" index="0"]
 margin_right = 428.0
 margin_bottom = 212.0
 size_flags_horizontal = 3
