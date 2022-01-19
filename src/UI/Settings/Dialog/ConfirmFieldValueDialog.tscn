@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/UI/Settings/Dialog/ConfirmFieldValueDialog.gd" type="Script" id=1]
+[ext_resource path="res://src/UI/Audio/Positive/UiConfirmationSfx.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/UI/Commons/Button/ConfirmButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/UI/Commons/Button/CancelButton.tscn" type="PackedScene" id=4]
 
 [node name="ConfirmFieldValueDialog" type="WindowDialog"]
 anchor_left = 0.5
@@ -17,6 +20,8 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="UiConfirmationSfx" parent="." instance=ExtResource( 2 )]
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -80,29 +85,21 @@ margin_bottom = 96.0
 custom_constants/separation = 20
 alignment = 1
 
-[node name="OkContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-margin_right = 158.0
-margin_bottom = 20.0
-size_flags_horizontal = 3
-
-[node name="Ok" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/OkContainer"]
-margin_left = 31.0
-margin_right = 126.0
-margin_bottom = 20.0
-mouse_default_cursor_shape = 2
-size_flags_horizontal = 2
-text = "commons.confirm"
-
 [node name="CancelContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 margin_left = 178.0
 margin_right = 337.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 
-[node name="Cancel" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/CancelContainer"]
+[node name="Cancel" parent="MarginContainer/VBoxContainer/HBoxContainer/CancelContainer" instance=ExtResource( 4 )]
 margin_left = 19.0
 margin_right = 140.0
+
+[node name="ConfirmContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 158.0
 margin_bottom = 20.0
-mouse_default_cursor_shape = 2
-size_flags_horizontal = 2
-text = "commons.cancel"
+size_flags_horizontal = 3
+
+[node name="Confirm" parent="MarginContainer/VBoxContainer/HBoxContainer/ConfirmContainer" instance=ExtResource( 3 )]
+margin_left = 14.0
+margin_right = 143.0

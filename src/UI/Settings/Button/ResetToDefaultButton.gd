@@ -1,6 +1,6 @@
 extends Button
 
-onready var confirmation_dialog := $ConfirmationDialog
+onready var confirmation_dialog := $ResetToDefaultDialog
 
 
 func _ready():
@@ -9,17 +9,15 @@ func _ready():
 	Events.connect("config_file_saved", self, "_on_Config_file_saved")
 	Events.connect("navigation_disabled", self, "set", ["disabled", true])
 	connect("pressed", self, "_on_Pressed")
+	connect("mouse_entered", self, "_on_Mouse_entered")
 
-	confirmation_dialog.get_close_button().hide()
-	confirmation_dialog.connect("popup_hide", Events, "emit_signal", ["overlay_hidden"])
-	confirmation_dialog.get_ok().connect("pressed", self, "_on_Confirmation_ok_pressed")
-	confirmation_dialog.get_ok().text = tr("commons.restore")
-	confirmation_dialog.dialog_text = tr("commons.restore_default_settings_message").format(
+	confirmation_dialog.confirm_button.connect("pressed", self, "_on_Confirmation_ok_pressed")
+	confirmation_dialog.dialog_text.text = tr("commons.restore_default_settings_message").format(
 		{section = tr(owner.form.section_title)}
 	)
 
 	disabled = _is_equal_to_default_config()
-	_on_Device_changed(InputManager.get_current_device(), 0)
+	_on_Device_changed(InputManager.device, 0)
 
 
 func _is_equal_to_default_config() -> bool:
@@ -54,12 +52,10 @@ func _is_equal_to_default_config() -> bool:
 
 
 func _on_Pressed() -> void:
-	Events.emit_signal("overlay_displayed")
-	confirmation_dialog.popup()
+	confirmation_dialog.show()
 
 
 func _on_Confirmation_ok_pressed() -> void:
-	Events.emit_signal("overlay_hidden")
 	owner.form.reset()
 
 
@@ -73,3 +69,9 @@ func _on_Device_changed(device: String, device_index: int) -> void:
 	icon = InputManager.get_device_button_texture_from_action(
 		"ui_reset_to_default", InputManager.device
 	)
+
+
+func _on_Mouse_entered() -> void:
+	if disabled:
+		return
+	grab_focus()

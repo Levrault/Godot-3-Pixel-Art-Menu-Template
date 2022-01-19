@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/UI/Settings/Fields/SliderField.gd" type="Script" id=1]
+[ext_resource path="res://src/UI/Audio/Positive/UiItemSelectedSfx.tscn" type="PackedScene" id=3]
 
 [node name="SliderField" type="HBoxContainer" groups=["GameSettings"]]
 margin_right = 127.0
@@ -12,6 +13,8 @@ __meta__ = {
 "_edit_use_anchors_": false,
 "_editor_description_": ""
 }
+
+[node name="UiItemSelectedSfx" parent="." instance=ExtResource( 3 )]
 
 [node name="DebounceTimer" type="Timer" parent="."]
 wait_time = 0.25

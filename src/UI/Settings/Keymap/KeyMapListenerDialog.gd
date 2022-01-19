@@ -12,8 +12,8 @@ onready var message := $MarginContainer/VBoxContainer/Message
 onready var unbind_message := $MarginContainer/VBoxContainer/UnbindMessage
 onready var cancel_binding_message := $MarginContainer/VBoxContainer/CancelBindingMessage
 onready var buttons_container := $MarginContainer/VBoxContainer/HBoxContainer
-onready var cancel_button := $MarginContainer/VBoxContainer/HBoxContainer/LeftContainer/Cancel
-onready var rebind_button := $MarginContainer/VBoxContainer/HBoxContainer/RightContainer/Rebind
+onready var cancel_button := $MarginContainer/VBoxContainer/HBoxContainer/CancelContainer/Cancel
+onready var rebind_button := $MarginContainer/VBoxContainer/HBoxContainer/RebindContainer/Rebind
 onready var timer := $Timer
 onready var tick := $Tick
 onready var progress_bar := $MarginContainer/VBoxContainer/ProgressBar
@@ -57,7 +57,9 @@ func _input(event: InputEvent) -> void:
 
 
 func update_ui_for(step: int, data := {}):
-	var unbind_action_key := InputManager.get_device_button_from_action("ui_unbind", InputManager.device)
+	var unbind_action_key := InputManager.get_device_button_from_action(
+		"ui_unbind", InputManager.device
+	)
 
 	if step == Step.new:
 		window_title = tr("rebind.binding_action").format({action = _field.action})
@@ -168,6 +170,7 @@ func map_action() -> void:
 
 
 func cancel_binding() -> void:
+	emit_signal("popup_hide")
 	close()
 
 
@@ -176,7 +179,6 @@ func close() -> void:
 	owner.form.set_process_input(true)
 	timer.stop()
 	yield(get_tree(), "idle_frame")
-	Events.emit_signal("field_focus_entered", _field)
 	_button.call_deferred("grab_focus")
 	_button = null
 	_field = null
@@ -190,6 +192,7 @@ func close() -> void:
 
 
 func _on_Key_listening_started(field: KeyMapField, button: Button, current_scancode: int) -> void:
+	emit_signal("about_to_show")
 	owner.form.set_process_input(false)
 	Events.emit_signal("navigation_disabled")
 	_field = field

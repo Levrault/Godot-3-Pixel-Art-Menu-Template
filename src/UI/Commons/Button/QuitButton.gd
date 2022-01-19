@@ -1,9 +1,5 @@
 # Quit application
-extends Button
-
-
-func _ready() -> void:
-	connect("pressed", self, "_on_Pressed")
+extends GenericButton
 
 
 func _on_Pressed() -> void:

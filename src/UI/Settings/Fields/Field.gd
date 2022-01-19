@@ -9,7 +9,9 @@ tool
 class_name Field, "res://assets/icons/field.svg"
 extends HBoxContainer
 
-signal pristine_value_changed(value)
+signal field_focus_entered
+signal field_focus_exited
+signal field_item_selected(item)
 
 export var key := ""
 export var description := ""
@@ -30,9 +32,6 @@ func _ready() -> void:
 	if not updater:
 		printerr("Field %s from %s has no updater" % [key, owner.get_name()])
 		return
-
-	connect("focus_entered", self, "_on_Focus_toggle", [true])
-	connect("focus_exited", self, "_on_Focus_toggle", [false])
 
 	# register itself in to the form
 	owner.form.data[key] = self
@@ -67,14 +66,6 @@ func revert() -> void:
 
 func _set_is_pristine(value: bool) -> void:
 	is_pristine = value
-	emit_signal("pristine_value_changed", value)
 
 	if not is_pristine and not owner.form.has_changed:
 		owner.form.has_changed = true
-
-
-func _on_Focus_toggle(is_focused: bool) -> void:
-	if is_focused:
-		Events.emit_signal("field_focus_entered", self)
-		return
-	Events.emit_signal("field_focus_exited", self)

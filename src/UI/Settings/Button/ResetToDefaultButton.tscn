@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/UI/Settings/Button/ResetToDefaultButton.gd" type="Script" id=1]
+[ext_resource path="res://src/UI/Audio/Navigation/UiFocusSfx.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/UI/Audio/Neutral/UiClickSfx.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/UI/Settings/Dialog/ResetToDefaultDialog.tscn" type="PackedScene" id=4]
 
 [sub_resource type="InputEventAction" id=1]
 action = "ui_reset_to_default"
@@ -20,17 +23,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -200.0
-margin_top = -70.0
-margin_right = 200.0
-margin_bottom = 70.0
-rect_min_size = Vector2( 400, 140 )
-popup_exclusive = true
-window_title = "commons.restore_default_settings"
-dialog_text = "commons.restore_default_settings_message"
-dialog_autowrap = true
+[node name="UiFocusSfx" parent="." instance=ExtResource( 2 )]
+
+[node name="UiClickSfx" parent="." instance=ExtResource( 3 )]
+
+[node name="ResetToDefaultDialog" parent="." instance=ExtResource( 4 )]

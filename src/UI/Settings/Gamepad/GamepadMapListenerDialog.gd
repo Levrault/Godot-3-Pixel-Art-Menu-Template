@@ -17,8 +17,8 @@ onready var message := $MarginContainer/VBoxContainer/Message
 onready var unbind_message := $MarginContainer/VBoxContainer/UnbindMessage
 onready var cancel_binding_message := $MarginContainer/VBoxContainer/CancelBindingMessage
 onready var buttons_container := $MarginContainer/VBoxContainer/HBoxContainer
-onready var cancel_button := $MarginContainer/VBoxContainer/HBoxContainer/LeftContainer/Cancel
-onready var rebind_button := $MarginContainer/VBoxContainer/HBoxContainer/RightContainer/Rebind
+onready var cancel_button := $MarginContainer/VBoxContainer/HBoxContainer/CancelContainer/Cancel
+onready var rebind_button := $MarginContainer/VBoxContainer/HBoxContainer/RebindContainer/Rebind
 onready var timer := $Timer
 onready var tick := $Tick
 onready var progress_bar := $MarginContainer/VBoxContainer/ProgressBar
@@ -75,7 +75,9 @@ func update_ui_for(step: int, data := {}):
 		"ui_cancel_binding", InputManager.device
 	)
 
-	cancel_binding_message.text = tr("rebind.cancel_binding").format({key = cancel_binding_action_key})
+	cancel_binding_message.text = tr("rebind.cancel_binding").format(
+		{key = cancel_binding_action_key}
+	)
 
 	if step == Step.new:
 		window_title = tr("rebind.binding_action").format({action = _field.action})
@@ -189,11 +191,13 @@ func map_action() -> void:
 			_new_event_identifier, _new_event_joy_string, _button.type
 		)
 	)
+	_field.emit_signal("field_item_selected", _new_event_joy_string)
 	owner.form.save()
 	close()
 
 
 func cancel_binding() -> void:
+	emit_signal("popup_hide")
 	close()
 
 
@@ -216,6 +220,7 @@ func close() -> void:
 
 
 func _on_Gamepad_listening_started(field: GamepadMapField, button: Button, current_scancode: int) -> void:
+	emit_signal("about_to_show")
 	owner.form.set_process_input(false)
 
 	_field = field

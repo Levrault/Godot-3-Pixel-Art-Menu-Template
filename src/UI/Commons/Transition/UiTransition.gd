@@ -2,20 +2,21 @@
 # transition_fade_mid_transition and transition_fade_finished are emitted from AnimationPlayer
 extends Control
 
+onready var anim := $AnimationPlayer
 
 func _ready() -> void:
-	$AnimationPlayer.connect("animation_finished", self, "_on_Animation_finished")
 	Events.connect("menu_transition_started", self, "_on_Transition_started")
 
 
+func emit_animation_finished() -> void:
+	print("emit_animation_finished")
+	Events.emit_signal("menu_transition_finished")
+
+
 func _on_Transition_started(anim_name: String) -> void:
-	$AnimationPlayer.stop()
-	$AnimationPlayer.play(anim_name)
+	anim.play(anim_name)
 
 
 func _on_Mid_animation() -> void:
 	Events.emit_signal("menu_transition_mid_animated")
-
-
-func _on_Animation_finished(anim_name: String) -> void:
-	Events.emit_signal("menu_transition_finished")
+	print("_on_Mid_animation")

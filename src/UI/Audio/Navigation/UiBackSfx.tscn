@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/UI/Audio/ConnectAudio/UiConnectAudioToClicked.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/audio/UI/click_003.ogg" type="AudioStream" id=2]
+
+[node name="UiBackSfx" type="AudioStreamPlayer"]
+stream = ExtResource( 2 )
+bus = "UI"
+
+[node name="UiConnectAudioToClicked" parent="." instance=ExtResource( 1 )]

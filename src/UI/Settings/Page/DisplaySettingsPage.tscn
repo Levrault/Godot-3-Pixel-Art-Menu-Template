@@ -27,9 +27,9 @@ text = "Breadcrumb"
 custom_constants/separation = 20
 
 [node name="VSync" parent="Wrapper/Page/Contents" index="0" instance=ExtResource( 5 )]
-margin_top = 28.0
+margin_top = 24.0
 margin_right = 440.0
-margin_bottom = 50.0
+margin_bottom = 46.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/VSync/MarginContainer" index="0"]
 margin_right = 436.0
@@ -55,9 +55,9 @@ description = "display.vsync_description"
 script = ExtResource( 2 )
 
 [node name="WindowMode" parent="Wrapper/Page/Contents" index="1" instance=ExtResource( 5 )]
-margin_top = 70.0
+margin_top = 66.0
 margin_right = 440.0
-margin_bottom = 92.0
+margin_bottom = 88.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/WindowMode/MarginContainer" index="0"]
 margin_right = 436.0
@@ -83,9 +83,9 @@ script = ExtResource( 1 )
 field_path = NodePath("../..")
 
 [node name="Resolution" parent="Wrapper/Page/Contents" index="2" instance=ExtResource( 5 )]
-margin_top = 112.0
+margin_top = 108.0
 margin_right = 440.0
-margin_bottom = 134.0
+margin_bottom = 130.0
 focus_neighbour_bottom = NodePath("../../OptionsFooter/ApplySettingsButton")
 focus_next = NodePath("../../OptionsFooter/ApplySettingsButton")
 

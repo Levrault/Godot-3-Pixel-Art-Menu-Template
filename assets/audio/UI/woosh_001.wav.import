@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/click.wav-726094e36c7052fadb6392aaf7409595.sample"
+path="res://.import/woosh_001.wav-2fc889b6e268cdf26a80e9b57ae89d84.sample"
 
 [deps]
 
-source_file="res://assets/audio/click.wav"
-dest_files=[ "res://.import/click.wav-726094e36c7052fadb6392aaf7409595.sample" ]
+source_file="res://assets/audio/UI/woosh_001.wav"
+dest_files=[ "res://.import/woosh_001.wav-2fc889b6e268cdf26a80e9b57ae89d84.sample" ]
 
 [params]
 

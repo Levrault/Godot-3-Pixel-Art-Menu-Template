@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/UI/Commons/Button/GenericButton.gd" type="Script" id=1]
+[ext_resource path="res://src/UI/Audio/Navigation/UiFocusSfx.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/UI/Audio/ConnectAudio/UiConnectAudioToPressed.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/UI/Audio/Positive/UiItemSelectedSfx.tscn" type="PackedScene" id=4]
+
+[node name="Confirm" type="Button"]
+margin_right = 131.0
+margin_bottom = 20.0
+mouse_default_cursor_shape = 2
+text = "commons.confirm"
+align = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="UiFocusSfx" parent="." instance=ExtResource( 2 )]
+
+[node name="UiItemSelectedSfx" parent="." instance=ExtResource( 4 )]
+
+[node name="UiConnectAudioToPressed" parent="UiItemSelectedSfx" instance=ExtResource( 3 )]

@@ -2,8 +2,7 @@
 
 [ext_resource path="res://src/UI/Commons/Transition/UiTransition.gd" type="Script" id=1]
 
-[sub_resource type="Animation" id=1]
-resource_name = "DEFAULT"
+[sub_resource type="Animation" id=3]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:self_modulate")
@@ -18,7 +17,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:rect_size")
+tracks/1/path = NodePath(".:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -26,8 +25,8 @@ tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 480, 0 ) ]
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -72,8 +71,35 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Vector2( 480, 270 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "emit_animation_finished"
+} ]
+}
 
 [node name="MenuTransition" type="Control"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -82,10 +108,11 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "DEFAULT"
-anims/DEFAULT = SubResource( 1 )
+autoplay = "RESET"
+anims/RESET = SubResource( 3 )
 anims/fade = SubResource( 2 )
-next/fade = "DEFAULT"
+next/RESET = "RESET"
+next/fade = "RESET"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 self_modulate = Color( 1, 1, 1, 0 )

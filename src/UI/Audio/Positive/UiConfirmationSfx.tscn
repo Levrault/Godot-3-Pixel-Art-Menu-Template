@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/audio/UI/confirmation_001.ogg" type="AudioStream" id=2]
+[ext_resource path="res://src/UI/Audio/ConnectAudio/UiConnectAudioToAboutToShow.tscn" type="PackedScene" id=3]
+
+[node name="UiConfirmationSfx" type="AudioStreamPlayer"]
+stream = ExtResource( 2 )
+bus = "UI"
+
+[node name="UiConnectAudioToAboutToShow" parent="." instance=ExtResource( 3 )]

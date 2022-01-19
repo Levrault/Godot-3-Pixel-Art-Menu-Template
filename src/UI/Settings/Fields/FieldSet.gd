@@ -1,8 +1,12 @@
 class_name FieldSet, "res://assets/icons/fieldset.svg"
 extends Control
 
+signal fiedset_focus_entered
+signal fiedset_focus_exited
+
 var field = null
 var label: Label = null
+var is_hovered := false
 
 onready var focus_rect = $FocusRect
 onready var container = $MarginContainer/FieldContainer
@@ -24,42 +28,68 @@ func _ready():
 		printerr("Field %s doesn't have any field" % get_name())
 		return
 
-	field.connect("mouse_entered", self, "_on_Field_mouse_entered")
-	field.connect("mouse_exited", self, "_on_Field_mouse_exited")
-	label.connect("mouse_entered", self, "_on_Label_mouse_entered")
-	label.connect("mouse_exited", self, "_on_Label_mouse_exited")
-	Events.connect("field_focus_entered", self, "_on_Field_focus_entered")
-	Events.connect("field_focus_exited", self, "_on_Field_focus_exited")
+	Events.connect("fieldset_inner_field_navigated", self, "_on_Fieldset_inner_field_navigated")
+	connect("mouse_exited", self, "_on_Mouse_exited")
+	connect("mouse_entered", self, "_on_Mouse_focus_entered")
+	field.connect("field_focus_entered", self, "_on_Field_focus_entered")
+	field.connect("field_focus_exited", self, "_on_Field_focus_exited")
 	focus_rect.modulate.a = 0.0
-	label.mouse_filter = MOUSE_FILTER_STOP
 
 
-func _on_Field_focus_entered(focused_field) -> void:
-	if focused_field != field:
-		focus_rect.modulate.a = 0.0
-		return
+func clear() -> void:
+	is_hovered = false
+	Events.disconnect("fieldset_cleared", self, "_on_Field_cleared")
+	_on_Field_focus_exited()
+
+
+func _on_Field_focus_entered() -> void:
+	Events.emit_signal("fieldset_cleared", self)
 	focus_rect.modulate.a = 1.0
-	Events.emit_signal("field_description_changed", focused_field.description)
+	Events.emit_signal("field_description_changed", field.description)
+	emit_signal("fiedset_focus_entered")
 
 
-func _on_Field_focus_exited(focused_field) -> void:
-	if focused_field != field:
-		return
+func _on_Field_focus_exited() -> void:
 	focus_rect.modulate.a = 0.0
 	Events.emit_signal("field_description_changed", "")
+	emit_signal("fiedset_focus_exited")
 
 
-func _on_Field_mouse_entered() -> void:
-	Events.emit_signal("field_focus_entered", field)
+func _on_Mouse_focus_entered() -> void:
+	if is_hovered:
+		return
+	is_hovered = true
+
+	field.call_deferred("grab_focus")
+
+	Events.connect("fieldset_cleared", self, "_on_Field_cleared")
+	Events.emit_signal("fieldset_cleared", self)
+
+	call_deferred("_on_Field_focus_entered")
 
 
-func _on_Field_mouse_exited() -> void:
-	focus_rect.modulate.a = 0.0
+# @see https://github.com/godotengine/godot/issues/16854#issuecomment-1010931622
+func _on_Mouse_exited() -> void:
+	if not Rect2(Vector2(), rect_size).has_point(get_local_mouse_position()):
+		clear()
 
 
-func _on_Label_mouse_entered() -> void:
-	Events.emit_signal("field_focus_entered", field)
+func _on_Field_cleared(fieldset: FieldSet) -> void:
+	if not owner.is_current_route:
+		return
+	if fieldset == self:
+		return
+	if not fieldset.is_hovered:
+		return
+	clear()
 
 
-func _on_Label_mouse_exited() -> void:
-	focus_rect.modulate.a = 0.0
+func _on_Fieldset_inner_field_navigated(focused_field) -> void:
+	if not owner.is_current_route:
+		return
+	if is_hovered:
+		return
+	if focused_field != field:
+		return
+	focus_rect.modulate.a = 1.0
+	Events.emit_signal("field_description_changed", field.description)

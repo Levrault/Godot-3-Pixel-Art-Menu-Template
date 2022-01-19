@@ -8,3 +8,5 @@ audio.music_volume_description,"MUSIC VOLUME - set the volume for music","MUSIQU
 audio.title,"Audio","Sons"
 audio.sfx_volume,"Sound effects",""
 audio.sfx_volume_description,"SOUND EFFECTS - set the volume for all in-game sound effect",""
+audio.ui_volume,"User interface","Interface utilisateur"
+audio.ui_volume_description,"UI EFFECTS - set the volume for the menu",""

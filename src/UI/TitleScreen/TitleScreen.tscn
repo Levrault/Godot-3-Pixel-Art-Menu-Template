@@ -1,11 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/UI/Commons/Layout/PageLayout.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/UI/Commons/Button/QuitButton.gd" type="Script" id=2]
-[ext_resource path="res://src/UI/Commons/Navigation/NavigationButton.gd" type="Script" id=3]
+[ext_resource path="res://src/UI/Commons/Button/GenericButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/UI/Commons/Navigation/NavigationButton.tscn" type="PackedScene" id=4]
 
 [node name="TitleScreen" instance=ExtResource( 1 )]
-default_field_to_focus = NodePath("Wrapper/Page/Contents/Play")
 
 [node name="Title" parent="Wrapper/Page" index="0"]
 text = "Title right here"
@@ -14,43 +14,23 @@ text = "Title right here"
 margin_right = 131.0
 size_flags_horizontal = 2
 
-[node name="Play" type="Button" parent="Wrapper/Page/Contents" index="0"]
+[node name="Play" parent="Wrapper/Page/Contents" index="0" instance=ExtResource( 4 )]
 margin_top = 59.0
-margin_right = 131.0
 margin_bottom = 79.0
-mouse_default_cursor_shape = 2
 text = "commons.play"
-align = 0
-script = ExtResource( 3 )
-__meta__ = {
-"_editor_description_": ""
-}
 is_default_focused = true
 
-[node name="Settings" type="Button" parent="Wrapper/Page/Contents" index="1"]
+[node name="Settings" parent="Wrapper/Page/Contents" index="1" instance=ExtResource( 4 )]
 margin_top = 89.0
-margin_right = 131.0
 margin_bottom = 109.0
-mouse_default_cursor_shape = 2
 text = "commons.settings"
-align = 0
-script = ExtResource( 3 )
-__meta__ = {
-"_editor_description_": ""
-}
 navigate_to = "SettingsListPage"
 
-[node name="Quit" type="Button" parent="Wrapper/Page/Contents" index="2"]
+[node name="Quit" parent="Wrapper/Page/Contents" index="2" instance=ExtResource( 3 )]
 margin_top = 119.0
-margin_right = 131.0
 margin_bottom = 139.0
-mouse_default_cursor_shape = 2
 text = "commons.quit"
-align = 0
 script = ExtResource( 2 )
-__meta__ = {
-"_editor_description_": ""
-}
 
 [node name="MenuBackInput" parent="Wrapper/Page/Footer" index="0"]
 margin_left = 331.0

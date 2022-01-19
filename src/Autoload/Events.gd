@@ -12,9 +12,11 @@ signal config_file_loade
 
 # field
 signal field_description_changed(description)
-signal field_focus_entered(field)
-signal field_focus_exited(field)
 signal focused_row_changed(row)
+
+# fieldset
+signal fieldset_cleared(fieldset)
+signal fieldset_inner_field_navigated(focused_field)
 
 # gamepad binding
 signal gamepad_listening_started
