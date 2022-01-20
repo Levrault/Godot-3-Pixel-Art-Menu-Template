@@ -1,6 +1,5 @@
 extends WindowDialog
 
-
 onready var dialog_text = $MarginContainer/VBoxContainer/Label
 onready var confirm_button = $MarginContainer/VBoxContainer/HBoxContainer/RestoreContainer/Restore
 onready var cancel_button = $MarginContainer/VBoxContainer/HBoxContainer/CancelContainer/Cancel

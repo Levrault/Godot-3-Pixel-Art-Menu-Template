@@ -6,7 +6,12 @@ func _ready():
 	yield(audio_player.owner, "ready")
 
 	if not audio_player.owner.has_signal("about_to_show"):
-		print_debug("%s doesn't have a about_to_show signal for %s" % [audio_player.owner.get_name(), audio_player.get_name()])
+		print_debug(
+			(
+				"%s doesn't have a about_to_show signal for %s"
+				% [audio_player.owner.get_name(), audio_player.get_name()]
+			)
+		)
 		queue_free()
 		return
 

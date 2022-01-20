@@ -1,15 +1,21 @@
 extends Node
 
 enum TRIGGER_ON { all, negative, positive }
-export(TRIGGER_ON) var trigger_on = TRIGGER_ON.all
+export (TRIGGER_ON) var trigger_on = TRIGGER_ON.all
 
 onready var audio_player := get_parent()
+
 
 func _ready():
 	yield(audio_player.owner, "ready")
 
 	if not audio_player.owner.has_signal("field_item_selected"):
-		print_debug("%s doesn't have a field_item_selected signal for %s" % [audio_player.owner.get_name(), audio_player.get_name()])
+		print_debug(
+			(
+				"%s doesn't have a field_item_selected signal for %s"
+				% [audio_player.owner.get_name(), audio_player.get_name()]
+			)
+		)
 		queue_free()
 		return
 

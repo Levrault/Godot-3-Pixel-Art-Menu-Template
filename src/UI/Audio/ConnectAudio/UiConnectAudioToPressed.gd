@@ -5,7 +5,12 @@ func _ready():
 	var audio_player := get_parent()
 
 	if not audio_player.owner.has_signal("pressed"):
-		print_debug("%s doesn't have a pressed signal for %s" % [audio_player.owner.get_name(), audio_player.get_name()])
+		print_debug(
+			(
+				"%s doesn't have a pressed signal for %s"
+				% [audio_player.owner.get_name(), audio_player.get_name()]
+			)
+		)
 		queue_free()
 		return
 

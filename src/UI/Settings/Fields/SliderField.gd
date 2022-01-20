@@ -51,7 +51,7 @@ func reset() -> void:
 	Config.save_field(owner.form.engine_file_section, key, values.key)
 	apply()
 
-	slider.call_deferred("connect","value_changed", self, "_on_Value_changed")
+	slider.call_deferred("connect", "value_changed", self, "_on_Value_changed")
 
 
 func revert() -> void:

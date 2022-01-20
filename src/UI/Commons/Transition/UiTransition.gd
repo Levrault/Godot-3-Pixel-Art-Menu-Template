@@ -4,6 +4,7 @@ extends Control
 
 onready var anim := $AnimationPlayer
 
+
 func _ready() -> void:
 	Events.connect("menu_transition_started", self, "_on_Transition_started")
 
