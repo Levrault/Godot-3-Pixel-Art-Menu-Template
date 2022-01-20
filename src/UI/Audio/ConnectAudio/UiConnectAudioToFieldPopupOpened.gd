@@ -7,12 +7,6 @@ func _ready():
 	yield(audio_player.owner, "ready")
 
 	if not audio_player.owner.has_signal("field_popup_opened"):
-		print_debug(
-			(
-				"%s doesn't have a field_popup_opened signal for %s"
-				% [audio_player.owner.get_name(), audio_player.get_name()]
-			)
-		)
 		queue_free()
 		return
 

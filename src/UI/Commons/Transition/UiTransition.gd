@@ -10,14 +10,16 @@ func _ready() -> void:
 
 
 func emit_animation_finished() -> void:
-	print("emit_animation_finished")
 	Events.emit_signal("menu_transition_finished")
 
 
 func _on_Transition_started(anim_name: String) -> void:
-	anim.play(anim_name)
+	if anim.current_animation == "RESET":
+		anim.stop()
+		anim.play(anim_name)
+		return
+	anim.queue(anim_name)
 
 
 func _on_Mid_animation() -> void:
 	Events.emit_signal("menu_transition_mid_animated")
-	print("_on_Mid_animation")

@@ -1,5 +1,7 @@
 extends Node
 
+var _should_trigger_audio := true
+
 onready var audio_player := get_parent()
 
 
@@ -12,29 +14,29 @@ func _ready():
 		return
 
 	if not audio_player.owner.has_signal("fiedset_focus_entered"):
-		print_debug(
-			(
-				"%s doesn't have a fiedset_focus_entered signal for %s"
-				% [audio_player.owner.get_name(), audio_player.get_name()]
-			)
-		)
 		queue_free()
 		return
 
 	if owner.stream == null:
 		printerr("%s stream value is null" % owner.get_name())
 
-	Events.connect("menu_transition_finished", self, "_on_Menu_transition_finished")
 	Events.connect("menu_transition_started", self, "_on_Menu_transition_started")
-	audio_player.owner.connect("fiedset_focus_entered", audio_player, "play")
+	Events.connect("menu_transition_finished", self, "_on_Menu_transition_finished")
+	audio_player.owner.connect("fiedset_focus_entered", self, "_on_Focus_entered")
 
 
 func _on_Menu_transition_finished() -> void:
-	audio_player.owner.connect("fiedset_focus_entered", audio_player, "play")
+	_should_trigger_audio = true
 
 
 func _on_Menu_transition_started(anim_name: String) -> void:
-	audio_player.owner.disconnect("fiedset_focus_entered", audio_player, "play")
+	_should_trigger_audio = false
+
+
+func _on_Focus_entered() -> void:
+	if not _should_trigger_audio:
+		return
+	audio_player.play()
 
 
 func _on_Mouse_enter() -> void:

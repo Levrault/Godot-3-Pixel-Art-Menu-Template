@@ -1,4 +1,5 @@
 extends Node
+var _should_trigger_audio := true
 
 onready var audio_player := get_parent()
 
@@ -14,21 +15,27 @@ func _ready():
 	if owner.stream == null:
 		printerr("%s stream value is null" % owner.get_name())
 
-	Events.connect("menu_transition_finished", self, "_on_Menu_transition_finished")
 	Events.connect("menu_transition_started", self, "_on_Menu_transition_started")
-	audio_player.owner.connect("focus_entered", audio_player, "play")
+	Events.connect("menu_transition_finished", self, "_on_Menu_transition_finished")
+	audio_player.owner.connect("focus_entered", self, "_on_Focus_entered")
 	audio_player.owner.connect("mouse_entered", self, "_on_Mouse_enter")
 
 
 func _on_Menu_transition_finished() -> void:
-	audio_player.owner.connect("focus_entered", audio_player, "play")
+	_should_trigger_audio = true
 
 
 func _on_Menu_transition_started(anim_name: String) -> void:
-	audio_player.owner.disconnect("focus_entered", audio_player, "play")
+	_should_trigger_audio = false
+
+
+func _on_Focus_entered() -> void:
+	if not _should_trigger_audio:
+		return
+	audio_player.play()
 
 
 func _on_Mouse_enter() -> void:
-	if audio_player.owner.has_focus() or audio_player.owner.disabled:
+	if audio_player.owner.has_focus() or audio_player.owner.disabled or not _should_trigger_audio:
 		return
 	audio_player.play()

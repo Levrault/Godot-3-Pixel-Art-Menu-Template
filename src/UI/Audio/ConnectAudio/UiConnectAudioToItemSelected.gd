@@ -10,12 +10,6 @@ func _ready():
 	yield(audio_player.owner, "ready")
 
 	if not audio_player.owner.has_signal("field_item_selected"):
-		print_debug(
-			(
-				"%s doesn't have a field_item_selected signal for %s"
-				% [audio_player.owner.get_name(), audio_player.get_name()]
-			)
-		)
 		queue_free()
 		return
 
