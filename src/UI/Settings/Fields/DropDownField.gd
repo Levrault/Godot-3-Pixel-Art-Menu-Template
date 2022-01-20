@@ -32,7 +32,8 @@ func _ready() -> void:
 		option_button.add_item(
 			item.key if not item.has("translation_key") else tr(item.translation_key)
 		)
-	revert()
+
+	initialize()
 
 
 func save() -> void:

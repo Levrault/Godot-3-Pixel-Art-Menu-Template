@@ -31,6 +31,33 @@ func _ready() -> void:
 	items = EngineSettings.data[owner.form.engine_file_section][key]["options"]
 
 
+func initialize() -> void:
+	var config_data = Config.values[owner.form.engine_file_section][key]
+	var is_compatible_with_field := true
+	var has_been_found := false
+
+	# bad type
+	if typeof(config_data) != TYPE_STRING:
+		is_compatible_with_field = false
+
+	# not an existing option
+	if is_compatible_with_field:
+		for option in EngineSettings.data[owner.form.engine_file_section][key]["options"]:
+			if option.key == config_data:
+				has_been_found = true
+
+	if not has_been_found or not is_compatible_with_field:
+		if not is_compatible_with_field:
+			printerr("Saved data of %s is invalid, should be a string, found %s instead" % [get_name(), config_data])
+		if not has_been_found:
+			printerr("Saved data of %s doesn't exist in engine.cfg, data is %s instead" % [get_name(), config_data])
+		reset()
+		Config.save_field(owner.form.engine_file_section, key, selected_key)
+		return
+
+	revert()
+
+
 func reset() -> void:
 	self.selected_key = EngineSettings.data[owner.form.engine_file_section][key].default
 	_compute_index()

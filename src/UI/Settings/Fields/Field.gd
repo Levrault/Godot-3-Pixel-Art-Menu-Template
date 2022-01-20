@@ -38,6 +38,12 @@ func _ready() -> void:
 	owner.form.data[key] = self
 
 
+# check if the compatible with the field
+func initialize() -> void:
+	printerr("%s does not have a custom initilize function" % owner.get_name())
+	revert()
+
+
 func apply() -> void:
 	self.is_pristine = true
 	updater.apply(values.properties, false)

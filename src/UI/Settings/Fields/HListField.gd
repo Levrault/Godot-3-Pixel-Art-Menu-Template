@@ -17,7 +17,8 @@ func _ready() -> void:
 	if Engine.editor_hint:
 		return
 	yield(owner, "ready")
-	revert()
+
+	initialize()
 	connect("focus_entered", self, "emit_signal", ["field_focus_entered"])
 	connect("focus_exited", self, "emit_signal", ["field_focus_exited"])
 	previous.connect("pressed", self, "_on_Previous_value")

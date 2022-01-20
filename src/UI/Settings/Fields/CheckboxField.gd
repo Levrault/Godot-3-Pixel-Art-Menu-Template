@@ -17,11 +17,20 @@ func _ready() -> void:
 	if key.empty():
 		printerr("%s's key is empty" % get_name())
 		return
-	revert()
 
+	initialize()
 	connect("focus_entered", self, "_on_Focus_entered")
 	checkbox.connect("toggled", self, "_on_Toggled")
 	checkbox.connect("focus_exited", self, "emit_signal", ["field_focus_exited"])
+
+
+func initialize() -> void:
+	var config_data = Config.values[owner.form.engine_file_section][key]
+	if config_data != CHECKED and config_data != UNCHECKED:
+		printerr("Saved data of %s are invalid, should be [%s, %s], found %s instead" % [get_name(), CHECKED, UNCHECKED, config_data])
+		reset()
+		return
+	revert()
 
 
 func reset() -> void:
@@ -42,6 +51,7 @@ func revert() -> void:
 func _on_Toggled(button_pressed: bool) -> void:
 	selected_key = CHECKED if button_pressed else UNCHECKED
 	values = EngineSettings.data[owner.form.engine_file_section][key][selected_key]
+	owner.form.has_changed = true
 	Config.save_field(owner.form.engine_file_section, key, selected_key)
 	emit_signal("field_item_selected", button_pressed)
 
