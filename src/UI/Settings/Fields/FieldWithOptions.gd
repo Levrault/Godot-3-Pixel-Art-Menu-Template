@@ -24,6 +24,10 @@ func _ready() -> void:
 	if not EngineSettings.data[owner.form.engine_file_section].has(key):
 		printerr("%s has no options associated to key %s" % [get_name(), key])
 		return
+
+	if filter != null:
+		items = filter.apply(EngineSettings.data[owner.form.engine_file_section][key]["options"])
+		return
 	items = EngineSettings.data[owner.form.engine_file_section][key]["options"]
 
 

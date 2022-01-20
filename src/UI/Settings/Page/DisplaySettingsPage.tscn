@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/UI/Settings/Updater/WindowModeUpdater.gd" type="Script" id=1]
 [ext_resource path="res://src/UI/Settings/Updater/VSyncUpdater.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://src/UI/Settings/SettingsPageTemplate.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/UI/Settings/Fields/CheckboxField.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/UI/Settings/Fields/DropDownField.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/UI/Settings/Filter/ResolutionFilter.gd" type="Script" id=9]
 
 [node name="DisplaySettingsPage" instance=ExtResource( 6 )]
 default_field_to_focus = NodePath("Wrapper/Page/Contents/VSync/MarginContainer/FieldContainer/Vsync")
@@ -27,13 +28,12 @@ text = "Breadcrumb"
 custom_constants/separation = 20
 
 [node name="VSync" parent="Wrapper/Page/Contents" index="0" instance=ExtResource( 5 )]
-margin_top = 24.0
+margin_top = 9.0
 margin_right = 440.0
-margin_bottom = 46.0
+margin_bottom = 41.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/VSync/MarginContainer" index="0"]
 margin_right = 436.0
-margin_bottom = 24.0
 
 [node name="Label" type="Label" parent="Wrapper/Page/Contents/VSync/MarginContainer/FieldContainer" index="0"]
 margin_top = 5.0
@@ -55,23 +55,23 @@ description = "display.vsync_description"
 script = ExtResource( 2 )
 
 [node name="WindowMode" parent="Wrapper/Page/Contents" index="1" instance=ExtResource( 5 )]
-margin_top = 66.0
+margin_top = 61.0
 margin_right = 440.0
-margin_bottom = 88.0
+margin_bottom = 93.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/WindowMode/MarginContainer" index="0"]
 margin_right = 436.0
 
 [node name="Label" type="Label" parent="Wrapper/Page/Contents/WindowMode/MarginContainer/FieldContainer" index="0"]
-margin_top = 4.0
+margin_top = 5.0
 margin_right = 140.0
-margin_bottom = 18.0
+margin_bottom = 19.0
 text = "display.window_mode"
 
 [node name="WindowMode" parent="Wrapper/Page/Contents/WindowMode/MarginContainer/FieldContainer" index="1" instance=ExtResource( 8 )]
 margin_left = 144.0
 margin_right = 432.0
-margin_bottom = 22.0
+margin_bottom = 24.0
 key = "window_mode"
 description = "display.window_mode_description"
 placeholder = "borderless"
@@ -83,9 +83,9 @@ script = ExtResource( 1 )
 field_path = NodePath("../..")
 
 [node name="Resolution" parent="Wrapper/Page/Contents" index="2" instance=ExtResource( 5 )]
-margin_top = 108.0
+margin_top = 113.0
 margin_right = 440.0
-margin_bottom = 130.0
+margin_bottom = 145.0
 focus_neighbour_bottom = NodePath("../../OptionsFooter/ApplySettingsButton")
 focus_next = NodePath("../../OptionsFooter/ApplySettingsButton")
 
@@ -93,15 +93,15 @@ focus_next = NodePath("../../OptionsFooter/ApplySettingsButton")
 margin_right = 436.0
 
 [node name="Label" type="Label" parent="Wrapper/Page/Contents/Resolution/MarginContainer/FieldContainer" index="0"]
-margin_top = 4.0
+margin_top = 5.0
 margin_right = 163.0
-margin_bottom = 18.0
+margin_bottom = 19.0
 text = "display.screen_resolution"
 
 [node name="ScreenResolution" parent="Wrapper/Page/Contents/Resolution/MarginContainer/FieldContainer" index="1" instance=ExtResource( 8 )]
 margin_left = 167.0
 margin_right = 432.0
-margin_bottom = 22.0
+margin_bottom = 24.0
 key = "screen_resolution"
 description = "display.screen_resolution_description"
 placeholder = "1920x1080 (16:9)"
@@ -111,6 +111,9 @@ script = ExtResource( 3 )
 
 [node name="ConfirmFieldValueDialog" parent="Wrapper/Page/Contents/Resolution/MarginContainer/FieldContainer/ScreenResolution/Updater" index="0" instance=ExtResource( 4 )]
 field_path = NodePath("../..")
+
+[node name="Filter" type="Node" parent="Wrapper/Page/Contents/Resolution/MarginContainer/FieldContainer/ScreenResolution" index="6"]
+script = ExtResource( 9 )
 
 [editable path="Wrapper/Page/Contents/VSync"]
 [editable path="Wrapper/Page/Contents/WindowMode"]

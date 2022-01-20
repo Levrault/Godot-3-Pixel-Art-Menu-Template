@@ -20,6 +20,7 @@ var values := {}
 var is_pristine := true setget _set_is_pristine
 
 onready var updater := get_node_or_null("Updater")
+onready var filter := get_node_or_null("Filter")
 
 
 func _ready() -> void:
