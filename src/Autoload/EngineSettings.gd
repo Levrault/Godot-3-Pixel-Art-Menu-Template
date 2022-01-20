@@ -2,6 +2,8 @@
 extends Node
 
 const ENGINE_FILE_PATH := "res://engine/engine.cfg"
+const ENGINE_FILE_PATH_OSX := "res://engine/engine_override_osx.cfg"
+const ENGINE_FILE_PATH_X11 := "res://engine/engine_override_x11.cfg"
 const KEYBOARD_FILE_PATH := "res://engine/keyboard.cfg"
 const GAMEPAD_FILE_PATH := "res://engine/gamepad.cfg"
 const KEYLIST_FILE_PATH := "res://engine/keylist.cfg"
@@ -33,6 +35,11 @@ var keylist := {}
 
 func _init() -> void:
 	_read_engine_file()
+
+	if OS.get_name() == "OSX":
+		_override_engine_file(ENGINE_FILE_PATH_OSX)
+	elif OS.get_name() == "X11":
+		_override_engine_file(ENGINE_FILE_PATH_X11)
 	_read_keylist_file()
 	_read_keyboard_file()
 	_read_gamepad_file()
@@ -135,6 +142,24 @@ func _read_engine_file() -> void:
 		data[section] = {}
 		for key in engine_file.get_section_keys(section):
 			data[section][key] = engine_file.get_value(section, key)
+
+
+func _override_engine_file(file_path: String) -> void:
+	var file := ConfigFile.new()
+	var err = file.load(file_path)
+	if err == ERR_FILE_NOT_FOUND:
+		printerr("%s has not been found" % file_path)
+		return
+	if err != OK:
+		print_debug("%s has encounter an error: %s" % [file_path, err])
+		return
+
+	for section in file.get_sections():
+		for key in file.get_section_keys(section):
+			if not data.has(section):
+				printerr("%s > %s section doesn't exist in engine.cfg" % [file_path, section])
+				continue
+			data[section][key] = file.get_value(section, key)
 
 
 func _read_keylist_file() -> void:

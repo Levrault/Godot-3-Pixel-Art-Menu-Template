@@ -57,9 +57,19 @@ func initialize() -> void:
 
 	if not is_compatible_with_field or not is_in_range:
 		if not is_compatible_with_field:
-			printerr("Saved data of %s is invalid, should be a string, found %s instead" % [get_name(), config_data])
+			printerr(
+				(
+					"Saved data of %s is invalid, should be a string, found %s instead"
+					% [get_name(), config_data]
+				)
+			)
 		if not is_in_range:
-			printerr("Saved data of %s is not a value between [%s, %s], value is %s" % [get_name(), min_value, max_value, config_data])
+			printerr(
+				(
+					"Saved data of %s is not a value between [%s, %s], value is %s"
+					% [get_name(), min_value, max_value, config_data]
+				)
+			)
 		var value: float = EngineSettings.data[owner.form.engine_file_section][key].default
 		slider.value = value
 		values.key = value

@@ -7,12 +7,7 @@ func _ready() -> void:
 	yield(get_tree(), "idle_frame")
 
 	if not get_parent() is FieldWithOptions:
-		printerr(
-			(
-				"Parent %s of %s has no options to filter"
-				% [get_parent().get_name(), get_name()]
-			)
-		)
+		printerr("Parent %s of %s has no options to filter" % [get_parent().get_name(), get_name()])
 		return
 
 

@@ -48,9 +48,19 @@ func initialize() -> void:
 
 	if not has_been_found or not is_compatible_with_field:
 		if not is_compatible_with_field:
-			printerr("Saved data of %s is invalid, should be a string, found %s instead" % [get_name(), config_data])
+			printerr(
+				(
+					"Saved data of %s is invalid, should be a string, found %s instead"
+					% [get_name(), config_data]
+				)
+			)
 		if not has_been_found:
-			printerr("Saved data of %s doesn't exist in engine.cfg, data is %s instead" % [get_name(), config_data])
+			printerr(
+				(
+					"Saved data of %s doesn't exist in engine.cfg, data is %s instead"
+					% [get_name(), config_data]
+				)
+			)
 		reset()
 		Config.save_field(owner.form.engine_file_section, key, selected_key)
 		return
