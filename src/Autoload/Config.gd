@@ -3,8 +3,10 @@ extends Node
 
 const CONFIG_FILE_PATH := "user://config.cfg"
 
-var _file := ConfigFile.new()
 var values := {}
+var is_new := false
+
+var _file := ConfigFile.new()
 
 
 # Find and load config.cfg file
@@ -33,6 +35,7 @@ func create_file(new_settings: Dictionary) -> void:
 				values[section] = {}
 			values[section][key] = new_settings[section][key]
 
+	is_new = true
 	_file.save(CONFIG_FILE_PATH)
 	Events.call_deferred("emit_signal", "config_file_saved")
 	print_debug("File has been saved")

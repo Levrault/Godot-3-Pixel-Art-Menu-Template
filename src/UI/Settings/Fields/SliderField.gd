@@ -48,7 +48,7 @@ func initialize() -> void:
 	var is_in_range := true
 
 	# bad type
-	if typeof(config_data) != TYPE_REAL:
+	if typeof(config_data) != TYPE_REAL and typeof(config_data) != TYPE_INT:
 		is_compatible_with_field = false
 
 	# out of bound
