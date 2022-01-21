@@ -27,7 +27,12 @@ func _ready() -> void:
 func initialize() -> void:
 	var config_data = Config.values[owner.form.engine_file_section][key]
 	if config_data != CHECKED and config_data != UNCHECKED:
-		printerr("Saved data of %s are invalid, should be [%s, %s], found %s instead" % [get_name(), CHECKED, UNCHECKED, config_data])
+		printerr(
+			(
+				"Saved data of %s are invalid, should be [%s, %s], found %s instead"
+				% [get_name(), CHECKED, UNCHECKED, config_data]
+			)
+		)
 		reset()
 		return
 	revert()

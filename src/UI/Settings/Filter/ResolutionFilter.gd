@@ -19,4 +19,3 @@ func apply(options: Array) -> Array:
 		result.append(option)
 
 	return result
-
