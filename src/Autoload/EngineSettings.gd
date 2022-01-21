@@ -1,10 +1,12 @@
 # Read engine.cfg file
 extends Node
 
+const DEFAULT_KEYBOARD := "qwerty"
 const ENGINE_FILE_PATH := "res://engine/engine.cfg"
 const ENGINE_FILE_PATH_OSX := "res://engine/engine_override_osx.cfg"
 const ENGINE_FILE_PATH_X11 := "res://engine/engine_override_x11.cfg"
 const KEYBOARD_FILE_PATH := "res://engine/keyboard.cfg"
+const KEYBOARD_UI_FILE_PATH := "res://engine/keyboard_ui.cfg"
 const GAMEPAD_FILE_PATH := "res://engine/gamepad.cfg"
 const KEYLIST_FILE_PATH := "res://engine/keylist.cfg"
 const MOUSE_INDEX_TO_STRING := {
@@ -43,6 +45,7 @@ func _init() -> void:
 	_read_keylist_file()
 	_read_keyboard_file()
 	_read_gamepad_file()
+	_read_keyboard_ui_file()
 
 	default = get_default()
 
@@ -85,7 +88,7 @@ func get_keyboard_or_mouse_key_from_keyboard_variant() -> Dictionary:
 	if keyboard.has(OS.get_latin_keyboard_variant()):
 		keyboard_scheme = keyboard[OS.get_latin_keyboard_variant().to_lower()]
 	else:
-		keyboard_scheme = keyboard["qwerty"].duplicate()
+		keyboard_scheme = keyboard[DEFAULT_KEYBOARD].duplicate()
 	return keyboard_scheme
 
 
@@ -208,3 +211,48 @@ func _read_gamepad_file() -> void:
 		gamepad[section] = {}
 		for key in gamepad_file.get_section_keys(section):
 			gamepad[section][key] = gamepad_file.get_value(section, key)
+
+
+func _read_keyboard_ui_file() -> void:
+	if OS.get_latin_keyboard_variant().to_lower() == DEFAULT_KEYBOARD:
+		return
+
+	var keyboard_ui_file := ConfigFile.new()
+	var err = keyboard_ui_file.load(KEYBOARD_UI_FILE_PATH)
+	if err == ERR_FILE_NOT_FOUND:
+		printerr("keyboard_ui.cfg has not been found at %s" % KEYBOARD_UI_FILE_PATH)
+		return
+	if err != OK:
+		print_debug("%s has encounter an error: %s" % [KEYBOARD_UI_FILE_PATH, err])
+		return
+
+	var keyboard_ui := {}
+	for section in keyboard_ui_file.get_sections():
+		keyboard_ui[section] = {}
+		for key in keyboard_ui_file.get_section_keys(section):
+			keyboard_ui[section][key] = keyboard_ui_file.get_value(section, key)
+
+	var keyboard_ui_scheme := {}
+	if not keyboard_ui.has(OS.get_latin_keyboard_variant()):
+		return
+
+	keyboard_ui_scheme = keyboard_ui[OS.get_latin_keyboard_variant().to_lower()]
+
+	# clear default keyboard action
+	var default_keyboard_ui_scheme = keyboard_ui[OS.get_latin_keyboard_variant().to_lower()]
+	for action in default_keyboard_ui_scheme:
+		for key in default_keyboard_ui_scheme[action]:
+			if not InputMap.has_action(action):
+				continue
+			var input_event_key = InputEventKey.new()
+			input_event_key.set_scancode(keylist.keyboard[key])
+			InputMap.action_erase_event(action, input_event_key)
+
+	# add new action
+	for action in keyboard_ui_scheme:
+		for key in keyboard_ui_scheme[action]:
+			if not InputMap.has_action(action):
+				InputMap.add_action(action)
+			var input_event_key = InputEventKey.new()
+			input_event_key.set_scancode(keylist.keyboard[key])
+			InputMap.action_add_event(action, input_event_key)
