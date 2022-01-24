@@ -1,16 +1,23 @@
-# Singleton that manage values save
+# Manage user's settings
+# - Sync with engine.cfg settings
+# - Save/load, create user settings
+# category: Singleton
 extends Node
 
+# save file path
 const CONFIG_FILE_PATH := "user://config.cfg"
 
+# values of config.cfg
 var values := {}
+# has been created when starting the game?
 var is_new := false
 
+# config file
 var _file := ConfigFile.new()
 
 
 # Find and load config.cfg file
-# If not, create a new config file with default value
+# If not, create a new config file with default engine values
 func _init() -> void:
 	var err = _file.load(CONFIG_FILE_PATH)
 	if err == ERR_FILE_NOT_FOUND:
@@ -24,8 +31,8 @@ func _init() -> void:
 	sync_with_engine_settings()
 
 
-# Clear and save file
-# @param {Dictionary} new data - see EngineSettings.default from struc
+# Create a new file
+# @param {Dictionary} new_settings
 func create_file(new_settings: Dictionary) -> void:
 	for section in new_settings.keys():
 		for key in new_settings[section]:
@@ -41,8 +48,8 @@ func create_file(new_settings: Dictionary) -> void:
 	print_debug("File has been saved")
 
 
-# Clear and save file
-# @param {Dictionary} new data - see EngineSettings.default from struc
+# Save all user data
+# @param {Dictionary} settings
 func save_file(settings: Dictionary) -> void:
 	_file.clear()
 	for section in settings.keys():
@@ -54,6 +61,7 @@ func save_file(settings: Dictionary) -> void:
 	print_debug("File has been saved")
 
 
+# Save a section
 func save_section(section: String, data: Dictionary) -> void:
 	for key in data:
 		_file.set_value(section, key, data[key])
@@ -63,6 +71,7 @@ func save_section(section: String, data: Dictionary) -> void:
 	print_debug("File has been saved")
 
 
+# Save a field
 func save_field(section: String, field: String, value) -> void:
 	_file.set_value(section, field, value)
 	_file.save(CONFIG_FILE_PATH)
@@ -85,8 +94,7 @@ func load_file() -> void:
 	print_debug("%s has been loaded" % [CONFIG_FILE_PATH])
 
 
-# Update Config.values to by sync with
-# engine.cfg file
+# Assure that both config.cfg and engine.cfg are synched
 func sync_with_engine_settings() -> void:
 	var engine_settings: Dictionary = EngineSettings.default.duplicate()
 	# sync new values
