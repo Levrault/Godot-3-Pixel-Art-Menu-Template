@@ -1,4 +1,23 @@
-# Read engine.cfg file
+# Read all engine configuration file
+# 
+# engine.cfg, engine_override_osx.cfg, engine_override_x11.cfg
+# contains all configurable fields and their call back action
+#
+# keylist.cfg
+# provide a readable key (and gamepad) event system
+# e.g. KEY_ESCAPE = 16777217 ; Escape key.
+#
+# keyboard.cfg
+# contains all differents key input for every supported 
+# keyboard layout (qwerty, azerty)
+#
+# keyboard_ui.cfg
+# contains all differents ui  key input for every supported 
+# keyboard layout (qwerty, azerty)
+#
+# gamepad.cfg
+# contains all differents gamepad input for every supported 
+# gamepad supported (xbox, nintendo, sony, generic)
 extends Node
 
 const DEFAULT_KEYBOARD := "qwerty"
@@ -9,6 +28,7 @@ const KEYBOARD_FILE_PATH := "res://engine/keyboard.cfg"
 const KEYBOARD_UI_FILE_PATH := "res://engine/keyboard_ui.cfg"
 const GAMEPAD_FILE_PATH := "res://engine/gamepad.cfg"
 const KEYLIST_FILE_PATH := "res://engine/keylist.cfg"
+# workaround to map mouse input to translation key
 const MOUSE_INDEX_TO_STRING := {
 	"BUTTON_LEFT": "mouse.left_mouse_button",
 	"BUTTON_RIGHT": "mouse.right_mouse_button",
@@ -28,10 +48,15 @@ const MOUSE_INDEX_TO_STRING := {
 
 var gamepad_regex := {"xbox": "_XBOX_", "nintendo": "_DS_", "dualshock": "_SONY_"}
 
+# contains data of all .cfg file from engine folder
 var data := {}
+# all default field value from engine.cfg
 var default := {}
+# keyboard input
 var keyboard := {}
+# gamepad input
 var gamepad := {}
+# readable keylist
 var keylist := {}
 
 
@@ -50,6 +75,7 @@ func _init() -> void:
 	default = get_default()
 
 
+# return the option list for a specific field (Section > Key) of engine.cfg
 func get_option(section: String, key: String, value: String) -> Dictionary:
 	var result := {}
 	for option in data[section][key].options:
@@ -60,6 +86,7 @@ func get_option(section: String, key: String, value: String) -> Dictionary:
 	return result
 
 
+# return properties for a specific field (Section > Key) of engine.cfg
 func get_properties(section: String, key: String, value: String) -> Dictionary:
 	var result := {}
 	for properties in data[section][key].properties:
@@ -70,6 +97,7 @@ func get_properties(section: String, key: String, value: String) -> Dictionary:
 	return result
 
 
+# return all default value of every fields of engine.cfg
 func get_default() -> Dictionary:
 	var result := {}
 	for section in data:
@@ -92,6 +120,7 @@ func get_keyboard_or_mouse_key_from_keyboard_variant() -> Dictionary:
 	return keyboard_scheme
 
 
+# return the corresponding event of keylist.cfg
 func get_keyboard_or_mouse_key_from_scancode(scancode: int) -> String:
 	for key in keylist.keyboard:
 		if keylist.keyboard[key] == scancode:
@@ -110,6 +139,7 @@ func get_gamepad_layout() -> Dictionary:
 	return result
 
 
+# return the matching event of keylist.cfg based on the joy_string and gamepad type
 func get_gamepad_button_from_joy_string(value: int, joy_string := "", type := "") -> String:
 	var device = InputManager.gamepad_button_regex[type]
 	var result := ""
@@ -127,6 +157,7 @@ func get_gamepad_button_from_joy_string(value: int, joy_string := "", type := ""
 	return result
 
 
+# return the mouse translation key
 func get_mouse_button_string(key: String) -> String:
 	return MOUSE_INDEX_TO_STRING[key]
 

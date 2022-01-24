@@ -1,5 +1,6 @@
-# Signal Autoload Pattern
+# Event bus pattern
 # @see https://www.youtube.com/watch?v=S6PbC4Vqim4
+# @see https://www.gdquest.com/docs/guidelines/best-practices/godot-gdscript/event-bus/
 extends Node
 
 ############

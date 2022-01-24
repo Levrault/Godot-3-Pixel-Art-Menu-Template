@@ -1,7 +1,7 @@
 # Manage user's settings
-# - Sync with engine.cfg settings
-# - Save/load, create user settings
-# category: Singleton
+# Sync with engine.cfg settings
+# Save/load, create user settings
+# @category: Autoload
 extends Node
 
 # save file path
@@ -9,15 +9,13 @@ const CONFIG_FILE_PATH := "user://config.cfg"
 
 # values of config.cfg
 var values := {}
-# has been created when starting the game?
 var is_new := false
 
-# config file
 var _file := ConfigFile.new()
 
 
 # Find and load config.cfg file
-# If not, create a new config file with default engine values
+# if not, create a new config file with default engine values
 func _init() -> void:
 	var err = _file.load(CONFIG_FILE_PATH)
 	if err == ERR_FILE_NOT_FOUND:
@@ -32,7 +30,6 @@ func _init() -> void:
 
 
 # Create a new file
-# @param {Dictionary} new_settings
 func create_file(new_settings: Dictionary) -> void:
 	for section in new_settings.keys():
 		for key in new_settings[section]:
@@ -49,7 +46,6 @@ func create_file(new_settings: Dictionary) -> void:
 
 
 # Save all user data
-# @param {Dictionary} settings
 func save_file(settings: Dictionary) -> void:
 	_file.clear()
 	for section in settings.keys():

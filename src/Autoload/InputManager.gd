@@ -1,4 +1,7 @@
-# Based on https://github.com/nathanhoad/godot_input_helper/blob/main/input_helper/input_helper.gd
+# Detect witch device is currently 
+# Provide some usefull function about gamepad or keyboard action
+# Contains all key icons of all device
+# @see https://github.com/nathanhoad/godot_input_helper/blob/main/input_helper/input_helper.gd
 extends Node
 
 signal device_changed(device, device_index)
@@ -20,7 +23,6 @@ var nintendo_x = preload("res://assets/ui/nintendo_X.png")
 var keyboard_esc = preload("res://assets/ui/keyboard_ESC.png")
 var keyboard_del = preload("res://assets/ui/keyboard_DEL.png")
 var keyboard_f = preload("res://assets/ui/keyboard_F.png")
-
 var all_gamepad_devices := [
 	DEVICE_XBOX_CONTROLLER,
 	DEVICE_SWITCH_CONTROLLER,
@@ -39,6 +41,7 @@ func _ready() -> void:
 	_motion_regex.compile(GAMEPAD_MOTION_REGEX)
 
 
+# Based on the current input, will update wich device is used
 func _input(event: InputEvent) -> void:
 	var next_device: String = device
 	var next_device_index: int = device_index
@@ -67,18 +70,21 @@ func _input(event: InputEvent) -> void:
 		emit_signal("device_changed", device, device_index)
 
 
+# Utils function to quickly add a motion event
 func addJoyMotionEvent(action: String, value: String) -> void:
 	var input_event_motion = InputEventJoypadMotion.new()
 	input_event_motion.axis = EngineSettings.keylist.gamepad[value]
 	InputMap.action_add_event(action, input_event_motion)
 
 
+# Utils function to add a joy button event
 func addJoyButtonEvent(action: String, value: String) -> void:
 	var input_event_button = InputEventJoypadButton.new()
 	input_event_button.button_index = EngineSettings.keylist.gamepad[value]
 	InputMap.action_add_event(action, input_event_button)
 
 
+# return a understable device name
 func get_simplified_device_name(raw_name: String) -> String:
 	match raw_name:
 		"XInput Gamepad", "Xbox Series Controller":
@@ -103,6 +109,7 @@ func is_motion_event(value: String) -> bool:
 	return _motion_regex.search(value) != null
 
 
+# return the global scope variable name from a action/device
 func get_device_button_from_action(action: String, for_device: String) -> String:
 	if not InputMap.has_action(action):
 		printerr("Action %s does not exist" % action)
