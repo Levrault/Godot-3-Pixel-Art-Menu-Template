@@ -1,3 +1,5 @@
+# Display a breadcrumbs based on an array of values
+# @category: Breadcrumbs
 extends HBoxContainer
 
 const BREADCRUMB_LABEL_SCENE = preload("res://src/UI/Commons/Breadcrumbs/BreadcrumbLabel.tscn")

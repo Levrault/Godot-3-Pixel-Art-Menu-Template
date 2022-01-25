@@ -1,3 +1,5 @@
+# Label that represent a breabcrumbs element
+# @category: Breadcrumbs
 extends Label
 
 var active := false setget set_active

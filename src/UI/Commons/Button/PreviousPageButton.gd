@@ -1,3 +1,4 @@
+# @category: Button
 extends Button
 
 signal blocked

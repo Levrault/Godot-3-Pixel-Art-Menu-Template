@@ -1,3 +1,6 @@
+# Generic button template
+# Connect all needed signal at start
+# @category: Button
 extends Button
 class_name GenericButton
 
