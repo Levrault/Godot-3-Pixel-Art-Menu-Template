@@ -1,3 +1,6 @@
+# Decoupled system to connect an Audioplayer
+# To his owner with the custom signal field_item_focused
+# @category: Audio
 extends Node
 
 onready var audio_player := get_parent()

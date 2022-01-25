@@ -1,5 +1,5 @@
 # Read all engine configuration file
-# 
+#
 # engine.cfg, engine_override_osx.cfg, engine_override_x11.cfg
 # contains all configurable fields and their call back action
 #
@@ -8,15 +8,15 @@
 # e.g. KEY_ESCAPE = 16777217 ; Escape key.
 #
 # keyboard.cfg
-# contains all differents key input for every supported 
+# contains all differents key input for every supported
 # keyboard layout (qwerty, azerty)
 #
 # keyboard_ui.cfg
-# contains all differents ui  key input for every supported 
+# contains all differents ui  key input for every supported
 # keyboard layout (qwerty, azerty)
 #
 # gamepad.cfg
-# contains all differents gamepad input for every supported 
+# contains all differents gamepad input for every supported
 # gamepad supported (xbox, nintendo, sony, generic)
 extends Node
 

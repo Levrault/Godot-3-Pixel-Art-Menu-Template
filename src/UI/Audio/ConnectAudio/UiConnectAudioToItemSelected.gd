@@ -1,3 +1,6 @@
+# Decoupled system to connect an Audioplayer
+# To his owner with the custom signal field_item_selected
+# @category: Audio
 extends Node
 
 enum TRIGGER_ON { all, negative, positive }

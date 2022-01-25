@@ -1,3 +1,8 @@
+# Decoupled system to connect an Audioplayer
+# To his owner with the custom signal fieldset_focus_entered
+#
+# To prevent unwanted signal during navigation, a flag is set between transition
+# @category: Audio
 extends Node
 
 var _should_trigger_audio := true

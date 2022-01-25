@@ -1,3 +1,6 @@
+# Decoupled system to connect an Audioplayer
+# To his owner with the custom signal clicked
+# @category: Audio
 extends Node
 
 

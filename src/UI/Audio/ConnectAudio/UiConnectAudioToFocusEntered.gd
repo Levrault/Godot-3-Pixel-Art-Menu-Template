@@ -1,4 +1,10 @@
+# Decoupled system to connect an Audioplayer
+# To his owner with the signal focus_entered and mouse_entered
+#
+# To prevent unwanted signal during navigation, a flag is set between transition
+# @category: Audio
 extends Node
+
 var _should_trigger_audio := true
 
 onready var audio_player := get_parent()
