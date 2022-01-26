@@ -1,3 +1,8 @@
+# Reset to default button
+# Will compare the current form value to the EngineSettings data
+# If different, it will enable the button
+# Trigger a dialog when enabled and clicked
+# @category: Button
 extends Button
 
 onready var confirmation_dialog := $ResetToDefaultDialog
@@ -28,7 +33,7 @@ func _is_equal_to_default_config() -> bool:
 	if config_values.hash() == engine_values.hash():
 		return true
 
-	# compare each value
+	# compare each value, depending on their type
 	var is_disabled := true
 	for key in config_values:
 		if not is_disabled:

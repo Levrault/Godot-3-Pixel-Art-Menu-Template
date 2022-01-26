@@ -1,6 +1,26 @@
-# Data carousel that use to be save inside config.cfg (@see Autoload/Config.gd)
-# Will get options and default value from EngineSettings.gd and display them in order
-# Will send the new data to the Form node
+# Carousel for non direct action
+# Navigation can be made with ui_left and ui_right
+#
+# e.g. engine.cfg
+# ```
+# gamepad_stick_layout = {
+#     "default": "movement/camera",
+#     "options": [ {
+#         "key": "movement/camera",
+#         "translation_key": "cfg.stick_layout_movement_camera",
+#         "properties": {
+#             "y_axis": true
+#         }
+#     }, {
+#         "key": "camera/movement",
+#         "translation_key": "cfg.stick_layout_camera_movement",
+#         "properties": {
+#             "y_axis": false
+#         }
+#     } ]
+# }
+# ```
+# @category: Field
 tool
 class_name HListField
 extends FieldWithOptions

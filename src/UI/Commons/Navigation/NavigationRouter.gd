@@ -1,4 +1,5 @@
-# Manage go to previous history
+# Clear history on load
+# @category: Navigation
 class_name NavigationRouter
 extends Control
 

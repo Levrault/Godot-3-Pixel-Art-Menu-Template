@@ -1,3 +1,7 @@
+# Currently use for rebind
+# If the user clear essentials fields, we warm him
+# to bind an action
+# @category: Dialog
 extends WindowDialog
 
 onready var ok_btn := $MarginContainer/VBoxContainer/HBoxContainer/Ok
@@ -8,6 +12,7 @@ func _ready() -> void:
 	ok_btn.connect("pressed", self, "_on_Ok_pressed")
 
 
+# set dynamic message depending on the unmapped fields
 func set_message(unmapped_fields := []) -> void:
 	var actions := ""
 	var separator := ", "

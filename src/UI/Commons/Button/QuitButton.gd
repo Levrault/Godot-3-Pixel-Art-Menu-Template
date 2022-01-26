@@ -1,4 +1,5 @@
 # Quit application
+# @category: Button
 extends GenericButton
 
 

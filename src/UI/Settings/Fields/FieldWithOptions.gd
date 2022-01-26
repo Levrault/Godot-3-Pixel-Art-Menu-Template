@@ -1,3 +1,34 @@
+# Manage all fields with multiple options like hlist and dropdown
+# e.g. engine.cfg
+# ```
+# window_mode = {
+#     "default": "borderless",
+#     "options": [ {
+#         "key": "fullscreen",
+#         "translation_key": "cfg.fullscreen",
+#         "properties": {
+#             "display/window/size/fullscreen": true,
+#             "display/window/size/borderless": false,
+#         }
+#     }, {
+#         "key": "borderless",
+#         "translation_key": "cfg.borderless",
+#         "properties": {
+#             "display/window/size/fullscreen": false,
+#             "display/window/size/borderless": true,
+#         }
+#     }, {
+#         "key": "windowed",
+#         "translation_key": "cfg.windowed",
+#         "properties": {
+#             "display/window/size/fullscreen": false,
+#             "display/window/size/borderless": false,
+#         }
+#     } ]
+# }
+# ```
+# @category: Field
+
 tool
 class_name FieldWithOptions, "res://assets/icons/field.svg"
 extends Field
@@ -31,6 +62,9 @@ func _ready() -> void:
 	items = EngineSettings.data[owner.form.engine_file_section][key]["options"]
 
 
+# Check if the field has the correct data to be created
+# if not, reset to engine`s default value
+# if the data are corrects, load last saved data
 func initialize() -> void:
 	var config_data = Config.values[owner.form.engine_file_section][key]
 	var is_compatible_with_field := true
@@ -68,12 +102,15 @@ func initialize() -> void:
 	revert()
 
 
+# Change to Engine`s default value (engine.cfg)
 func reset() -> void:
 	self.selected_key = EngineSettings.data[owner.form.engine_file_section][key].default
 	_compute_index()
 	apply()
 
 
+# Change to user config value
+# Used to load the last saved data
 func revert() -> void:
 	.revert()
 	if not EngineSettings.data.has(owner.form.engine_file_section):

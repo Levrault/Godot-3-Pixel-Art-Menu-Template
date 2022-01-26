@@ -1,6 +1,19 @@
-# Convert data to percentage
-# Directly save value, there is no mapping
-# with options
+# Slider field
+# Directly change a number value (float, int etc.)
+#
+# A timer is used to debounce the save process and 
+# prevent too many call on the save function
+#
+# e.g. engine.cfg
+# ```
+# ui_volume = {
+#     "default": 0,
+#     "properties": {
+#         "UI": 0
+#     }
+# }
+# ```
+# @category: Field
 tool
 class_name SliderField, "res://assets/icons/percent.svg"
 extends Field
@@ -11,6 +24,7 @@ export var nb_of_step := 10
 export var percentage_mode := false
 export var placeholder := "placeholder" setget _set_placeholder
 
+# does our min value is negative
 var _is_computing_from_negative := false
 
 onready var slider := $HSlider
@@ -42,6 +56,9 @@ func _ready() -> void:
 	debounce_timer.connect("timeout", self, "_on_Timeout")
 
 
+# Check if the field has the correct data to be created
+# if not, reset to engine`s default value
+# if the data are corrects, load last saved data
 func initialize() -> void:
 	var config_data = Config.values[owner.form.engine_file_section][key]
 	var is_compatible_with_field := true
@@ -80,6 +97,7 @@ func initialize() -> void:
 	revert()
 
 
+# Change to Engine`s default value (engine.cfg)
 func reset() -> void:
 	slider.disconnect("value_changed", self, "_on_Value_changed")
 
@@ -93,6 +111,8 @@ func reset() -> void:
 	slider.call_deferred("connect", "value_changed", self, "_on_Value_changed")
 
 
+# Change to user config value
+# Used to load the last saved data
 func revert() -> void:
 	var value: float = Config.values[owner.form.engine_file_section][key]
 	slider.value = value

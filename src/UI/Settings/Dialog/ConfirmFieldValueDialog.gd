@@ -1,8 +1,13 @@
-# Warm user about the new resolution
-# Rollback to previous resolution if the user doesn't confirm
+# Warm user to confirm a value
+# Should be use for field that have a direct and instant impact on the visual
+# Rollback to previous field value if the user doesn't confirm after X seconds
+# Rollback to previous field value if the user cancel
+# @category: Dialog
 extends WindowDialog
 
+# related field
 export (NodePath) var field_path = ""
+# time before self-closing & cancelling value
 export var default_countdown := 15
 
 var _field: Field = null

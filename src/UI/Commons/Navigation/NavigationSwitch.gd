@@ -1,4 +1,5 @@
 # Switch when a NavigationButton is click
+# @category: Navigation
 class_name NavigationSwitch
 extends Control
 
@@ -10,6 +11,7 @@ var last_clicked_button: Button = null
 var buttons := []
 var is_current_route := false
 
+# Settings page will have a form node
 onready var form: Form = get_node_or_null("Form")
 
 
@@ -32,6 +34,7 @@ func _on_Menu_route_changed(id: String) -> void:
 	print_debug("%s route has been set" % [id])
 
 
+# Manage visibily during animation transition
 func _on_Transiton_mid_animated() -> void:
 	if not is_current_route:
 		return

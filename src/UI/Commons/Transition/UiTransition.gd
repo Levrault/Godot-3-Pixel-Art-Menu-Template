@@ -1,5 +1,6 @@
-# Manage menu transition
+# Triggered during a navvigation between page
 # transition_fade_mid_transition and transition_fade_finished are emitted from AnimationPlayer
+# @category: Transition
 extends Control
 
 onready var anim := $AnimationPlayer

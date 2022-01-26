@@ -1,3 +1,6 @@
+# Reset to default dialog
+# Trigger and controlled by ResetToDefaultButton
+# @category: Dialog
 extends WindowDialog
 
 onready var dialog_text = $MarginContainer/VBoxContainer/Label

@@ -1,8 +1,36 @@
 # Dropdown field
-# Will apply the action when an item is selected
-# Will not be added to the Form
-#
 # Use for important actions like language, resolution, windows mode
+# Should be use for action that can have a direct and instant impact on the visual
+#
+# e.g. engine.cfg
+# ```
+# window_mode = {
+#     "default": "borderless",
+#     "options": [ {
+#         "key": "fullscreen",
+#         "translation_key": "cfg.fullscreen",
+#         "properties": {
+#             "display/window/size/fullscreen": true,
+#             "display/window/size/borderless": false,
+#         }
+#     }, {
+#         "key": "borderless",
+#         "translation_key": "cfg.borderless",
+#         "properties": {
+#             "display/window/size/fullscreen": false,
+#             "display/window/size/borderless": true,
+#         }
+#     }, {
+#         "key": "windowed",
+#         "translation_key": "cfg.windowed",
+#         "properties": {
+#             "display/window/size/fullscreen": false,
+#             "display/window/size/borderless": false,
+#         }
+#     } ]
+# }
+# ```
+# @category: Field
 tool
 class_name DropdownField
 extends FieldWithOptions
@@ -41,6 +69,7 @@ func save() -> void:
 	Config.save_field(owner.form.engine_file_section, key, values.key)
 
 
+# Change to Engine`s default value (engine.cfg)
 func reset() -> void:
 	self.selected_key = EngineSettings.data[owner.form.engine_file_section][key].default
 	_compute_index()
@@ -48,6 +77,8 @@ func reset() -> void:
 	option_button.select(_index)
 
 
+# Change to user config value
+# Used to load the last saved data
 func revert() -> void:
 	.revert()
 	option_button.select(_index)

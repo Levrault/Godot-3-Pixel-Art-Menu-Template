@@ -1,5 +1,6 @@
 # Enable to navigate between all the differents menu ui
-# by setting up wich menu need to be show (based on node name)
+# by setting up which menu needs to be show (based on node name)
+# @category: Navigation
 class_name NavigationButton, "res://assets/icons/navigation.svg"
 extends Button
 
@@ -21,7 +22,6 @@ func _ready() -> void:
 
 # Update Menu navigation history (Autoload/Menu.gd)
 # Set itself at last clicked button
-# Show navigate_to
 func _on_Pressed() -> void:
 	owner.last_clicked_button = self
 	Menu.history.append(owner.get_name())

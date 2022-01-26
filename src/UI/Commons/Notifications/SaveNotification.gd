@@ -1,3 +1,5 @@
+# Save icon notification
+# @category: Notification
 extends Control
 
 

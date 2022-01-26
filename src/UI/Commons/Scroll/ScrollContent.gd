@@ -1,3 +1,7 @@
+# Manage the behavior of a ScrollContainer
+# depending on which device is used
+# keyboard and gamepad will required the follow_focus to be true
+# while the mouse will needs it to be false
 extends ScrollContainer
 
 

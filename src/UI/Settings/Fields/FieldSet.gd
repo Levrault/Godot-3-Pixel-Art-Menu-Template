@@ -1,3 +1,5 @@
+# Manage all the visuel when a field is focused by the user
+# @category: Field
 class_name FieldSet, "res://assets/icons/fieldset.svg"
 extends Control
 
@@ -68,12 +70,15 @@ func _on_Mouse_focus_entered() -> void:
 	call_deferred("_on_Field_focus_entered")
 
 
+# clear the fieldset when the mouse leave the fieldset area
 # @see https://github.com/godotengine/godot/issues/16854#issuecomment-1010931622
 func _on_Mouse_exited() -> void:
 	if not Rect2(Vector2(), rect_size).has_point(get_local_mouse_position()):
 		clear()
 
 
+# prevent the fieldset to be cleared when the user navigate
+# between multiple field input
 func _on_Field_cleared(fieldset: FieldSet) -> void:
 	if not owner.is_current_route:
 		return
@@ -84,6 +89,8 @@ func _on_Field_cleared(fieldset: FieldSet) -> void:
 	clear()
 
 
+# prevent the fieldset to be cleared when the user navigate
+# between multiple field input
 func _on_Fieldset_inner_field_navigated(focused_field) -> void:
 	if not owner.is_current_route:
 		return

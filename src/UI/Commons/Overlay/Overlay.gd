@@ -1,3 +1,5 @@
+# A simple overlay
+# Show when a dialog is displayed
 extends ColorRect
 
 

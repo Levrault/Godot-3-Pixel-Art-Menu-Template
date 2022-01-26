@@ -1,10 +1,8 @@
 # Generic field class
-# export
-#	key - related key from ConfigFile
-#	placeholder - just an optional placeholder to simulate data in the editor's UI
-# signals
-#	field_focus_entered	- use by fieldset (to hightlight the field)
-#	field_focus_exited 	- use by fieldset (to remove hightlight from the field)
+# Contains all basic functions a field needs
+# Get Updater and filter
+# Register fields into the owner's form
+# @category: Field
 tool
 class_name Field, "res://assets/icons/field.svg"
 extends HBoxContainer
@@ -38,18 +36,21 @@ func _ready() -> void:
 	owner.form.data[key] = self
 
 
-# check if the compatible with the field
+# Check if the field has the correct data to be created
+# if not, reset to engine`s default value
+# if the data are corrects, load last saved data
 func initialize() -> void:
 	printerr("%s does not have a custom initilize function" % owner.get_name())
 	revert()
 
 
+# Sent data to the updater (wihout the trigger action callback)
 func apply() -> void:
 	self.is_pristine = true
 	updater.apply(values.properties, false)
 
 
-# Reset to Engine`s default value from Engine file
+# Change to Engine`s default value (engine.cfg)
 func reset() -> void:
 	if not EngineSettings.data.has(owner.form.engine_file_section):
 		printerr("Form section %s has not been set is form node of %s" % [key, owner.get_name()])
@@ -60,7 +61,8 @@ func reset() -> void:
 		return
 
 
-# Revert to previously saved data from ConfigFile
+# Change to user config value
+# Used to load the last saved data
 func revert() -> void:
 	if not Config.values.has(owner.form.engine_file_section):
 		printerr("%s section doesn't exist in config file" % owner.form.engine_file_section)
