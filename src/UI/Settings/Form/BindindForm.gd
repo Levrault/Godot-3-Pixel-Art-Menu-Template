@@ -1,3 +1,5 @@
+# Manage rebind page
+# @category: Form
 extends Form
 class_name RebindForm
 
@@ -14,6 +16,6 @@ func is_invalid() -> bool:
 	return not get_invalid_fields().empty()
 
 
-# abstract to override
+# virtual function
 func get_invalid_fields() -> Array:
 	return []

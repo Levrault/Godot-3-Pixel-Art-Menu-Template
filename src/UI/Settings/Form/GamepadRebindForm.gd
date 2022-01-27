@@ -1,3 +1,6 @@
+# Rebind gamepad form
+# Manage how a gamepad can be edited
+# @category: Form
 extends RebindForm
 
 var device := "xbox"
@@ -8,6 +11,9 @@ func reset() -> void:
 	.reset()
 
 
+# save data and sync the current scheme to other controller
+# e.g. you edit an Xbox gamepad scheme, the same scheme will
+# be apply to nintendo and sony gamepad
 func save() -> void:
 	var layout_is_valid := true
 	var data_to_save := {}
@@ -16,6 +22,7 @@ func save() -> void:
 		for key in data:
 			data_to_save[gamepad_device][key] = {}
 
+			# an empty field in gamepad is consider as invalid
 			if data[key].values.default.empty():
 				layout_is_valid = false
 				data_to_save[gamepad_device][key]["default"] = {}
@@ -43,7 +50,9 @@ func get_invalid_fields() -> Array:
 	return invalid_fields
 
 
-func get_mapped_gamepad_or_null(joy_string: String) -> KeyMapField:
+# Find and return a specific field
+# Use for conflicted field
+func get_mapped_gamepad_or_null(joy_string: String) -> GamepadMapField:
 	for key in data:
 		var field = data[key]
 		if data[key].default_button.joy_string == joy_string:

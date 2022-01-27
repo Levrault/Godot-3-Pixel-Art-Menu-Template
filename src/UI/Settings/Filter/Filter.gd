@@ -1,3 +1,5 @@
+# Filter option element of a FieldWithOptions type node 
+# @category: Filter
 class_name Filter
 extends Node
 
@@ -11,5 +13,7 @@ func _ready() -> void:
 		return
 
 
+# virtual function
+# apply filter
 func apply(options: Array) -> Array:
 	return options

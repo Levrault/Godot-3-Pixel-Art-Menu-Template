@@ -1,3 +1,5 @@
+# Rebind keyboard and mouse form
+# @category: Form
 extends RebindForm
 
 
@@ -23,6 +25,8 @@ func get_invalid_fields() -> Array:
 	return invalid_fields
 
 
+# Find and return a specific field
+# Use for conflicted field
 func get_mapped_key_or_null(scancode: int) -> KeyMapField:
 	for key in data:
 		var field = data[key]

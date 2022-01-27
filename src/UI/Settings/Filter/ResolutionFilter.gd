@@ -1,3 +1,5 @@
+# Filter resolution based on the aspect ratio of the user's screen 
+# @category: Filter
 extends Filter
 
 

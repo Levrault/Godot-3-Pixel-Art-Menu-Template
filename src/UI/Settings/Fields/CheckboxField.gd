@@ -8,13 +8,13 @@
 #     "default": "checked",
 #     "checked": {
 #         "key": true,
-#         "properties": { 
+#         "properties": {
 #             "display/window/size/use_vsync": true
 #         }
 #     },
 #     "unchecked": {
 #         "key": false,
-#         "properties": { 
+#         "properties": {
 #             "display/window/size/use_vsync": false
 #         }
 #     }

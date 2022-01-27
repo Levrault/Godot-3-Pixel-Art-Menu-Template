@@ -1,7 +1,7 @@
 # Slider field
 # Directly change a number value (float, int etc.)
 #
-# A timer is used to debounce the save process and 
+# A timer is used to debounce the save process and
 # prevent too many call on the save function
 #
 # e.g. engine.cfg

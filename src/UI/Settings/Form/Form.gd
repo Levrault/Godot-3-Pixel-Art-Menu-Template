@@ -1,3 +1,5 @@
+# Manage page's data changes state
+# @category: Form
 class_name Form, "res://assets/icons/form.svg"
 extends Node
 
@@ -8,6 +10,8 @@ var data := {}
 var has_changed := false
 
 
+# call field's reset function
+# use to reset them to their default state
 func reset() -> void:
 	has_changed = true
 	for key in data:
@@ -17,13 +21,7 @@ func reset() -> void:
 			data[key].save()
 
 
-func revert() -> void:
-	has_changed = true
-	for key in data:
-		if data[key].is_pristine:
-			continue
-		data[key].revert()
-
-
+# virtual function for more specific form that
+# can be invalid
 func is_invalid() -> bool:
 	return false
