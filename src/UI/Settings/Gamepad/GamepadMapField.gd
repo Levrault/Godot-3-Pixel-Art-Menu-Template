@@ -1,3 +1,6 @@
+# Regroup GamepadButton and manage data transfer
+# and user interaction
+# @category: Gamepad, Rebind
 tool
 class_name GamepadMapField, "res://assets/icons/gamepad.svg"
 extends HBoxContainer
@@ -37,12 +40,14 @@ func _ready() -> void:
 	owner.form.data[action] = self
 
 
+# Change to Engine`s default value (engine.cfg)
 func reset() -> void:
 	default_button.assign_with_constant(
 		Config.values[owner.form.engine_file_section][InputManager.default_gamepad][action][default_button.key]
 	)
 
 
+# remove current input
 func unmap(scancode: int) -> void:
 	default_button.clear()
 

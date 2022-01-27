@@ -1,6 +1,5 @@
-# specify for gamepad
-# 	if the button is not disabled on the first frame, it will prevent us to rebind the ui_cancel button in conflict mode
-#	that why we put a set_deferred(disabled, false)
+# Listen and manage a binding with a Gamepad
+# @category: Gamepad, Dialog, Rebind
 extends WindowDialog
 
 const ALLOWED_AXIS_EVENT := [6, 7]
@@ -71,6 +70,7 @@ func _input(event: InputEvent) -> void:
 		return
 
 
+# change ui depending on the context
 func update_ui_for(step: int, data := {}):
 	var unbind_action_key := InputManager.get_device_button_from_action("ui_unbind", _button.type)
 	var cancel_binding_action_key := InputManager.get_device_button_from_action(
@@ -202,6 +202,8 @@ func cancel_binding() -> void:
 	close()
 
 
+# need to wait the idle_frame when closing
+# if not, the grab_focus can fail
 func close() -> void:
 	hide()
 	owner.form.set_process_input(true)

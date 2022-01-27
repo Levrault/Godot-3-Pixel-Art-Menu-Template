@@ -1,3 +1,6 @@
+# Regroup KeymapButton and manage data transfer
+# and user interaction
+# @category: Keyboard, Rebind
 tool
 class_name KeyMapField, "res://assets/icons/keyboard.svg"
 extends HBoxContainer
@@ -57,12 +60,11 @@ func _ready() -> void:
 		keymap_buttons.append(child)
 		child.assign_with_constant(Config.values[owner.form.engine_file_section][action][child.key])
 
-#	last_focused_button = keymap_buttons[0]
-
 	# register itself in to the form
 	owner.form.data[action] = self
 
 
+# Change to Engine`s default value (engine.cfg)
 func reset() -> void:
 	for button in keymap_buttons:
 		button.assign_with_constant(
@@ -70,6 +72,7 @@ func reset() -> void:
 		)
 
 
+# remove current input
 func unmap(scancode: int) -> void:
 	for button in keymap_buttons:
 		if button.assigned_to != EngineSettings.get_keyboard_or_mouse_key_from_scancode(scancode):

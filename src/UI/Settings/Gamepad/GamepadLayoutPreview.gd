@@ -1,3 +1,6 @@
+# Show the current gamepad layout
+# Just a placeholder to be replace in futur game
+# @category: Gamepad, Field, Rebind
 extends Control
 
 onready var attack = $VBoxContainer/Attack

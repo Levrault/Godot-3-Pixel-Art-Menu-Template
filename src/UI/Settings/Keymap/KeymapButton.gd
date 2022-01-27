@@ -1,3 +1,6 @@
+# Keyboard button
+# Trigger bindind action when pressed
+# @category: Keyboard, Rebind
 extends Button
 
 export var key := ""
@@ -12,6 +15,7 @@ func _ready() -> void:
 	connect("mouse_entered", owner, "inner_navigation", [self])
 
 
+# Change to Engine`s default value (engine.cfg)
 func assign_with_constant(value: String) -> void:
 	if value.empty():
 		clear()
@@ -32,6 +36,7 @@ func assign_with_constant(value: String) -> void:
 	owner.values[key] = EngineSettings.keylist[type][value]
 
 
+# Using a scancode for assignation
 func assign_with_scancode(value: int) -> void:
 	assign_with_constant(EngineSettings.get_keyboard_or_mouse_key_from_scancode(value))
 

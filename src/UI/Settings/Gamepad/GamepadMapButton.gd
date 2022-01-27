@@ -1,9 +1,16 @@
+# Gamepad button
+# Trigger bindind action when pressed
+# Use by GamepadMapField
+# @category: Gamepad, Rebind
 extends Button
 
 export var key := ""
 
+# Global constant joystick value e.g. JOY_XBOX_B
 var assigned_to := ""
+# equivalent name as a string return by input class get_joy_x function 
 var joy_string := ""
+# gamepad type (xbox, dualshock, nintendo)
 var type := "xbox"
 
 
@@ -12,6 +19,7 @@ func _ready() -> void:
 	type = InputManager.DEVICE_XBOX_CONTROLLER
 
 
+# assign a new value based on a constant string from keylist.cfg
 func assign_with_constant(value: String) -> void:
 	if value.empty():
 		clear()

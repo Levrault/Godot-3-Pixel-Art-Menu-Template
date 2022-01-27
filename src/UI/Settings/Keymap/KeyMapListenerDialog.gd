@@ -1,3 +1,5 @@
+# Listen and manage a binding with a keyboard and mouse
+# @category: Keyboard, Dialog, Rebind
 extends WindowDialog
 
 enum Step { new, remap, conflict, unbind }
@@ -56,6 +58,7 @@ func _input(event: InputEvent) -> void:
 		return
 
 
+# change ui depending on the context
 func update_ui_for(step: int, data := {}):
 	var unbind_action_key := InputManager.get_device_button_from_action(
 		"ui_unbind", InputManager.device
@@ -174,6 +177,8 @@ func cancel_binding() -> void:
 	close()
 
 
+# need to wait the idle_frame when closing
+# if not, the grab_focus can fail
 func close() -> void:
 	hide()
 	owner.form.set_process_input(true)

@@ -1,4 +1,7 @@
-# fix how hover should work with keymapfield since they have two input
+# A small helper to manage how inner navigation should works with keymapfield
+# Since keymap field is the only field two have two inputs, we needs to tweak it
+# to work with the Fieldset node
+# category: Keyboard, Rebind
 extends Node
 
 var last_focused_field: KeyMapField = null
