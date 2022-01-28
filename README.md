@@ -10,7 +10,7 @@ The template gives
   - Slider: for all int or float values
   - Checkbox: for boolean
   - Hlist: a horizontal list to choose between different options
-  - Dropdown: A dropdown list with or without a user confirmation for action that impact the visual
+  - Dropdown: A dropdown list with or without a user confirmation for action that impacts the visual
 - Autosave feature
 - Keyboard and mouse rebind
 - Gamepad support and rebind
