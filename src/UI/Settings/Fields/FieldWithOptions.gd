@@ -65,6 +65,7 @@ func _ready() -> void:
 # Check if the field has the correct data to be created
 # if not, reset to engine`s default value
 # if the data are corrects, load last saved data
+# Delegue reset calling by inherited child
 func initialize() -> void:
 	var config_data = Config.values[owner.form.engine_file_section][key]
 	var is_compatible_with_field := true
@@ -98,8 +99,6 @@ func initialize() -> void:
 		reset()
 		Config.save_field(owner.form.engine_file_section, key, selected_key)
 		return
-
-	revert()
 
 
 # Change to Engine`s default value (engine.cfg)

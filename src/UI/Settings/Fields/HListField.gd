@@ -55,6 +55,14 @@ func _gui_input(event: InputEvent) -> void:
 		return
 
 
+# Check if the field has the correct data to be created
+# if not, reset to engine`s default value
+# if the data are corrects, load last saved data
+func initialize() -> void:
+	.initialize()
+	revert()
+
+
 func _set_placeholder(value: String) -> void:
 	placeholder = value
 	$Value.text = placeholder

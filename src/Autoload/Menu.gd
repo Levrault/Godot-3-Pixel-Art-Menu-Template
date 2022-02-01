@@ -1,4 +1,5 @@
 # Manage menu navigation and historic
+# @category: Navigation
 extends Node
 
 var history := []

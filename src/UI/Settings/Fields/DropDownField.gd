@@ -64,6 +64,14 @@ func _ready() -> void:
 	initialize()
 
 
+# Check if the field has the correct data to be created
+# if not, reset to engine`s default value
+# if the data are corrects, load last saved data
+func initialize() -> void:
+	.initialize()
+	call_deferred("revert")
+
+
 func save() -> void:
 	owner.form.has_changed = true
 	Config.save_field(owner.form.engine_file_section, key, values.key)
