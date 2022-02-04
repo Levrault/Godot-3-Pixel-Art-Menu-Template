@@ -87,6 +87,7 @@ func load_file() -> void:
 				default_variant = EngineSettings.default[section].get(key)
 
 			values[section][key] = _file.get_value(section, key, default_variant)
+	Events.emit_signal("config_file_loaded")
 	print_debug("%s has been loaded" % [CONFIG_FILE_PATH])
 
 
@@ -104,11 +105,26 @@ func sync_with_engine_settings() -> void:
 
 	# remove depreciated values
 	for section in values.keys():
-		for key in values[section]:
+		for key in values[section].keys():
 			if not engine_settings.has(section):
 				values.erase(section)
 				continue
 			if not engine_settings[section].has(key):
 				values[section].erase(key)
+
+	# remove depreciated keyboard binding
+	for key in values.keyboard_and_mouse_bindind.keys():
+		if not engine_settings.keyboard_and_mouse_bindind.has(key):
+			values.keyboard_and_mouse_bindind.erase(key)
+
+	# remove depreciated gamepad binding
+	for section in values.gamepad_bindind.keys():
+		if not engine_settings.gamepad_bindind.has(section):
+			values.gamepad_bindind.erase(section)
+			continue
+
+		for key in values.gamepad_bindind[section].keys():
+			if not engine_settings.gamepad_bindind[section].has(key):
+				values.gamepad_bindind[section].erase(key)
 
 	save_file(values)
