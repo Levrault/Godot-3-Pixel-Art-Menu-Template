@@ -19,7 +19,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=2]
-resource_name = "fiedset_focus_entered"
+resource_name = "fieldset_focus_entered"
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("FocusRect:visible")
@@ -35,7 +35,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=3]
-resource_name = "fiedset_focus_exited"
+resource_name = "fieldset_focus_exited"
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("FocusRect:visible")
@@ -65,8 +65,8 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "RESET"
 anims/RESET = SubResource( 1 )
-anims/fiedset_focus_entered = SubResource( 2 )
-anims/fiedset_focus_exited = SubResource( 3 )
+anims/fieldset_focus_entered = SubResource( 2 )
+anims/fieldset_focus_exited = SubResource( 3 )
 
 [node name="UiFocusSfx" parent="." instance=ExtResource( 2 )]
 

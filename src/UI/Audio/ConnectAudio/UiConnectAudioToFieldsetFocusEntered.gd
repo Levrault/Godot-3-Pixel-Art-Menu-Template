@@ -18,7 +18,7 @@ func _ready():
 		queue_free()
 		return
 
-	if not audio_player.owner.has_signal("fiedset_focus_entered"):
+	if not audio_player.owner.has_signal("fieldset_focus_entered"):
 		queue_free()
 		return
 
@@ -27,7 +27,7 @@ func _ready():
 
 	Events.connect("menu_transition_started", self, "_on_Menu_transition_started")
 	Events.connect("menu_transition_finished", self, "_on_Menu_transition_finished")
-	audio_player.owner.connect("fiedset_focus_entered", self, "_on_Focus_entered")
+	audio_player.owner.connect("fieldset_focus_entered", self, "_on_Focus_entered")
 
 
 func _on_Menu_transition_finished() -> void:

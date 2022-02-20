@@ -3,8 +3,8 @@
 class_name FieldSet, "res://assets/icons/fieldset.svg"
 extends Control
 
-signal fiedset_focus_entered
-signal fiedset_focus_exited
+signal fieldset_focus_entered
+signal fieldset_focus_exited
 
 var field = null
 var label: Label = null
@@ -45,15 +45,15 @@ func clear() -> void:
 
 func _on_Field_focus_entered() -> void:
 	Events.emit_signal("fieldset_cleared", self)
-	anim.play("fiedset_focus_entered")
+	anim.play("fieldset_focus_entered")
 	Events.emit_signal("field_description_changed", field.description)
-	emit_signal("fiedset_focus_entered")
+	emit_signal("fieldset_focus_entered")
 
 
 func _on_Field_focus_exited() -> void:
-	anim.play("fiedset_focus_exited")
+	anim.play("fieldset_focus_exited")
 	Events.emit_signal("field_description_changed", "")
-	emit_signal("fiedset_focus_exited")
+	emit_signal("fieldset_focus_exited")
 
 
 func _on_Mouse_focus_entered() -> void:
@@ -97,5 +97,5 @@ func _on_Fieldset_inner_field_navigated(focused_field) -> void:
 		return
 	if focused_field != field:
 		return
-	anim.play("fiedset_focus_entered")
+	anim.play("fieldset_focus_entered")
 	Events.emit_signal("field_description_changed", field.description)
