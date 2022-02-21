@@ -18,14 +18,19 @@ func _ready() -> void:
 func show() -> void:
 	.show()
 	Events.emit_signal("overlay_displayed")
+	Events.emit_signal("navigation_disabled")
 	confirm_button.grab_focus()
 
 
-func _on_Cancel_pressed() -> void:
+func hide() -> void:
+	.hide()
 	Events.emit_signal("overlay_hidden")
+	Events.emit_signal("navigation_enabled")
+
+
+func _on_Cancel_pressed() -> void:
 	hide()
 
 
 func _on_Confirm_pressed() -> void:
-	Events.emit_signal("overlay_hidden")
 	hide()

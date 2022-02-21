@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/UI/Settings/Dialog/ConfirmFieldValueDialog.gd" type="Script" id=1]
 [ext_resource path="res://src/UI/Audio/Positive/UiConfirmationSfx.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/UI/Commons/Button/ConfirmButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/UI/Commons/Button/CancelButton.tscn" type="PackedScene" id=4]
+
+[sub_resource type="InputEventAction" id=1]
+action = "ui_cancel"
+
+[sub_resource type="ShortCut" id=2]
+shortcut = SubResource( 1 )
 
 [node name="ConfirmFieldValueDialog" type="WindowDialog"]
 anchor_left = 0.5
@@ -94,6 +100,7 @@ size_flags_horizontal = 3
 [node name="Cancel" parent="MarginContainer/VBoxContainer/HBoxContainer/CancelContainer" instance=ExtResource( 4 )]
 margin_left = 19.0
 margin_right = 140.0
+shortcut = SubResource( 2 )
 
 [node name="ConfirmContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 margin_right = 158.0

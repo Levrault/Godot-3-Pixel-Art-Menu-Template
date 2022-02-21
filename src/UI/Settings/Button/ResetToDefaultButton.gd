@@ -16,6 +16,7 @@ func _ready():
 	connect("pressed", self, "_on_Pressed")
 	connect("mouse_entered", self, "_on_Mouse_entered")
 
+	confirmation_dialog.cancel_button.connect("pressed", self, "_on_Config_file_saved")
 	confirmation_dialog.confirm_button.connect("pressed", self, "_on_Confirmation_ok_pressed")
 	confirmation_dialog.dialog_text.text = tr("commons.restore_default_settings_message").format(
 		{section = tr(owner.form.section_title)}
