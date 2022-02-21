@@ -39,6 +39,7 @@ func show() -> void:
 	_countdown = default_countdown
 	progressbar.max_value = default_countdown
 	countdown_label.text = String(_countdown)
+	progressbar.value = _countdown
 	timer.start()
 	Events.emit_signal("overlay_displayed")
 	Events.call_deferred("emit_signal", "navigation_disabled")
