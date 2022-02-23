@@ -3,7 +3,7 @@ extends Updater
 
 func _ready() -> void:
 	yield(owner, "ready")
-	
+
 	if Config.is_new:
 		var os_locale = OS.get_locale().left(2)
 		if TranslationServer.get_loaded_locales().find(os_locale):

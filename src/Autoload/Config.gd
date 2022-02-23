@@ -127,4 +127,13 @@ func sync_with_engine_settings() -> void:
 			if not engine_settings.gamepad_bindind[section].has(key):
 				values.gamepad_bindind[section].erase(key)
 
+	# add new values (only needed for gamepad, keyboard do it on his own)
+	for section in engine_settings.gamepad_bindind.keys():
+		if not values.gamepad_bindind.has(section):
+			values.gamepad_bindind = {}
+
+		for key in engine_settings.gamepad_bindind[section].keys():
+			if not values.gamepad_bindind[section].has(key):
+				values.gamepad_bindind[section][key] = engine_settings.gamepad_bindind[section][key]
+
 	save_file(values)
