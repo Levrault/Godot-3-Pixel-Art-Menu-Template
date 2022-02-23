@@ -4,6 +4,7 @@ This project has been created for Godot Engine 3.4 and above.
 Its main purpose is to offer common tools and features to create better user interfaces with all the "good practices" of the industry. It's not a universal interface, since all projects have different goals, designs and feelings, you will need to edit it to meet your needs.
 
 The template gives
+
 - A navigation system with transitions
 - A UI navigation system based on the keyboard/gamepad layout
 - All commons fields
@@ -22,4 +23,7 @@ The template gives
 Check the [Step by step guide](https://github.com/Levrault/Godot-Menu-Template/wiki/Step-by-step-guide) to start creating your own interface
 
 # Credits
+
 All the current sounds placeholder are using Kenney [sounds interface](https://www.kenney.nl/assets/interface-sounds) and [ui audio](https://www.kenney.nl/assets/ui-audio) pack.
+
+[Gamepads Assets - Pixelart by lightUP](https://julianoferreiradelima.itch.io/gamepads-assets-pixelart)
