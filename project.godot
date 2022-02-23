@@ -44,6 +44,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/UI/Settings/Form/Form.gd"
 }, {
+"base": "TextureRect",
+"class": "GamepadData",
+"language": "GDScript",
+"path": "res://src/UI/Settings/Gamepad/Data/GamepadData.gd"
+}, {
 "base": "HBoxContainer",
 "class": "GamepadMapField",
 "language": "GDScript",
@@ -102,6 +107,7 @@ _global_script_class_icons={
 "FieldWithOptions": "res://assets/icons/field.svg",
 "Filter": "",
 "Form": "res://assets/icons/form.svg",
+"GamepadData": "",
 "GamepadMapField": "res://assets/icons/gamepad.svg",
 "GenericButton": "",
 "HListField": "",
