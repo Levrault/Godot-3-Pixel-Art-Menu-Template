@@ -39,8 +39,7 @@ func _on_Gamepad_layout() -> void:
 		for key in Config.values.gamepad_bindind[device]:
 			actions[key] = Config.values.gamepad_bindind[device][key].default
 	else:
-		for key in Config.values.gamepad_bindind[device]:
-			print(key)
+		for key in EngineSettings.gamepad[device][layout]:
 			actions[key] = EngineSettings.gamepad[device][layout][key].default
 
 	for key in actions:
