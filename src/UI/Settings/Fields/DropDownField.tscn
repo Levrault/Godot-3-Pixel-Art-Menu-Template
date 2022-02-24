@@ -27,4 +27,5 @@ __meta__ = {
 margin_right = 104.0
 margin_bottom = 20.0
 mouse_default_cursor_shape = 2
+size_flags_vertical = 5
 text = "placeholder"
