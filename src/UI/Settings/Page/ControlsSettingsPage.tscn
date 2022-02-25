@@ -27,7 +27,7 @@ margin_top = 0.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Wrapper/Page/Contents/ScrollContent" index="0"]
 margin_right = 428.0
-margin_bottom = 296.0
+margin_bottom = 260.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -82,37 +82,10 @@ margin_right = 428.0
 margin_bottom = 128.0
 text = "commons.gamepad"
 
-[node name="GamepadStickLayout" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer" index="4" instance=ExtResource( 3 )]
+[node name="GamepadXAxis" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer" index="4" instance=ExtResource( 3 )]
 margin_top = 132.0
 margin_right = 428.0
 margin_bottom = 164.0
-
-[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/GamepadStickLayout/MarginContainer" index="0"]
-margin_right = 424.0
-
-[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/GamepadStickLayout/MarginContainer/FieldContainer" index="0"]
-margin_top = 5.0
-margin_right = 195.0
-margin_bottom = 19.0
-text = "controls.gamepad_stick_layout"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="GamepadStickLayout" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/GamepadStickLayout/MarginContainer/FieldContainer" index="1" instance=ExtResource( 10 )]
-margin_left = 199.0
-margin_right = 420.0
-margin_bottom = 24.0
-key = "gamepad_stick_layout"
-description = "controls.gamepad_stick_layout_description"
-
-[node name="Updater" type="Node" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/GamepadStickLayout/MarginContainer/FieldContainer/GamepadStickLayout" index="4"]
-script = ExtResource( 8 )
-
-[node name="GamepadXAxis" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer" index="5" instance=ExtResource( 3 )]
-margin_top = 168.0
-margin_right = 428.0
-margin_bottom = 200.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/GamepadXAxis/MarginContainer" index="0"]
 margin_right = 424.0
@@ -136,10 +109,10 @@ description = "controls.gamepad_x_axis_description"
 [node name="Updater" type="Node" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/GamepadXAxis/MarginContainer/FieldContainer/GamepadXAxis" index="4"]
 script = ExtResource( 8 )
 
-[node name="GamepadYAxis" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer" index="6" instance=ExtResource( 3 )]
-margin_top = 204.0
+[node name="GamepadYAxis" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer" index="5" instance=ExtResource( 3 )]
+margin_top = 168.0
 margin_right = 428.0
-margin_bottom = 236.0
+margin_bottom = 200.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/GamepadYAxis/MarginContainer" index="0"]
 margin_right = 424.0
@@ -163,10 +136,10 @@ description = "controls.gamepad_y_axis_description"
 [node name="Updater" type="Node" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/GamepadYAxis/MarginContainer/FieldContainer/GamepadYAxis" index="4"]
 script = ExtResource( 6 )
 
-[node name="GamepadVibration" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer" index="7" instance=ExtResource( 3 )]
-margin_top = 240.0
+[node name="GamepadVibration" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer" index="6" instance=ExtResource( 3 )]
+margin_top = 204.0
 margin_right = 428.0
-margin_bottom = 272.0
+margin_bottom = 236.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/GamepadVibration/MarginContainer" index="0"]
 margin_right = 424.0
@@ -195,16 +168,15 @@ placeholder = "100%"
 [node name="Updater" type="Node" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/GamepadVibration/MarginContainer/FieldContainer/GamepadVibration" index="2"]
 script = ExtResource( 9 )
 
-[node name="GamepadLayout" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer" index="8" instance=ExtResource( 2 )]
-margin_top = 276.0
+[node name="GamepadLayout" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer" index="7" instance=ExtResource( 2 )]
+margin_top = 240.0
 margin_right = 428.0
-margin_bottom = 296.0
+margin_bottom = 260.0
 text = "controls.gamepad_layout"
 align = 1
 navigate_to = "GamepadLayoutSettingsPage"
 
 [editable path="Wrapper/Page/Contents/ScrollContent/VBoxContainer/MouseSensibility"]
-[editable path="Wrapper/Page/Contents/ScrollContent/VBoxContainer/GamepadStickLayout"]
 [editable path="Wrapper/Page/Contents/ScrollContent/VBoxContainer/GamepadXAxis"]
 [editable path="Wrapper/Page/Contents/ScrollContent/VBoxContainer/GamepadYAxis"]
 [editable path="Wrapper/Page/Contents/ScrollContent/VBoxContainer/GamepadVibration"]

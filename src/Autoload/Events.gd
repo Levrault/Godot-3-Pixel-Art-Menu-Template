@@ -22,6 +22,7 @@ signal fieldset_inner_field_navigated(focused_field)
 # gamepad binding
 signal gamepad_listening_started
 signal gamepad_layout_changed
+signal gamepad_stick_layout_changed(joy_actions)
 
 # keybinding
 signal key_listening_started(field, button, scancode)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/UI/Settings/SettingsPageTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/UI/Settings/Updater/GamepadLayoutUpdater.gd" type="Script" id=2]
@@ -7,9 +7,58 @@
 [ext_resource path="res://src/UI/Commons/Navigation/NavigationButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/UI/Settings/Fields/FieldSet.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/UI/Settings/Form/GamepadLayoutForm.gd" type="Script" id=7]
+[ext_resource path="res://src/UI/Settings/Updater/GammeStickLayoutUpdater.gd" type="Script" id=8]
+[ext_resource path="res://src/UI/Commons/Scroll/ScrollContent.tscn" type="PackedScene" id=9]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("FocusRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "fieldset_focus_entered"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("FocusRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "fieldset_focus_exited"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("FocusRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [node name="GamepadLayoutSettingsPage" instance=ExtResource( 1 )]
-default_field_to_focus = NodePath("Wrapper/Page/Contents/VBoxContainer/GamepadLayout/MarginContainer/FieldContainer/GamepadLayout")
+default_field_to_focus = NodePath("Wrapper/Page/Contents/ScrollContent/VBoxContainer/GamepadLayout/MarginContainer/FieldContainer/GamepadLayout")
 
 [node name="Form" parent="." index="0"]
 script = ExtResource( 7 )
@@ -19,58 +68,95 @@ section_title = "gamepad.title"
 [node name="Breadcrumb" parent="Wrapper/Page" index="0"]
 breadcrumbs = [ "commons.settings", "gamepad.title" ]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Wrapper/Page/Contents" index="0"]
-margin_right = 440.0
-margin_bottom = 155.0
+[node name="ScrollContent" parent="Wrapper/Page/Contents" index="0" instance=ExtResource( 9 )]
+margin_top = 0.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Wrapper/Page/Contents/ScrollContent" index="0"]
+margin_right = 428.0
+margin_bottom = 196.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="GamepadLayout" parent="Wrapper/Page/Contents/VBoxContainer" index="0" instance=ExtResource( 6 )]
-margin_right = 440.0
+[node name="GamepadLayout" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer" index="0" instance=ExtResource( 6 )]
+margin_right = 428.0
+margin_bottom = 32.0
 
-[node name="FieldContainer" parent="Wrapper/Page/Contents/VBoxContainer/GamepadLayout/MarginContainer" index="0"]
-margin_right = 436.0
+[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/GamepadLayout/MarginContainer" index="0"]
+margin_right = 424.0
 
-[node name="Label" type="Label" parent="Wrapper/Page/Contents/VBoxContainer/GamepadLayout/MarginContainer/FieldContainer" index="0"]
-margin_top = 4.0
-margin_right = 214.0
-margin_bottom = 18.0
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/GamepadLayout/MarginContainer/FieldContainer" index="0"]
+margin_top = 5.0
+margin_right = 208.0
+margin_bottom = 19.0
 size_flags_horizontal = 3
 text = "gamepad.layout"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GamepadLayout" parent="Wrapper/Page/Contents/VBoxContainer/GamepadLayout/MarginContainer/FieldContainer" index="1" instance=ExtResource( 4 )]
-margin_left = 218.0
-margin_right = 432.0
-margin_bottom = 22.0
+[node name="GamepadLayout" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/GamepadLayout/MarginContainer/FieldContainer" index="1" instance=ExtResource( 4 )]
+margin_left = 212.0
+margin_right = 420.0
+margin_bottom = 24.0
 key = "gamepad_layout"
 description = "gamepad.layout_description"
 placeholder = "default"
 
-[node name="Updater" type="Node" parent="Wrapper/Page/Contents/VBoxContainer/GamepadLayout/MarginContainer/FieldContainer/GamepadLayout" index="4"]
+[node name="Updater" type="Node" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/GamepadLayout/MarginContainer/FieldContainer/GamepadLayout" index="4"]
 script = ExtResource( 2 )
 
-[node name="LayoutPreview" type="CenterContainer" parent="Wrapper/Page/Contents/VBoxContainer" index="1"]
-margin_top = 26.0
-margin_right = 440.0
-margin_bottom = 126.0
+[node name="LayoutPreview" type="CenterContainer" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer" index="1"]
+margin_top = 36.0
+margin_right = 428.0
+margin_bottom = 136.0
 
-[node name="GamepadLayoutPreview" parent="Wrapper/Page/Contents/VBoxContainer/LayoutPreview" index="0" instance=ExtResource( 3 )]
+[node name="GamepadLayoutPreview" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/LayoutPreview" index="0" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 70.0
-margin_right = 370.0
+margin_left = 74.0
+margin_right = 354.0
 margin_bottom = 100.0
 
-[node name="GamepadBindind" parent="Wrapper/Page/Contents/VBoxContainer" index="2" instance=ExtResource( 5 )]
-margin_top = 130.0
-margin_right = 440.0
-margin_bottom = 150.0
+[node name="GamepadStickLayout" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer" index="2" instance=ExtResource( 6 )]
+margin_top = 140.0
+margin_right = 428.0
+margin_bottom = 172.0
+
+[node name="AnimationPlayer" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/GamepadStickLayout" index="0"]
+anims/RESET = SubResource( 1 )
+anims/fieldset_focus_entered = SubResource( 2 )
+anims/fieldset_focus_exited = SubResource( 3 )
+
+[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/GamepadStickLayout/MarginContainer" index="0"]
+margin_right = 424.0
+
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/GamepadStickLayout/MarginContainer/FieldContainer" index="0"]
+margin_top = 5.0
+margin_right = 195.0
+margin_bottom = 19.0
+text = "controls.gamepad_stick_layout"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GamepadStickLayout" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/GamepadStickLayout/MarginContainer/FieldContainer" index="1" instance=ExtResource( 4 )]
+margin_left = 199.0
+margin_right = 420.0
+margin_bottom = 24.0
+key = "gamepad_stick_layout"
+description = "controls.gamepad_stick_layout_description"
+
+[node name="Updater" type="Node" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/GamepadStickLayout/MarginContainer/FieldContainer/GamepadStickLayout" index="4"]
+script = ExtResource( 8 )
+
+[node name="GamepadBindind" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer" index="3" instance=ExtResource( 5 )]
+margin_top = 176.0
+margin_right = 428.0
+margin_bottom = 196.0
 mouse_default_cursor_shape = 0
 text = "rebind.gamepad"
 align = 1
 navigate_to = "GamepadRebindPage"
 
-[editable path="Wrapper/Page/Contents/VBoxContainer/GamepadLayout"]
+[editable path="Wrapper/Page/Contents/ScrollContent/VBoxContainer/GamepadLayout"]
+[editable path="Wrapper/Page/Contents/ScrollContent/VBoxContainer/GamepadStickLayout"]
