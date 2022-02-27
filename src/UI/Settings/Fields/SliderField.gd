@@ -103,7 +103,9 @@ func reset() -> void:
 
 	var value: float = EngineSettings.data[owner.form.engine_file_section][key].default
 	slider.value = value
-	values.key = value
+	values.key = value	
+	for key in values.properties:
+		values.properties[key] = value
 	value_label.text = "%d" % percentage(value) + "%" if percentage_mode else "%.1f" % value
 	Config.save_field(owner.form.engine_file_section, key, values.key)
 	apply()
@@ -117,6 +119,8 @@ func revert() -> void:
 	var value: float = Config.values[owner.form.engine_file_section][key]
 	slider.value = value
 	values.key = value
+	for key in values.properties:
+		values.properties[key] = value
 	value_label.text = "%d" % percentage(value) + "%" if percentage_mode else "%.1f" % value
 	apply()
 
