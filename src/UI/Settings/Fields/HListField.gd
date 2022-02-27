@@ -31,6 +31,7 @@ export var placeholder := "placeholder" setget _set_placeholder
 onready var _tween := $Tween
 onready var previous := $Previous
 onready var next := $Next
+onready var label := $Value
 
 
 func _ready() -> void:
@@ -70,7 +71,7 @@ func _set_placeholder(value: String) -> void:
 
 func _set_selected_key(text: String) -> void:
 	._set_selected_key(text)
-	$Value.text = text if not values.has("translation_key") else tr(values.translation_key)
+	label.text = text if not values.has("translation_key") else tr(values.translation_key)
 
 
 # TODO: Change to tweak file value

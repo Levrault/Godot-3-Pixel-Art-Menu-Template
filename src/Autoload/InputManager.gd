@@ -72,6 +72,8 @@ func _input(event: InputEvent) -> void:
 
 # Utils function to quickly add a motion event
 func addJoyMotionEvent(action: String, value: String) -> void:
+	if not InputMap.has_action(action):
+		InputMap.add_action(action)
 	var input_event_motion = InputEventJoypadMotion.new()
 	input_event_motion.axis = EngineSettings.keylist.gamepad[value]
 	InputMap.action_add_event(action, input_event_motion)
@@ -79,6 +81,8 @@ func addJoyMotionEvent(action: String, value: String) -> void:
 
 # Utils function to add a joy button event
 func addJoyButtonEvent(action: String, value: String) -> void:
+	if not InputMap.has_action(action):
+		InputMap.add_action(action)
 	var input_event_button = InputEventJoypadButton.new()
 	input_event_button.button_index = EngineSettings.keylist.gamepad[value]
 	InputMap.action_add_event(action, input_event_button)
