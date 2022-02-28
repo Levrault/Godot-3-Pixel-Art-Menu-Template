@@ -40,6 +40,7 @@ func _ready() -> void:
 	yield(owner, "ready")
 
 	initialize()
+	Events.connect("locale_changed", self, "translate")
 	connect("focus_entered", self, "emit_signal", ["field_focus_entered"])
 	connect("focus_exited", self, "emit_signal", ["field_focus_exited"])
 	previous.connect("pressed", self, "_on_Previous_value")
@@ -64,6 +65,10 @@ func initialize() -> void:
 	revert()
 
 
+func translate() -> void:
+	label.text = selected_key if not values.has("translation_key") else tr(values.translation_key)
+
+
 func _set_placeholder(value: String) -> void:
 	placeholder = value
 	$Value.text = placeholder
@@ -71,7 +76,7 @@ func _set_placeholder(value: String) -> void:
 
 func _set_selected_key(text: String) -> void:
 	._set_selected_key(text)
-	label.text = text if not values.has("translation_key") else tr(values.translation_key)
+	translate()
 
 
 # TODO: Change to tweak file value

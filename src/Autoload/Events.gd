@@ -27,15 +27,18 @@ signal gamepad_stick_layout_changed(joy_actions, translation_key)
 # keybinding
 signal key_listening_started(field, button, scancode)
 
-# navigation
-signal navigation_disabled
-signal navigation_enabled
+# locale
+signal locale_changed
 
 # menu
 signal menu_route_changed(route)
 signal menu_transition_started(anim_name)
 signal menu_transition_mid_animated
 signal menu_transition_finished
+
+# navigation
+signal navigation_disabled
+signal navigation_enabled
 
 # overlay
 signal overlay_displayed
