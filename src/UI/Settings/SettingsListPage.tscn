@@ -7,6 +7,7 @@
 
 [node name="Title" parent="Wrapper/Page" index="0"]
 text = "commons.settings"
+script = null
 
 [node name="Contents" parent="Wrapper/Page" index="1"]
 margin_right = 94.0
