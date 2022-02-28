@@ -8,6 +8,7 @@ onready var ok_btn := $MarginContainer/VBoxContainer/HBoxContainer/Ok
 
 
 func _ready() -> void:
+	Events.connect("required_field_unmapped_displayed", self, "show")
 	get_close_button().hide()
 	ok_btn.connect("pressed", self, "_on_Ok_pressed")
 
@@ -33,9 +34,12 @@ func set_message(unmapped_fields := []) -> void:
 		)
 
 
-func show() -> void:
+func show(unmapped_fields := []) -> void:
+	if not owner.is_current_route:
+		return
 	Events.emit_signal("overlay_displayed")
-	visible = true
+	set_message(unmapped_fields)
+	.show()
 	ok_btn.call_deferred("grab_focus")
 
 

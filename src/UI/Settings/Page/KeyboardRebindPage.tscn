@@ -20,10 +20,6 @@ script = ExtResource( 6 )
 engine_file_section = "keyboard_and_mouse_bindind"
 section_title = "commons.keyboard"
 
-[node name="KeyMapListenerDialog" parent="Form" index="0" instance=ExtResource( 5 )]
-
-[node name="RequiredFieldUnmapped" parent="Form" index="1" instance=ExtResource( 7 )]
-
 [node name="Breadcrumb" parent="Wrapper/Page" index="0"]
 breadcrumbs = [ "commons.settings", "rebind.keyboard" ]
 
@@ -410,6 +406,10 @@ description = "input.slot_4_description"
 required = false
 alt_placeholder = "_"
 placeholder = "4"
+
+[node name="KeyMapListenerDialog" parent="." index="3" instance=ExtResource( 5 )]
+
+[node name="RequiredFieldUnmapped" parent="." index="4" instance=ExtResource( 7 )]
 
 [editable path="Wrapper/Page/Contents/ScrollContent/KeyMapTable/MoveUp"]
 [editable path="Wrapper/Page/Contents/ScrollContent/KeyMapTable/MoveDown"]

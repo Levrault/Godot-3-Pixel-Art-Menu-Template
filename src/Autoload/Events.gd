@@ -44,6 +44,9 @@ signal navigation_enabled
 signal overlay_displayed
 signal overlay_hidden
 
+# Required field unmapped
+signal required_field_unmapped_displayed(unmapped_fields)
+
 # save icon
 signal save_notification_enabled
 

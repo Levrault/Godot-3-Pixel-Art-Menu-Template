@@ -6,8 +6,7 @@ class_name RebindForm
 
 func invalid_callback() -> void:
 	Events.emit_signal("navigation_disabled")
-	$RequiredFieldUnmapped.set_message(get_invalid_fields())
-	$RequiredFieldUnmapped.show()
+	Events.emit_signal("required_field_unmapped_displayed", get_invalid_fields())
 
 
 func is_invalid() -> bool:
