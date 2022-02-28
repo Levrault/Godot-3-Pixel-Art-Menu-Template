@@ -52,13 +52,12 @@ func _on_Gamepad_layout_changed() -> void:
 
 	for key in actions:
 		for data in gamepad_data_buttons_list:
-			print(data)
 			if data.joy_values.find(actions[key]) == -1:
 				continue
 			data.action = key
 
 
-func _on_Gamepad_stick_layout_changed(joy_actions: Array) -> void:
+func _on_Gamepad_stick_layout_changed(joy_actions: Array, translation_key: String) -> void:
 		# clear current layout
 	for data in gamepad_data_sticks_list:
 		data.action = ""
@@ -66,5 +65,5 @@ func _on_Gamepad_stick_layout_changed(joy_actions: Array) -> void:
 	for action in joy_actions:
 		for data in gamepad_data_sticks_list:
 			if data.joy_values.find(action) != -1:
-				data.action = action
+				data.action = tr(translation_key)
 				return

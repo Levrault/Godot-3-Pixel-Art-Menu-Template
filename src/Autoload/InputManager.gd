@@ -79,6 +79,15 @@ func addJoyMotionEvent(action: String, value: String) -> void:
 	InputMap.action_add_event(action, input_event_motion)
 
 
+# Utils function to quickly remove a motion event
+func removeJoyMotionEvent(action: String, value: String) -> void:
+	if not InputMap.has_action(action):
+		return
+	var input_event_motion = InputEventJoypadMotion.new()
+	input_event_motion.axis = EngineSettings.keylist.gamepad[value]
+	InputMap.action_erase_event(action, input_event_motion)
+
+
 # Utils function to add a joy button event
 func addJoyButtonEvent(action: String, value: String) -> void:
 	if not InputMap.has_action(action):
@@ -86,6 +95,15 @@ func addJoyButtonEvent(action: String, value: String) -> void:
 	var input_event_button = InputEventJoypadButton.new()
 	input_event_button.button_index = EngineSettings.keylist.gamepad[value]
 	InputMap.action_add_event(action, input_event_button)
+
+
+# Utils function to remove a joy button event
+func removeJoyButtonEvent(action: String, value: String) -> void:
+	if not InputMap.has_action(action):
+		return
+	var input_event_button = InputEventJoypadButton.new()
+	input_event_button.button_index = EngineSettings.keylist.gamepad[value]
+	InputMap.action_erase_event(action, input_event_button)
 
 
 # return a understable device name

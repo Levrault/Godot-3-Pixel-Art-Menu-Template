@@ -44,9 +44,7 @@ func assign_with_constant(value: String) -> void:
 
 func clear() -> void:
 	if owner.values.has(key) and not assigned_to.empty():
-		var input_event = InputEventJoypadButton.new()
-		input_event.set_button_index(EngineSettings.keylist.gamepad[assigned_to])
-		InputMap.action_erase_event(owner.action, input_event)
+		InputManager.removeJoyButtonEvent(owner.action, assigned_to)
 	text = "_"
 	assigned_to = ""
 	joy_string = ""
