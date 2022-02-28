@@ -103,7 +103,7 @@ func reset() -> void:
 
 	var value: float = EngineSettings.data[owner.form.engine_file_section][key].default
 	slider.value = value
-	values.key = value	
+	values.key = value
 	for key in values.properties:
 		values.properties[key] = value
 	value_label.text = "%d" % percentage(value) + "%" if percentage_mode else "%.1f" % value
