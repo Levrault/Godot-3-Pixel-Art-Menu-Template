@@ -1,15 +1,20 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/UI/Settings/Button/ResetToDefaultButton.gd" type="Script" id=1]
 [ext_resource path="res://src/UI/Audio/Navigation/UiFocusSfx.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/UI/Audio/Neutral/UiClickSfx.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/UI/Settings/Dialog/ResetToDefaultDialog.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/ui/icons/input_icons_atlas_texture.png" type="Texture" id=5]
 
 [sub_resource type="InputEventAction" id=1]
 action = "ui_reset_to_default"
 
 [sub_resource type="ShortCut" id=2]
 shortcut = SubResource( 1 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 144, 16, 16 )
 
 [node name="ResetToDefaultButton" type="Button"]
 margin_right = 132.0
@@ -18,6 +23,7 @@ mouse_default_cursor_shape = 2
 size_flags_horizontal = 0
 shortcut = SubResource( 2 )
 text = "commons.reset_default"
+icon = SubResource( 3 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false

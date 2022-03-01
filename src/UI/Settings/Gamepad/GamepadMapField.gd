@@ -12,7 +12,7 @@ signal field_focus_exited
 export var action := ""
 export var description := ""
 export var required := true
-export var placeholder := "placeholder" setget _set_placeholder
+export var placeholder := "" setget _set_placeholder
 
 var values := {}
 

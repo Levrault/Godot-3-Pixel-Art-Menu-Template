@@ -28,6 +28,8 @@ const KEYBOARD_FILE_PATH := "res://engine/keyboard.cfg"
 const KEYBOARD_UI_FILE_PATH := "res://engine/keyboard_ui.cfg"
 const GAMEPAD_FILE_PATH := "res://engine/gamepad.cfg"
 const KEYLIST_FILE_PATH := "res://engine/keylist.cfg"
+const ICON_ATLAS_MAP_FILE_PATH := "res://engine/input_icons_atlas_map.cfg"
+
 # workaround to map mouse input to translation key
 const MOUSE_INDEX_TO_STRING := {
 	"BUTTON_LEFT": "mouse.left_mouse_button",
@@ -160,6 +162,25 @@ func get_gamepad_button_from_joy_string(value: int, joy_string := "", type := ""
 # return the mouse translation key
 func get_mouse_button_string(key: String) -> String:
 	return MOUSE_INDEX_TO_STRING[key]
+
+
+func get_icon_atals_map() -> Dictionary:
+	var atlas_map := {}
+	var atlas_map_file := ConfigFile.new()
+	var err = atlas_map_file.load(ICON_ATLAS_MAP_FILE_PATH)
+	if err == ERR_FILE_NOT_FOUND:
+		printerr("engine.cfg has not been found at %s" % ICON_ATLAS_MAP_FILE_PATH)
+		return {}
+	if err != OK:
+		print_debug("%s has encounter an error: %s" % [ICON_ATLAS_MAP_FILE_PATH, err])
+		return {}
+
+	for section in atlas_map_file.get_sections():
+		atlas_map[section] = {}
+		for key in atlas_map_file.get_section_keys(section):
+			atlas_map[section][key] = atlas_map_file.get_value(section, key)
+
+	return atlas_map
 
 
 func _read_engine_file() -> void:
