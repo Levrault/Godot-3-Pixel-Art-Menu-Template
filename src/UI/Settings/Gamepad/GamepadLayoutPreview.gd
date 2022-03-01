@@ -4,6 +4,8 @@
 # @category: Gamepad, Field, Rebind
 extends Control
 
+const CSV_FILE_PREFIX := "input."
+
 var gamepad_data_buttons_list := []
 var gamepad_data_sticks_list := []
 var actions := {}
@@ -54,7 +56,7 @@ func _on_Gamepad_layout_changed() -> void:
 		for data in gamepad_data_buttons_list:
 			if data.joy_values.find(actions[key]) == -1:
 				continue
-			data.action = key
+			data.action = tr(CSV_FILE_PREFIX + key)
 
 
 func _on_Gamepad_stick_layout_changed(joy_actions: Array, translation_key: String) -> void:

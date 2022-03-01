@@ -1,6 +1,6 @@
 ,en,fr
 input.attack,"Attack","Attaquer"
-input.attack_description,"ATTACK - set the input to attack with the equipped weapon","ATTAQIER - définis la touche pour d'attaquer avec l'arme actuelle"
+input.attack_description,"ATTACK - set the input to attack with the equipped weapon","ATTAQUER - définis la touche pour d'attaquer avec l'arme actuelle"
 input.block,"Block","Bloquer"
 input.block_description,"BLOCK - set the input to block with the equipped shield","Bloquer - définis la touche pour bloquer avec le bouclier"
 input.evade,"Evader","Esquiver"
