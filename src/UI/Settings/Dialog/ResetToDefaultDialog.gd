@@ -26,6 +26,7 @@ func hide() -> void:
 	.hide()
 	Events.emit_signal("overlay_hidden")
 	Events.emit_signal("navigation_enabled")
+	owner.popup_hidden()
 
 
 func _on_Cancel_pressed() -> void:

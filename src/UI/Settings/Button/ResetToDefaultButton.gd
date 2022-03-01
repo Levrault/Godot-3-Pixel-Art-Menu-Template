@@ -26,6 +26,10 @@ func _ready():
 	_on_Device_changed(InputManager.device, 0)
 
 
+func popup_hidden():
+	owner.focus_default_field()
+
+
 func _is_equal_to_default_config() -> bool:
 	var config_values = Config.values[owner.form.engine_file_section].duplicate()
 	var engine_values = EngineSettings.default[owner.form.engine_file_section].duplicate()
