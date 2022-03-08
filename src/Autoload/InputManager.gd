@@ -13,31 +13,26 @@ const DEVICE_SWITCH_CONTROLLER := "nintendo"
 const DEVICE_PLAYSTATION_CONTROLLER := "dualshock"
 const DEVICE_GENERIC := "generic"
 const GAMEPAD_MOTION_REGEX := "_AXIS_|_ANALOG_"
+const ICON_ATLAS_TEXTURE_PATH := "res://assets/UI/icons/input_icons_atlas_texture.png"
 
-var dualshock_circle = preload("res://assets/ui/dualshock_CIRCLE.png")
-var dualshock_triangle = preload("res://assets/ui/dualshock_TRIANGLE.png")
-var xbox_b = preload("res://assets/ui/xbox_B.png")
-var xbox_y = preload("res://assets/ui/xbox_Y.png")
-var nintendo_a = preload("res://assets/ui/nintendo_A.png")
-var nintendo_x = preload("res://assets/ui/nintendo_X.png")
-var keyboard_esc = preload("res://assets/ui/keyboard_ESC.png")
-var keyboard_del = preload("res://assets/ui/keyboard_DEL.png")
-var keyboard_f = preload("res://assets/ui/keyboard_F.png")
 var all_gamepad_devices := [
 	DEVICE_XBOX_CONTROLLER,
 	DEVICE_SWITCH_CONTROLLER,
 	DEVICE_PLAYSTATION_CONTROLLER,
 	DEVICE_GENERIC
 ]
-var device: String = DEVICE_XBOX_CONTROLLER setget _set_device
-var device_index: int = -1
+
+var atlas_map := {}
 var default_gamepad: String = DEVICE_XBOX_CONTROLLER
+var device: String = default_gamepad setget _set_device
+var device_index: int = -1
 var gamepad_button_regex := {"xbox": "_XBOX_", "nintendo": "_DS_", "dualshock": "_SONY_", "generic": "_BUTTON_"}
 
 var _motion_regex := RegEx.new()
 
 
 func _ready() -> void:
+	atlas_map = EngineSettings.get_icon_atals_map()
 	_motion_regex.compile(GAMEPAD_MOTION_REGEX)
 
 
@@ -150,44 +145,17 @@ func get_device_button_from_action(action: String, for_device: String) -> String
 	return result
 
 
-func get_device_button_texture_from_action(action: String, for_device: String) -> Texture:
-	if not InputMap.has_action(action):
-		printerr("Action %s does not exist" % action)
-		return null
+func get_device_icon_texture_from_action(joy_string: String, for_device: String) -> AtlasTexture:
+	if for_device == InputManager.DEVICE_MOUSE:
+		for_device = InputManager.DEVICE_KEYBOARD
+	if for_device == InputManager.DEVICE_KEYBOARD:
+		joy_string = "KEY_" + joy_string.to_upper()
 
-	var result := ""
-	for evt in InputMap.get_action_list(action):
-		if for_device == DEVICE_KEYBOARD or for_device == DEVICE_MOUSE:
-			if evt is InputEventKey:
-				result = OS.get_scancode_string(evt.scancode)
-		else:
-			if evt is InputEventJoypadButton:
-				result = EngineSettings.get_gamepad_button_from_joy_string(
-					evt.button_index, Input.get_joy_button_string(evt.button_index), for_device
-				)
-	if result.empty():
-		printerr("Not key were for found for %s on device %s" % [action, for_device])
-
-	match result:
-		"JOY_SONY_CIRCLE":
-			return dualshock_circle
-		"JOY_DS_A":
-			return nintendo_a
-		"JOY_XBOX_B":
-			return xbox_b
-		"JOY_SONY_TRIANGLE":
-			return dualshock_triangle
-		"JOY_DS_X":
-			return nintendo_x
-		"JOY_XBOX_Y":
-			return xbox_y
-		"Escape":
-			return keyboard_esc
-		"Delete":
-			return keyboard_del
-		"F":
-			return keyboard_f
-	return null
+	var texture = AtlasTexture.new()
+	texture.atlas = load(ICON_ATLAS_TEXTURE_PATH)
+	var atlas_region = atlas_map[for_device][joy_string]
+	texture.region = Rect2(atlas_region[0], atlas_region[1], atlas_region[2], atlas_region[3])
+	return texture
 
 
 func _set_device(value: String) -> void:

@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/UI/Commons/Button/PreviousPageButton.gd" type="Script" id=1]
 [ext_resource path="res://src/UI/Audio/Navigation/UiFocusSfx.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/UI/Audio/Navigation/UiBackSfx.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/UI/Audio/Negative/UiErrorSfx.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/ui/icons/input_icons_atlas_texture.png" type="Texture" id=5]
 
 [sub_resource type="InputEventAction" id=1]
 action = "ui_cancel"
@@ -11,12 +12,17 @@ action = "ui_cancel"
 [sub_resource type="ShortCut" id=2]
 shortcut = SubResource( 1 )
 
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 5 )
+region = Rect2( 80, 144, 32, 16 )
+
 [node name="PreviousPageButton" type="Button"]
 margin_right = 59.0
 margin_bottom = 20.0
 mouse_default_cursor_shape = 2
 shortcut = SubResource( 2 )
 text = "commons.back"
+icon = SubResource( 3 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false

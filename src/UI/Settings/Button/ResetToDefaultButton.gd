@@ -26,6 +26,10 @@ func _ready():
 	_on_Device_changed(InputManager.device, 0)
 
 
+func popup_hidden():
+	owner.focus_default_field()
+
+
 func _is_equal_to_default_config() -> bool:
 	var config_values = Config.values[owner.form.engine_file_section].duplicate()
 	var engine_values = EngineSettings.default[owner.form.engine_file_section].duplicate()
@@ -72,9 +76,8 @@ func _on_Config_file_saved() -> void:
 
 
 func _on_Device_changed(device: String, device_index: int) -> void:
-	icon = InputManager.get_device_button_texture_from_action(
-		"ui_reset_to_default", InputManager.device
-	)
+	var joy_string := InputManager.get_device_button_from_action("ui_reset_to_default", device)
+	icon = InputManager.get_device_icon_texture_from_action(joy_string, device)
 
 
 func _on_Mouse_entered() -> void:

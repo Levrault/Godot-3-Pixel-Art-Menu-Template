@@ -42,4 +42,5 @@ func _on_Menu_route_changed(route: String) -> void:
 
 # Update button icon on device change
 func _on_Device_changed(device: String, device_index: int) -> void:
-	icon = InputManager.get_device_button_texture_from_action("ui_cancel", InputManager.device)
+	var joy_string := InputManager.get_device_button_from_action("ui_cancel", device)
+	icon = InputManager.get_device_icon_texture_from_action(joy_string, device)
