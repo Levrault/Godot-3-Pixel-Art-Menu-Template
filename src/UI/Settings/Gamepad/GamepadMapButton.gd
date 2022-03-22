@@ -21,10 +21,7 @@ func _ready() -> void:
 
 # assign a new value based on a constant string from keylist.cfg
 func assign_with_constant(value: String) -> void:
-	if value.empty():
-		clear()
-		return
-
+	clear()
 	assigned_to = value
 	text = assigned_to
 
