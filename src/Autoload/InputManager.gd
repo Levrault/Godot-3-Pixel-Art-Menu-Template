@@ -83,6 +83,26 @@ func removeJoyMotionEvent(action: String, value: String) -> void:
 	InputMap.action_erase_event(action, input_event_motion)
 
 
+# Utils function to quickly add a motion event with axis_value
+func addJoyStickMotionEvent(action: String, value: String, axis_value: float) -> void:
+	if not InputMap.has_action(action):
+		InputMap.add_action(action)
+	var input_event_motion = InputEventJoypadMotion.new()
+	input_event_motion.axis = EngineSettings.keylist.gamepad[value]
+	input_event_motion.axis_value = axis_value
+	InputMap.action_add_event(action, input_event_motion)
+
+
+# Utils function to quickly remove a motion event with axis_value
+func removeJoyStickMotionEvent(action: String, value: String, axis_value: float) -> void:
+	if not InputMap.has_action(action):
+		return
+	var input_event_motion = InputEventJoypadMotion.new()
+	input_event_motion.axis = EngineSettings.keylist.gamepad[value]
+	input_event_motion.axis_value = axis_value
+	InputMap.action_erase_event(action, input_event_motion)
+
+
 # Utils function to add a joy button event
 func addJoyButtonEvent(action: String, value: String) -> void:
 	if not InputMap.has_action(action):
