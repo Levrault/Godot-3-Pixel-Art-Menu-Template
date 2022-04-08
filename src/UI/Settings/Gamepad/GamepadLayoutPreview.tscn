@@ -1,23 +1,23 @@
 [gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://src/UI/Settings/Gamepad/GamepadLayoutPreview.gd" type="Script" id=1]
-[ext_resource path="res://assets/UI/gamepad/ui_gamepad_gamepad.png" type="Texture" id=2]
-[ext_resource path="res://assets/UI/gamepad/ui_gamepad_RB.png" type="Texture" id=3]
-[ext_resource path="res://assets/UI/gamepad/ui_gamepad_stick_left.png" type="Texture" id=4]
-[ext_resource path="res://assets/UI/gamepad/ui_gamepad_select.png" type="Texture" id=5]
-[ext_resource path="res://assets/UI/gamepad/ui_gamepad_dpad_left.png" type="Texture" id=6]
-[ext_resource path="res://assets/UI/gamepad/ui_gamepad_LB.png" type="Texture" id=7]
-[ext_resource path="res://assets/UI/gamepad/ui_gamepad_dpad_up.png" type="Texture" id=8]
-[ext_resource path="res://assets/UI/gamepad/ui_gamepad_button_bottom.png" type="Texture" id=9]
-[ext_resource path="res://assets/UI/gamepad/ui_gamepad_LT.png" type="Texture" id=10]
-[ext_resource path="res://assets/UI/gamepad/ui_gamepad_start.png" type="Texture" id=11]
-[ext_resource path="res://assets/UI/gamepad/ui_gamepad_dpad_down.png" type="Texture" id=12]
-[ext_resource path="res://assets/UI/gamepad/ui_gamepad_button_top.png" type="Texture" id=13]
-[ext_resource path="res://assets/UI/gamepad/ui_gamepad_stick_right.png" type="Texture" id=14]
-[ext_resource path="res://assets/UI/gamepad/ui_gamepad_RT.png" type="Texture" id=15]
-[ext_resource path="res://assets/UI/gamepad/ui_gamepad_dpad_right.png" type="Texture" id=16]
-[ext_resource path="res://assets/UI/gamepad/ui_gamepad_button_left.png" type="Texture" id=17]
-[ext_resource path="res://assets/UI/gamepad/ui_gamepad_button_right.png" type="Texture" id=18]
+[ext_resource path="res://assets/ui/gamepad/ui_gamepad_gamepad.png" type="Texture" id=2]
+[ext_resource path="res://assets/ui/gamepad/ui_gamepad_RB.png" type="Texture" id=3]
+[ext_resource path="res://assets/ui/gamepad/ui_gamepad_stick_left.png" type="Texture" id=4]
+[ext_resource path="res://assets/ui/gamepad/ui_gamepad_select.png" type="Texture" id=5]
+[ext_resource path="res://assets/ui/gamepad/ui_gamepad_dpad_left.png" type="Texture" id=6]
+[ext_resource path="res://assets/ui/gamepad/ui_gamepad_LB.png" type="Texture" id=7]
+[ext_resource path="res://assets/ui/gamepad/ui_gamepad_dpad_up.png" type="Texture" id=8]
+[ext_resource path="res://assets/ui/gamepad/ui_gamepad_button_bottom.png" type="Texture" id=9]
+[ext_resource path="res://assets/ui/gamepad/ui_gamepad_LT.png" type="Texture" id=10]
+[ext_resource path="res://assets/ui/gamepad/ui_gamepad_start.png" type="Texture" id=11]
+[ext_resource path="res://assets/ui/gamepad/ui_gamepad_dpad_down.png" type="Texture" id=12]
+[ext_resource path="res://assets/ui/gamepad/ui_gamepad_button_top.png" type="Texture" id=13]
+[ext_resource path="res://assets/ui/gamepad/ui_gamepad_stick_right.png" type="Texture" id=14]
+[ext_resource path="res://assets/ui/gamepad/ui_gamepad_RT.png" type="Texture" id=15]
+[ext_resource path="res://assets/ui/gamepad/ui_gamepad_dpad_right.png" type="Texture" id=16]
+[ext_resource path="res://assets/ui/gamepad/ui_gamepad_button_left.png" type="Texture" id=17]
+[ext_resource path="res://assets/ui/gamepad/ui_gamepad_button_right.png" type="Texture" id=18]
 [ext_resource path="res://src/UI/Settings/Gamepad/Data/ButtonBottom.gd" type="Script" id=21]
 [ext_resource path="res://src/UI/Settings/Gamepad/Data/ButtonLeft.gd" type="Script" id=22]
 [ext_resource path="res://src/UI/Settings/Gamepad/Data/ButtonRight.gd" type="Script" id=23]
@@ -42,9 +42,6 @@ margin_right = -200.0
 margin_bottom = -170.0
 rect_min_size = Vector2( 280, 100 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Panel" type="Panel" parent="."]
 anchor_right = 1.0

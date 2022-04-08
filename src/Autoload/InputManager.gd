@@ -13,7 +13,7 @@ const DEVICE_SWITCH_CONTROLLER := "nintendo"
 const DEVICE_PLAYSTATION_CONTROLLER := "dualshock"
 const DEVICE_GENERIC := "generic"
 const GAMEPAD_MOTION_REGEX := "_AXIS_|_ANALOG_"
-const ICON_ATLAS_TEXTURE_PATH := "res://assets/UI/icons/input_icons_atlas_texture.png"
+const ICON_ATLAS_TEXTURE_PATH := "res://assets/ui/icons/input_icons_atlas_texture.png"
 
 var all_gamepad_devices := [
 	DEVICE_XBOX_CONTROLLER,
