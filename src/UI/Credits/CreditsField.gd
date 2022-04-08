@@ -3,7 +3,6 @@
 tool
 extends HBoxContainer
 
-signal field_item_selected(item)
 signal field_focus_entered
 signal field_focus_exited
 
