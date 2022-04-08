@@ -1,0 +1,475 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://src/UI/Commons/Breadcrumbs/Breadcrumb.gd" type="Script" id=1]
+[ext_resource path="res://src/UI/Commons/Button/PreviousPageButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/UI/Commons/Navigation/NavigationSwitch.gd" type="Script" id=3]
+[ext_resource path="res://src/UI/Commons/Breadcrumbs/BreadcrumbLabel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/UI/Commons/Scroll/ScrollContent.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/UI/Commons/Overlay/Overlay.gd" type="Script" id=6]
+[ext_resource path="res://src/UI/Settings/Fields/FieldSet.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/UI/Credits/CreditField.tscn" type="PackedScene" id=8]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxFocus:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxNormal:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.705882 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "fieldset_focus_entered"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxNormal:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxFocus:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "fieldset_focus_exited"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxFocus:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxNormal:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.705882 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "fieldset_panel_hidden"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxNormal:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxFocus:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxFocus:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxNormal:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.705882 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "fieldset_focus_entered"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxNormal:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxFocus:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "fieldset_focus_exited"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxFocus:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxNormal:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.705882 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "fieldset_panel_hidden"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxNormal:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxFocus:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="CreditsPage" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+default_field_to_focus = NodePath("Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Credits/MarginContainer/FieldContainer/CreditsField")
+
+[node name="Wrapper" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_clip_content = true
+custom_constants/margin_right = 20
+custom_constants/margin_top = 10
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 15
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Page" type="VBoxContainer" parent="Wrapper"]
+margin_left = 20.0
+margin_top = 10.0
+margin_right = 460.0
+margin_bottom = 255.0
+size_flags_horizontal = 3
+
+[node name="Breadcrumb" type="HBoxContainer" parent="Wrapper/Page"]
+margin_right = 440.0
+margin_bottom = 22.0
+script = ExtResource( 1 )
+breadcrumbs = [ "commons.credits" ]
+
+[node name="BreachcrumbRoot" parent="Wrapper/Page/Breadcrumb" instance=ExtResource( 4 )]
+margin_right = 165.0
+margin_bottom = 22.0
+
+[node name="Contents" type="VBoxContainer" parent="Wrapper/Page"]
+margin_top = 26.0
+margin_right = 440.0
+margin_bottom = 219.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 6
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContent" parent="Wrapper/Page/Contents" instance=ExtResource( 5 )]
+margin_top = 0.0
+margin_bottom = 193.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Wrapper/Page/Contents/ScrollContent"]
+margin_right = 440.0
+margin_bottom = 193.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 4
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer"]
+margin_right = 436.0
+margin_bottom = 193.0
+size_flags_horizontal = 3
+
+[node name="Credits" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer" instance=ExtResource( 7 )]
+margin_right = 436.0
+margin_bottom = 32.0
+
+[node name="AnimationPlayer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Credits" index="0"]
+anims/RESET = SubResource( 1 )
+anims/fieldset_focus_entered = SubResource( 2 )
+anims/fieldset_focus_exited = SubResource( 3 )
+anims/fieldset_panel_hidden = SubResource( 4 )
+
+[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Credits/MarginContainer" index="0"]
+margin_right = 428.0
+
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Credits/MarginContainer/FieldContainer" index="0"]
+margin_top = 9.0
+margin_right = 208.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+text = "Pixel health bar asset pack"
+
+[node name="CreditsField" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Credits/MarginContainer/FieldContainer" index="1" instance=ExtResource( 8 )]
+margin_left = 212.0
+margin_right = 420.0
+margin_bottom = 32.0
+url = "https://adwitr.itch.io/pixel-health-bar-asset-pack"
+
+[node name="InvincibleTimeframe" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer" instance=ExtResource( 7 )]
+margin_top = 36.0
+margin_right = 436.0
+margin_bottom = 68.0
+
+[node name="AnimationPlayer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/InvincibleTimeframe" index="0"]
+anims/RESET = SubResource( 5 )
+anims/fieldset_focus_entered = SubResource( 6 )
+anims/fieldset_focus_exited = SubResource( 7 )
+anims/fieldset_panel_hidden = SubResource( 8 )
+
+[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/InvincibleTimeframe/MarginContainer" index="0"]
+margin_right = 428.0
+
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/InvincibleTimeframe/MarginContainer/FieldContainer" index="0"]
+margin_top = 9.0
+margin_right = 208.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+text = "asdasdads"
+
+[node name="CreditsField" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/InvincibleTimeframe/MarginContainer/FieldContainer" index="1" instance=ExtResource( 8 )]
+margin_left = 212.0
+margin_right = 420.0
+margin_bottom = 32.0
+
+[node name="Footer" type="HBoxContainer" parent="Wrapper/Page"]
+margin_top = 223.0
+margin_right = 440.0
+margin_bottom = 245.0
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="PreviousPagePage" parent="Wrapper/Page/Footer" instance=ExtResource( 2 )]
+margin_left = 297.0
+margin_right = 440.0
+margin_bottom = 22.0
+
+[node name="Overlay" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.301961 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[editable path="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Credits"]
+[editable path="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/InvincibleTimeframe"]

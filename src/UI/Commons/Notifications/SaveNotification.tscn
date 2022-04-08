@@ -41,6 +41,9 @@ margin_top = 1.0
 margin_right = -24.0
 margin_bottom = 1.0
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Icon" type="TextureRect" parent="."]
 modulate = Color( 1, 1, 1, 0 )

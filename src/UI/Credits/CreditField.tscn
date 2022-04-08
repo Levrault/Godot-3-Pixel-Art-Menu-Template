@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/UI/Credits/CreditsField.gd" type="Script" id=1]
+[ext_resource path="res://src/UI/Audio/Navigation/UiItemFocusedSfx.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/UI/Credits/CreditsButton.gd" type="Script" id=3]
+[ext_resource path="res://src/UI/Audio/Positive/UiItemSelectedSfx.tscn" type="PackedScene" id=4]
+
+[sub_resource type="StyleBoxTexture" id=1]
+
+[node name="CreditsField" type="HBoxContainer" groups=["GameSettings"]]
+margin_right = 34.0
+margin_bottom = 20.0
+focus_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="UiItemSelectedSfx" parent="." instance=ExtResource( 4 )]
+
+[node name="UiItemFocusedSfx" parent="." instance=ExtResource( 2 )]
+
+[node name="Default" type="Button" parent="."]
+margin_right = 112.0
+margin_bottom = 20.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+custom_styles/focus = SubResource( 1 )
+text = "commons.open"
+flat = true
+script = ExtResource( 3 )
