@@ -398,6 +398,7 @@ margin_bottom = 193.0
 size_flags_horizontal = 3
 
 [node name="Credits" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer" instance=ExtResource( 7 )]
+modulate = Color( 1, 1, 1, 0.705882 )
 margin_right = 436.0
 margin_bottom = 32.0
 
@@ -424,6 +425,7 @@ margin_bottom = 32.0
 url = "https://adwitr.itch.io/pixel-health-bar-asset-pack"
 
 [node name="InvincibleTimeframe" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer" instance=ExtResource( 7 )]
+modulate = Color( 1, 1, 1, 0.705882 )
 margin_top = 36.0
 margin_right = 436.0
 margin_bottom = 68.0

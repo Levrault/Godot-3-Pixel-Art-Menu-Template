@@ -11,6 +11,7 @@ onready var confirmation_dialog := $ResetToDefaultDialog
 func _ready():
 	yield(owner, "ready")
 	InputManager.connect("device_changed", self, "_on_Device_changed")
+	Events.connect("locale_changed", self, "translate")
 	Events.connect("config_file_saved", self, "_on_Config_file_saved")
 	Events.connect("navigation_disabled", self, "set", ["disabled", true])
 	connect("pressed", self, "_on_Pressed")
@@ -24,6 +25,12 @@ func _ready():
 
 	disabled = _is_equal_to_default_config()
 	_on_Device_changed(InputManager.device, 0)
+
+
+func translate() -> void:
+	confirmation_dialog.dialog_text.text = tr("commons.restore_default_settings_message").format(
+		{section = tr(owner.form.section_title)}
+	)
 
 
 func popup_hidden():

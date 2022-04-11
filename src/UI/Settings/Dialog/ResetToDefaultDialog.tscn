@@ -12,13 +12,14 @@ action = "ui_cancel"
 shortcut = SubResource( 1 )
 
 [node name="ResetToDefaultDialog" type="WindowDialog"]
+visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -208.0
+margin_left = -200.0
 margin_top = -70.0
-margin_right = 192.0
+margin_right = 200.0
 margin_bottom = 70.0
 rect_min_size = Vector2( 400, 140 )
 popup_exclusive = true
@@ -66,8 +67,7 @@ custom_constants/separation = 20
 alignment = 1
 
 [node name="CancelContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 200.0
-margin_right = 380.0
+margin_right = 180.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 
@@ -77,7 +77,8 @@ margin_right = 150.0
 shortcut = SubResource( 2 )
 
 [node name="RestoreContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-margin_right = 180.0
+margin_left = 200.0
+margin_right = 380.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 
