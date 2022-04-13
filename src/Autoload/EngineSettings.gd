@@ -285,7 +285,7 @@ func _read_keyboard_ui_file() -> void:
 			keyboard_ui[section][key] = keyboard_ui_file.get_value(section, key)
 
 	var keyboard_ui_scheme := {}
-	if not keyboard_ui.has(OS.get_latin_keyboard_variant()):
+	if not keyboard_ui.has(OS.get_latin_keyboard_variant().to_lower()):
 		return
 
 	keyboard_ui_scheme = keyboard_ui[OS.get_latin_keyboard_variant().to_lower()]
