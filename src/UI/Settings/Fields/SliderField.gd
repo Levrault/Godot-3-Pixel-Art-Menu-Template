@@ -18,14 +18,21 @@ tool
 class_name SliderField, "res://assets/icons/percent.svg"
 extends Field
 
+const FLOAT_TEMPLATE := "%.1f"
+const INT_TEMPLATE := "%d"
+
 export var min_value := 0.0
 export var max_value := 100.0
+export var auto_compute_step := true
 export var nb_of_step := 10
+export var step := 1.0
 export var percentage_mode := false
+export var rounded := false
 export var placeholder := "placeholder" setget _set_placeholder
 
 # does our min value is negative
 var _is_computing_from_negative := false
+var _string_template := FLOAT_TEMPLATE
 
 onready var slider := $HSlider
 onready var value_label := $Value
@@ -47,7 +54,10 @@ func _ready() -> void:
 		_is_computing_from_negative = true
 	slider.min_value = min_value
 	slider.max_value = max_value
-	slider.step = abs(max_value - min_value) / nb_of_step
+	slider.step = abs(max_value - min_value) / nb_of_step if auto_compute_step else step
+
+	if rounded:
+		_string_template = INT_TEMPLATE
 
 	initialize()
 	connect("focus_entered", self, "_on_Focus_entered")
@@ -67,9 +77,8 @@ func initialize() -> void:
 	# bad type
 	if typeof(config_data) != TYPE_REAL and typeof(config_data) != TYPE_INT:
 		is_compatible_with_field = false
-
-	# out of bound
-	if config_data < min_value or config_data > max_value:
+	elif config_data < min_value or config_data > max_value:
+		# out of bound
 		is_in_range = false
 
 	if not is_compatible_with_field or not is_in_range:
@@ -90,7 +99,7 @@ func initialize() -> void:
 		var value: float = EngineSettings.data[owner.form.engine_file_section][key].default
 		slider.value = value
 		values.key = value
-		value_label.text = "%d" % percentage(value) + "%" if percentage_mode else "%.1f" % value
+		_set_value_text(value);
 		Config.save_field(owner.form.engine_file_section, key, values.key)
 		apply()
 		return
@@ -104,9 +113,9 @@ func reset() -> void:
 	var value: float = EngineSettings.data[owner.form.engine_file_section][key].default
 	slider.value = value
 	values.key = value
+	_set_value_text(value);
 	for key in values.properties:
 		values.properties[key] = value
-	value_label.text = "%d" % percentage(value) + "%" if percentage_mode else "%.1f" % value
 	Config.save_field(owner.form.engine_file_section, key, values.key)
 	apply()
 
@@ -121,7 +130,7 @@ func revert() -> void:
 	values.key = value
 	for key in values.properties:
 		values.properties[key] = value
-	value_label.text = "%d" % percentage(value) + "%" if percentage_mode else "%.1f" % value
+	_set_value_text(value);
 	apply()
 
 
@@ -129,6 +138,13 @@ func percentage(value) -> float:
 	if _is_computing_from_negative:
 		return (abs(min_value) - abs(value)) * 100 / abs(min_value)
 	return abs(abs(min_value) - abs(value)) * 100 / abs(max_value)
+
+
+func _set_value_text(value: float) -> void:
+	if percentage_mode:
+		value_label.text = INT_TEMPLATE % percentage(value) + "%"
+		return
+	value_label.text = _string_template % value
 
 
 func _set_placeholder(value: String) -> void:
@@ -142,7 +158,7 @@ func _on_Focus_entered() -> void:
 
 
 func _on_Value_changed(value: float) -> void:
-	value_label.text = "%d" % percentage(value) + "%" if percentage_mode else "%.1f" % value
+	_set_value_text(value);
 	values.key = value
 	for key in values.properties:
 		values.properties[key] = value

@@ -18,8 +18,12 @@ section_title = "audio.title"
 [node name="Breadcrumb" parent="Wrapper/Page" index="0"]
 breadcrumbs = [ "commons.settings", "audio.title" ]
 
+[node name="Contents" parent="Wrapper/Page" index="1"]
+margin_bottom = 171.0
+
 [node name="ScrollContent" parent="Wrapper/Page/Contents" index="0" instance=ExtResource( 6 )]
 margin_top = 0.0
+margin_bottom = 153.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Wrapper/Page/Contents/ScrollContent" index="0"]
 margin_right = 428.0
@@ -78,8 +82,7 @@ margin_bottom = 24.0
 rect_min_size = Vector2( 150, 0 )
 key = "master_volume"
 description = "audio.master_volume_description"
-min_value = -80.0
-max_value = 0.0
+max_value = 1.0
 nb_of_step = 20
 percentage_mode = true
 placeholder = "100"
@@ -108,8 +111,7 @@ margin_right = 420.0
 margin_bottom = 24.0
 key = "music_volume"
 description = "audio.music_volume_description"
-min_value = -80.0
-max_value = 0.0
+max_value = 1.0
 nb_of_step = 20
 percentage_mode = true
 placeholder = "100"
@@ -138,8 +140,7 @@ margin_right = 420.0
 margin_bottom = 24.0
 key = "sfx_volume"
 description = "audio.sfx_volume_description"
-min_value = -80.0
-max_value = 0.0
+max_value = 1.0
 nb_of_step = 20
 percentage_mode = true
 placeholder = "100"
@@ -168,14 +169,33 @@ margin_right = 420.0
 margin_bottom = 24.0
 key = "ui_volume"
 description = "audio.ui_volume_description"
-min_value = -80.0
-max_value = 0.0
+max_value = 1.0
 nb_of_step = 20
 percentage_mode = true
 placeholder = "100"
 
 [node name="Updater" type="Node" parent="Wrapper/Page/Contents/ScrollContent/VBoxContainer/UiVolume/MarginContainer/FieldContainer/UiVolume" index="2"]
 script = ExtResource( 7 )
+
+[node name="HSeparator" parent="Wrapper/Page" index="2"]
+margin_top = 175.0
+margin_bottom = 179.0
+
+[node name="FieldDescription" parent="Wrapper/Page" index="3"]
+margin_top = 183.0
+margin_bottom = 214.0
+
+[node name="Footer" parent="Wrapper/Page" index="4"]
+margin_top = 218.0
+
+[node name="ResetToDefaultButton" parent="Wrapper/Page/Footer" index="0"]
+margin_left = 112.0
+margin_right = 293.0
+margin_bottom = 22.0
+
+[node name="PreviousPagePage" parent="Wrapper/Page/Footer" index="1"]
+margin_left = 297.0
+margin_bottom = 22.0
 
 [editable path="Wrapper/Page/Contents/ScrollContent/VBoxContainer/Locale"]
 [editable path="Wrapper/Page/Contents/ScrollContent/VBoxContainer/MasterVolume"]
