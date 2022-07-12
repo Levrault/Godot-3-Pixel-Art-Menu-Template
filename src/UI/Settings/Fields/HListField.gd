@@ -48,6 +48,15 @@ func _ready() -> void:
 
 
 func _gui_input(event: InputEvent) -> void:
+	if event is InputEventJoypadMotion:
+		if event.get_action_strength("ui_left") == 1:
+			_on_Previous_value()
+			return
+		if event.get_action_strength("ui_right") == 1:
+			_on_Next_value()
+			return
+		return
+
 	if event.is_action_pressed("ui_left"):
 		_on_Previous_value()
 		return
