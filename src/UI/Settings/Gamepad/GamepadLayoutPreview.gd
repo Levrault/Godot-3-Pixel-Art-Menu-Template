@@ -9,12 +9,18 @@ const CSV_FILE_PREFIX := "input."
 var gamepad_data_buttons_list := []
 var gamepad_data_sticks_list := []
 var actions := {}
+var joystick_actions := {
+	"actions": [],
+	"translation_key": ""
+}
 
 
 func _ready():
 	yield(owner, "ready")
 	Events.connect("gamepad_layout_changed", self, "_on_Gamepad_layout_changed")
 	Events.connect("gamepad_stick_layout_changed", self, "_on_Gamepad_stick_layout_changed")
+	Events.connect("locale_changed", self, "translate_buttons")
+	Events.connect("locale_changed", self, "translate_sticks")
 
 	var stick_left := $Panel/StickLeft
 	var stick_right := $Panel/StickRight
@@ -31,6 +37,22 @@ func _ready():
 		actions[action] = {}
 
 	_on_Gamepad_layout_changed()
+
+
+func translate_buttons() -> void:
+	for key in actions:
+		for data in gamepad_data_buttons_list:
+			if data.joy_values.find(actions[key]) == -1:
+				continue
+			data.action = tr(CSV_FILE_PREFIX + key)
+
+
+func translate_sticks() -> void:
+	for action in joystick_actions.actions:
+		for data in gamepad_data_sticks_list:
+			if data.joy_values.find(action) != -1:
+				data.action = tr(CSV_FILE_PREFIX + joystick_actions.translation_key)
+				return
 
 
 func _on_Gamepad_layout_changed() -> void:
@@ -51,21 +73,15 @@ func _on_Gamepad_layout_changed() -> void:
 	else:
 		for key in EngineSettings.gamepad[device][layout]:
 			actions[key] = EngineSettings.gamepad[device][layout][key].default
-
-	for key in actions:
-		for data in gamepad_data_buttons_list:
-			if data.joy_values.find(actions[key]) == -1:
-				continue
-			data.action = tr(CSV_FILE_PREFIX + key)
+	translate_buttons()
 
 
 func _on_Gamepad_stick_layout_changed(joy_actions: Array, translation_key: String) -> void:
-		# clear current layout
+	joystick_actions.actions = joy_actions
+	joystick_actions.translation_key = translation_key
+	
+	# clear current layout
 	for data in gamepad_data_sticks_list:
 		data.action = ""
 
-	for action in joy_actions:
-		for data in gamepad_data_sticks_list:
-			if data.joy_values.find(action) != -1:
-				data.action = tr(translation_key)
-				return
+	translate_sticks()
