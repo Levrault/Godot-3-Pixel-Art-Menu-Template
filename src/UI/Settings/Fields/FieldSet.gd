@@ -1,10 +1,13 @@
 # Manage all the visuel when a field is focused by the user
 # @category: Field
+tool
 class_name FieldSet, "res://assets/icons/fieldset.svg"
 extends Control
 
 signal fieldset_focus_entered
 signal fieldset_focus_exited
+
+export var is_hidden_on_focus := false setget _set_is_hidden_on_focus
 
 var field = null
 var label: Label = null
@@ -36,6 +39,9 @@ func _ready():
 	field.connect("field_focus_entered", self, "_on_Field_focus_entered")
 	field.connect("field_focus_exited", self, "_on_Field_focus_exited")
 
+	if is_hidden_on_focus:
+		anim.play("fieldset_panel_hidden")
+
 
 func clear() -> void:
 	is_hovered = false
@@ -43,17 +49,29 @@ func clear() -> void:
 	_on_Field_focus_exited()
 
 
+func _set_is_hidden_on_focus(value: bool) -> void:
+	is_hidden_on_focus = value
+	if value:
+		$AnimationPlayer.play("fieldset_panel_hidden")
+	else:
+		$AnimationPlayer.play("RESET")
+
+
 func _on_Field_focus_entered() -> void:
 	Events.emit_signal("fieldset_cleared", self)
-	anim.play("fieldset_focus_entered")
 	Events.emit_signal("field_description_changed", field.description)
 	emit_signal("fieldset_focus_entered")
 
+	if not is_hidden_on_focus:
+		anim.play("fieldset_focus_entered")
+
 
 func _on_Field_focus_exited() -> void:
-	anim.play("fieldset_focus_exited")
 	Events.emit_signal("field_description_changed", "")
 	emit_signal("fieldset_focus_exited")
+
+	if not is_hidden_on_focus:
+		anim.play("fieldset_focus_exited")
 
 
 func _on_Mouse_focus_entered() -> void:
@@ -97,5 +115,6 @@ func _on_Fieldset_inner_field_navigated(focused_field) -> void:
 		return
 	if focused_field != field:
 		return
-	anim.play("fieldset_focus_entered")
+	if not is_hidden_on_focus:
+		anim.play("fieldset_focus_entered")
 	Events.emit_signal("field_description_changed", field.description)

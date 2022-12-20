@@ -23,6 +23,9 @@ section_title = "commons.keyboard"
 [node name="Breadcrumb" parent="Wrapper/Page" index="0"]
 breadcrumbs = [ "commons.settings", "rebind.keyboard" ]
 
+[node name="Contents" parent="Wrapper/Page" index="1"]
+margin_bottom = 171.0
+
 [node name="Control" type="Control" parent="Wrapper/Page/Contents" index="0"]
 margin_right = 440.0
 margin_bottom = 32.0
@@ -53,6 +56,7 @@ uppercase = true
 
 [node name="ScrollContent" parent="Wrapper/Page/Contents" index="1" instance=ExtResource( 4 )]
 margin_top = 38.0
+margin_bottom = 153.0
 
 [node name="KeyMapTable" type="VBoxContainer" parent="Wrapper/Page/Contents/ScrollContent" index="0"]
 margin_right = 428.0
@@ -66,12 +70,12 @@ margin_bottom = 32.0
 rect_clip_content = false
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/MoveUp/MarginContainer" index="0"]
-margin_right = 424.0
+margin_right = 420.0
 
 [node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/MoveUp/MarginContainer/FieldContainer" index="0"]
-margin_top = 5.0
-margin_right = 208.0
-margin_bottom = 19.0
+margin_top = 9.0
+margin_right = 204.0
+margin_bottom = 23.0
 size_flags_horizontal = 3
 text = "input.move_up"
 __meta__ = {
@@ -79,9 +83,9 @@ __meta__ = {
 }
 
 [node name="MoveUp" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/MoveUp/MarginContainer/FieldContainer" index="1" instance=ExtResource( 3 )]
-margin_left = 212.0
-margin_right = 420.0
-margin_bottom = 24.0
+margin_left = 208.0
+margin_right = 412.0
+margin_bottom = 32.0
 action = "move_up"
 description = "input.move_up_description"
 alt_placeholder = "UP"
@@ -93,20 +97,20 @@ margin_right = 428.0
 margin_bottom = 68.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/MoveDown/MarginContainer" index="0"]
-margin_right = 424.0
+margin_right = 420.0
 
 [node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/MoveDown/MarginContainer/FieldContainer" index="0"]
-margin_top = 5.0
-margin_right = 208.0
-margin_bottom = 19.0
+margin_top = 9.0
+margin_right = 204.0
+margin_bottom = 23.0
 mouse_filter = 1
 size_flags_horizontal = 3
 text = "input.move_down"
 
 [node name="MoveDown" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/MoveDown/MarginContainer/FieldContainer" index="1" instance=ExtResource( 3 )]
-margin_left = 212.0
-margin_right = 420.0
-margin_bottom = 24.0
+margin_left = 208.0
+margin_right = 412.0
+margin_bottom = 32.0
 action = "move_down"
 description = "input.move_down_description"
 alt_placeholder = "DOWN"
@@ -118,19 +122,19 @@ margin_right = 428.0
 margin_bottom = 104.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/MoveRight/MarginContainer" index="0"]
-margin_right = 424.0
+margin_right = 420.0
 
 [node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/MoveRight/MarginContainer/FieldContainer" index="0"]
-margin_top = 5.0
-margin_right = 208.0
-margin_bottom = 19.0
+margin_top = 9.0
+margin_right = 204.0
+margin_bottom = 23.0
 size_flags_horizontal = 3
 text = "input.move_left"
 
 [node name="MoveLeft" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/MoveRight/MarginContainer/FieldContainer" index="1" instance=ExtResource( 3 )]
-margin_left = 212.0
-margin_right = 420.0
-margin_bottom = 24.0
+margin_left = 208.0
+margin_right = 412.0
+margin_bottom = 32.0
 action = "move_left"
 description = "input.move_left_description"
 alt_placeholder = "LEFT"
@@ -142,19 +146,19 @@ margin_right = 428.0
 margin_bottom = 140.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/MoveLeft/MarginContainer" index="0"]
-margin_right = 424.0
+margin_right = 420.0
 
 [node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/MoveLeft/MarginContainer/FieldContainer" index="0"]
-margin_top = 5.0
-margin_right = 208.0
-margin_bottom = 19.0
+margin_top = 9.0
+margin_right = 204.0
+margin_bottom = 23.0
 size_flags_horizontal = 3
 text = "input.move_right"
 
 [node name="MoveRight" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/MoveLeft/MarginContainer/FieldContainer" index="1" instance=ExtResource( 3 )]
-margin_left = 212.0
-margin_right = 420.0
-margin_bottom = 24.0
+margin_left = 208.0
+margin_right = 412.0
+margin_bottom = 32.0
 action = "move_right"
 description = "input.move_right_description"
 alt_placeholder = "RIGHT"
@@ -166,19 +170,19 @@ margin_right = 428.0
 margin_bottom = 176.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/Run/MarginContainer" index="0"]
-margin_right = 424.0
+margin_right = 420.0
 
 [node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/Run/MarginContainer/FieldContainer" index="0"]
-margin_top = 5.0
-margin_right = 208.0
-margin_bottom = 19.0
+margin_top = 9.0
+margin_right = 204.0
+margin_bottom = 23.0
 size_flags_horizontal = 3
 text = "input.run"
 
 [node name="Run" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/Run/MarginContainer/FieldContainer" index="1" instance=ExtResource( 3 )]
-margin_left = 212.0
-margin_right = 420.0
-margin_bottom = 24.0
+margin_left = 208.0
+margin_right = 412.0
+margin_bottom = 32.0
 action = "run"
 description = "input.run_description"
 alt_placeholder = "_"
@@ -190,19 +194,19 @@ margin_right = 428.0
 margin_bottom = 212.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/Jump/MarginContainer" index="0"]
-margin_right = 424.0
+margin_right = 420.0
 
 [node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/Jump/MarginContainer/FieldContainer" index="0"]
-margin_top = 5.0
-margin_right = 208.0
-margin_bottom = 19.0
+margin_top = 9.0
+margin_right = 204.0
+margin_bottom = 23.0
 size_flags_horizontal = 3
 text = "input.jump"
 
 [node name="Jump" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/Jump/MarginContainer/FieldContainer" index="1" instance=ExtResource( 3 )]
-margin_left = 212.0
-margin_right = 420.0
-margin_bottom = 24.0
+margin_left = 208.0
+margin_right = 412.0
+margin_bottom = 32.0
 action = "jump"
 description = "input.jump_description"
 alt_placeholder = "_"
@@ -214,19 +218,19 @@ margin_right = 428.0
 margin_bottom = 248.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/Attack/MarginContainer" index="0"]
-margin_right = 424.0
+margin_right = 420.0
 
 [node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/Attack/MarginContainer/FieldContainer" index="0"]
-margin_top = 5.0
-margin_right = 208.0
-margin_bottom = 19.0
+margin_top = 9.0
+margin_right = 204.0
+margin_bottom = 23.0
 size_flags_horizontal = 3
 text = "input.attack"
 
 [node name="Attack" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/Attack/MarginContainer/FieldContainer" index="1" instance=ExtResource( 3 )]
-margin_left = 212.0
-margin_right = 420.0
-margin_bottom = 24.0
+margin_left = 208.0
+margin_right = 412.0
+margin_bottom = 32.0
 action = "attack"
 description = "input.attack_description"
 alt_placeholder = "_"
@@ -238,19 +242,19 @@ margin_right = 428.0
 margin_bottom = 284.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/Block/MarginContainer" index="0"]
-margin_right = 424.0
+margin_right = 420.0
 
 [node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/Block/MarginContainer/FieldContainer" index="0"]
-margin_top = 5.0
-margin_right = 208.0
-margin_bottom = 19.0
+margin_top = 9.0
+margin_right = 204.0
+margin_bottom = 23.0
 size_flags_horizontal = 3
 text = "input.block"
 
 [node name="Block" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/Block/MarginContainer/FieldContainer" index="1" instance=ExtResource( 3 )]
-margin_left = 212.0
-margin_right = 420.0
-margin_bottom = 24.0
+margin_left = 208.0
+margin_right = 412.0
+margin_bottom = 32.0
 action = "block"
 description = "input.block_description"
 alt_placeholder = "_"
@@ -262,19 +266,19 @@ margin_right = 428.0
 margin_bottom = 320.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/Evade/MarginContainer" index="0"]
-margin_right = 424.0
+margin_right = 420.0
 
 [node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/Evade/MarginContainer/FieldContainer" index="0"]
-margin_top = 5.0
-margin_right = 208.0
-margin_bottom = 19.0
+margin_top = 9.0
+margin_right = 204.0
+margin_bottom = 23.0
 size_flags_horizontal = 3
 text = "input.evade"
 
 [node name="Evade" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/Evade/MarginContainer/FieldContainer" index="1" instance=ExtResource( 3 )]
-margin_left = 212.0
-margin_right = 420.0
-margin_bottom = 24.0
+margin_left = 208.0
+margin_right = 412.0
+margin_bottom = 32.0
 action = "evade"
 description = "input.evade_description"
 alt_placeholder = ""
@@ -286,19 +290,19 @@ margin_right = 428.0
 margin_bottom = 356.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/Inventory/MarginContainer" index="0"]
-margin_right = 424.0
+margin_right = 420.0
 
 [node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/Inventory/MarginContainer/FieldContainer" index="0"]
-margin_top = 5.0
-margin_right = 208.0
-margin_bottom = 19.0
+margin_top = 9.0
+margin_right = 204.0
+margin_bottom = 23.0
 size_flags_horizontal = 3
 text = "input.inventory"
 
 [node name="Inventory" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/Inventory/MarginContainer/FieldContainer" index="1" instance=ExtResource( 3 )]
-margin_left = 212.0
-margin_right = 420.0
-margin_bottom = 24.0
+margin_left = 208.0
+margin_right = 412.0
+margin_bottom = 32.0
 action = "inventory"
 description = "input.inventory_description"
 alt_placeholder = "i"
@@ -310,19 +314,19 @@ margin_right = 428.0
 margin_bottom = 392.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/Slot1/MarginContainer" index="0"]
-margin_right = 424.0
+margin_right = 420.0
 
 [node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/Slot1/MarginContainer/FieldContainer" index="0"]
-margin_top = 5.0
-margin_right = 208.0
-margin_bottom = 19.0
+margin_top = 9.0
+margin_right = 204.0
+margin_bottom = 23.0
 size_flags_horizontal = 3
 text = "input.slot_1"
 
 [node name="Slot1" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/Slot1/MarginContainer/FieldContainer" index="1" instance=ExtResource( 3 )]
-margin_left = 212.0
-margin_right = 420.0
-margin_bottom = 24.0
+margin_left = 208.0
+margin_right = 412.0
+margin_bottom = 32.0
 action = "slot_1"
 description = "input.slot_1_description"
 required = false
@@ -335,12 +339,12 @@ margin_right = 428.0
 margin_bottom = 428.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/Slot2/MarginContainer" index="0"]
-margin_right = 424.0
+margin_right = 420.0
 
 [node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/Slot2/MarginContainer/FieldContainer" index="0"]
-margin_top = 5.0
-margin_right = 208.0
-margin_bottom = 19.0
+margin_top = 9.0
+margin_right = 204.0
+margin_bottom = 23.0
 size_flags_horizontal = 3
 text = "input.slot_2"
 __meta__ = {
@@ -348,9 +352,9 @@ __meta__ = {
 }
 
 [node name="Slot2" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/Slot2/MarginContainer/FieldContainer" index="1" instance=ExtResource( 3 )]
-margin_left = 212.0
-margin_right = 420.0
-margin_bottom = 24.0
+margin_left = 208.0
+margin_right = 412.0
+margin_bottom = 32.0
 action = "slot_2"
 description = "input.slot_2_description"
 required = false
@@ -363,19 +367,19 @@ margin_right = 428.0
 margin_bottom = 464.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/Slot3/MarginContainer" index="0"]
-margin_right = 424.0
+margin_right = 420.0
 
 [node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/Slot3/MarginContainer/FieldContainer" index="0"]
-margin_top = 5.0
-margin_right = 208.0
-margin_bottom = 19.0
+margin_top = 9.0
+margin_right = 204.0
+margin_bottom = 23.0
 size_flags_horizontal = 3
 text = "input.slot_3"
 
 [node name="Slot3" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/Slot3/MarginContainer/FieldContainer" index="1" instance=ExtResource( 3 )]
-margin_left = 212.0
-margin_right = 420.0
-margin_bottom = 24.0
+margin_left = 208.0
+margin_right = 412.0
+margin_bottom = 32.0
 action = "slot_3"
 description = "input.slot_3_description"
 required = false
@@ -388,24 +392,44 @@ margin_right = 428.0
 margin_bottom = 500.0
 
 [node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/Slot4/MarginContainer" index="0"]
-margin_right = 424.0
+margin_right = 420.0
 
 [node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/Slot4/MarginContainer/FieldContainer" index="0"]
-margin_top = 5.0
-margin_right = 208.0
-margin_bottom = 19.0
+margin_top = 9.0
+margin_right = 204.0
+margin_bottom = 23.0
 size_flags_horizontal = 3
 text = "input.slot_4"
 
 [node name="Slot4" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable/Slot4/MarginContainer/FieldContainer" index="1" instance=ExtResource( 3 )]
-margin_left = 212.0
-margin_right = 420.0
-margin_bottom = 24.0
+margin_left = 208.0
+margin_right = 412.0
+margin_bottom = 32.0
 action = "slot_4"
 description = "input.slot_4_description"
 required = false
 alt_placeholder = "_"
 placeholder = "4"
+
+[node name="HSeparator" parent="Wrapper/Page" index="2"]
+margin_top = 175.0
+margin_bottom = 179.0
+
+[node name="FieldDescription" parent="Wrapper/Page" index="3"]
+margin_top = 183.0
+margin_bottom = 214.0
+
+[node name="Footer" parent="Wrapper/Page" index="4"]
+margin_top = 218.0
+
+[node name="ResetToDefaultButton" parent="Wrapper/Page/Footer" index="0"]
+margin_left = 112.0
+margin_right = 293.0
+margin_bottom = 22.0
+
+[node name="PreviousPagePage" parent="Wrapper/Page/Footer" index="1"]
+margin_left = 297.0
+margin_bottom = 22.0
 
 [node name="KeyMapListenerDialog" parent="." index="3" instance=ExtResource( 5 )]
 

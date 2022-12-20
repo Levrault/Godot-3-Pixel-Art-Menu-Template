@@ -56,7 +56,7 @@ func _gui_input(event: InputEvent) -> void:
 			_on_Next_value()
 			return
 		return
-
+	
 	if event.is_action_pressed("ui_left"):
 		_on_Previous_value()
 		return

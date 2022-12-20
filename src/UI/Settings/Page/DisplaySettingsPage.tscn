@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/UI/Settings/Updater/WindowModeUpdater.gd" type="Script" id=1]
 [ext_resource path="res://src/UI/Settings/Updater/VSyncUpdater.gd" type="Script" id=2]
@@ -9,114 +9,186 @@
 [ext_resource path="res://src/UI/Settings/Fields/CheckboxField.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/UI/Settings/Fields/DropDownField.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/UI/Settings/Filter/ResolutionFilter.gd" type="Script" id=9]
+[ext_resource path="res://src/UI/Settings/Updater/LocaleUpdater.gd" type="Script" id=10]
+[ext_resource path="res://src/UI/Commons/Scroll/ScrollContent.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/theme/MainMenu.tres" type="Theme" id=12]
 
 [node name="DisplaySettingsPage" instance=ExtResource( 6 )]
-default_field_to_focus = NodePath("Wrapper/Page/Contents/VSync/MarginContainer/FieldContainer/Vsync")
+theme = ExtResource( 12 )
+default_field_to_focus = NodePath("Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Locale/MarginContainer/FieldContainer/Locale")
 
 [node name="Form" parent="." index="0"]
-engine_file_section = "video"
+engine_file_section = "display"
 section_title = "display.title"
 
 [node name="Breadcrumb" parent="Wrapper/Page" index="0"]
+margin_bottom = 12.0
 breadcrumbs = [ "commons.settings", "display.title" ]
 
 [node name="BreachcrumbRoot" parent="Wrapper/Page/Breadcrumb" index="0"]
-margin_right = 78.0
+margin_right = 80.0
+margin_bottom = 12.0
 text = "Breadcrumb"
 
 [node name="Contents" parent="Wrapper/Page" index="1"]
+margin_top = 16.0
+margin_bottom = 154.0
 custom_constants/separation = 20
 
-[node name="VSync" parent="Wrapper/Page/Contents" index="0" instance=ExtResource( 5 )]
-margin_top = 9.0
-margin_right = 440.0
-margin_bottom = 41.0
+[node name="ScrollContent" parent="Wrapper/Page/Contents" index="0" instance=ExtResource( 11 )]
+margin_top = 0.0
+margin_bottom = 138.0
 
-[node name="FieldContainer" parent="Wrapper/Page/Contents/VSync/MarginContainer" index="0"]
-margin_right = 436.0
+[node name="MarginContainer" type="MarginContainer" parent="Wrapper/Page/Contents/ScrollContent" index="0"]
+margin_right = 435.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="Wrapper/Page/Contents/VSync/MarginContainer/FieldContainer" index="0"]
-margin_top = 5.0
-margin_right = 85.0
-margin_bottom = 19.0
+[node name="VBoxContainer" type="VBoxContainer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer" index="0"]
+margin_right = 435.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Locale" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer" index="0" instance=ExtResource( 5 )]
+margin_right = 435.0
+margin_bottom = 32.0
+
+[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Locale/MarginContainer" index="0"]
+margin_right = 427.0
+
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Locale/MarginContainer/FieldContainer" index="0"]
+margin_top = 10.0
+margin_right = 96.0
+margin_bottom = 22.0
+text = "audio.locale"
+
+[node name="Locale" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Locale/MarginContainer/FieldContainer" index="1" instance=ExtResource( 8 )]
+margin_left = 100.0
+margin_top = 6.0
+margin_right = 419.0
+margin_bottom = 26.0
+key = "locale"
+description = "audio.locale_description"
+placeholder = "english"
+
+[node name="Updater" type="Node" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Locale/MarginContainer/FieldContainer/Locale" index="1"]
+script = ExtResource( 10 )
+
+[node name="VSync" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer" index="1" instance=ExtResource( 5 )]
+margin_top = 36.0
+margin_right = 435.0
+margin_bottom = 68.0
+
+[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/VSync/MarginContainer" index="0"]
+margin_right = 427.0
+
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/VSync/MarginContainer/FieldContainer" index="0"]
+margin_top = 10.0
+margin_right = 104.0
+margin_bottom = 22.0
 text = "display.vsync"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Vsync" parent="Wrapper/Page/Contents/VSync/MarginContainer/FieldContainer" index="1" instance=ExtResource( 7 )]
-margin_left = 89.0
-margin_right = 432.0
-margin_bottom = 24.0
+[node name="Vsync" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/VSync/MarginContainer/FieldContainer" index="1" instance=ExtResource( 7 )]
+margin_left = 108.0
+margin_right = 419.0
+margin_bottom = 32.0
 key = "use_vsync"
 description = "display.vsync_description"
 
-[node name="Updater" type="Node" parent="Wrapper/Page/Contents/VSync/MarginContainer/FieldContainer/Vsync" index="1"]
+[node name="Updater" type="Node" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/VSync/MarginContainer/FieldContainer/Vsync" index="1"]
 script = ExtResource( 2 )
 
-[node name="WindowMode" parent="Wrapper/Page/Contents" index="1" instance=ExtResource( 5 )]
-margin_top = 61.0
-margin_right = 440.0
-margin_bottom = 93.0
+[node name="WindowMode" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer" index="2" instance=ExtResource( 5 )]
+margin_top = 72.0
+margin_right = 435.0
+margin_bottom = 104.0
 
-[node name="FieldContainer" parent="Wrapper/Page/Contents/WindowMode/MarginContainer" index="0"]
-margin_right = 436.0
+[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/WindowMode/MarginContainer" index="0"]
+margin_right = 427.0
 
-[node name="Label" type="Label" parent="Wrapper/Page/Contents/WindowMode/MarginContainer/FieldContainer" index="0"]
-margin_top = 5.0
-margin_right = 140.0
-margin_bottom = 19.0
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/WindowMode/MarginContainer/FieldContainer" index="0"]
+margin_top = 10.0
+margin_right = 152.0
+margin_bottom = 22.0
 text = "display.window_mode"
 
-[node name="WindowMode" parent="Wrapper/Page/Contents/WindowMode/MarginContainer/FieldContainer" index="1" instance=ExtResource( 8 )]
-margin_left = 144.0
-margin_right = 432.0
-margin_bottom = 24.0
+[node name="WindowMode" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/WindowMode/MarginContainer/FieldContainer" index="1" instance=ExtResource( 8 )]
+margin_left = 156.0
+margin_top = 6.0
+margin_right = 419.0
+margin_bottom = 26.0
 key = "window_mode"
 description = "display.window_mode_description"
 placeholder = "borderless"
 
-[node name="Updater" type="Node" parent="Wrapper/Page/Contents/WindowMode/MarginContainer/FieldContainer/WindowMode" index="1"]
+[node name="Updater" type="Node" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/WindowMode/MarginContainer/FieldContainer/WindowMode" index="1"]
 script = ExtResource( 1 )
-confirmation_dialog_path = NodePath("../../../../../../../../ConfirmFieldValueDialogWindowMode")
+confirmation_dialog_path = NodePath("../../../../../../../../../../../ConfirmFieldValueDialogWindowMode")
 
-[node name="Resolution" parent="Wrapper/Page/Contents" index="2" instance=ExtResource( 5 )]
-margin_top = 113.0
-margin_right = 440.0
-margin_bottom = 145.0
+[node name="Resolution" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer" index="3" instance=ExtResource( 5 )]
+margin_top = 108.0
+margin_right = 435.0
+margin_bottom = 140.0
 focus_neighbour_bottom = NodePath("../../OptionsFooter/ApplySettingsButton")
 focus_next = NodePath("../../OptionsFooter/ApplySettingsButton")
 
-[node name="FieldContainer" parent="Wrapper/Page/Contents/Resolution/MarginContainer" index="0"]
-margin_right = 436.0
+[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Resolution/MarginContainer" index="0"]
+margin_right = 427.0
 
-[node name="Label" type="Label" parent="Wrapper/Page/Contents/Resolution/MarginContainer/FieldContainer" index="0"]
-margin_top = 5.0
-margin_right = 163.0
-margin_bottom = 19.0
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Resolution/MarginContainer/FieldContainer" index="0"]
+margin_top = 10.0
+margin_right = 200.0
+margin_bottom = 22.0
 text = "display.screen_resolution"
 
-[node name="ScreenResolution" parent="Wrapper/Page/Contents/Resolution/MarginContainer/FieldContainer" index="1" instance=ExtResource( 8 )]
-margin_left = 167.0
-margin_right = 432.0
-margin_bottom = 24.0
+[node name="ScreenResolution" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Resolution/MarginContainer/FieldContainer" index="1" instance=ExtResource( 8 )]
+margin_left = 204.0
+margin_top = 6.0
+margin_right = 419.0
+margin_bottom = 26.0
 key = "screen_resolution"
 description = "display.screen_resolution_description"
 placeholder = "1920x1080 (16:9)"
 
-[node name="Updater" type="Node" parent="Wrapper/Page/Contents/Resolution/MarginContainer/FieldContainer/ScreenResolution" index="1"]
+[node name="Updater" type="Node" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Resolution/MarginContainer/FieldContainer/ScreenResolution" index="1"]
 script = ExtResource( 3 )
-confirmation_dialog_path = NodePath("../../../../../../../../ConfirmFieldValueDialogScreenResolution")
+confirmation_dialog_path = NodePath("../../../../../../../../../../../ConfirmFieldValueDialogScreenResolution")
 
-[node name="Filter" type="Node" parent="Wrapper/Page/Contents/Resolution/MarginContainer/FieldContainer/ScreenResolution" index="6"]
+[node name="Filter" type="Node" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Resolution/MarginContainer/FieldContainer/ScreenResolution" index="6"]
 script = ExtResource( 9 )
 
+[node name="HSeparator" parent="Wrapper/Page" index="2"]
+margin_top = 158.0
+margin_bottom = 160.0
+
+[node name="FieldDescription" parent="Wrapper/Page" index="3"]
+margin_top = 164.0
+margin_bottom = 206.0
+
+[node name="Footer" parent="Wrapper/Page" index="4"]
+margin_top = 210.0
+
+[node name="ResetToDefaultButton" parent="Wrapper/Page/Footer" index="0"]
+margin_left = 92.0
+margin_right = 292.0
+margin_bottom = 30.0
+
+[node name="PreviousPagePage" parent="Wrapper/Page/Footer" index="1"]
+margin_left = 296.0
+margin_bottom = 30.0
+
 [node name="ConfirmFieldValueDialogWindowMode" parent="." index="2" instance=ExtResource( 4 )]
-field_path = NodePath("../Wrapper/Page/Contents/WindowMode/MarginContainer/FieldContainer/WindowMode")
+field_path = NodePath("../Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/WindowMode/MarginContainer/FieldContainer/WindowMode")
 
 [node name="ConfirmFieldValueDialogScreenResolution" parent="." index="3" instance=ExtResource( 4 )]
-field_path = NodePath("../Wrapper/Page/Contents/Resolution/MarginContainer/FieldContainer/ScreenResolution")
+field_path = NodePath("../Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Resolution/MarginContainer/FieldContainer/ScreenResolution")
 
-[editable path="Wrapper/Page/Contents/VSync"]
-[editable path="Wrapper/Page/Contents/WindowMode"]
-[editable path="Wrapper/Page/Contents/Resolution"]
+[editable path="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Locale"]
+[editable path="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/VSync"]
+[editable path="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/WindowMode"]
+[editable path="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Resolution"]

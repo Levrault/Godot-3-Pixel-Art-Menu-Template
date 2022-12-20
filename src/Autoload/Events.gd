@@ -11,6 +11,9 @@ extends Node
 signal config_file_saved
 signal config_file_loaded
 
+#engine
+signal engine_time_scale_changed(value)
+
 # field
 signal field_description_changed(description)
 signal focused_row_changed(row)
@@ -43,6 +46,9 @@ signal navigation_enabled
 # overlay
 signal overlay_displayed
 signal overlay_hidden
+
+# player
+signal player_max_health_changed(value)
 
 # Required field unmapped
 signal required_field_unmapped_displayed(unmapped_fields)

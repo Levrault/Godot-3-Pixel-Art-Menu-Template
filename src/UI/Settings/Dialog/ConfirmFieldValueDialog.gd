@@ -6,7 +6,7 @@
 extends WindowDialog
 
 # related field
-export (NodePath) var field_path = ""
+export (NodePath) var field_path
 # time before self-closing & cancelling value
 export var default_countdown := 15
 

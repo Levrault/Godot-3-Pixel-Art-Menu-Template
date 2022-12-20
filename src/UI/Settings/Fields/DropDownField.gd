@@ -62,9 +62,13 @@ func _ready() -> void:
 		option_button.add_item(
 			item.key if not item.has("translation_key") else tr(item.translation_key)
 		)
-		option_button.set_item_metadata(index, {
-			"translation_key": item.key if not item.has("translation_key") else item.translation_key
-		})
+		option_button.set_item_metadata(
+			index,
+			{
+				"translation_key":
+				item.key if not item.has("translation_key") else item.translation_key
+			}
+		)
 		index += 1
 
 	initialize()
@@ -98,15 +102,19 @@ func revert() -> void:
 	option_button.select(_index)
 
 
-func translate() -> void:
-	for i in option_button.get_item_count():
-		option_button.set_item_text(i, tr(option_button.get_item_metadata(i).translation_key))
-	option_button.text = selected_key if not values.has("translation_key") else tr(values.translation_key)
-
-
 func _set_placeholder(value: String) -> void:
 	placeholder = value
 	$OptionButton.text = placeholder
+
+
+func translate() -> void:
+	for i in option_button.get_item_count():
+		option_button.set_item_text(i, tr(option_button.get_item_metadata(i).translation_key))
+	option_button.text = (
+		selected_key
+		if not values.has("translation_key")
+		else tr(values.translation_key)
+	)
 
 
 func _set_selected_key(text: String) -> void:

@@ -1,0 +1,288 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://src/UI/Settings/SettingsPageTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/UI/Settings/Updater/PlayerHealthUpdater.gd" type="Script" id=2]
+[ext_resource path="res://src/UI/Settings/Updater/TimeScaleUpdater.gd" type="Script" id=3]
+[ext_resource path="res://src/UI/Settings/Fields/FieldSet.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/UI/Commons/Scroll/ScrollContent.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/UI/Settings/Fields/SliderField.tscn" type="PackedScene" id=6]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxFocus:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxNormal:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.705882 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "fieldset_focus_entered"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxNormal:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxFocus:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "fieldset_focus_exited"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxFocus:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxNormal:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.705882 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "fieldset_panel_hidden"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxNormal:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxFocus:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="AccessibilitySettingsPage" instance=ExtResource( 1 )]
+default_field_to_focus = NodePath("Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/TimeScale/MarginContainer/FieldContainer/TimeScale")
+
+[node name="Form" parent="." index="0"]
+engine_file_section = "accessibility"
+section_title = "accessibility.title"
+
+[node name="Breadcrumb" parent="Wrapper/Page" index="0"]
+breadcrumbs = [ "commons.settings", "accessibility.title" ]
+
+[node name="Contents" parent="Wrapper/Page" index="1"]
+margin_bottom = 171.0
+
+[node name="ScrollContent" parent="Wrapper/Page/Contents" index="0" instance=ExtResource( 5 )]
+margin_top = 0.0
+margin_bottom = 153.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Wrapper/Page/Contents/ScrollContent" index="0"]
+margin_right = 440.0
+margin_bottom = 153.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 4
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer" index="0"]
+margin_right = 436.0
+margin_bottom = 153.0
+size_flags_horizontal = 3
+
+[node name="TimeScale" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer" index="0" instance=ExtResource( 4 )]
+margin_right = 436.0
+margin_bottom = 32.0
+
+[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/TimeScale/MarginContainer" index="0"]
+margin_right = 432.0
+
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/TimeScale/MarginContainer/FieldContainer" index="0"]
+margin_top = 5.0
+margin_right = 250.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "accessibility.time_scale"
+
+[node name="TimeScale" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/TimeScale/MarginContainer/FieldContainer" index="1" instance=ExtResource( 6 )]
+margin_left = 254.0
+margin_right = 428.0
+margin_bottom = 24.0
+key = "time_scale"
+description = "accessibility.time_scale_description"
+min_value = 0.1
+max_value = 1.0
+auto_compute_step = false
+step = 0.1
+placeholder = "1.0"
+
+[node name="Updater" type="Node" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/TimeScale/MarginContainer/FieldContainer/TimeScale" index="4"]
+script = ExtResource( 3 )
+
+[node name="PlayerHealth" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer" index="1" instance=ExtResource( 4 )]
+modulate = Color( 1, 1, 1, 0.705882 )
+margin_top = 36.0
+margin_right = 436.0
+margin_bottom = 68.0
+
+[node name="AnimationPlayer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/PlayerHealth" index="0"]
+anims/RESET = SubResource( 1 )
+anims/fieldset_focus_entered = SubResource( 2 )
+anims/fieldset_focus_exited = SubResource( 3 )
+anims/fieldset_panel_hidden = SubResource( 4 )
+
+[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/PlayerHealth/MarginContainer" index="0"]
+margin_right = 432.0
+
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/PlayerHealth/MarginContainer/FieldContainer" index="0"]
+margin_top = 5.0
+margin_right = 262.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "accessibility.player_health"
+
+[node name="PlayerHealth" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/PlayerHealth/MarginContainer/FieldContainer" index="1" instance=ExtResource( 6 )]
+margin_left = 266.0
+margin_right = 428.0
+margin_bottom = 24.0
+key = "player_health"
+description = "accessibility.player_health_description"
+min_value = 1.0
+max_value = 10.0
+auto_compute_step = false
+rounded = true
+placeholder = "4"
+
+[node name="Updater" type="Node" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/PlayerHealth/MarginContainer/FieldContainer/PlayerHealth" index="4"]
+script = ExtResource( 2 )
+
+[node name="HSeparator" parent="Wrapper/Page" index="2"]
+margin_top = 175.0
+margin_bottom = 179.0
+
+[node name="FieldDescription" parent="Wrapper/Page" index="3"]
+margin_top = 183.0
+margin_bottom = 214.0
+
+[node name="Footer" parent="Wrapper/Page" index="4"]
+margin_top = 218.0
+
+[node name="ResetToDefaultButton" parent="Wrapper/Page/Footer" index="0"]
+margin_left = 112.0
+margin_right = 293.0
+margin_bottom = 22.0
+
+[node name="PreviousPagePage" parent="Wrapper/Page/Footer" index="1"]
+margin_left = 297.0
+margin_bottom = 22.0
+
+[editable path="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/TimeScale"]
+[editable path="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/PlayerHealth"]
