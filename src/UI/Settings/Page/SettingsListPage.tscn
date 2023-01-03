@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/UI/Commons/Layout/PageLayout.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/UI/Commons/Navigation/NavigationButton.tscn" type="PackedScene" id=2]
+
+[node name="SettingsListPage" instance=ExtResource( 1 )]
+default_field_to_focus = NodePath("Wrapper/Page/Contents/Display")
+
+[node name="Title" parent="Wrapper/Page" index="0"]
+text = "commons.settings"
+
+[node name="Contents" parent="Wrapper/Page" index="1"]
+margin_right = 121.0
+margin_bottom = 214.0
+size_flags_horizontal = 0
+
+[node name="Display" parent="Wrapper/Page/Contents" index="0" instance=ExtResource( 2 )]
+margin_top = 28.0
+margin_right = 121.0
+margin_bottom = 48.0
+text = "display.title"
+flat = true
+align = 1
+navigate_to = "DisplaySettingsPage"
+is_default_focused = true
+
+[node name="Audio" parent="Wrapper/Page/Contents" index="1" instance=ExtResource( 2 )]
+margin_top = 58.0
+margin_right = 121.0
+margin_bottom = 78.0
+text = "audio.title"
+flat = true
+align = 1
+navigate_to = "AudioSettingsPage"
+
+[node name="GamepadLayout" parent="Wrapper/Page/Contents" index="2" instance=ExtResource( 2 )]
+margin_top = 88.0
+margin_right = 121.0
+margin_bottom = 108.0
+text = "gamepad.title"
+flat = true
+align = 1
+navigate_to = "GamepadLayoutSettingsPage"
+
+[node name="KeyboardLayout" parent="Wrapper/Page/Contents" index="3" instance=ExtResource( 2 )]
+margin_top = 118.0
+margin_right = 121.0
+margin_bottom = 138.0
+text = "keyboard.title"
+flat = true
+align = 1
+navigate_to = "KeyboardRebindPage"
+
+[node name="Accessibility" parent="Wrapper/Page/Contents" index="4" instance=ExtResource( 2 )]
+margin_top = 148.0
+margin_right = 121.0
+margin_bottom = 168.0
+text = "accessibility.title"
+flat = true
+align = 1
+navigate_to = "AccessibilitySettingsPage"
+
+[node name="Footer" parent="Wrapper/Page" index="2"]
+margin_top = 218.0
+
+[node name="MenuBackInput" parent="Wrapper/Page/Footer" index="0"]
+margin_left = 297.0
+margin_bottom = 22.0

@@ -7,13 +7,14 @@
 [ext_resource path="res://src/UI/Audio/Navigation/UiPopupClosedSfx.tscn" type="PackedScene" id=6]
 
 [node name="DropdownField" type="HBoxContainer" groups=["GameSettings"]]
+margin_right = 104.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 104, 20 )
 focus_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 6
 alignment = 2
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="UiItemSelectedSfx" parent="." instance=ExtResource( 3 )]
 
@@ -27,5 +28,4 @@ __meta__ = {
 margin_right = 104.0
 margin_bottom = 20.0
 mouse_default_cursor_shape = 2
-size_flags_vertical = 5
 text = "placeholder"

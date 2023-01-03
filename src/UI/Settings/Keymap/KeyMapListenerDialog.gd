@@ -75,20 +75,8 @@ func update_ui_for(step: int, data := {}):
 
 	if step == Step.remap:
 		var key := OS.get_scancode_string(_current_event_identifier)
-		var default_key := OS.get_scancode_string(_field.values.default)
-		if not EngineSettings.keylist["keyboard"].has(
-			EngineSettings.get_keyboard_or_mouse_key_from_scancode(_current_event_identifier)
-		):
-			key = tr(EngineSettings.get_mouse_button_string(_button.assigned_to))
-		if not EngineSettings.keylist["keyboard"].has(
-			EngineSettings.get_keyboard_or_mouse_key_from_scancode(_field.values.default)
-		):
-			default_key = tr(EngineSettings.get_mouse_button_string(_button.assigned_to))
-
 		window_title = tr("rebind.binding_action").format({action = _field.action})
-		message.text = tr("rebind.binding_key_with_default").format(
-			{key = key, default_key = default_key}
-		)
+		message.text = tr("rebind.bound_to_key").format({key = key})
 		unbind_message.text = tr("rebind.hold_to_unbind").format(
 			{
 				unbind_action_key = unbind_action_key,

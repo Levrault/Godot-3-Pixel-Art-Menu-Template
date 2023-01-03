@@ -66,6 +66,21 @@ func _ready() -> void:
 	debounce_timer.connect("timeout", self, "_on_Timeout")
 
 
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventJoypadMotion:
+		if event.get_action_strength("ui_left") == 1:
+			return
+		if event.get_action_strength("ui_right") == 1:
+			return
+		return
+	
+	if event.is_action_pressed("ui_left"):
+		return
+
+	if event.is_action_pressed("ui_right"):
+		return
+
+
 # Check if the field has the correct data to be created
 # if not, reset to engine`s default value
 # if the data are corrects, load last saved data
@@ -169,7 +184,7 @@ func _on_Value_changed(value: float) -> void:
 
 	# first load
 	self.is_pristine = false
-	debounce_timer.start()
+	debounce_timer.start()	
 	print_debug("%s has apply properties : %s" % [get_name(), values.properties])
 
 

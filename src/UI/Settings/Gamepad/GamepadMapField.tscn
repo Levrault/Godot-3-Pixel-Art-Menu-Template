@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/UI/Settings/Gamepad/GamepadMapButton.gd" type="Script" id=1]
 [ext_resource path="res://src/UI/Settings/Gamepad/GamepadMapField.gd" type="Script" id=2]
 [ext_resource path="res://src/UI/Audio/Positive/UiItemSelectedSfx.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/ui/icons/input_icons_atlas_texture.png" type="Texture" id=4]
+[ext_resource path="res://assets/UI/icons/input_icons_atlas_texture.png" type="Texture" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=2]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 4 )
@@ -24,13 +26,15 @@ __meta__ = {
 [node name="UiItemSelectedSfx" parent="." instance=ExtResource( 3 )]
 
 [node name="Default" type="Button" parent="."]
+margin_left = 6.0
 margin_right = 34.0
-margin_bottom = 22.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 24, 24 )
 mouse_filter = 1
 mouse_default_cursor_shape = 2
-size_flags_horizontal = 3
+custom_styles/focus = SubResource( 2 )
 icon = SubResource( 1 )
 flat = true
-clip_text = true
+align = 0
 script = ExtResource( 1 )
 key = "default"

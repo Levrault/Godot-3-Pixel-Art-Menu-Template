@@ -4,7 +4,7 @@
 [ext_resource path="res://src/UI/Audio/Navigation/UiFocusSfx.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/UI/Audio/Neutral/UiClickSfx.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/UI/Settings/Dialog/ResetToDefaultDialog.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/ui/icons/input_icons_atlas_texture.png" type="Texture" id=5]
+[ext_resource path="res://assets/UI/icons/input_icons_atlas_texture.png" type="Texture" id=5]
 
 [sub_resource type="InputEventAction" id=1]
 action = "ui_reset_to_default"
@@ -14,7 +14,7 @@ shortcut = SubResource( 1 )
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 5 )
-region = Rect2( 0, 144, 16, 16 )
+region = Rect2( 80, 208, 16, 16 )
 
 [node name="ResetToDefaultButton" type="Button"]
 margin_right = 132.0
@@ -25,12 +25,10 @@ shortcut = SubResource( 2 )
 text = "commons.reset_default"
 icon = SubResource( 3 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="UiFocusSfx" parent="." instance=ExtResource( 2 )]
 
 [node name="UiClickSfx" parent="." instance=ExtResource( 3 )]
 
 [node name="ResetToDefaultDialog" parent="." instance=ExtResource( 4 )]
+visible = false

@@ -8,7 +8,7 @@ export var key := ""
 
 # Global constant joystick value e.g. JOY_XBOX_B
 var assigned_to := ""
-# equivalent name as a string return by input class get_joy_x function 
+# equivalent name as a string return by input class get_joy_x function
 var joy_string := ""
 # gamepad type (xbox, dualshock, nintendo)
 var type := "xbox"
@@ -23,7 +23,7 @@ func _ready() -> void:
 func assign_with_constant(value: String) -> void:
 	clear()
 	assigned_to = value
-	text = assigned_to
+	text = ""
 
 	if InputManager.is_motion_event(value):
 		joy_string = Input.get_joy_axis_string(EngineSettings.keylist.gamepad[value])
@@ -31,7 +31,7 @@ func assign_with_constant(value: String) -> void:
 	else:
 		joy_string = Input.get_joy_button_string(EngineSettings.keylist.gamepad[value])
 		InputManager.addJoyButtonEvent(owner.action, value)
-		
+
 	icon = InputManager.get_device_icon_texture_from_action(value, type)
 	owner.values[key] = {
 		joy_value = EngineSettings.keylist.gamepad[assigned_to],
@@ -46,6 +46,7 @@ func clear() -> void:
 	text = "_"
 	assigned_to = ""
 	joy_string = ""
+	icon = null
 	owner.values[key] = ""
 
 

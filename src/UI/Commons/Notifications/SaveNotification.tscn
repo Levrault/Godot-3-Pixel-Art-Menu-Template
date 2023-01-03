@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/ui/save.svg" type="Texture" id=1]
+[ext_resource path="res://assets/UI/save.svg" type="Texture" id=1]
 [ext_resource path="res://src/UI/Commons/Notifications/SaveNotification.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=1]

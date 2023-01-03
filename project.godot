@@ -34,7 +34,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/UI/Settings/Fields/FieldWithOptions.gd"
 }, {
-"base": "Node",
+"base": "Reference",
 "class": "Filter",
 "language": "GDScript",
 "path": "res://src/UI/Settings/Filter/Filter.gd"
@@ -94,7 +94,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/UI/Settings/Fields/SliderField.gd"
 }, {
-"base": "Node",
+"base": "Reference",
 "class": "Updater",
 "language": "GDScript",
 "path": "res://src/UI/Settings/Updater/Updater.gd"
@@ -128,7 +128,7 @@ rumble_force=0.0
 
 [application]
 
-config/name="Godot-Menu-Template"
+config/name="Godot Pixel Art Menu Template"
 run/main_scene="res://src/UI/MainMenu.tscn"
 config/icon="res://icon.png"
 
@@ -151,8 +151,6 @@ gdscript/warnings/return_value_discarded=false
 window/size/width=480
 window/size/height=270
 window/size/resizable=false
-window/size/test_width=1920
-window/size/test_height=1080
 window/dpi/allow_hidpi=true
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
@@ -254,7 +252,7 @@ ui_reset_to_default={
 
 test="en"
 locale_filter=[ 0, [ "fr" ] ]
-translations=PoolStringArray( "res://i18n/audio.en.translation", "res://i18n/audio.fr.translation", "res://i18n/cfg.en.translation", "res://i18n/cfg.fr.translation", "res://i18n/commons.en.translation", "res://i18n/commons.fr.translation", "res://i18n/controls.en.translation", "res://i18n/controls.fr.translation", "res://i18n/display.en.translation", "res://i18n/display.fr.translation", "res://i18n/gamepad.en.translation", "res://i18n/gamepad.fr.translation", "res://i18n/mouse.en.translation", "res://i18n/mouse.fr.translation", "res://i18n/rebind.en.translation", "res://i18n/rebind.fr.translation", "res://i18n/input.en.translation", "res://i18n/input.fr.translation" )
+translations=PoolStringArray( "res://i18n/audio.en.translation", "res://i18n/audio.fr.translation", "res://i18n/cfg.en.translation", "res://i18n/cfg.fr.translation", "res://i18n/commons.en.translation", "res://i18n/commons.fr.translation", "res://i18n/controls.en.translation", "res://i18n/controls.fr.translation", "res://i18n/display.en.translation", "res://i18n/display.fr.translation", "res://i18n/gamepad.en.translation", "res://i18n/gamepad.fr.translation", "res://i18n/mouse.en.translation", "res://i18n/mouse.fr.translation", "res://i18n/rebind.en.translation", "res://i18n/rebind.fr.translation", "res://i18n/input.en.translation", "res://i18n/input.fr.translation", "res://i18n/accessibility.en.translation", "res://i18n/accessibility.fr.translation", "res://i18n/keyboard.en.translation", "res://i18n/keyboard.fr.translation" )
 translation_remaps={
 }
 

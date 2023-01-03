@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://src/UI/Settings/SettingsListPage.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/UI/Settings/Page/SettingsListPage.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/UI/TitleScreen/TitleScreen.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/UI/Commons/Navigation/NavigationRouter.gd" type="Script" id=3]
-[ext_resource path="res://src/UI/Settings/Page/ControlsSettingsPage.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/UI/Settings/Page/GamepadRebindPage.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/UI/Settings/Page/AudioSettingsPage.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/UI/Settings/Page/DisplaySettingsPage.tscn" type="PackedScene" id=7]
@@ -11,28 +10,33 @@
 [ext_resource path="res://src/UI/Settings/Page/GamepadLayoutSettingsPage.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/UI/Commons/Notifications/SaveNotification.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/UI/Settings/Page/KeyboardRebindPage.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/theme/MainMenu.tres" type="Theme" id=12]
+[ext_resource path="res://src/UI/Settings/Page/AccessibilitySettingsPage.tscn" type="PackedScene" id=13]
 
 [node name="MainMenu" type="Control"]
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 12 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TitleScreen" parent="." instance=ExtResource( 2 )]
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.247059, 0.247059, 0.454902, 0.611765 )
 
-[node name="AudioSettingsPage" parent="." instance=ExtResource( 6 )]
-visible = false
+[node name="TitleScreen" parent="." instance=ExtResource( 2 )]
 
 [node name="SettingsListPage" parent="." instance=ExtResource( 1 )]
 visible = false
 
-[node name="DisplaySettingsPage" parent="." instance=ExtResource( 7 )]
+[node name="AudioSettingsPage" parent="." instance=ExtResource( 6 )]
 visible = false
 
-[node name="ControlsSettingsPage" parent="." instance=ExtResource( 4 )]
+[node name="DisplaySettingsPage" parent="." instance=ExtResource( 7 )]
 visible = false
 
 [node name="GamepadLayoutSettingsPage" parent="." instance=ExtResource( 9 )]
@@ -47,3 +51,6 @@ visible = false
 [node name="MenuTransition" parent="." instance=ExtResource( 8 )]
 
 [node name="SaveNotification" parent="." instance=ExtResource( 10 )]
+
+[node name="AccessibilitySettingsPage" parent="." instance=ExtResource( 13 )]
+visible = false
