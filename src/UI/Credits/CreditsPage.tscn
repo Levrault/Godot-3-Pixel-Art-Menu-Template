@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://src/UI/Commons/Breadcrumbs/Breadcrumb.gd" type="Script" id=1]
 [ext_resource path="res://src/UI/Commons/Button/PreviousPageButton.tscn" type="PackedScene" id=2]
@@ -8,8 +8,9 @@
 [ext_resource path="res://src/UI/Commons/Overlay/Overlay.gd" type="Script" id=6]
 [ext_resource path="res://src/UI/Settings/Fields/FieldSet.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/UI/Credits/CreditField.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/UI/Commons/Section/SectionTitle.tscn" type="PackedScene" id=9]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=73]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("BoxFocus:visible")
@@ -48,7 +49,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0.705882 ) ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=74]
 resource_name = "fieldset_focus_entered"
 length = 0.001
 tracks/0/type = "value"
@@ -88,7 +89,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=75]
 resource_name = "fieldset_focus_exited"
 length = 0.001
 tracks/0/type = "value"
@@ -128,7 +129,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0.705882 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=76]
 resource_name = "fieldset_panel_hidden"
 length = 0.001
 tracks/0/type = "value"
@@ -168,7 +169,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=97]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("BoxFocus:visible")
@@ -207,7 +208,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0.705882 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=98]
 resource_name = "fieldset_focus_entered"
 length = 0.001
 tracks/0/type = "value"
@@ -247,7 +248,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=99]
 resource_name = "fieldset_focus_exited"
 length = 0.001
 tracks/0/type = "value"
@@ -287,7 +288,1279 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0.705882 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=100]
+resource_name = "fieldset_panel_hidden"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxNormal:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxFocus:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=77]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxFocus:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxNormal:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.705882 ) ]
+}
+
+[sub_resource type="Animation" id=78]
+resource_name = "fieldset_focus_entered"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxNormal:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxFocus:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=79]
+resource_name = "fieldset_focus_exited"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxFocus:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxNormal:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.705882 ) ]
+}
+
+[sub_resource type="Animation" id=80]
+resource_name = "fieldset_panel_hidden"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxNormal:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxFocus:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=29]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxFocus:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxNormal:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.705882 ) ]
+}
+
+[sub_resource type="Animation" id=30]
+resource_name = "fieldset_focus_entered"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxNormal:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxFocus:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=31]
+resource_name = "fieldset_focus_exited"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxFocus:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxNormal:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.705882 ) ]
+}
+
+[sub_resource type="Animation" id=32]
+resource_name = "fieldset_panel_hidden"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxNormal:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxFocus:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=93]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxFocus:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxNormal:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.705882 ) ]
+}
+
+[sub_resource type="Animation" id=94]
+resource_name = "fieldset_focus_entered"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxNormal:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxFocus:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=95]
+resource_name = "fieldset_focus_exited"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxFocus:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxNormal:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.705882 ) ]
+}
+
+[sub_resource type="Animation" id=96]
+resource_name = "fieldset_panel_hidden"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxNormal:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxFocus:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=41]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxFocus:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxNormal:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.705882 ) ]
+}
+
+[sub_resource type="Animation" id=42]
+resource_name = "fieldset_focus_entered"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxNormal:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxFocus:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=43]
+resource_name = "fieldset_focus_exited"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxFocus:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxNormal:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.705882 ) ]
+}
+
+[sub_resource type="Animation" id=44]
+resource_name = "fieldset_panel_hidden"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxNormal:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxFocus:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=45]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxFocus:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxNormal:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.705882 ) ]
+}
+
+[sub_resource type="Animation" id=46]
+resource_name = "fieldset_focus_entered"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxNormal:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxFocus:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=47]
+resource_name = "fieldset_focus_exited"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxFocus:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxNormal:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.705882 ) ]
+}
+
+[sub_resource type="Animation" id=48]
+resource_name = "fieldset_panel_hidden"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxNormal:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxFocus:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=49]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxFocus:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxNormal:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.705882 ) ]
+}
+
+[sub_resource type="Animation" id=50]
+resource_name = "fieldset_focus_entered"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxNormal:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxFocus:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=51]
+resource_name = "fieldset_focus_exited"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxFocus:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxNormal:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.705882 ) ]
+}
+
+[sub_resource type="Animation" id=52]
+resource_name = "fieldset_panel_hidden"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxNormal:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxFocus:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=53]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxFocus:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxNormal:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.705882 ) ]
+}
+
+[sub_resource type="Animation" id=54]
+resource_name = "fieldset_focus_entered"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxNormal:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxFocus:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=55]
+resource_name = "fieldset_focus_exited"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxFocus:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxNormal:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.705882 ) ]
+}
+
+[sub_resource type="Animation" id=56]
+resource_name = "fieldset_panel_hidden"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxNormal:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxFocus:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=69]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxFocus:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxNormal:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.705882 ) ]
+}
+
+[sub_resource type="Animation" id=70]
+resource_name = "fieldset_focus_entered"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxNormal:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxFocus:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=71]
+resource_name = "fieldset_focus_exited"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BoxFocus:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BoxNormal:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.705882 ) ]
+}
+
+[sub_resource type="Animation" id=72]
 resource_name = "fieldset_panel_hidden"
 length = 0.001
 tracks/0/type = "value"
@@ -331,10 +1604,7 @@ tracks/2/keys = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-default_field_to_focus = NodePath("Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Credits/MarginContainer/FieldContainer/CreditsField")
+default_field_to_focus = NodePath("Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Github/MarginContainer/FieldContainer/CreditsField")
 
 [node name="Wrapper" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -358,16 +1628,15 @@ size_flags_horizontal = 3
 
 [node name="Breadcrumb" type="HBoxContainer" parent="Wrapper/Page"]
 margin_right = 440.0
-margin_bottom = 22.0
+margin_bottom = 14.0
 script = ExtResource( 1 )
 breadcrumbs = [ "commons.credits" ]
 
 [node name="BreachcrumbRoot" parent="Wrapper/Page/Breadcrumb" instance=ExtResource( 4 )]
-margin_right = 165.0
-margin_bottom = 22.0
+margin_right = 85.0
 
 [node name="Contents" type="VBoxContainer" parent="Wrapper/Page"]
-margin_top = 26.0
+margin_top = 18.0
 margin_right = 440.0
 margin_bottom = 219.0
 size_flags_horizontal = 3
@@ -380,11 +1649,11 @@ __meta__ = {
 
 [node name="ScrollContent" parent="Wrapper/Page/Contents" instance=ExtResource( 5 )]
 margin_top = 0.0
-margin_bottom = 193.0
+margin_bottom = 201.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Wrapper/Page/Contents/ScrollContent"]
-margin_right = 440.0
-margin_bottom = 193.0
+margin_right = 428.0
+margin_bottom = 536.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 4
@@ -393,63 +1662,318 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer"]
-margin_right = 436.0
-margin_bottom = 193.0
+margin_right = 424.0
+margin_bottom = 536.0
 size_flags_horizontal = 3
 
-[node name="Credits" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer" instance=ExtResource( 7 )]
-modulate = Color( 1, 1, 1, 0.705882 )
-margin_right = 436.0
+[node name="Author" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer" instance=ExtResource( 9 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 424.0
 margin_bottom = 32.0
+text = "commons.author"
 
-[node name="AnimationPlayer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Credits" index="0"]
-anims/RESET = SubResource( 1 )
-anims/fieldset_focus_entered = SubResource( 2 )
-anims/fieldset_focus_exited = SubResource( 3 )
-anims/fieldset_panel_hidden = SubResource( 4 )
-
-[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Credits/MarginContainer" index="0"]
-margin_right = 428.0
-
-[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Credits/MarginContainer/FieldContainer" index="0"]
-margin_top = 9.0
-margin_right = 208.0
-margin_bottom = 23.0
-size_flags_horizontal = 3
-text = "Pixel health bar asset pack"
-
-[node name="CreditsField" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Credits/MarginContainer/FieldContainer" index="1" instance=ExtResource( 8 )]
-margin_left = 212.0
-margin_right = 420.0
-margin_bottom = 32.0
-url = "https://adwitr.itch.io/pixel-health-bar-asset-pack"
-
-[node name="InvincibleTimeframe" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer" instance=ExtResource( 7 )]
-modulate = Color( 1, 1, 1, 0.705882 )
+[node name="Github" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer" instance=ExtResource( 7 )]
 margin_top = 36.0
-margin_right = 436.0
+margin_right = 424.0
 margin_bottom = 68.0
 
-[node name="AnimationPlayer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/InvincibleTimeframe" index="0"]
-anims/RESET = SubResource( 5 )
-anims/fieldset_focus_entered = SubResource( 6 )
-anims/fieldset_focus_exited = SubResource( 7 )
-anims/fieldset_panel_hidden = SubResource( 8 )
+[node name="AnimationPlayer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Github" index="0"]
+anims/RESET = SubResource( 73 )
+anims/fieldset_focus_entered = SubResource( 74 )
+anims/fieldset_focus_exited = SubResource( 75 )
+anims/fieldset_panel_hidden = SubResource( 76 )
 
-[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/InvincibleTimeframe/MarginContainer" index="0"]
-margin_right = 428.0
+[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Github/MarginContainer" index="0"]
+margin_right = 416.0
 
-[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/InvincibleTimeframe/MarginContainer/FieldContainer" index="0"]
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Github/MarginContainer/FieldContainer" index="0"]
 margin_top = 9.0
-margin_right = 208.0
+margin_right = 292.0
 margin_bottom = 23.0
 size_flags_horizontal = 3
-text = "asdasdads"
+text = "Github"
 
-[node name="CreditsField" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/InvincibleTimeframe/MarginContainer/FieldContainer" index="1" instance=ExtResource( 8 )]
-margin_left = 212.0
-margin_right = 420.0
+[node name="CreditsField" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Github/MarginContainer/FieldContainer" index="1" instance=ExtResource( 8 )]
+margin_left = 296.0
+margin_right = 408.0
 margin_bottom = 32.0
+url = "https://github.com/Levrault"
+
+[node name="Mastodon" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer" instance=ExtResource( 7 )]
+margin_top = 72.0
+margin_right = 424.0
+margin_bottom = 104.0
+
+[node name="AnimationPlayer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Mastodon" index="0"]
+anims/RESET = SubResource( 97 )
+anims/fieldset_focus_entered = SubResource( 98 )
+anims/fieldset_focus_exited = SubResource( 99 )
+anims/fieldset_panel_hidden = SubResource( 100 )
+
+[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Mastodon/MarginContainer" index="0"]
+margin_right = 416.0
+
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Mastodon/MarginContainer/FieldContainer" index="0"]
+margin_top = 9.0
+margin_right = 292.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+text = "Mastodon"
+
+[node name="CreditsField" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Mastodon/MarginContainer/FieldContainer" index="1" instance=ExtResource( 8 )]
+margin_left = 296.0
+margin_right = 408.0
+margin_bottom = 32.0
+url = "https://mastodon.gamedev.place/@levrault"
+
+[node name="Twitter" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer" instance=ExtResource( 7 )]
+margin_top = 108.0
+margin_right = 424.0
+margin_bottom = 140.0
+
+[node name="AnimationPlayer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Twitter" index="0"]
+anims/RESET = SubResource( 77 )
+anims/fieldset_focus_entered = SubResource( 78 )
+anims/fieldset_focus_exited = SubResource( 79 )
+anims/fieldset_panel_hidden = SubResource( 80 )
+
+[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Twitter/MarginContainer" index="0"]
+margin_right = 416.0
+
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Twitter/MarginContainer/FieldContainer" index="0"]
+margin_top = 9.0
+margin_right = 292.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+text = "Twitter"
+
+[node name="CreditsField" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Twitter/MarginContainer/FieldContainer" index="1" instance=ExtResource( 8 )]
+margin_left = 296.0
+margin_right = 408.0
+margin_bottom = 32.0
+url = "https://twitter.com/LFLangis"
+
+[node name="Sprites" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer" instance=ExtResource( 9 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 144.0
+margin_right = 424.0
+margin_bottom = 176.0
+text = "Sprites"
+
+[node name="GamepadAssets" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer" instance=ExtResource( 7 )]
+margin_top = 180.0
+margin_right = 424.0
+margin_bottom = 212.0
+
+[node name="AnimationPlayer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/GamepadAssets" index="0"]
+anims/RESET = SubResource( 29 )
+anims/fieldset_focus_entered = SubResource( 30 )
+anims/fieldset_focus_exited = SubResource( 31 )
+anims/fieldset_panel_hidden = SubResource( 32 )
+
+[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/GamepadAssets/MarginContainer" index="0"]
+margin_right = 416.0
+
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/GamepadAssets/MarginContainer/FieldContainer" index="0"]
+margin_top = 9.0
+margin_right = 292.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+text = "Gamepads Assets - Pixelart by lightUP"
+
+[node name="CreditsField" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/GamepadAssets/MarginContainer/FieldContainer" index="1" instance=ExtResource( 8 )]
+margin_left = 296.0
+margin_right = 408.0
+margin_bottom = 32.0
+url = "https://julianoferreiradelima.itch.io/gamepads-assets-pixelart"
+
+[node name="SquigglesGodotSplash" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer" instance=ExtResource( 7 )]
+margin_top = 216.0
+margin_right = 424.0
+margin_bottom = 248.0
+
+[node name="AnimationPlayer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/SquigglesGodotSplash" index="0"]
+anims/RESET = SubResource( 93 )
+anims/fieldset_focus_entered = SubResource( 94 )
+anims/fieldset_focus_exited = SubResource( 95 )
+anims/fieldset_panel_hidden = SubResource( 96 )
+
+[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/SquigglesGodotSplash/MarginContainer" index="0"]
+margin_right = 416.0
+
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/SquigglesGodotSplash/MarginContainer/FieldContainer" index="0"]
+margin_top = 9.0
+margin_right = 292.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+text = "squiggles-godot-splash"
+
+[node name="CreditsField" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/SquigglesGodotSplash/MarginContainer/FieldContainer" index="1" instance=ExtResource( 8 )]
+margin_left = 296.0
+margin_right = 408.0
+margin_bottom = 32.0
+url = "https://github.com/QueenOfSquiggles/squiggles-godot-splash"
+
+[node name="Fonts" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer" instance=ExtResource( 9 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 252.0
+margin_right = 424.0
+margin_bottom = 284.0
+text = "Fonts"
+
+[node name="PixelMix" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer" instance=ExtResource( 7 )]
+margin_top = 288.0
+margin_right = 424.0
+margin_bottom = 320.0
+
+[node name="AnimationPlayer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/PixelMix" index="0"]
+anims/RESET = SubResource( 41 )
+anims/fieldset_focus_entered = SubResource( 42 )
+anims/fieldset_focus_exited = SubResource( 43 )
+anims/fieldset_panel_hidden = SubResource( 44 )
+
+[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/PixelMix/MarginContainer" index="0"]
+margin_right = 416.0
+
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/PixelMix/MarginContainer/FieldContainer" index="0"]
+margin_top = 9.0
+margin_right = 292.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+text = "pixelmix font"
+
+[node name="CreditsField" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/PixelMix/MarginContainer/FieldContainer" index="1" instance=ExtResource( 8 )]
+margin_left = 296.0
+margin_right = 408.0
+margin_bottom = 32.0
+url = "https://www.dafont.com/fr/pixelmix.font"
+
+[node name="JoystickMonospace" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer" instance=ExtResource( 7 )]
+margin_top = 324.0
+margin_right = 424.0
+margin_bottom = 356.0
+
+[node name="AnimationPlayer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/JoystickMonospace" index="0"]
+anims/RESET = SubResource( 45 )
+anims/fieldset_focus_entered = SubResource( 46 )
+anims/fieldset_focus_exited = SubResource( 47 )
+anims/fieldset_panel_hidden = SubResource( 48 )
+
+[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/JoystickMonospace/MarginContainer" index="0"]
+margin_right = 416.0
+
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/JoystickMonospace/MarginContainer/FieldContainer" index="0"]
+margin_top = 9.0
+margin_right = 292.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+text = "Joystick monospace"
+
+[node name="CreditsField" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/JoystickMonospace/MarginContainer/FieldContainer" index="1" instance=ExtResource( 8 )]
+margin_left = 296.0
+margin_right = 408.0
+margin_bottom = 32.0
+url = "https://www.dafont.com/joystix.font"
+
+[node name="MinecraftiaRegular" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer" instance=ExtResource( 7 )]
+margin_top = 360.0
+margin_right = 424.0
+margin_bottom = 392.0
+
+[node name="AnimationPlayer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/MinecraftiaRegular" index="0"]
+anims/RESET = SubResource( 49 )
+anims/fieldset_focus_entered = SubResource( 50 )
+anims/fieldset_focus_exited = SubResource( 51 )
+anims/fieldset_panel_hidden = SubResource( 52 )
+
+[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/MinecraftiaRegular/MarginContainer" index="0"]
+margin_right = 416.0
+
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/MinecraftiaRegular/MarginContainer/FieldContainer" index="0"]
+margin_top = 9.0
+margin_right = 292.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+text = "Minecraftia-Regular"
+
+[node name="CreditsField" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/MinecraftiaRegular/MarginContainer/FieldContainer" index="1" instance=ExtResource( 8 )]
+margin_left = 296.0
+margin_right = 408.0
+margin_bottom = 32.0
+url = "https://www.dafont.com/joystix.font?text=Minecraftia-Regular"
+
+[node name="SFX" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer" instance=ExtResource( 9 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 396.0
+margin_right = 424.0
+margin_bottom = 428.0
+text = "SFX"
+
+[node name="KenneyAudio" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer" instance=ExtResource( 7 )]
+margin_top = 432.0
+margin_right = 424.0
+margin_bottom = 464.0
+
+[node name="AnimationPlayer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/KenneyAudio" index="0"]
+anims/RESET = SubResource( 53 )
+anims/fieldset_focus_entered = SubResource( 54 )
+anims/fieldset_focus_exited = SubResource( 55 )
+anims/fieldset_panel_hidden = SubResource( 56 )
+
+[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/KenneyAudio/MarginContainer" index="0"]
+margin_right = 416.0
+
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/KenneyAudio/MarginContainer/FieldContainer" index="0"]
+margin_top = 9.0
+margin_right = 292.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+text = "Kenney audio asset pack"
+
+[node name="CreditsField" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/KenneyAudio/MarginContainer/FieldContainer" index="1" instance=ExtResource( 8 )]
+margin_left = 296.0
+margin_right = 408.0
+margin_bottom = 32.0
+url = "https://www.kenney.nl/assets?q=audio"
+
+[node name="Music" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer" instance=ExtResource( 9 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 468.0
+margin_right = 424.0
+margin_bottom = 500.0
+text = "Music"
+
+[node name="PatrickDeArteaga" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer" instance=ExtResource( 7 )]
+margin_top = 504.0
+margin_right = 424.0
+margin_bottom = 536.0
+
+[node name="AnimationPlayer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/PatrickDeArteaga" index="0"]
+anims/RESET = SubResource( 69 )
+anims/fieldset_focus_entered = SubResource( 70 )
+anims/fieldset_focus_exited = SubResource( 71 )
+anims/fieldset_panel_hidden = SubResource( 72 )
+
+[node name="FieldContainer" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/PatrickDeArteaga/MarginContainer" index="0"]
+margin_right = 416.0
+
+[node name="Label" type="Label" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/PatrickDeArteaga/MarginContainer/FieldContainer" index="0"]
+margin_top = 9.0
+margin_right = 292.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+text = " All made by Patrick de Arteaga"
+
+[node name="CreditsField" parent="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/PatrickDeArteaga/MarginContainer/FieldContainer" index="1" instance=ExtResource( 8 )]
+margin_left = 296.0
+margin_right = 408.0
+margin_bottom = 32.0
+url = "https://patrickdearteaga.com"
 
 [node name="Footer" type="HBoxContainer" parent="Wrapper/Page"]
 margin_top = 223.0
@@ -473,5 +1997,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[editable path="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Credits"]
-[editable path="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/InvincibleTimeframe"]
+[editable path="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Github"]
+[editable path="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Mastodon"]
+[editable path="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/Twitter"]
+[editable path="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/GamepadAssets"]
+[editable path="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/SquigglesGodotSplash"]
+[editable path="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/PixelMix"]
+[editable path="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/JoystickMonospace"]
+[editable path="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/MinecraftiaRegular"]
+[editable path="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/KenneyAudio"]
+[editable path="Wrapper/Page/Contents/ScrollContent/MarginContainer/VBoxContainer/PatrickDeArteaga"]

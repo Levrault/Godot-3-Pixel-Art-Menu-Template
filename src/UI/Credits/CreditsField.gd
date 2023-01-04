@@ -12,6 +12,7 @@ var description := ""
 
 onready var default_button := $Default
 
+
 func _ready() -> void:
 	if Engine.editor_hint:
 		return
