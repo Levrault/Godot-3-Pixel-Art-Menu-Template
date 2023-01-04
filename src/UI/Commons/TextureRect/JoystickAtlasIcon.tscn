@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/UI/Commons/TextureRect/AtlasIcon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/UI/Commons/TextureRect/JoystickAtlasIcon.gd" type="Script" id=3]
+
+[node name="JoystickAtlasIcon" instance=ExtResource( 1 )]
+script = ExtResource( 3 )

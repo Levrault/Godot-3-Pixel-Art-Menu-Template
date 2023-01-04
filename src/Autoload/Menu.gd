@@ -4,6 +4,7 @@ extends Node
 
 var history := []
 var current_route := ""
+var is_splash_screen_viewed = false
 
 
 # Navigate to a new menu

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/UI/Settings/Page/SettingsListPage.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/UI/TitleScreen/TitleScreen.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://src/UI/Settings/Page/KeyboardRebindPage.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/theme/MainMenu.tres" type="Theme" id=12]
 [ext_resource path="res://src/UI/Settings/Page/AccessibilitySettingsPage.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/UI/SplashScreen/SplashScreen.tscn" type="PackedScene" id=14]
 
 [node name="MainMenu" type="Control"]
 pause_mode = 2
@@ -55,3 +56,5 @@ visible = false
 
 [node name="AccessibilitySettingsPage" parent="." instance=ExtResource( 13 )]
 visible = false
+
+[node name="SplashScreen" parent="." instance=ExtResource( 14 )]

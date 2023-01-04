@@ -1,0 +1,16 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+
+[deps]
+
+files=[ "res://i18n/bootscreen.en.translation", "res://i18n/bootscreen.fr.translation" ]
+
+source_file="res://i18n/bootscreen.csv"
+dest_files=[ "res://i18n/bootscreen.en.translation", "res://i18n/bootscreen.fr.translation" ]
+
+[params]
+
+compress=true
+delimiter=0

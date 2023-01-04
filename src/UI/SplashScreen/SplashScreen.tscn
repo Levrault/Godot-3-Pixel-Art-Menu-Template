@@ -1,0 +1,708 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://assets/UI/splash_screen/robot_eye_right.PNG" type="Texture" id=1]
+[ext_resource path="res://assets/UI/splash_screen/robot_eye_left.PNG" type="Texture" id=2]
+[ext_resource path="res://assets/UI/splash_screen/robot_head_top.PNG" type="Texture" id=3]
+[ext_resource path="res://assets/UI/splash_screen/robot_head_bottom.PNG" type="Texture" id=4]
+[ext_resource path="res://assets/UI/splash_screen/letter_g.PNG" type="Texture" id=5]
+[ext_resource path="res://assets/UI/splash_screen/letter_o1.PNG" type="Texture" id=6]
+[ext_resource path="res://assets/UI/splash_screen/letter_o2.PNG" type="Texture" id=7]
+[ext_resource path="res://assets/UI/splash_screen/letter_t.PNG" type="Texture" id=8]
+[ext_resource path="res://assets/UI/splash_screen/letter_d.PNG" type="Texture" id=9]
+[ext_resource path="res://assets/UI/splash_screen/subtitle_game_engine.PNG" type="Texture" id=10]
+[ext_resource path="res://src/UI/SplashScreen/SplashScreen.gd" type="Script" id=11]
+[ext_resource path="res://assets/audio/metal/metalLatch.ogg" type="AudioStream" id=12]
+[ext_resource path="res://src/UI/Commons/TextureRect/AtlasIcon.tscn" type="PackedScene" id=13]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("View/Godot/Head:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("View/Godot/EyeLeft:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 69, 144 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("View/Godot/EyeRight:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 222, 144 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("View/Godot/Mouth:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 20, 229 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("View/Text/LetterG:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("View/Text/LetterO1:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 110, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("View/Text/LetterD:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 233, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("View/Text/LetterO2:rect_position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 337, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("View/Text/LetterT:rect_position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 457, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("View/Text/SubtitleGameEngine:rect_position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 187, 140 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath(".:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("View:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Godot:playing")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath(".:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("View/Label:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("View/Label:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "author"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("View/Godot/Head:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.000541792 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -422 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("View/Godot/EyeLeft:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 70, -280 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("View/Godot/EyeRight:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 223, -280 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("View/Godot/Mouth:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 20, 520 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("View/Text/LetterG:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -553.333 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("View/Text/LetterO1:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 110, -553.333 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("View/Text/LetterD:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 233, -553.333 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("View/Text/LetterO2:rect_position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 337, -566.667 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("View/Text/LetterT:rect_position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 457, -553.333 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("View/Text/SubtitleGameEngine:rect_position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 780, 140 ) ]
+}
+tracks/10/type = "method"
+tracks/10/path = NodePath(".")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"values": [  ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("View:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath(".:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("View/Label:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 0.4, 3.6, 3.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "splash"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("View/Godot/Head:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.000541792, 0.72851, 1.2 ),
+"transitions": PoolRealArray( 1, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -422 ), Vector2( 0, -422 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("View/Godot/EyeLeft:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.9 ),
+"transitions": PoolRealArray( 1, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 70, -280 ), Vector2( 70, -280 ), Vector2( 70, 144 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("View/Godot/EyeRight:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3, 1 ),
+"transitions": PoolRealArray( 1, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 223, -280 ), Vector2( 223, -280 ), Vector2( 223, 144 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("View/Godot/Mouth:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.884547, 1.3, 1.9, 2, 2.1, 2.2, 2.3 ),
+"transitions": PoolRealArray( 1, 2, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 20, 520 ), Vector2( 20, 520 ), Vector2( 20, 229 ), Vector2( 20, 229 ), Vector2( 20, 268 ), Vector2( 20, 229 ), Vector2( 20, 268 ), Vector2( 20, 229 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("View/Text/LetterG:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1.00086, 1.3 ),
+"transitions": PoolRealArray( 1, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -553.333 ), Vector2( 0, -553.333 ), Vector2( 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("View/Text/LetterO1:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1.00086, 1.4 ),
+"transitions": PoolRealArray( 1, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 110, -553.333 ), Vector2( 110, -553.333 ), Vector2( 110, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("View/Text/LetterD:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1.00086, 1.5 ),
+"transitions": PoolRealArray( 1, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 233, -553.333 ), Vector2( 233, -553.333 ), Vector2( 233, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("View/Text/LetterO2:rect_position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 1.00086, 1.6 ),
+"transitions": PoolRealArray( 1, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 337, -566.667 ), Vector2( 337, -566.667 ), Vector2( 337, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("View/Text/LetterT:rect_position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1.00086, 1.7 ),
+"transitions": PoolRealArray( 1, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 457, -553.333 ), Vector2( 457, -553.333 ), Vector2( 457, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("View/Text/SubtitleGameEngine:rect_position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 1.00086, 1.8 ),
+"transitions": PoolRealArray( 1, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 780, 140 ), Vector2( 780, 140 ), Vector2( 187, 140 ) ]
+}
+tracks/10/type = "method"
+tracks/10/path = NodePath(".")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 3.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "finished"
+} ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("View:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 3, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Godot:playing")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 1.9, 2, 2.1, 2.2, 2.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, true, true, true ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath(".:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("View/Label:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("View/Label:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[node name="SplashScreen" type="Control"]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 11 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "author"
+anims/RESET = SubResource( 1 )
+anims/author = SubResource( 3 )
+anims/splash = SubResource( 2 )
+next/author = "splash"
+
+[node name="Godot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
+[node name="View" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Godot" type="Control" parent="View"]
+margin_left = 45.0
+margin_top = 47.0
+margin_right = 385.0
+margin_bottom = 367.0
+rect_min_size = Vector2( 340, 320 )
+rect_scale = Vector2( 0.5, 0.5 )
+
+[node name="Head" type="TextureRect" parent="View/Godot"]
+margin_right = 337.0
+margin_bottom = 256.0
+texture = ExtResource( 3 )
+
+[node name="EyeLeft" type="TextureRect" parent="View/Godot"]
+margin_left = 69.0
+margin_top = 144.0
+margin_right = 113.0
+margin_bottom = 188.0
+texture = ExtResource( 2 )
+
+[node name="EyeRight" type="TextureRect" parent="View/Godot"]
+margin_left = 222.0
+margin_top = 144.0
+margin_right = 267.0
+margin_bottom = 188.0
+texture = ExtResource( 1 )
+
+[node name="Mouth" type="TextureRect" parent="View/Godot"]
+margin_left = 20.0
+margin_top = 229.0
+margin_right = 316.0
+margin_bottom = 319.0
+texture = ExtResource( 4 )
+
+[node name="Text" type="Control" parent="View"]
+margin_left = 266.0
+margin_top = 95.0
+margin_right = 814.0
+margin_bottom = 225.0
+rect_min_size = Vector2( 548, 130 )
+rect_scale = Vector2( 0.3, 0.3 )
+
+[node name="LetterG" type="TextureRect" parent="View/Text"]
+margin_right = 94.0
+margin_bottom = 124.0
+texture = ExtResource( 5 )
+
+[node name="LetterO1" type="TextureRect" parent="View/Text"]
+margin_left = 110.0
+margin_right = 220.0
+margin_bottom = 124.0
+texture = ExtResource( 6 )
+
+[node name="LetterD" type="TextureRect" parent="View/Text"]
+margin_left = 233.0
+margin_right = 325.0
+margin_bottom = 120.0
+texture = ExtResource( 9 )
+
+[node name="LetterO2" type="TextureRect" parent="View/Text"]
+margin_left = 337.0
+margin_right = 447.0
+margin_bottom = 124.0
+texture = ExtResource( 7 )
+
+[node name="LetterT" type="TextureRect" parent="View/Text"]
+margin_left = 457.0
+margin_right = 541.0
+margin_bottom = 121.0
+texture = ExtResource( 8 )
+
+[node name="SubtitleGameEngine" type="TextureRect" parent="View/Text"]
+margin_left = 187.0
+margin_top = 140.0
+margin_right = 538.0
+margin_bottom = 211.0
+texture = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="View"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "bootscreen.message"
+align = 1
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="View"]
+modulate = Color( 1, 1, 1, 0.705882 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -120.0
+margin_top = -22.0
+margin_right = -6.0
+margin_bottom = -6.0
+alignment = 2
+
+[node name="AtlasIcon" parent="View/HBoxContainer" instance=ExtResource( 13 )]
+margin_right = 16.0
+action = "ui_skip_spash_screen"
+
+[node name="Label" type="Label" parent="View/HBoxContainer"]
+margin_left = 20.0
+margin_top = 1.0
+margin_right = 114.0
+margin_bottom = 15.0
+text = "commons.skip"

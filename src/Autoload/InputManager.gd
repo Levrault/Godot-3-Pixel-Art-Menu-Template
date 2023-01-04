@@ -23,7 +23,8 @@ var all_gamepad_devices := [
 ]
 
 var atlas_map := {}
-var default_gamepad: String = DEVICE_XBOX_CONTROLLER
+#var default_gamepad: String = DEVICE_XBOX_CONTROLLER
+var default_gamepad: String = DEVICE_KEYBOARD
 var device: String = default_gamepad setget _set_device
 var device_index: int = -1
 var gamepad_button_regex := {"xbox": "_XBOX_", "nintendo": "_DS_", "dualshock": "_SONY_", "generic": "_BUTTON_"}
@@ -155,13 +156,15 @@ func get_device_button_from_action(action: String, for_device: String) -> String
 	for evt in InputMap.get_action_list(action):
 		if for_device == DEVICE_KEYBOARD or for_device == DEVICE_MOUSE:
 			if evt is InputEventKey:
+				if evt.scancode == 0:
+					return OS.get_scancode_string(evt.physical_scancode)
 				return OS.get_scancode_string(evt.scancode)
 		else:
 			if evt is InputEventJoypadButton:
 				return EngineSettings.get_gamepad_button_from_joy_string(
 					evt.button_index, Input.get_joy_button_string(evt.button_index), for_device
 				)
-	printerr("Not key were for found for %s on device %s" % [action, for_device])
+	printerr("No key were for found for %s on device %s" % [action, for_device])
 	return result
 
 
