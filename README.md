@@ -6,6 +6,7 @@ His main purpose is to offer common tools and features to create better user int
 The template gives
 
 - A basic pixel art style
+- A skipable bootscreen
 - A navigation system with transitions
 - A UI navigation system based on the keyboard/gamepad layout
 - All commons fields
