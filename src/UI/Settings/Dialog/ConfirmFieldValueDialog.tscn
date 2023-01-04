@@ -92,21 +92,21 @@ custom_constants/separation = 20
 alignment = 1
 
 [node name="CancelContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 158.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="Cancel" parent="MarginContainer/VBoxContainer/HBoxContainer/CancelContainer" instance=ExtResource( 4 )]
+margin_left = 18.0
+margin_right = 139.0
+shortcut = SubResource( 2 )
+
+[node name="ConfirmContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 margin_left = 178.0
 margin_right = 337.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 
-[node name="Cancel" parent="MarginContainer/VBoxContainer/HBoxContainer/CancelContainer" instance=ExtResource( 4 )]
-margin_left = 19.0
-margin_right = 140.0
-shortcut = SubResource( 2 )
-
-[node name="ConfirmContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-margin_right = 158.0
-margin_bottom = 20.0
-size_flags_horizontal = 3
-
 [node name="Confirm" parent="MarginContainer/VBoxContainer/HBoxContainer/ConfirmContainer" instance=ExtResource( 3 )]
-margin_left = 14.0
-margin_right = 143.0
+margin_left = 15.0
+margin_right = 144.0

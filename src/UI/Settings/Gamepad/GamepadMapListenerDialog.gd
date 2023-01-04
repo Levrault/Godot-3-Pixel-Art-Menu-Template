@@ -12,12 +12,42 @@ var _current_event_identifier := -1
 var _new_event_identifier := -1
 var _new_event_joy_string := ""
 
-onready var message := $MarginContainer/VBoxContainer/Message
-onready var unbind_message := $MarginContainer/VBoxContainer/UnbindMessage
-onready var cancel_binding_message := $MarginContainer/VBoxContainer/CancelBindingMessage
+onready var bound_to_container := $MarginContainer/VBoxContainer/BoundToContainer
+onready var bound_to_icon := bound_to_container.get_node("HBoxContainer/Icon")
+
+onready var unbinding_action_container := $MarginContainer/VBoxContainer/UnbingActionContainer
+onready var unbinding_action_icon := unbinding_action_container.get_node("HBoxContainer/Icon")
+onready var unbinding_action_from_action_label := unbinding_action_container.get_node(
+	"HBoxContainer/FromAction"
+)
+
+onready var change_binding_to_new_action_container := $MarginContainer/VBoxContainer/ChangeBindingToNewActionContainer
+onready var change_binding_to_new_action_icon := change_binding_to_new_action_container.get_node(
+	"BindingContainer/HBoxContainer/Icon"
+)
+onready var change_binding_to_new_action_label := change_binding_to_new_action_container.get_node(
+	"LabelContainer/ToNewAction"
+)
+
+onready var cancel_binding_container := $MarginContainer/VBoxContainer/CancelBindingContainer
+onready var cancel_binding_icon := cancel_binding_container.get_node("HBoxContainer/Icon")
+
+onready var hold_to_unbind_container := $MarginContainer/VBoxContainer/HoldToUnbindContainer
+onready var hold_to_icon_unbind := hold_to_unbind_container.get_node("HBoxContainer/IconUnbind")
+onready var hold_to_icon_action := hold_to_unbind_container.get_node("HBoxContainer/IconAction")
+onready var hold_to_icon_from_action_label := hold_to_unbind_container.get_node(
+	"HBoxContainer/FromAction"
+)
+
+onready var release_to_cancel_unbind_container := $MarginContainer/VBoxContainer/ReleaseToCancelUnbindContainer
+onready var release_to_cancel_unbind_icon := release_to_cancel_unbind_container.get_node(
+	"HBoxContainer/Icon"
+)
+
 onready var buttons_container := $MarginContainer/VBoxContainer/HBoxContainer
-onready var cancel_button := $MarginContainer/VBoxContainer/HBoxContainer/CancelContainer/Cancel
-onready var rebind_button := $MarginContainer/VBoxContainer/HBoxContainer/RebindContainer/Rebind
+onready var cancel_button := buttons_container.get_node("CancelContainer/Cancel")
+onready var rebind_button := buttons_container.get_node("RebindContainer/Rebind")
+
 onready var timer := $Timer
 onready var tick := $Tick
 onready var progress_bar := $MarginContainer/VBoxContainer/ProgressBar
@@ -72,63 +102,79 @@ func _input(event: InputEvent) -> void:
 
 # change ui depending on the context
 func update_ui_for(step: int, data := {}):
-	var unbind_action_key := InputManager.get_device_button_from_action("ui_unbind", _button.type)
-	var cancel_binding_action_key := InputManager.get_device_button_from_action(
-		"ui_cancel_binding", InputManager.device
+	# set icone
+	var ui_unbind_texture = InputManager.get_device_icon_texture_from_action(
+		InputManager.get_device_button_from_action("ui_unbind", _button.type), _button.type
 	)
+	hold_to_icon_unbind.texture = ui_unbind_texture
+	hold_to_icon_from_action_label.text = tr("rebind.from_action").format({action = _field.action})
+	release_to_cancel_unbind_icon.texture = ui_unbind_texture
 
-	cancel_binding_message.text = tr("rebind.cancel_binding").format(
-		{key = cancel_binding_action_key}
+	cancel_binding_icon.texture = InputManager.get_device_icon_texture_from_action(
+		InputManager.get_device_button_from_action("ui_cancel_binding", _button.type), _button.type
 	)
 
 	if step == Step.new:
 		window_title = tr("rebind.binding_action").format({action = _field.action})
-		cancel_binding_message.show()
-		message.hide()
-		unbind_message.hide()
+		bound_to_container.hide()
+		unbinding_action_container.hide()
+		change_binding_to_new_action_container.hide()
 		progress_bar.hide()
+		cancel_binding_container.show()
+		hold_to_unbind_container.hide()
+		release_to_cancel_unbind_container.hide()
 		buttons_container.hide()
 		return
 
 	if step == Step.remap:
 		window_title = tr("rebind.binding_action").format({action = _field.action})
-		message.text = tr("rebind.binding_key").format({key = _button.assigned_to})
-		unbind_message.text = tr("rebind.hold_to_unbind").format(
-			{
-				unbind_action_key = unbind_action_key,
-				key = _button.assigned_to,
-				action = _field.action
-			}
+		bound_to_icon.texture = InputManager.get_device_icon_texture_from_action(
+			_button.assigned_to, _button.type
 		)
-		message.show()
-		buttons_container.hide()
-		cancel_binding_message.show()
-		unbind_message.show()
+		bound_to_container.show()
+		unbinding_action_container.hide()
+		change_binding_to_new_action_container.hide()
 		progress_bar.hide()
+		cancel_binding_container.show()
+		hold_to_unbind_container.show()
+		release_to_cancel_unbind_container.hide()
+		buttons_container.hide()
 		return
 
 	if step == Step.conflict:
 		set_process_input(false)
 		window_title = tr("rebind.change_binding")
-		message.text = tr("rebind.change_binding_to_new_action").format(
-			{new_action = _field.action, key = data.key, previous_action = _conflicted_field.action}
+		change_binding_to_new_action_label.text = tr("rebind.to_new_action").format(
+			{new_action = _field.action, previous_action = _conflicted_field.action}
 		)
-		cancel_binding_message.hide()
-		message.show()
-		unbind_message.hide()
-		buttons_container.show()
+		change_binding_to_new_action_icon.texture = InputManager.get_device_icon_texture_from_action(
+			_conflicted_field.default_button.assigned_to, _button.type
+		)
+		bound_to_container.hide()
+		unbinding_action_container.hide()
+		change_binding_to_new_action_container.show()
 		progress_bar.hide()
+		cancel_binding_container.hide()
+		hold_to_unbind_container.hide()
+		release_to_cancel_unbind_container.hide()
+		buttons_container.show()
 		debounce_timer.start()
 		return
 
 	if step == Step.unbind:
-		message.text = tr("rebind.unbinding_action").format(
-			{key = _button.assigned_to, action = _field.action}
+		unbinding_action_icon.texture = InputManager.get_device_icon_texture_from_action(
+			_button.assigned_to, _button.type
 		)
-		unbind_message.text = tr("rebind.cancel_unbind").format(
-			{unbind_action_key = unbind_action_key}
+		unbinding_action_from_action_label.text = tr("rebind.from_action").format(
+			{action = _field.action}
 		)
-		cancel_binding_message.hide()
+		bound_to_container.hide()
+		unbinding_action_container.show()
+		change_binding_to_new_action_container.hide()
+		progress_bar.hide()
+		cancel_binding_container.hide()
+		hold_to_unbind_container.hide()
+		release_to_cancel_unbind_container.show()
 		progress_bar.value = 0
 		progress_bar.show()
 		return
@@ -208,7 +254,7 @@ func close() -> void:
 	hide()
 	owner.form.set_process_input(true)
 	timer.stop()
-	yield(get_tree(), "idle_frame")
+	#yield(get_tree(), "idle_frame")
 	_button.call_deferred("grab_focus")
 	_button = null
 	_field = null

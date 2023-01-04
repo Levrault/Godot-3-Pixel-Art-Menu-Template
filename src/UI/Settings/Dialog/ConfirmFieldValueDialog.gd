@@ -46,12 +46,6 @@ func show() -> void:
 	.show()
 
 
-func hide() -> void:
-	.hide()
-	Events.emit_signal("overlay_hidden")
-	Events.emit_signal("navigation_enabled")
-
-
 func _on_Timeout() -> void:
 	_countdown -= 1
 	countdown_label.text = String(_countdown)
@@ -61,6 +55,12 @@ func _on_Timeout() -> void:
 		_on_Cancel_pressed()
 		return
 	timer.start()
+
+
+func hide() -> void:
+	.hide()
+	Events.emit_signal("overlay_hidden")
+	Events.emit_signal("navigation_enabled")
 
 
 func _on_Cancel_pressed() -> void:

@@ -1,11 +1,396 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://src/UI/Settings/Keymap/KeyMapListenerDialog.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/UI/Audio/Navigation/UiPopupOpenedSfx.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/UI/Settings/Gamepad/GamepadMapListenerDialog.gd" type="Script" id=2]
+[ext_resource path="res://src/UI/Audio/ConnectAudio/UiConnectAudioToAboutToShow.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/UI/Commons/Button/ConfirmButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/UI/Commons/Button/CancelButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/UI/icons/input_icons_atlas_texture.png" type="Texture" id=6]
+[ext_resource path="res://src/UI/Audio/Navigation/UiPopupClosedSfx.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/UI/Audio/ConnectAudio/UiConnectAudioToPopupHide.tscn" type="PackedScene" id=8]
 
-[node name="GamepadMapListenerDialog" instance=ExtResource( 1 )]
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 6 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 6 )
+region = Rect2( 32, 32, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 6 )
+region = Rect2( 32, 32, 16, 16 )
+
+[sub_resource type="InputEventAction" id=3]
+action = "ui_cancel"
+pressed = true
+
+[sub_resource type="ShortCut" id=2]
+shortcut = SubResource( 3 )
+
+[node name="GamepadMapListenerDialog" type="WindowDialog"]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -178.0
+margin_top = -59.0
+margin_right = 179.0
+margin_bottom = 61.0
+rect_min_size = Vector2( 0, 120 )
+popup_exclusive = true
+window_title = "Please Confirm..."
 script = ExtResource( 2 )
 
-[node name="DebounceTimer" type="Timer" parent="." index="3"]
+[node name="UiPopupClosedSfx" parent="." instance=ExtResource( 7 )]
+
+[node name="UiConnectAudioToPopupHide" parent="UiPopupClosedSfx" instance=ExtResource( 8 )]
+
+[node name="UiPopupOpenedSfx" parent="." instance=ExtResource( 1 )]
+
+[node name="UiConnectAudioToAboutToShow" parent="UiPopupOpenedSfx" instance=ExtResource( 3 )]
+
+[node name="DebounceTimer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="Tick" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 6
+custom_constants/margin_top = 6
+custom_constants/margin_left = 6
+custom_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 376.0
+margin_bottom = 114.0
+rect_clip_content = true
+custom_constants/separation = 6
+alignment = 1
+
+[node name="BoundToContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 12.0
+margin_right = 370.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 0, 24 )
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/BoundToContainer"]
+margin_left = 119.0
+margin_right = 251.0
+margin_bottom = 24.0
+
+[node name="BoundTo" type="Label" parent="MarginContainer/VBoxContainer/BoundToContainer/HBoxContainer"]
+margin_right = 104.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "rebind.bound_to"
+align = 1
+valign = 1
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/VBoxContainer/BoundToContainer/HBoxContainer"]
+margin_left = 108.0
+margin_right = 132.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 24, 24 )
+texture = SubResource( 4 )
+expand = true
+
+[node name="UnbingActionContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+visible = false
+margin_top = 30.0
+margin_right = 370.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 0, 24 )
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/UnbingActionContainer"]
+margin_left = 55.0
+margin_right = 315.0
+margin_bottom = 24.0
+size_flags_horizontal = 0
+
+[node name="Unbinding" type="Label" parent="MarginContainer/VBoxContainer/UnbingActionContainer/HBoxContainer"]
+margin_right = 108.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "rebind.unbinding"
+align = 1
+valign = 1
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/VBoxContainer/UnbingActionContainer/HBoxContainer"]
+margin_left = 112.0
+margin_right = 136.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 24, 24 )
+texture = SubResource( 4 )
+expand = true
+
+[node name="FromAction" type="Label" parent="MarginContainer/VBoxContainer/UnbingActionContainer/HBoxContainer"]
+margin_left = 140.0
+margin_top = 5.0
+margin_right = 260.0
+margin_bottom = 19.0
+text = "rebind.from_action"
+
+[node name="ChangeBindingToNewActionContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+visible = false
+margin_top = 33.0
+margin_right = 345.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="BindingContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ChangeBindingToNewActionContainer"]
+margin_right = 345.0
+margin_bottom = 24.0
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ChangeBindingToNewActionContainer/BindingContainer"]
+margin_left = 112.0
+margin_right = 232.0
+margin_bottom = 24.0
+size_flags_horizontal = 0
+
+[node name="Binding" type="Label" parent="MarginContainer/VBoxContainer/ChangeBindingToNewActionContainer/BindingContainer/HBoxContainer"]
+margin_right = 92.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "rebind.binding"
+align = 1
+valign = 1
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/VBoxContainer/ChangeBindingToNewActionContainer/BindingContainer/HBoxContainer"]
+margin_left = 96.0
+margin_right = 120.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 24, 24 )
+texture = SubResource( 4 )
+expand = true
+
+[node name="LabelContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ChangeBindingToNewActionContainer"]
+margin_top = 28.0
+margin_right = 345.0
+margin_bottom = 42.0
+alignment = 1
+
+[node name="ToNewAction" type="Label" parent="MarginContainer/VBoxContainer/ChangeBindingToNewActionContainer/LabelContainer"]
+margin_left = 105.0
+margin_right = 240.0
+margin_bottom = 14.0
+text = "rebind.to_new_action"
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
+visible = false
+margin_top = 36.0
+margin_right = 370.0
+margin_bottom = 46.0
+rect_min_size = Vector2( 0, 10 )
+max_value = 10.0
+step = 1.0
+rounded = true
+percent_visible = false
+
+[node name="TextureProgress" type="TextureProgress" parent="MarginContainer/VBoxContainer/ProgressBar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CancelBindingContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 42.0
+margin_right = 370.0
+margin_bottom = 66.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/CancelBindingContainer"]
+margin_left = 76.0
+margin_right = 293.0
+margin_bottom = 24.0
+size_flags_horizontal = 0
+
+[node name="Press" type="Label" parent="MarginContainer/VBoxContainer/CancelBindingContainer/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "rebind.press"
+align = 1
+valign = 1
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/VBoxContainer/CancelBindingContainer/HBoxContainer"]
+margin_left = 84.0
+margin_right = 108.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 24, 24 )
+texture = SubResource( 5 )
+expand = true
+
+[node name="ToCancel" type="Label" parent="MarginContainer/VBoxContainer/CancelBindingContainer/HBoxContainer"]
+margin_left = 112.0
+margin_right = 217.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "rebind.to_cancel"
+align = 1
+valign = 1
+
+[node name="HoldToUnbindContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 72.0
+margin_right = 370.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 0, 24 )
+alignment = 1
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HoldToUnbindContainer"]
+margin_right = 370.0
+margin_bottom = 24.0
+size_flags_horizontal = 0
+
+[node name="Hold" type="Label" parent="MarginContainer/VBoxContainer/HoldToUnbindContainer/HBoxContainer"]
+margin_right = 73.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "rebind.hold"
+align = 1
+valign = 1
+
+[node name="IconUnbind" type="TextureRect" parent="MarginContainer/VBoxContainer/HoldToUnbindContainer/HBoxContainer"]
+margin_left = 77.0
+margin_right = 101.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 24, 24 )
+texture = SubResource( 7 )
+expand = true
+
+[node name="ToRemove" type="Label" parent="MarginContainer/VBoxContainer/HoldToUnbindContainer/HBoxContainer"]
+margin_left = 105.0
+margin_top = 5.0
+margin_right = 218.0
+margin_bottom = 19.0
+text = "rebind.to_remove"
+
+[node name="IconAction" type="TextureRect" parent="MarginContainer/VBoxContainer/HoldToUnbindContainer/HBoxContainer"]
+margin_left = 222.0
+margin_right = 246.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 24, 24 )
+texture = SubResource( 8 )
+expand = true
+
+[node name="FromAction" type="Label" parent="MarginContainer/VBoxContainer/HoldToUnbindContainer/HBoxContainer"]
+margin_left = 250.0
+margin_top = 5.0
+margin_right = 370.0
+margin_bottom = 19.0
+text = "rebind.from_action"
+valign = 1
+
+[node name="ReleaseToCancelUnbindContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+visible = false
+margin_top = 138.0
+margin_right = 370.0
+margin_bottom = 162.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ReleaseToCancelUnbindContainer"]
+margin_left = 70.0
+margin_right = 299.0
+margin_bottom = 24.0
+
+[node name="Release" type="Label" parent="MarginContainer/VBoxContainer/ReleaseToCancelUnbindContainer/HBoxContainer"]
+margin_right = 92.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "rebind.release"
+align = 1
+valign = 1
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/VBoxContainer/ReleaseToCancelUnbindContainer/HBoxContainer"]
+margin_left = 96.0
+margin_right = 120.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 24, 24 )
+texture = SubResource( 6 )
+expand = true
+
+[node name="ToCancel" type="Label" parent="MarginContainer/VBoxContainer/ReleaseToCancelUnbindContainer/HBoxContainer"]
+margin_left = 124.0
+margin_right = 229.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "rebind.to_cancel"
+align = 1
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+visible = false
+margin_top = 78.0
+margin_right = 337.0
+margin_bottom = 98.0
+alignment = 1
+
+[node name="CancelContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 166.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Cancel" parent="MarginContainer/VBoxContainer/HBoxContainer/CancelContainer" instance=ExtResource( 5 )]
+margin_left = 47.0
+margin_right = 168.0
+mouse_default_cursor_shape = 0
+shortcut = SubResource( 2 )
+align = 1
+
+[node name="RebindContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 170.0
+margin_right = 337.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Rebind" parent="MarginContainer/VBoxContainer/HBoxContainer/RebindContainer" instance=ExtResource( 4 )]
+margin_left = 19.0
+margin_right = 148.0
+mouse_default_cursor_shape = 0
+text = "rebind.rebind"
+align = 1

@@ -26,36 +26,8 @@ breadcrumbs = [ "commons.settings", "rebind.keyboard" ]
 [node name="Contents" parent="Wrapper/Page" index="1"]
 margin_bottom = 171.0
 
-[node name="Control" type="Control" parent="Wrapper/Page/Contents" index="0"]
-margin_right = 440.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 0, 32 )
-
-[node name="Default" type="Label" parent="Wrapper/Page/Contents/Control" index="0"]
-margin_left = 205.046
-margin_top = 9.59673
-margin_right = 325.046
-margin_bottom = 23.5967
-text = "controls.default"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Alt" type="Label" parent="Wrapper/Page/Contents/Control" index="1"]
-margin_left = 330.659
-margin_top = 9.86558
-margin_right = 422.659
-margin_bottom = 23.8656
-text = "controls.alt"
-align = 1
-valign = 1
-uppercase = true
-
-[node name="ScrollContent" parent="Wrapper/Page/Contents" index="1" instance=ExtResource( 4 )]
-margin_top = 38.0
+[node name="ScrollContent" parent="Wrapper/Page/Contents" index="0" instance=ExtResource( 4 )]
+margin_top = 0.0
 margin_bottom = 153.0
 
 [node name="KeyMapTable" type="VBoxContainer" parent="Wrapper/Page/Contents/ScrollContent" index="0"]
@@ -88,7 +60,6 @@ margin_right = 412.0
 margin_bottom = 32.0
 action = "move_up"
 description = "input.move_up_description"
-alt_placeholder = "UP"
 placeholder = "W"
 
 [node name="MoveDown" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable" index="1" instance=ExtResource( 2 )]
@@ -113,7 +84,6 @@ margin_right = 412.0
 margin_bottom = 32.0
 action = "move_down"
 description = "input.move_down_description"
-alt_placeholder = "DOWN"
 placeholder = "S"
 
 [node name="MoveRight" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable" index="2" instance=ExtResource( 2 )]
@@ -137,7 +107,6 @@ margin_right = 412.0
 margin_bottom = 32.0
 action = "move_left"
 description = "input.move_left_description"
-alt_placeholder = "LEFT"
 placeholder = "A"
 
 [node name="MoveLeft" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable" index="3" instance=ExtResource( 2 )]
@@ -161,7 +130,6 @@ margin_right = 412.0
 margin_bottom = 32.0
 action = "move_right"
 description = "input.move_right_description"
-alt_placeholder = "RIGHT"
 placeholder = "D"
 
 [node name="Run" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable" index="4" instance=ExtResource( 2 )]
@@ -185,7 +153,6 @@ margin_right = 412.0
 margin_bottom = 32.0
 action = "run"
 description = "input.run_description"
-alt_placeholder = "_"
 placeholder = "shift"
 
 [node name="Jump" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable" index="5" instance=ExtResource( 2 )]
@@ -209,7 +176,6 @@ margin_right = 412.0
 margin_bottom = 32.0
 action = "jump"
 description = "input.jump_description"
-alt_placeholder = "_"
 placeholder = "SPACE"
 
 [node name="Attack" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable" index="6" instance=ExtResource( 2 )]
@@ -233,7 +199,6 @@ margin_right = 412.0
 margin_bottom = 32.0
 action = "attack"
 description = "input.attack_description"
-alt_placeholder = "_"
 placeholder = "left mouse button"
 
 [node name="Block" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable" index="7" instance=ExtResource( 2 )]
@@ -257,7 +222,6 @@ margin_right = 412.0
 margin_bottom = 32.0
 action = "block"
 description = "input.block_description"
-alt_placeholder = "_"
 placeholder = "right mouse button"
 
 [node name="Evade" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable" index="8" instance=ExtResource( 2 )]
@@ -281,7 +245,6 @@ margin_right = 412.0
 margin_bottom = 32.0
 action = "evade"
 description = "input.evade_description"
-alt_placeholder = ""
 placeholder = "ctrl"
 
 [node name="Inventory" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable" index="9" instance=ExtResource( 2 )]
@@ -305,7 +268,6 @@ margin_right = 412.0
 margin_bottom = 32.0
 action = "inventory"
 description = "input.inventory_description"
-alt_placeholder = "i"
 placeholder = "tab"
 
 [node name="Slot1" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable" index="10" instance=ExtResource( 2 )]
@@ -330,7 +292,6 @@ margin_bottom = 32.0
 action = "slot_1"
 description = "input.slot_1_description"
 required = false
-alt_placeholder = ""
 placeholder = "1"
 
 [node name="Slot2" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable" index="11" instance=ExtResource( 2 )]
@@ -358,7 +319,6 @@ margin_bottom = 32.0
 action = "slot_2"
 description = "input.slot_2_description"
 required = false
-alt_placeholder = "_"
 placeholder = "2"
 
 [node name="Slot3" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable" index="12" instance=ExtResource( 2 )]
@@ -383,7 +343,6 @@ margin_bottom = 32.0
 action = "slot_3"
 description = "input.slot_3_description"
 required = false
-alt_placeholder = "_"
 placeholder = "3"
 
 [node name="Slot4" parent="Wrapper/Page/Contents/ScrollContent/KeyMapTable" index="13" instance=ExtResource( 2 )]
@@ -408,7 +367,6 @@ margin_bottom = 32.0
 action = "slot_4"
 description = "input.slot_4_description"
 required = false
-alt_placeholder = "_"
 placeholder = "4"
 
 [node name="HSeparator" parent="Wrapper/Page" index="2"]
