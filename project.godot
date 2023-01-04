@@ -252,7 +252,7 @@ ui_reset_to_default={
 
 test="en"
 locale_filter=[ 0, [ "fr" ] ]
-translations=PoolStringArray( "res://i18n/audio.en.translation", "res://i18n/audio.fr.translation", "res://i18n/cfg.en.translation", "res://i18n/cfg.fr.translation", "res://i18n/commons.en.translation", "res://i18n/commons.fr.translation", "res://i18n/controls.en.translation", "res://i18n/controls.fr.translation", "res://i18n/display.en.translation", "res://i18n/display.fr.translation", "res://i18n/gamepad.en.translation", "res://i18n/gamepad.fr.translation", "res://i18n/mouse.en.translation", "res://i18n/mouse.fr.translation", "res://i18n/rebind.en.translation", "res://i18n/rebind.fr.translation", "res://i18n/input.en.translation", "res://i18n/input.fr.translation", "res://i18n/accessibility.en.translation", "res://i18n/accessibility.fr.translation", "res://i18n/keyboard.en.translation", "res://i18n/keyboard.fr.translation" )
+translations=PoolStringArray( "res://i18n/audio.en.translation", "res://i18n/audio.fr.translation", "res://i18n/cfg.en.translation", "res://i18n/cfg.fr.translation", "res://i18n/commons.en.translation", "res://i18n/commons.fr.translation", "res://i18n/display.en.translation", "res://i18n/display.fr.translation", "res://i18n/gamepad.en.translation", "res://i18n/gamepad.fr.translation", "res://i18n/mouse.en.translation", "res://i18n/mouse.fr.translation", "res://i18n/rebind.en.translation", "res://i18n/rebind.fr.translation", "res://i18n/input.en.translation", "res://i18n/input.fr.translation", "res://i18n/accessibility.en.translation", "res://i18n/accessibility.fr.translation", "res://i18n/keyboard.en.translation", "res://i18n/keyboard.fr.translation" )
 translation_remaps={
 }
 

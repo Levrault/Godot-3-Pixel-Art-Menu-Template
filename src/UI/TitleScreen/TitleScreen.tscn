@@ -12,25 +12,36 @@ text = "Title right here"
 
 [node name="Contents" parent="Wrapper/Page" index="1"]
 margin_right = 131.0
+margin_bottom = 214.0
 size_flags_horizontal = 2
 
 [node name="Play" parent="Wrapper/Page/Contents" index="0" instance=ExtResource( 4 )]
-margin_top = 59.0
-margin_bottom = 79.0
+margin_top = 43.0
+margin_bottom = 63.0
 text = "commons.play"
 is_default_focused = true
 
 [node name="Settings" parent="Wrapper/Page/Contents" index="1" instance=ExtResource( 4 )]
-margin_top = 89.0
-margin_bottom = 109.0
+margin_top = 73.0
+margin_bottom = 93.0
 text = "commons.settings"
 navigate_to = "SettingsListPage"
 
-[node name="Quit" parent="Wrapper/Page/Contents" index="2" instance=ExtResource( 3 )]
-margin_top = 119.0
-margin_bottom = 139.0
+[node name="Credits" parent="Wrapper/Page/Contents" index="2" instance=ExtResource( 4 )]
+margin_top = 103.0
+margin_bottom = 123.0
+text = "commons.credits"
+navigate_to = "CreditsPage"
+
+[node name="Quit" parent="Wrapper/Page/Contents" index="3" instance=ExtResource( 3 )]
+margin_top = 133.0
+margin_bottom = 153.0
 text = "commons.quit"
 script = ExtResource( 2 )
 
+[node name="Footer" parent="Wrapper/Page" index="2"]
+margin_top = 218.0
+
 [node name="MenuBackInput" parent="Wrapper/Page/Footer" index="0"]
-margin_left = 331.0
+margin_left = 297.0
+margin_bottom = 22.0
