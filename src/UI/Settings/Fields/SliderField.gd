@@ -15,7 +15,7 @@
 # ```
 # @category: Field
 tool
-class_name SliderField, "res://assets/icons/percent.svg"
+class_name SliderField, "res://editor/icons/percent.svg"
 extends Field
 
 const FLOAT_TEMPLATE := "%.1f"

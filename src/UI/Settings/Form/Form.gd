@@ -1,6 +1,6 @@
 # Manage page's data changes state
 # @category: Form
-class_name Form, "res://assets/icons/form.svg"
+class_name Form, "res://editor/icons/form.svg"
 extends Node
 
 export var engine_file_section := ""

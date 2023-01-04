@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/navigation.svg-cbe689c22cfbefe73aa358286de4f59b.stex"
+path="res://.import/check-square.svg-1367453baeb6cad6786e474ea622a911.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/navigation.svg"
-dest_files=[ "res://.import/navigation.svg-cbe689c22cfbefe73aa358286de4f59b.stex" ]
+source_file="res://editor/icons/check-square.svg"
+dest_files=[ "res://.import/check-square.svg-1367453baeb6cad6786e474ea622a911.stex" ]
 
 [params]
 

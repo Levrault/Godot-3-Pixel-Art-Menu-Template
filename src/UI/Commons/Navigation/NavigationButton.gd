@@ -1,7 +1,7 @@
 # Enable to navigate between all the differents menu ui
 # by setting up which menu needs to be show (based on node name)
 # @category: Navigation
-class_name NavigationButton, "res://assets/icons/navigation.svg"
+class_name NavigationButton, "res://editor/icons/navigation.svg"
 extends Button
 
 export var navigate_to := ""

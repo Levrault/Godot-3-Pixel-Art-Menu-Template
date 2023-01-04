@@ -22,7 +22,7 @@
 # ```
 # @category: Field
 tool
-class_name CheckboxField, "res://assets/icons/check-square.svg"
+class_name CheckboxField, "res://editor/icons/check-square.svg"
 extends Field
 
 const CHECKED := "checked"

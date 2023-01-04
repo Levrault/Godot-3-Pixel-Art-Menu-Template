@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/percent.svg-ecb4fd1b9c1b765f14d2f8613d1f2b7d.stex"
+path="res://.import/form.svg-bf246a22da1e5872ed39a50f81de00ec.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/percent.svg"
-dest_files=[ "res://.import/percent.svg-ecb4fd1b9c1b765f14d2f8613d1f2b7d.stex" ]
+source_file="res://editor/icons/form.svg"
+dest_files=[ "res://.import/form.svg-bf246a22da1e5872ed39a50f81de00ec.stex" ]
 
 [params]
 

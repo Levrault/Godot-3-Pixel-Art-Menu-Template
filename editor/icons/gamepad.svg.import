@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dropdown.svg-3208e42aaff0168404adabd4e85a6655.stex"
+path="res://.import/gamepad.svg-ae11d126a7ab36e92368b60e81151769.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/dropdown.svg"
-dest_files=[ "res://.import/dropdown.svg-3208e42aaff0168404adabd4e85a6655.stex" ]
+source_file="res://editor/icons/gamepad.svg"
+dest_files=[ "res://.import/gamepad.svg-ae11d126a7ab36e92368b60e81151769.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=false

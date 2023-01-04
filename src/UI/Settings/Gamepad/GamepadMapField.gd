@@ -2,7 +2,7 @@
 # and user interaction
 # @category: Gamepad, Rebind
 tool
-class_name GamepadMapField, "res://assets/icons/gamepad.svg"
+class_name GamepadMapField, "res://editor/icons/gamepad.svg"
 extends HBoxContainer
 
 signal field_item_selected(item)

@@ -106,23 +106,23 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "AtlasIcon": "",
-"CheckboxField": "res://assets/icons/check-square.svg",
+"CheckboxField": "res://editor/icons/check-square.svg",
 "DropdownField": "",
-"Field": "res://assets/icons/field.svg",
-"FieldSet": "res://assets/icons/fieldset.svg",
-"FieldWithOptions": "res://assets/icons/field.svg",
+"Field": "res://editor/icons/field.svg",
+"FieldSet": "res://editor/icons/fieldset.svg",
+"FieldWithOptions": "res://editor/icons/field.svg",
 "Filter": "",
-"Form": "res://assets/icons/form.svg",
+"Form": "res://editor/icons/form.svg",
 "GamepadData": "",
-"GamepadMapField": "res://assets/icons/gamepad.svg",
+"GamepadMapField": "res://editor/icons/gamepad.svg",
 "GenericButton": "",
 "HListField": "",
-"KeyMapField": "res://assets/icons/keyboard.svg",
-"NavigationButton": "res://assets/icons/navigation.svg",
+"KeyMapField": "res://editor/icons/keyboard.svg",
+"NavigationButton": "res://editor/icons/navigation.svg",
 "NavigationRouter": "",
 "NavigationSwitch": "",
 "RebindForm": "",
-"SliderField": "res://assets/icons/percent.svg",
+"SliderField": "res://editor/icons/percent.svg",
 "Updater": ""
 }
 

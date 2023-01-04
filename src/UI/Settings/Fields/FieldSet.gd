@@ -1,7 +1,7 @@
 # Manage all the visuel when a field is focused by the user
 # @category: Field
 tool
-class_name FieldSet, "res://assets/icons/fieldset.svg"
+class_name FieldSet, "res://editor/icons/fieldset.svg"
 extends Control
 
 signal fieldset_focus_entered

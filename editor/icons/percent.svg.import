@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/check-square.svg-a7388844fa3015b6cda8a7a084a646a6.stex"
+path="res://.import/percent.svg-b622b4f1062730cebe2a132afdf6b35b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/check-square.svg"
-dest_files=[ "res://.import/check-square.svg-a7388844fa3015b6cda8a7a084a646a6.stex" ]
+source_file="res://editor/icons/percent.svg"
+dest_files=[ "res://.import/percent.svg-b622b4f1062730cebe2a132afdf6b35b.stex" ]
 
 [params]
 

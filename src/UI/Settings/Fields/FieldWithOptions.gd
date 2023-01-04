@@ -30,7 +30,7 @@
 # @category: Field
 
 tool
-class_name FieldWithOptions, "res://assets/icons/field.svg"
+class_name FieldWithOptions, "res://editor/icons/field.svg"
 extends Field
 
 var selected_key := "" setget _set_selected_key

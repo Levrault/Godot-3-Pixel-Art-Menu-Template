@@ -4,7 +4,7 @@
 # Register fields into the owner's form
 # @category: Field
 tool
-class_name Field, "res://assets/icons/field.svg"
+class_name Field, "res://editor/icons/field.svg"
 extends HBoxContainer
 
 signal field_focus_entered

@@ -2,7 +2,7 @@
 # and user interaction
 # @category: Keyboard, Rebind
 tool
-class_name KeyMapField, "res://assets/icons/keyboard.svg"
+class_name KeyMapField, "res://editor/icons/keyboard.svg"
 extends HBoxContainer
 
 signal field_item_focused(index)
